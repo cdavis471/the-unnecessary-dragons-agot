@@ -1,0 +1,164 @@
+﻿#####################################
+############ Dragon Events ##########
+#####################################
+# Claim Throne
+dragon_claim_throne_effect = {
+	# Claim Throne by Right of the Dragon
+	$TARGET$ = {
+		save_scope_as = target
+	}
+	$CLAIMANT$ = {
+		save_scope_as = claimant
+	}
+    # Iron Throne Special Event
+	if = {
+		limit = {
+			scope:target_title = title:e_the_iron_throne
+		}
+		scope:claimant = {
+			# Iron Throne 
+			add_to_temporary_list = received_notification
+			trigger_event = tud_interaction_events.0002
+		}
+	}
+    # Other Titles
+	else = {
+		scope:claimant = {
+			# Vanilla 
+			add_to_temporary_list = received_notification
+			trigger_event = tud_interaction_events.0001
+		}
+	}
+    # Add Claim
+	add_pressed_claim = scope:target_title
+}
+# A Dance of Dragons
+dragon_dance_effect = {
+	# Start Dance
+	$RECIPIENT$ = {
+		save_scope_as = recipient
+	}
+	$ACTOR$ = {
+		save_scope_as = actor
+	}
+	scope:actor = {
+		trigger_event = tud_interaction_events.0003
+	}
+}
+# A Dance of Dragons - Calculation
+dragon_dancecalc_effect = {
+	$RECIPIENT$ = {
+		save_scope_as = recipient
+	}
+	$ACTOR$ = {
+		save_scope_as = actor
+	}
+	$ACTORITEM$ = {
+		save_scope_as = actoritem
+	}
+	$RECIPIENTITEM$ = {
+		save_scope_as = recipientitem
+	}
+	# If Your Combat Score Is Higher - 75 / 25
+	if = {
+		limit = { scope:actoritem.var:dragon_combat_score > scope:recipientitem.var:dragon_combat_score }
+		random_list = {
+			75 = {
+				dragon_dancewon_effect = {
+					RECIPIENT = scope:recipient
+					ACTOR = scope:actor
+					RECIPIENTITEM = scope:recipientitem
+					ACTORITEM = scope:actoritem
+				}
+			}
+			25 = {
+				dragon_dancelost_effect = {
+					RECIPIENT = scope:recipient
+					ACTOR = scope:actor
+					RECIPIENTITEM = scope:recipientitem
+					ACTORITEM = scope:actoritem
+				}
+			}
+		}
+	}
+	# If Recipient Combat Score Is Higher - 25 / 75
+	else_if = {
+		limit = { scope:actoritem.var:dragon_combat_score < scope:recipientitem.var:dragon_combat_score }
+		random_list = {
+			25 = {
+				dragon_dancewon_effect = {
+					RECIPIENT = scope:recipient
+					ACTOR = scope:actor
+					RECIPIENTITEM = scope:recipientitem
+					ACTORITEM = scope:actoritem
+				}
+			}
+			75 = {
+				dragon_dancelost_effect = {
+					RECIPIENT = scope:recipient
+					ACTOR = scope:actor
+					RECIPIENTITEM = scope:recipientitem
+					ACTORITEM = scope:actoritem
+				}
+			}
+		}
+	}
+	else = {
+		random_list = {
+			50 = {
+				dragon_dancewon_effect = {
+					RECIPIENT = scope:recipient
+					ACTOR = scope:actor
+					RECIPIENTITEM = scope:recipientitem
+					ACTORITEM = scope:actoritem
+				}
+			}
+			50 = {
+				dragon_dancelost_effect = {
+					RECIPIENT = scope:recipient
+					ACTOR = scope:actor
+					RECIPIENTITEM = scope:recipientitem
+					ACTORITEM = scope:actoritem
+				}
+			}
+		}
+	}
+}
+# A Dance of Dragons - Lost
+dragon_dancelost_effect = {
+	# Actor Death
+	$RECIPIENT$ = {
+		save_scope_as = recipient
+	}
+	$ACTOR$ = {
+		save_scope_as = actor
+	}
+	$ACTORITEM$ = {
+		save_scope_as = actoritem
+	}
+	$RECIPIENTITEM$ = {
+		save_scope_as = recipientitem
+	}
+	scope:actor = {
+		trigger_event = tud_interaction_events.0004
+	}
+}
+# A Dance of Dragons - Victory
+dragon_dancewon_effect = {
+	# Recipient Death
+	$RECIPIENT$ = {
+		save_scope_as = recipient
+	}
+	$ACTOR$ = {
+		save_scope_as = actor
+	}
+	$ACTORITEM$ = {
+		save_scope_as = actoritem
+	}
+	$RECIPIENTITEM$ = {
+		save_scope_as = recipientitem
+	}
+	scope:actor = {
+		trigger_event = tud_interaction_events.0005
+	}
+}

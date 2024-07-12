@@ -1,0 +1,96 @@
+Artifacts
+- Feature Groups = Colour & Build
+- Features = 144 Colours & 4 Different Builds
+- Slots = Custom Dragon Slot
+- Templates = Dragon & Skull
+- Types = Dragon (Both Feature Groups) & Skull (Regalia)
+- Visuals = Set Icons
+
+Character Memory Types
+- Hatched Dragon
+- Claimed Dragon
+- Won Dance
+- Lost Dance
+- Dragon Dies
+
+Custom Localization
+- For Dragon Artifacts
+
+Decisions
+- Hatch Dragon (75/25 for Hatching and Nothing)
+
+Modifiers
+- Dragon Age Modifier (Placeholder)
+- Dragon Rider Modifier 
+- Dragon Skull Modifier
+
+Scripted Effects
+- Create Dragon
+- Create Dragon Skull
+
+Traits
+- Dragon Rider
+
+Story Cycle
+
+# Important
+- Setup = Dragon ID, Create Dragon, Has Rider, Dragon Rider Trait & Modifier, Memory
+- End = Remove Dragon Rider Trait, Dragon Death (Bloodline, Age, Dance, Missing), Skull, Memory
+- Rider Death = Dragon No Rider, Transfer to House Head or Random Dynasty Member with Valyrian Ancestry, If None Available = Bloodline Death
+# Name Dragon
+- Name the Dragon
+# Maintenance
+- Dragon Army Maintenance = Daily - Stop Foot Combat in Battle (Ur ass is flying)
+- Dragon Trait Maintenance = Daily - Check Rider Has Correct Trait
+- Dragon Rider Modifier Maintenance = Daily - Check Rider Has Correct Modifier
+- Dragon Location Maintenance = Weekly - If Not In Location, Return
+- Dragon Dispersion Maintenance = Every Year - Random Valyrian Dynasty Member Claims Dragon if available
+- Dragon Age Maintenace = Every Year - Age by a year or kill from old age
+- Dragon Modifier Maintenance = Every Year - Change Dragon Modifier to correct one
+# Potential Battle
+- Dance of the Dragons - if enemy has dragon rider or multiple, engage one 
+
+Decisions
+
+- Hatch Dragon = Every Year - 75 / 25 Chance of Hatching Egg
+- Check Dragon Nest for Eggs = Every 5 Years - 50 / 50 Chance of Egg
+- Dragon Siege = Every 30 Days - 90 Works / 5 Die / 5 Dragon Die and Die
+- Claim Wild Dragon = Every 5 Years - 75 Base of Claim or Death
+
+Interactions
+
+- Claim Throne 
+- Seek Out Rider To Dance
+- Offer Mount
+- Cradle Egg
+
+Events
+- tud_decision_events.0001 - Handles Hatching
+- tud_decision_events.0002 - Handles Dragon Nest
+- tud_decision_events.0003 - Handles Dragon Siege
+- tud_decision_events.0004 - Handles Claiming of Wild Dragon
+
+- tud_story_events.0001 - Handles Dragon Naming
+- tud_story_events.0002 - Handles Random Valyrian Dynasty Member Claiming - Claimant
+- tud_story_events.0003 - Handles Random Valyrian Dynasty Member Claiming - Owner
+
+- tud_interaction_events.0001 - Handles Iron Throne Claimant
+- tud_interaction_events.0002 - Handles Throne Claimant
+- tud_interaction_events.0003 - Handles Dragon Dance Start
+- tud_interaction_events.0004 - Handles Dragon Dance Lost
+- tud_interaction_events.0005 - Handles Dragon Dance Won
+- tud_interaction_events.0006 - Handles Offer Mount Success
+- tud_interaction_events.0007 - Handles Offer Mount Failure...
+- tud_interaction_events.0008 - Handles Cradling Success
+
+Working:
+
+- Cradling
+- Claim Throne
+- Hatch Dragon
+
+Fix:
+
+- Dragon Naming
+- Dragon Description Changing
+- Test by playing game

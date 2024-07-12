@@ -1,0 +1,29 @@
+﻿# Burned Lands
+dragon_sieged_me = {
+	opinion = -100
+	years = 10
+	decaying = no
+}
+# Burned Lands Of Family
+dragon_sieged_family = {
+	opinion = -50
+	years = 10
+	decaying = no
+}
+# Claimed Title
+dragonlord_claimed_my_title = {
+	opinion = -200
+	years = 20
+	decaying = yes
+}
+# Claimed Liege Title
+dragonlord_claimed_my_liege = {
+	opinion = -50
+	years = 20
+	decaying = yes
+}
+# Killed Opponent in Dance
+killed_opponent_dance = {
+	opinion = -25
+	decaying = no
+}

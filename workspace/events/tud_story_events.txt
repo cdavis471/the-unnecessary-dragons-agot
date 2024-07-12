@@ -1,0 +1,147 @@
+﻿namespace = tud_story_events
+
+# Story Cycle Events
+# Name Dragon
+# tud_story_events.0001 = {
+# 	type = character_event
+# 	title = tud_story_events.0001.t
+# 	desc = tud_story_events.0001.desc
+# 	theme = diplomacy_family_focus
+# 	left_portrait = {
+# 		character = root
+# 		animation = personality_cynical
+# 	}
+# 	immediate = {
+# 		#To give some options to show
+# 		assign_name_options_dragon_story_cycle_effect = yes
+# 		assign_name_options_dragon_story_cycle_effect = yes
+# 		assign_name_options_dragon_story_cycle_effect = yes
+# 		if = {
+# 			limit = { is_ai = yes }
+# 			random_list = {
+# 				1 = {
+# 					trigger = { has_character_flag = name_a }
+# 					set_variable = {
+# 						name = story_cycle_dragon_name
+# 						value = flag:flag_dragon_name_a
+# 					}
+# 				}
+#                 1 = {
+# 					trigger = { has_character_flag = name_b }
+# 					set_variable = {
+# 						name = story_cycle_dragon_name
+# 						value = flag:flag_dragon_name_b
+# 					}
+# 				}
+#                 1 = {
+# 					trigger = { has_character_flag = name_c }
+# 					set_variable = {
+# 						name = story_cycle_dragon_name
+# 						value = flag:flag_dragon_name_c
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+# 
+# 	widget = {
+# 		gui = "event_window_widget_enter_text"
+# 		container = "dynamic_birth_name"
+# 		controller = {
+# 			type = text
+# 			data = {
+# 				key = story_cycle_dragon_name
+# 				default = {
+# 					localization_key = dragon_name_a
+# 					trigger = {
+# 						has_character_flag = name_a
+# 					}
+# 				}
+# 				default = {
+# 					localization_key = dragon_name_b
+# 					trigger = {
+# 						has_character_flag = name_b
+# 					}
+# 				}
+# 				default = {
+# 					localization_key = dragon_name_c
+# 					trigger = {
+# 						has_character_flag = name_c
+# 					}
+# 				}
+# 			}
+# 		}
+# 		setup_scope = {
+# 			root = { save_scope_as = text_target }
+# 		}
+# 	}
+# 
+# 	option = { 
+# 		name = tud_story_events.0001.a
+# 	}
+# 
+# 	after = {
+# 		remove_character_flag = is_naming_dragon
+# 		remove_character_flag = flag_dragon_name_a
+# 		remove_character_flag = flag_dragon_name_b
+# 		remove_character_flag = flag_dragon_name_c
+# 		if = {
+# 			# We entered custom text into the pop up
+# 			limit = { NOT = { has_variable = story_cycle_dragon_name } }
+# 			set_variable = {
+# 				name = story_cycle_dragon_name
+# 				value = flag:custom
+# 			}
+# 		}
+# 	}
+#} 
+
+# Dragon Claimed - Claimant Display
+tud_story_events.0002 = {
+	# Go To Nest
+	type = character_event
+	title = tud_story_events.0002.t
+	desc = tud_story_events.0002.desc
+	theme = dragon_nest_theme
+	# For Light
+	left_portrait = {
+		character = root
+		animation = spymaster
+	}
+	artifact = {
+		target = scope:mount_claimed
+		position = lower_center_portrait
+	}
+	# Dragon Claimed
+	option = {
+		name = tud_decision_events.0002.a
+		create_character_memory = {
+			type = tud_claimed_memory
+			participants = {
+				claimant = root
+			}
+		}
+	}
+}
+
+# Dragon Claimed - Former Owner Display
+tud_story_events.0003 = {
+	# Go To Nest
+	type = character_event
+	title = tud_story_events.0003.t
+	desc = tud_story_events.0003.desc
+	theme = diplomacy_family_focus
+	# For Light
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	artifact = {
+		target = scope:mount_claimed
+		position = lower_center_portrait
+	}
+	# Dragon Claimed
+	option = {
+		name = tud_decision_events.0003.a
+	}
+}

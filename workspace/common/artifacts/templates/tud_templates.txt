@@ -1,0 +1,38 @@
+﻿# Dragon Template
+dragon_template = {
+	can_equip = {
+		always = no
+	}
+	can_benefit = {
+		always = no
+	}
+	can_repair = {
+		always = no
+	}
+	can_reforge = {
+		always = no
+	}
+	ai_score = {
+		value = 999
+	}
+	unique = yes
+}
+# Dragon Skull Template
+dragonskull_template = {
+	can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		always = yes
+	}
+	can_repair = {
+		always = no
+	}
+	can_reforge = {
+		always = no
+	}
+	ai_score = {
+		value = 999
+	}
+	unique = yes
+}

@@ -1,0 +1,4 @@
+death_dance_of_dragons = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}

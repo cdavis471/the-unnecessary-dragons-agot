@@ -1,0 +1,196 @@
+﻿# Localization
+ThisArtifactType = {
+	type = character
+	# Dragons
+	text = {
+		trigger = {
+			scope:this_artifact = {
+				artifact_type = dragon_type
+			}
+		}
+		localization_key = artifact_type_dragon
+	}
+	# Helmets
+	text = {
+		trigger = {
+			scope:this_artifact = {
+				artifact_type = helmet
+			}
+		}
+		localization_key = artifact_type_helmet
+	}
+	# Weapons
+	text = {
+		trigger = {
+			scope:this_artifact = {
+				artifact_slot_type = primary_armament
+			}
+		}
+		localization_key = artifact_type_primary_armament
+	}
+	# Armour
+	text = {
+		trigger = {
+			scope:this_artifact = {
+				artifact_slot_type = armor
+			}
+		}
+		localization_key = artifact_type_armor
+	}
+	# Regalia
+	text = {
+		trigger = {
+			scope:this_artifact = {
+				artifact_type = regalia
+			}
+		}
+		localization_key = artifact_type_regalia
+	}
+	# Trinket
+	text = {
+		trigger = {
+			scope:this_artifact = {
+				artifact_type = miscellaneous
+			}
+		}
+		localization_key = artifact_type_trinket
+	}
+	# Big Wall
+	text = {
+		trigger = {
+			scope:this_artifact = {
+				artifact_type = wall_big
+			}
+		}
+		localization_key = artifact_type_wall_big
+	}
+	# Small Wall
+	text = {
+		trigger = {
+			scope:this_artifact = {
+				artifact_type = wall_small
+			}
+		}
+		localization_key = artifact_type_wall_small
+	}
+	# Throne
+	text = {
+		trigger = {
+			scope:this_artifact = {
+				artifact_type = throne
+			}
+		}
+		localization_key = artifact_type_throne
+	}
+	# Sculpture
+	text = {
+		trigger = {
+			scope:this_artifact = {
+				artifact_type = sculpture
+			}
+		}
+		localization_key = artifact_type_sculpture
+	}
+	# Book
+	text = {
+		trigger = {
+			scope:this_artifact = {
+				artifact_type = book
+			}
+		}
+		localization_key = artifact_type_book
+	}
+	# Pedestal
+	text = {
+		trigger = {
+			scope:this_artifact = {
+				artifact_type = pedestal
+			}
+		}
+		localization_key = artifact_type_pedestal
+	}
+	# Elixir
+	text = {
+		trigger = {
+			scope:this_artifact = {
+				artifact_type = elixir
+			}
+		}
+		localization_key = artifact_type_elixir
+	}
+}
+
+InventoryCourtArtifact = {
+	type = artifact
+	# Localization Key for Inventory Artifact
+	text = {
+		trigger = {
+			OR = {
+				artifact_slot_type = helmet
+				artifact_slot_type = armor
+				artifact_slot_type = primary_armament
+				artifact_slot_type = regalia
+				artifact_slot_type = miscellaneous
+				artifact_slot_type = dragon
+			}
+		}
+		localization_key = game_concept_inventory_artifact
+	}
+	# Localization Key for Court Artifact
+	text = {
+		trigger = { always = yes }
+		localization_key = game_concept_court_artifact
+	}
+}
+
+# Dragon Name Localization
+# DragonStoryName = {
+# 	type = character
+# 
+# 	text = {
+# 		trigger = {
+# 			AND = {
+# 				any_owned_story = {
+# 					exists = var:story_cycle_dragon_name
+# 					var:story_cycle_dragon_name = flag:custom
+# 				}
+# 			}
+# 		}
+# 		localization_key = dragon_name
+# 	}
+# 	text = {
+# 		trigger = {
+# 			AND = {
+# 				any_owned_story = {
+# 					exists = var:story_cycle_dragon_name
+# 					var:story_cycle_dragon_name = flag:flag_dragon_name_a
+# 				}
+# 			}
+# 		}
+# 		localization_key = dragon_name_a
+# 	}
+# 	text = {
+# 		trigger = {
+# 			AND = {
+# 				any_owned_story = {
+# 					exists = var:story_cycle_dragon_name
+# 					var:story_cycle_dragon_name = flag:flag_dragon_name_b
+# 				}
+# 			}
+# 		}
+# 		localization_key = dragon_name_b
+# 	}
+# 	text = {
+# 		trigger = {
+# 			AND = {
+# 				any_owned_story = {
+# 					exists = var:story_cycle_dragon_name
+# 					var:story_cycle_dragon_name = flag:flag_dragon_name_c
+# 				}
+# 			}
+# 		}
+# 		localization_key = dragon_name_c
+# 	}
+# 
+# }
+

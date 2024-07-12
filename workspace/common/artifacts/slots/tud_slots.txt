@@ -1,0 +1,5 @@
+﻿# Dragon Inventory Slot
+dragon = {
+	type = "dragon"
+	category = inventory
+}

@@ -1,0 +1,411 @@
+﻿namespace = dragon_event
+
+dragon_event.1001 = { ### Begin looking for a Dragon!
+	type = character_event
+	title = dragon_event.1001.t
+	desc = dragon_event.1001.desc
+	theme = CK3AGOT_at_sea
+	
+	left_portrait = {
+		character = root
+	}	
+	
+	option = {
+		name = dragon_event.1001.a
+		random_list = {
+				10 = {
+					modifier = {
+						root = {
+							has_culture = high_valyrian
+						}
+						add = 10
+					}
+					modifier = {
+						root = {
+							dynasty = dynasty:dynn_Targaryen
+						}
+						add = 200
+					}
+					#create_black_dragon_effect = {
+					#OWNER = root
+					#}
+					trigger_event = { id = dragon_event.1004 }
+					custom_tooltip = dragon_event.tooltip1
+				}
+				20 = {
+				modifier = {
+						root = {
+							has_culture = high_valyrian
+						}
+						add = 20
+					}
+				modifier = {
+						root = {
+							dynasty = dynasty:dynn_Targaryen
+						}
+						add = -20
+					}
+					#create_large_dragon_effect = {
+					#OWNER = root
+					#}
+					custom_tooltip = dragon_event.tooltip2
+					trigger_event = { id = dragon_event.1003 }
+					
+				}
+				30 = {
+				modifier = {
+						root = {
+							has_culture = high_valyrian
+						}
+						add = 30
+					}
+					modifier = {
+						root = {
+							dynasty = dynasty:dynn_Targaryen
+						}
+						add = -30
+					}
+					#create_small_dragon_effect = {
+					#OWNER = root
+					#}
+					custom_tooltip = dragon_event.tooltip3
+					trigger_event = { id = dragon_event.1002 }
+					
+				}
+				50 = {
+				custom_tooltip = dragon_event.tooltip4
+				modifier = {
+						root = {
+							has_culture = high_valyrian
+						}
+						add = -15
+					}
+					modifier = {
+						root = {
+							dynasty = dynasty:dynn_Targaryen
+						}
+						add = -30
+					}
+				}
+			}
+	}
+}
+
+dragon_event.1002 = { ### Found a Small dragon!
+	type = character_event
+	title = dragon_event.1002.t
+	desc = dragon_event.1002.desc
+	theme = CK3AGOT_at_sea
+	
+	left_portrait = {
+		character = root
+	}
+	
+	immediate = {
+		create_nimble_dragon_effect = {
+			OWNER = root
+		}
+	}
+	
+	artifact = { # To display the artifact in the event-window
+		target = scope:newly_created_artifact
+		position = lower_center_portrait
+	}
+	
+	option = {
+		name = dragon_event.1002.a
+		#custom_tooltip = dragon_name
+		add_prestige = 250
+	}
+}
+
+dragon_event.1003 = { ### Found a Large dragon!
+	type = character_event
+	title = dragon_event.1003.t
+	desc = dragon_event.1003.desc
+	theme = CK3AGOT_at_sea
+	
+	left_portrait = {
+		character = root
+	}
+	
+	immediate = {
+		create_large_dragon_effect = {
+			OWNER = root
+		}
+	}
+	
+	artifact = { # To display the artifact in the event-window
+		target = scope:newly_created_artifact
+		position = lower_center_portrait
+	}
+	
+	option = {
+		name = dragon_event.1003.a
+		#custom_tooltip = dragon_name
+		add_prestige = 1000
+	}
+}
+
+dragon_event.1004 = { ### Found a Great dragon!
+	type = character_event
+	title = dragon_event.1004.t
+	desc = dragon_event.1004.desc
+	theme = CK3AGOT_at_sea
+	
+	left_portrait = {
+		character = root
+	}
+	
+	immediate = {
+		create_large_dragon_effect = {
+			OWNER = root
+		}
+	}
+	
+	artifact = { # To display the artifact in the event-window
+		target = scope:newly_created_artifact
+		position = lower_center_portrait
+	}
+	
+	option = {
+		name = dragon_event.1004.a
+		#custom_tooltip = dragon_name
+		add_prestige = 2500
+	}
+}
+
+###############################################
+### DRAGON COMMANDER EVENTS
+###############################################
+
+dragon_event.2001 = { ### Use your dragon in a Siege
+	type = character_event
+	title = dragon_event.2001.t
+	desc = dragon_event.2001.desc
+	theme = battle
+	override_background = { reference = burning_building }
+	
+	immediate = {
+		ROOT.location.county = {save_scope_as = burned_county}
+		ROOT.location.county.holder = {save_scope_as = burned_holder}
+	}
+	
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	right_portrait = {
+		character = scope:burned_holder
+		animation = fear
+		triggered_animation = {
+			trigger = {
+				ai_vengefulness >= medium_positive_ai_value
+				ai_boldness > high_negative_ai_value
+			}
+			animation = rage
+		}
+	}
+	
+	option = {
+		name = dragon_event.2001.a
+		stress_impact = {
+			just = major_stress_impact_gain
+			forgiving = medium_stress_impact_gain
+			compassionate = major_stress_impact_gain
+			craven = major_stress_impact_gain
+			sadistic = major_stress_impact_loss
+			fire_obsessed = minor_stress_impact_loss
+		}
+		add_dread = minor_dread_gain
+		
+		scope:burned_holder = {
+			every_close_family_member = {
+				custom = dragon_sieged_family_custom
+				limit = {
+					is_close_family_or_spouse_of_root_trigger = no
+					NOT = { this = root }
+				}
+				add_opinion = {
+					target = root
+					modifier = dragon_sieged_family
+				}
+			}
+			add_opinion = {
+				target = root
+				modifier = dragon_sieged_me
+			}
+		}
+		
+		scope:burned_county = {
+			add_county_modifier = {	# Burns the county to the ground
+				modifier = dragon_siege_modifier
+				years = 5
+			}
+		}
+	}
+	option = {
+		name = dragon_event.2001.b
+	}
+}
+
+###############################################
+### DRAGON INTERACTION EVENTS
+###############################################
+
+## A Dragon has claimed my title!
+
+dragon_event.3001 = {
+	type = character_event
+	title = dragon_event.3001.t
+	desc = dragon_event.3001.desc
+	theme = claim_throne_scheme
+	override_background = {
+		reference = battlefield
+	}
+	
+	left_portrait = {
+		character = root
+		animation = angry
+	}
+	
+	left_portrait = {
+		character = scope:claimant
+		animation = marshal
+	}
+	
+	option = { 
+		name = dragon_event.3001.a
+	}
+}
+
+## A Dragon has laid claim to a title!
+
+dragon_event.3002 = {
+	type = character_event
+	title = dragon_event.3002.t
+	desc = dragon_event.3002.desc
+	theme = claim_throne_scheme
+	override_background = {
+		reference = battlefield
+	}
+	
+	left_portrait = {
+		character = scope:target
+		animation = angry
+	}
+	
+	left_portrait = {
+		character = scope:claimant
+		animation = marshal
+	}
+	
+	option = { 
+		name = dragon_event.3002.a
+	}
+}
+
+## A Dragon has laid claim to Westeros!
+
+#dragon_event.3003 = {
+
+#}
+
+## I have claimed a title by Right of Dragons!
+
+dragon_event.3004 = {
+	type = character_event
+	title = dragon_event.3004.t
+	desc = {
+		desc = dragon_event.3004.desc1
+		desc = dragon_event.3004.desc2
+	}
+	theme = claim_throne_scheme
+	override_background = {
+		reference = battlefield
+	}
+	
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+
+	option = { ## Claimed the primary title
+		name = dragon_event.3004.a
+		scope:target = {
+			add_opinion = {
+				target = root
+				modifier = dragonlord_claimed_my_title
+			}
+			every_close_family_member = {
+				custom = dragonlord_claimed_family
+				limit = {
+					is_close_family_or_spouse_of_root_trigger = no
+					NOT = { this = scope:claimant }
+				}
+				add_opinion = {
+					target = scope:claimant
+					modifier = dragonlord_claimed_my_liege
+				}
+			}
+		}
+		
+		add_character_modifier = {
+		custom = dragonlord_custom
+		modifier = dragonlord_modifier
+		years = 5
+		}
+	}
+	#option = { ## Perhaps.. I should conquer it all?
+	#	name = dragon_event.3004.b
+	#}
+}
+
+## I will become the Conqueror and claim the Seven Kingdoms!
+
+dragon_event.3005 = {
+	type = character_event
+	title = dragon_event.3005.t
+	desc = {
+		desc = dragon_event.3005.desc1
+		desc = dragon_event.3005.desc2
+		desc = dragon_event.3005.desc3
+	}
+	theme = claim_throne_scheme
+	override_background = {
+		reference = battlefield
+	}
+	
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+	
+	option = { ## Claimed the primary title
+		name = dragon_event.3005.a
+		give_nickname = nick_the_dragonlord
+		scope:target = {
+			add_opinion = {
+				target = root
+				modifier = dragonlord_claimed_my_title
+			}
+			every_close_family_member = {
+				custom = dragonlord_claimed_family
+				limit = {
+					is_close_family_or_spouse_of_root_trigger = no
+					NOT = { this = scope:claimant }
+				}
+				add_opinion = {
+					target = scope:claimant
+					modifier = dragonlord_claimed_my_liege
+				}
+			}
+		}
+		
+		add_character_modifier = {
+		custom = dragonlord_custom
+		modifier = dragonlord_modifier
+		years = 5
+		}
+	}
+}

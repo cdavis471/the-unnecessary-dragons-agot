@@ -1,0 +1,12 @@
+﻿nimble_dragon_visuals = {
+	icon = "nimble_dragon.dds"
+	asset = ep1_western_sword_01_a_portrait_entity
+}
+large_dragon_visuals = {
+	icon = "large_dragon.dds"
+	asset = ep1_western_sword_01_a_portrait_entity
+}
+great_dragon_visuals = {
+	icon = "great_dragon.dds"
+	asset = ep1_western_sword_01_a_portrait_entity
+}

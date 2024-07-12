@@ -1,0 +1,244 @@
+###################
+# DRAGON CREATION #
+###################
+
+create_nimble_dragon_effect = {
+	$OWNER$ = { save_scope_as = owner }
+	save_scope_value_as = {name = wealth value = 150}
+	save_scope_value_as = {name = quality value = 150}
+	create_artifact = {
+		name = nimble_dragon_name
+		description = nimble_dragon_desc
+		type = regalia
+		visuals = nimble_dragon_visuals
+		template = dragon_template
+		wealth = scope:wealth
+		quality = scope:quality
+		max_durability = 150
+		modifier = nimble_dragon_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact = {
+		set_variable = {
+			name = claimed_dragon
+			value = yes
+		}
+		save_scope_as = epic
+		save_scope_value_as = {
+			name = miscellaneous
+			value = yes
+		}
+	}
+}
+
+create_large_dragon_effect = {
+	$OWNER$ = { save_scope_as = owner }
+	save_scope_value_as = {name = wealth value = 175}
+	save_scope_value_as = {name = quality value = 175}
+	create_artifact = {
+		name = large_dragon_name
+		description = large_dragon_desc
+		type = regalia
+		visuals = large_dragon_visuals
+		template = dragon_template
+		wealth = scope:wealth
+		quality = scope:quality
+		max_durability = 175
+		modifier = large_dragon_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact = {
+		set_variable = {
+			name = claimed_dragon
+			value = yes
+		}
+		save_scope_as = epic
+		save_scope_value_as = {
+			name = miscellaneous
+			value = yes
+		}
+	}
+}
+
+create_great_dragon_effect = {
+	# Create Great Dragon
+	$OWNER$ = { save_scope_as = owner }
+	save_scope_value_as = {name = wealth value = 200}
+	save_scope_value_as = {name = quality value = 200}
+	create_artifact = {
+		name = great_dragon_name
+		description = great_dragon_desc
+		type = regalia
+		visuals = great_dragon_visuals
+		template = dragon_template
+		wealth = scope:wealth
+		quality = scope:quality
+		max_durability = 200
+		modifier = great_dragon_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+	scope:newly_created_artifact = {
+		set_variable = {
+			name = claimed_dragon
+			value = yes
+		}
+		save_scope_as = epic
+		save_scope_value_as = {
+			name = miscellaneous
+			value = yes
+		}
+	}
+}
+
+######################
+# DRAGON DESTRUCTION #
+######################
+
+destroy_dragon_egg_effect = {
+	# Destroy Dragon Egg from Hatching Ritual
+	$OWNER$ = { save_scope_as = owner }
+	random_character_artifact = {
+		limit = { has_variable = dragon_egg }
+		save_scope_as = egg_destruction
+	}
+	destroy_artifact = scope:egg_destruction
+}
+
+dragon_death_effect = {
+	# Dragon has died in Dance
+	$OWNER$ = { save_scope_as = owner }
+	$ITEM$ = { save_scope_as = item }
+	destroy_artifact = scope:item
+}
+
+###################
+# DRAGON CLAIMANT #
+###################
+
+dragon_claim_throne_effect = {
+	# Claim Throne by Right of the Dragon
+	$TARGET$ = {
+		save_scope_as = target
+	}
+	$CLAIMANT$ = {
+		save_scope_as = claimant
+	}
+	if = {
+		limit = {
+			scope:target_title = title:e_the_iron_throne
+		}
+		scope:claimant = {
+			# Iron Throne 
+			add_to_temporary_list = received_notification
+			trigger_event = dragon_event.3005
+		}
+	}
+	else = {
+		scope:claimant = {
+			# Vanilla 
+			add_to_temporary_list = received_notification
+			trigger_event = dragon_event.3004
+		}
+	}
+	add_pressed_claim = scope:target_title
+}
+
+######################
+# A DANCE OF DRAGONS #
+######################
+
+dragon_dance_effect = {
+	# Start Dance
+	$RECIPIENT$ = {
+		save_scope_as = recipient
+	}
+	$ACTOR$ = {
+		save_scope_as = actor
+	}
+	scope:actor = {
+		trigger_event = dragon_dance.0001
+	}
+}
+
+dragon_dancelost_effect = {
+	# Actor Death
+	$RECIPIENT$ = {
+		save_scope_as = recipient
+	}
+	$ACTOR$ = {
+		save_scope_as = actor
+	}
+	$ACTORITEM$ = {
+		save_scope_as = actoritem
+	}
+	$RECIPIENTITEM$ = {
+		save_scope_as = recipientitem
+	}
+	scope:actor = {
+		trigger_event = dragon_dance.0002
+	}
+}
+
+dragon_dancewon_effect = {
+	# Recipient Death
+	$RECIPIENT$ = {
+		save_scope_as = recipient
+	}
+	$ACTOR$ = {
+		save_scope_as = actor
+	}
+	$ACTORITEM$ = {
+		save_scope_as = actoritem
+	}
+	$RECIPIENTITEM$ = {
+		save_scope_as = recipientitem
+	}
+	scope:actor = {
+		trigger_event = dragon_dance.0003
+	}
+}
+
+######################
+# KEEPING SHIT CLEAN #
+######################
+
+dragon_egg_gift = {
+
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+
+	$RECIPIENT$ = {
+		save_scope_as = recipient
+	}
+	
+	random_character_artifact = {
+		limit = { has_variable = dragon_egg }
+		set_owner = scope:recipient
+	}
+
+}
+
+dragon_rider_claim = {
+	$OWNER$ = {
+		save_scope_as = owner
+	}
+	$RECIPIENT$ = {
+		save_scope_as = recipient
+	}
+	# Set New Owner
+	scope:owner = { 
+		any_character_artifact = {
+			limit = { has_variable = unclaimed_dragon }
+			remove_variable = unclaimed_dragon
+			set_variable = {
+				name = claimed_dragon
+				value = yes
+			}
+			set_owner = scope:recipient
+		}
+	}
+}

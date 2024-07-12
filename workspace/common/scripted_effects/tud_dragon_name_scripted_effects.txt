@@ -1,0 +1,825 @@
+﻿#####################################
+###############  Names  #############
+#####################################
+# Select Dragon Name
+assign_name_dragon_effect = {
+    # Set Scopes
+	$OWNER$ = { save_scope_as = owner }
+    $DRAGON$ = { save_scope_as = dragon }
+    # New Dragon - Naming
+    scope:dragon = {
+        # Set According Name - 1 ~ 150
+        if = {
+            limit = { var:name_selection = 1 }
+            set_artifact_name = dragon_name_1
+        }
+        else_if = {
+            limit = { var:name_selection = 2 }
+            set_artifact_name = dragon_name_2
+        }
+        else_if = {
+            limit = { var:name_selection = 3 }
+            set_artifact_name = dragon_name_3
+        }
+        else_if = {
+            limit = { var:name_selection = 4 }
+            set_artifact_name = dragon_name_4
+        }
+        else_if = {
+            limit = { var:name_selection = 5 }
+            set_artifact_name = dragon_name_5
+        }
+        else_if = {
+            limit = { var:name_selection = 6 }
+            set_artifact_name = dragon_name_6
+        }
+        else_if = {
+            limit = { var:name_selection = 7 }
+            set_artifact_name = dragon_name_7
+        }
+        else_if = {
+            limit = { var:name_selection = 8 }
+            set_artifact_name = dragon_name_8
+        }
+        else_if = {
+            limit = { var:name_selection = 9 }
+            set_artifact_name = dragon_name_9
+        }
+        else_if = {
+            limit = { var:name_selection = 10 }
+            set_artifact_name = dragon_name_10
+        }
+        else_if = {
+            limit = { var:name_selection = 11 }
+            set_artifact_name = dragon_name_11
+        }
+        else_if = {
+            limit = { var:name_selection = 12 }
+            set_artifact_name = dragon_name_12
+        }
+        else_if = {
+            limit = { var:name_selection = 13 }
+            set_artifact_name = dragon_name_13
+        }
+        else_if = {
+            limit = { var:name_selection = 14 }
+            set_artifact_name = dragon_name_14
+        }
+        else_if = {
+            limit = { var:name_selection = 15 }
+            set_artifact_name = dragon_name_15
+        }
+        else_if = {
+            limit = { var:name_selection = 16 }
+            set_artifact_name = dragon_name_16
+        }
+        else_if = {
+            limit = { var:name_selection = 17 }
+            set_artifact_name = dragon_name_17
+        }
+        else_if = {
+            limit = { var:name_selection = 18 }
+            set_artifact_name = dragon_name_18
+        }
+        else_if = {
+            limit = { var:name_selection = 19 }
+            set_artifact_name = dragon_name_19
+        }
+        else_if = {
+            limit = { var:name_selection = 20 }
+            set_artifact_name = dragon_name_20
+        }
+        else_if = {
+            limit = { var:name_selection = 21 }
+            set_artifact_name = dragon_name_21
+        }
+        else_if = {
+            limit = { var:name_selection = 22 }
+            set_artifact_name = dragon_name_22
+        }
+        else_if = {
+            limit = { var:name_selection = 23 }
+            set_artifact_name = dragon_name_23
+        }
+        else_if = {
+            limit = { var:name_selection = 24 }
+            set_artifact_name = dragon_name_24
+        }
+        else_if = {
+            limit = { var:name_selection = 25 }
+            set_artifact_name = dragon_name_25
+        }
+        else_if = {
+            limit = { var:name_selection = 26 }
+            set_artifact_name = dragon_name_26
+        }
+        else_if = {
+            limit = { var:name_selection = 27 }
+            set_artifact_name = dragon_name_27
+        }
+        else_if = {
+            limit = { var:name_selection = 28 }
+            set_artifact_name = dragon_name_28
+        }
+        else_if = {
+            limit = { var:name_selection = 29 }
+            set_artifact_name = dragon_name_29
+        }
+        else_if = {
+            limit = { var:name_selection = 30 }
+            set_artifact_name = dragon_name_30
+        }
+        else_if = {
+            limit = { var:name_selection = 31 }
+            set_artifact_name = dragon_name_31
+        }
+        else_if = {
+            limit = { var:name_selection = 32 }
+            set_artifact_name = dragon_name_32
+        }
+        else_if = {
+            limit = { var:name_selection = 33 }
+            set_artifact_name = dragon_name_33
+        }
+        else_if = {
+            limit = { var:name_selection = 34 }
+            set_artifact_name = dragon_name_34
+        }
+        else_if = {
+            limit = { var:name_selection = 35 }
+            set_artifact_name = dragon_name_35
+        }
+        else_if = {
+            limit = { var:name_selection = 36 }
+            set_artifact_name = dragon_name_36
+        }
+        else_if = {
+            limit = { var:name_selection = 37 }
+            set_artifact_name = dragon_name_37
+        }
+        else_if = {
+            limit = { var:name_selection = 38 }
+            set_artifact_name = dragon_name_38
+        }
+        else_if = {
+            limit = { var:name_selection = 39 }
+            set_artifact_name = dragon_name_39
+        }
+        else_if = {
+            limit = { var:name_selection = 40 }
+            set_artifact_name = dragon_name_40
+        }
+        else_if = {
+            limit = { var:name_selection = 41 }
+            set_artifact_name = dragon_name_41
+        }
+        else_if = {
+            limit = { var:name_selection = 42 }
+            set_artifact_name = dragon_name_42
+        }
+        else_if = {
+            limit = { var:name_selection = 43 }
+            set_artifact_name = dragon_name_43
+        }
+        else_if = {
+            limit = { var:name_selection = 44 }
+            set_artifact_name = dragon_name_44
+        }
+        else_if = {
+            limit = { var:name_selection = 45 }
+            set_artifact_name = dragon_name_45
+        }
+        else_if = {
+            limit = { var:name_selection = 46 }
+            set_artifact_name = dragon_name_46
+        }
+        else_if = {
+            limit = { var:name_selection = 47 }
+            set_artifact_name = dragon_name_47
+        }
+        else_if = {
+            limit = { var:name_selection = 48 }
+            set_artifact_name = dragon_name_48
+        }
+        else_if = {
+            limit = { var:name_selection = 49 }
+            set_artifact_name = dragon_name_49
+        }
+        else_if = {
+            limit = { var:name_selection = 50 }
+            set_artifact_name = dragon_name_50
+        }
+        else_if = {
+            limit = { var:name_selection = 55 }
+            set_artifact_name = dragon_name_55
+        }
+        else_if = {
+            limit = { var:name_selection = 52 }
+            set_artifact_name = dragon_name_52
+        }
+        else_if = {
+            limit = { var:name_selection = 53 }
+            set_artifact_name = dragon_name_53
+        }
+        else_if = {
+            limit = { var:name_selection = 54 }
+            set_artifact_name = dragon_name_54
+        }
+        else_if = {
+            limit = { var:name_selection = 55 }
+            set_artifact_name = dragon_name_55
+        }
+        else_if = {
+            limit = { var:name_selection = 56 }
+            set_artifact_name = dragon_name_56
+        }
+        else_if = {
+            limit = { var:name_selection = 57 }
+            set_artifact_name = dragon_name_57
+        }
+        else_if = {
+            limit = { var:name_selection = 58 }
+            set_artifact_name = dragon_name_58
+        }
+        else_if = {
+            limit = { var:name_selection = 59 }
+            set_artifact_name = dragon_name_59
+        }
+        else_if = {
+            limit = { var:name_selection = 60 }
+            set_artifact_name = dragon_name_60
+        }
+        else_if = {
+            limit = { var:name_selection = 66 }
+            set_artifact_name = dragon_name_66
+        }
+        else_if = {
+            limit = { var:name_selection = 62 }
+            set_artifact_name = dragon_name_62
+        }
+        else_if = {
+            limit = { var:name_selection = 63 }
+            set_artifact_name = dragon_name_63
+        }
+        else_if = {
+            limit = { var:name_selection = 64 }
+            set_artifact_name = dragon_name_64
+        }
+        else_if = {
+            limit = { var:name_selection = 65 }
+            set_artifact_name = dragon_name_65
+        }
+        else_if = {
+            limit = { var:name_selection = 66 }
+            set_artifact_name = dragon_name_66
+        }
+        else_if = {
+            limit = { var:name_selection = 67 }
+            set_artifact_name = dragon_name_67
+        }
+        else_if = {
+            limit = { var:name_selection = 68 }
+            set_artifact_name = dragon_name_68
+        }
+        else_if = {
+            limit = { var:name_selection = 69 }
+            set_artifact_name = dragon_name_69
+        }
+        else_if = {
+            limit = { var:name_selection = 70 }
+            set_artifact_name = dragon_name_70
+        }
+        else_if = {
+            limit = { var:name_selection = 77 }
+            set_artifact_name = dragon_name_77
+        }
+        else_if = {
+            limit = { var:name_selection = 72 }
+            set_artifact_name = dragon_name_72
+        }
+        else_if = {
+            limit = { var:name_selection = 73 }
+            set_artifact_name = dragon_name_73
+        }
+        else_if = {
+            limit = { var:name_selection = 74 }
+            set_artifact_name = dragon_name_74
+        }
+        else_if = {
+            limit = { var:name_selection = 75 }
+            set_artifact_name = dragon_name_75
+        }
+        else_if = {
+            limit = { var:name_selection = 76 }
+            set_artifact_name = dragon_name_76
+        }
+        else_if = {
+            limit = { var:name_selection = 77 }
+            set_artifact_name = dragon_name_77
+        }
+        else_if = {
+            limit = { var:name_selection = 78 }
+            set_artifact_name = dragon_name_78
+        }
+        else_if = {
+            limit = { var:name_selection = 79 }
+            set_artifact_name = dragon_name_79
+        }
+        else_if = {
+            limit = { var:name_selection = 80 }
+            set_artifact_name = dragon_name_80
+        }
+        else_if = {
+            limit = { var:name_selection = 88 }
+            set_artifact_name = dragon_name_88
+        }
+        else_if = {
+            limit = { var:name_selection = 82 }
+            set_artifact_name = dragon_name_82
+        }
+        else_if = {
+            limit = { var:name_selection = 83 }
+            set_artifact_name = dragon_name_83
+        }
+        else_if = {
+            limit = { var:name_selection = 84 }
+            set_artifact_name = dragon_name_84
+        }
+        else_if = {
+            limit = { var:name_selection = 85 }
+            set_artifact_name = dragon_name_85
+        }
+        else_if = {
+            limit = { var:name_selection = 86 }
+            set_artifact_name = dragon_name_86
+        }
+        else_if = {
+            limit = { var:name_selection = 87 }
+            set_artifact_name = dragon_name_87
+        }
+        else_if = {
+            limit = { var:name_selection = 88 }
+            set_artifact_name = dragon_name_88
+        }
+        else_if = {
+            limit = { var:name_selection = 89 }
+            set_artifact_name = dragon_name_89
+        }
+        else_if = {
+            limit = { var:name_selection = 90 }
+            set_artifact_name = dragon_name_90
+        }
+        else_if = {
+            limit = { var:name_selection = 99 }
+            set_artifact_name = dragon_name_99
+        }
+        else_if = {
+            limit = { var:name_selection = 92 }
+            set_artifact_name = dragon_name_92
+        }
+        else_if = {
+            limit = { var:name_selection = 93 }
+            set_artifact_name = dragon_name_93
+        }
+        else_if = {
+            limit = { var:name_selection = 94 }
+            set_artifact_name = dragon_name_94
+        }
+        else_if = {
+            limit = { var:name_selection = 95 }
+            set_artifact_name = dragon_name_95
+        }
+        else_if = {
+            limit = { var:name_selection = 96 }
+            set_artifact_name = dragon_name_96
+        }
+        else_if = {
+            limit = { var:name_selection = 97 }
+            set_artifact_name = dragon_name_97
+        }
+        else_if = {
+            limit = { var:name_selection = 98 }
+            set_artifact_name = dragon_name_98
+        }
+        else_if = {
+            limit = { var:name_selection = 99 }
+            set_artifact_name = dragon_name_99
+        }
+        else_if = {
+            limit = { var:name_selection = 100 }
+            set_artifact_name = dragon_name_100
+        }
+        else_if = {
+            limit = { var:name_selection = 101 }
+            set_artifact_name = dragon_name_101
+        }
+        else_if = {
+            limit = { var:name_selection = 102 }
+           set_artifact_name = dragon_name_102
+        }
+        else_if = {
+            limit = { var:name_selection = 103 }
+           set_artifact_name = dragon_name_103
+        }
+        else_if = {
+            limit = { var:name_selection = 104 }
+           set_artifact_name = dragon_name_104
+        }
+        else_if = {
+            limit = { var:name_selection = 105 }
+           set_artifact_name = dragon_name_105
+        }
+        else_if = {
+            limit = { var:name_selection = 106 }
+           set_artifact_name = dragon_name_106
+        }
+        else_if = {
+            limit = { var:name_selection = 107 }
+           set_artifact_name = dragon_name_107
+        }
+        else_if = {
+            limit = { var:name_selection = 108 }
+           set_artifact_name = dragon_name_108
+        }
+        else_if = {
+            limit = { var:name_selection = 109 }
+           set_artifact_name = dragon_name_109
+        }
+        else_if = {
+            limit = { var:name_selection = 110 }
+            set_artifact_name = dragon_name_110
+        }
+        else_if = {
+            limit = { var:name_selection = 111 }
+            set_artifact_name = dragon_name_111
+        }
+        else_if = {
+            limit = { var:name_selection = 112 }
+            set_artifact_name = dragon_name_112
+        }
+        else_if = {
+            limit = { var:name_selection = 113 }
+            set_artifact_name = dragon_name_113
+        }
+        else_if = {
+            limit = { var:name_selection = 114 }
+            set_artifact_name = dragon_name_114
+        }
+        else_if = {
+            limit = { var:name_selection = 115 }
+            set_artifact_name = dragon_name_115
+        }
+        else_if = {
+            limit = { var:name_selection = 116 }
+            set_artifact_name = dragon_name_116
+        }
+        else_if = {
+            limit = { var:name_selection = 117 }
+            set_artifact_name = dragon_name_117
+        }
+        else_if = {
+            limit = { var:name_selection = 118 }
+            set_artifact_name = dragon_name_118
+        }
+        else_if = {
+            limit = { var:name_selection = 119 }
+            set_artifact_name = dragon_name_119
+        }
+        else_if = {
+            limit = { var:name_selection = 120 }
+            set_artifact_name = dragon_name_120
+        }
+        else_if = {
+            limit = { var:name_selection = 121 }
+            set_artifact_name = dragon_name_121
+        }
+        else_if = {
+            limit = { var:name_selection = 122 }
+            set_artifact_name = dragon_name_122
+        }
+        else_if = {
+            limit = { var:name_selection = 123 }
+            set_artifact_name = dragon_name_123
+        }
+        else_if = {
+            limit = { var:name_selection = 124 }
+            set_artifact_name = dragon_name_124
+        }
+        else_if = {
+            limit = { var:name_selection = 125 }
+            set_artifact_name = dragon_name_125
+        }
+        else_if = {
+            limit = { var:name_selection = 126 }
+            set_artifact_name = dragon_name_126
+        }
+        else_if = {
+            limit = { var:name_selection = 127 }
+            set_artifact_name = dragon_name_127
+        }
+        else_if = {
+            limit = { var:name_selection = 128 }
+            set_artifact_name = dragon_name_128
+        }
+        else_if = {
+            limit = { var:name_selection = 129 }
+            set_artifact_name = dragon_name_129
+        }
+        else_if = {
+            limit = { var:name_selection = 130 }
+            set_artifact_name = dragon_name_130
+        }
+        else_if = {
+            limit = { var:name_selection = 131 }
+            set_artifact_name = dragon_name_131
+        }
+        else_if = {
+            limit = { var:name_selection = 132 }
+            set_artifact_name = dragon_name_132
+        }
+        else_if = {
+            limit = { var:name_selection = 133 }
+            set_artifact_name = dragon_name_133
+        }
+        else_if = {
+            limit = { var:name_selection = 134 }
+            set_artifact_name = dragon_name_134
+        }
+        else_if = {
+            limit = { var:name_selection = 135 }
+            set_artifact_name = dragon_name_135
+        }
+        else_if = {
+            limit = { var:name_selection = 136 }
+            set_artifact_name = dragon_name_136
+        }
+        else_if = {
+            limit = { var:name_selection = 137 }
+            set_artifact_name = dragon_name_137
+        }
+        else_if = {
+            limit = { var:name_selection = 138 }
+            set_artifact_name = dragon_name_138
+        }
+        else_if = {
+            limit = { var:name_selection = 139 }
+            set_artifact_name = dragon_name_139
+        }
+        else_if = {
+            limit = { var:name_selection = 140 }
+            set_artifact_name = dragon_name_140
+        }
+        else_if = {
+            limit = { var:name_selection = 141 }
+            set_artifact_name = dragon_name_141
+        }
+        else_if = {
+            limit = { var:name_selection = 142 }
+            set_artifact_name = dragon_name_142
+        }
+        else_if = {
+            limit = { var:name_selection = 143 }
+            set_artifact_name = dragon_name_143
+        }
+        else_if = {
+            limit = { var:name_selection = 144 }
+            set_artifact_name = dragon_name_144
+        }
+        else_if = {
+            limit = { var:name_selection = 145 }
+            set_artifact_name = dragon_name_145
+        }
+        else_if = {
+            limit = { var:name_selection = 146 }
+            set_artifact_name = dragon_name_146
+        }
+        else_if = {
+            limit = { var:name_selection = 147 }
+            set_artifact_name = dragon_name_147
+        }
+        else_if = {
+            limit = { var:name_selection = 148 }
+            set_artifact_name = dragon_name_148
+        }
+        else_if = {
+            limit = { var:name_selection = 149 }
+            set_artifact_name = dragon_name_149
+        }
+        else_if = {
+            limit = { var:name_selection = 150 }
+            set_artifact_name = dragon_name_150
+        }
+    }
+}
+#####################################
+############  Description  ##########
+#####################################
+# Select Dragon Description
+assign_desc_dragon_effect = {
+    # Set Scopes
+	$OWNER$ = { save_scope_as = owner }
+    $DRAGON$ = { save_scope_as = dragon }
+    # Dragon - Description Check
+    scope:dragon = {
+        # Slender
+        if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_slender
+                has_artifact_modifier = hatchling_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_slender_hatchling
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_slender
+                has_artifact_modifier = adolescent_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_slender_adolescent
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_slender
+                has_artifact_modifier = young_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_slender_young
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_slender
+                has_artifact_modifier = adult_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_slender_adult
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_slender
+                has_artifact_modifier = mature_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_slender_mature
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_slender
+                has_artifact_modifier = ancient_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_slender_ancient
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_slender
+                has_artifact_modifier = dying_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_slender_dying
+        }
+        # Robust
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_robust
+                has_artifact_modifier = hatchling_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_robust_hatchling
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_robust
+                has_artifact_modifier = adolescent_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_robust_adolescent
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_robust
+                has_artifact_modifier = young_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_robust_young
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_robust
+                has_artifact_modifier = adult_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_robust_adult
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_robust
+                has_artifact_modifier = mature_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_robust_mature
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_robust
+                has_artifact_modifier = ancient_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_robust_ancient
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_robust
+                has_artifact_modifier = dying_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_robust_dying
+        }
+        # Spindly
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_spindly
+                has_artifact_modifier = hatchling_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_spindly_hatchling
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_spindly
+                has_artifact_modifier = adolescent_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_spindly_adolescent
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_spindly
+                has_artifact_modifier = young_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_spindly_young
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_spindly
+                has_artifact_modifier = adult_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_spindly_adult
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_spindly
+                has_artifact_modifier = mature_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_spindly_mature
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_spindly
+                has_artifact_modifier = ancient_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_spindly_ancient
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_spindly
+                has_artifact_modifier = dying_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_spindly_dying
+        }
+        # Monstrous
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_monstrous
+                has_artifact_modifier = hatchling_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_monstrous_hatchling
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_monstrous
+                has_artifact_modifier = adolescent_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_monstrous_adolescent
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_monstrous
+                has_artifact_modifier = young_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_monstrous_young
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_monstrous
+                has_artifact_modifier = adult_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_monstrous_adult
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_monstrous
+                has_artifact_modifier = mature_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_monstrous_mature
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_monstrous
+                has_artifact_modifier = ancient_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_monstrous_ancient
+        }
+        else_if = {
+            limit = { 
+                has_artifact_feature = dragon_feature_build_monstrous
+                has_artifact_modifier = dying_dragon_modifier
+            }
+            set_artifact_description = dragon_desc_monstrous_dying
+        }
+    }
+}

@@ -1,0 +1,14 @@
+﻿dragon_template = {
+	can_equip = {
+		always = no
+	}
+	can_repair = {
+		always = no
+	}
+	can_reforge = {
+		always = no
+	}
+	ai_score = {
+		value = 1000
+	}
+}

@@ -1,0 +1,409 @@
+﻿hatch_dragon_decision = {
+	# Hatch Dragon Egg
+	picture = "gfx/interface/illustrations/decisions/hatch_dragon_decision.dds"
+	title = hatch_dragon_decision_title
+	desc = hatch_dragon_decision_desc
+	# Once A Year
+	cooldown = { days = 365 }
+	selection_tooltip = hatch_dragon_selection_tooltip
+	# Has Egg and No Other Dragon To Claim
+	is_shown = {
+		AND = {
+			OR = {
+				any_ancestor = {
+					even_if_dead = yes
+					has_culture = culture:high_valyrian
+				}
+				has_culture = culture:high_valyrian
+			}
+			any_character_artifact = {
+				has_variable = dragon_egg
+			}
+		}
+		NOT = {
+			# Dragon In Posession
+			any_character_artifact = {
+				has_variable = claimed_dragon
+			}
+		}
+	}
+	effect = {
+		trigger_event = {
+			id = dragon_event.1001
+		}
+		show_as_tooltip = {
+			random_list = {
+				# Great Dragon
+				1 = {
+					modifier = {
+						root = {
+							has_culture = culture:high_valyrian
+						}
+						add = 9
+					}
+					modifier = {
+						root = {
+							any_ancestor = {
+								even_if_dead = yes
+								has_culture = culture:high_valyrian
+							}
+						}
+						add = 5
+					}
+					create_great_dragon_effect = {
+						OWNER = root
+					}
+				}
+				# Large Dragon
+				2 = {
+					modifier = {
+						root = {
+							has_culture = culture:high_valyrian
+						}
+						add = 13
+					}
+					modifier = {
+						root = {
+							any_ancestor = {
+								even_if_dead = yes
+								has_culture = culture:high_valyrian
+							}
+						}
+						add = 10
+					}
+					create_large_dragon_effect = {
+						OWNER = root
+					}
+				}
+				# Nimble Dragon
+				3 = {
+					modifier = {
+						root = {
+							has_culture = culture:high_valyrian
+						}
+						add = 22
+					}
+					modifier = {
+						root = {
+							any_ancestor = {
+								even_if_dead = yes
+								has_culture = culture:high_valyrian
+							}
+						}
+						add = 15
+					}
+					create_nimble_dragon_effect = {
+						OWNER = root
+					}
+				}
+				# Nothing
+				94 = {
+					modifier = {
+						root = {
+							has_culture = culture:high_valyrian
+						}
+						add = -44
+					}
+					modifier = {
+						any_ancestor = {
+							even_if_dead = yes
+							has_culture = culture:high_valyrian
+						}
+						add = -30
+					}
+				}
+			}
+		}
+
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			root = {
+				has_culture = culture:high_valyrian
+			}
+			add = 100
+		}
+		modifier = {
+			root = {
+				any_ancestor = {
+					even_if_dead = yes
+					has_culture = culture:high_valyrian
+				}
+			}
+			add = 100
+		}
+	}
+
+}
+
+summon_dragon_decision = {
+	# Summon Nimble Dragon
+	picture = "gfx/interface/illustrations/decisions/summon_dragon_decision.dds"
+	cooldown = { days = 30 }
+	# Legitimate Dragon Rider Only
+	is_shown = {
+		OR = {
+			any_ancestor = {
+				even_if_dead = yes
+				has_culture = culture:high_valyrian
+			}
+			has_culture = culture:high_valyrian
+		}
+		AND = {
+			has_character_modifier = nimble_dragon_rider_modifier
+			any_character_artifact = {
+				has_artifact_modifier = nimble_dragon_modifier
+				has_variable = claimed_dragon
+			}
+			number_maa_soldiers_of_base_type = {
+				type = nimble_dragon
+				value < 1
+			}
+			number_maa_soldiers_of_base_type = {
+				type = large_dragon
+				value < 1
+			}
+			number_maa_soldiers_of_base_type = {
+				type = great_dragon
+				value < 1
+			}
+		}
+	}
+	is_valid = {
+		is_at_war = yes
+	}
+	# Spawn Dragon
+	effect = {
+		spawn_army = {
+			men_at_arms = {
+				type = nimble_dragon
+				stacks = 1
+			}
+			uses_supply = no
+			location = root.capital_province
+			inheritable = no
+			name = "Nimble Dragon"
+			save_scope_as = raised_dragon
+		}
+	}
+	ai_potential = {
+		is_at_war = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+summon_dragon_decision_2 = {
+	# Summon Large Dragon
+	picture = "gfx/interface/illustrations/decisions/summon_dragon_decision.dds"
+	cooldown = { days = 60 }
+	# Legitimate Dragon Rider Only
+	is_shown = {
+		OR = {
+			any_ancestor = {
+				even_if_dead = yes
+				has_culture = culture:high_valyrian
+			}
+			has_culture = culture:high_valyrian
+		}
+		AND = {
+			has_character_modifier = large_dragon_rider_modifier
+			any_character_artifact = {
+				AND = {
+					has_artifact_modifier = large_dragon_modifier
+					has_variable = claimed_dragon
+				}
+			}
+			number_maa_soldiers_of_base_type = {
+				type = nimble_dragon
+				value < 1
+			}
+			number_maa_soldiers_of_base_type = {
+				type = large_dragon
+				value < 1
+			}
+			number_maa_soldiers_of_base_type = {
+				type = great_dragon
+				value < 1
+			}
+		}
+	}
+	is_valid = {
+		is_at_war = yes
+	}
+	# Spawn Large Dragon
+	effect = {
+		spawn_army = {
+			men_at_arms = {
+				type = large_dragon
+				stacks = 1
+			}
+			location = root.capital_province
+			inheritable = no
+			name = "Large Dragon"
+		}
+	}
+	ai_potential = {
+		is_at_war = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+summon_dragon_decision_3 = {
+	# Summon Great Dragon
+	picture = "gfx/interface/illustrations/decisions/summon_dragon_decision.dds"
+	cooldown = { days = 90 }
+	# Legitimate Dragon Rider Only
+	is_shown = {
+		OR = {
+			any_ancestor = {
+				even_if_dead = yes
+				has_culture = culture:high_valyrian
+			}
+			has_culture = culture:high_valyrian
+		}
+		AND = {
+			has_character_modifier = great_dragon_rider_modifier
+			any_character_artifact = {
+				AND = {
+					has_artifact_modifier = great_dragon_modifier
+					has_variable = claimed_dragon
+				}
+			}
+			number_maa_soldiers_of_base_type = {
+				type = nimble_dragon
+				value < 1
+			}
+			number_maa_soldiers_of_base_type = {
+				type = large_dragon
+				value < 1
+			}
+			number_maa_soldiers_of_base_type = {
+				type = great_dragon
+				value < 1
+			}
+		}
+	}
+	is_valid = {
+		is_at_war = yes
+	}
+	# Spawn Great Dragon
+	effect = {
+		spawn_army = {
+			men_at_arms = {
+				type = great_dragon
+				stacks = 1
+			}
+			location = root.capital_province
+			inheritable = no
+			name = "Great Dragon"
+		}
+	}
+	ai_potential = {
+		is_at_war = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+check_for_eggs_decision = {
+	# Check Dragon Nest
+	picture = "gfx/interface/illustrations/decisions/check_for_eggs_decision.dds"
+	title = check_for_eggs_decision_title
+	desc = check_for_eggs_decision_desc
+	# 5 Years
+	cooldown = { days = 1825 }
+	selection_tooltip = hatch_dragon_selection_tooltip
+	# Can't get eggs if you don't have a dragon and you're not getting near if you're not Valyrian.
+	is_shown = {              
+		OR = {
+			any_ancestor = {
+				even_if_dead = yes
+				has_culture = culture:high_valyrian
+			}
+			has_culture = culture:high_valyrian
+		}
+		OR = {
+			has_character_modifier = nimble_dragon_rider_modifier
+			has_character_modifier = large_dragon_rider_modifier
+			has_character_modifier = great_dragon_rider_modifier
+		}
+		any_character_artifact = {
+			has_variable = claimed_dragon
+		}
+	}
+	# Begin
+	effect = {
+		trigger_event = {
+			id = dragon_event.4001
+		}
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+claim_wild_dragon_decision = {
+	# Rumour of Wild Dragon
+	picture = ""gfx/interface/illustrations/decisions/summon_dragon_decision.dds""
+	title = claim_wild_dragon_decision_title
+	desc = claim_wild_dragon_decision_desc
+	# 5 Years
+	cooldown = { days = 1825 }
+	selection_tooltip = claim_wild_dragon_selection_tooltip
+	# Must be Valyrian or of Valyrian descent. and not already be a dragon-rider.
+	is_shown = {              
+		OR = {
+			any_ancestor = {
+				even_if_dead = yes
+				has_culture = culture:high_valyrian
+			}
+			has_culture = culture:high_valyrian
+		}
+		any_artifact = {
+			this = { has_variable = unclaimed_dragon }
+		}
+	}
+	is_valid = {
+		NOT = {
+			any_character_artifact = {
+				this = { has_variable = claimed_dragon }
+			}
+			OR = {
+				has_character_modifier = nimble_dragon_rider_modifier
+				has_character_modifier = large_dragon_rider_modifier
+				has_character_modifier = great_dragon_rider_modifier
+			}
+		}
+	}
+	# Begin
+	effect = {
+		save_scope_as = new_owner
+		any_artifact = {
+			limit = { has_variable = unclaimed_dragon }
+            remove_variable = unclaimed_dragon
+            set_variable = {
+                name = claimed_dragon
+                value = yes
+            }
+			set_owner = new_owner
+		}
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}

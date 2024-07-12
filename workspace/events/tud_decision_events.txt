@@ -1,0 +1,222 @@
+﻿namespace = tud_decision_events
+
+# Decisions
+# Dragon Hatched
+tud_decision_events.0001 = {
+    # Start Hatching
+	type = character_event
+	title = tud_decision_events.0001.t
+	desc = tud_decision_events.0001.desc
+	theme = dragon_hatched_theme
+	# Portrait
+	left_portrait = {
+		character = root
+		animation = spymaster
+	}
+	# Attempt Egg Hatch
+    option = {
+		name = tud_decision_events.0001.a
+		# Destroy Egg In Attempt
+		hidden_effect = {
+			root = {
+				# Find Egg
+				random_character_artifact = {
+					limit = { has_variable = dragon_egg }
+					save_scope_as = delete_egg
+				}
+				destroy_artifact = scope:delete_egg
+			}
+			random_artifact = {
+				limit = { has_variable = dragon_id }
+				save_scope_as = dragon_hatched_any
+			}
+		}
+		# Hatch Egg
+		random_list = {
+			# Hatched
+			50 = {
+				create_story = story_cycle_dragon_rider
+				custom_tooltip = tud_decision_events.0001.a.tooltip.1
+			}
+			# Failed
+			50 = {
+				add_prestige = -250
+				custom_tooltip = tud_decision_events.0001.a.tooltip.2
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	# Maybe Not
+	option = {
+		name = tud_decision_events.0001.b
+	}
+
+}
+# Dragon Nest Checked
+tud_decision_events.0002 = {
+	# Go To Nest
+	type = character_event
+	title = tud_decision_events.0002.t
+	desc = tud_decision_events.0002.desc
+	theme = dragon_nest_theme
+	# For Light
+	left_portrait = {
+		character = root
+		animation = lantern
+	}
+	# Egg Or Nothing
+	option = {
+		name = tud_decision_events.0002.a
+		random_list = {
+			50 = {
+				get_random_dragon_egg_artifact = {
+					OWNER = ROOT
+					GIVER = ROOT
+				}
+			}
+			50 = {
+				root = {
+					add_prestige = -250
+				}
+			}
+		}
+	}
+}
+
+# Burn Province With Dragon
+tud_decision_events.0003 = {
+	# Start Burning
+	type = character_event
+	title = tud_decision_events.0003.t
+	desc = tud_decision_events.0003.desc
+	theme = battle
+	override_background = { reference = burning_building }
+	# Save Location Scopes
+	immediate = {
+		ROOT.location.county = { save_scope_as = burned_county }
+		ROOT.location.county.holder = { save_scope_as = burned_holder }
+	}
+	# Portraits
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	right_portrait = {
+		character = scope:burned_holder
+		animation = fear
+		triggered_animation = {
+			trigger = {
+				ai_vengefulness >= medium_positive_ai_value
+				ai_boldness > high_negative_ai_value
+			}
+			animation = rage
+		}
+	}
+	# Burn
+	option = {
+		name = tud_decision_events.0003.a
+		# 90% Chance of Success - 5% Rider Killed / 5% Rider and Dragon Killed
+		random_list = {
+			90 = {
+				stress_impact = {
+					just = major_stress_impact_gain
+					forgiving = medium_stress_impact_gain
+					compassionate = major_stress_impact_gain
+					craven = major_stress_impact_gain
+					sadistic = major_stress_impact_loss
+					fire_obsessed = minor_stress_impact_loss
+				}
+				add_dread = minor_dread_gain
+				scope:burned_holder = {
+					every_close_family_member = {
+						custom = dragon_sieged_family_custom
+						limit = {
+							is_close_family_or_spouse_of_root_trigger = no
+							NOT = { this = root }
+						}
+						add_opinion = {
+							target = root
+							modifier = dragon_sieged_family
+						}
+					}
+					add_opinion = {
+						target = root
+						modifier = dragon_sieged_me
+					}
+				}
+				scope:burned_county = {
+					add_county_modifier = {
+						modifier = dragon_siege_modifier
+						years = 5
+					}
+				}
+			}
+			5 = {
+				root = {
+					death = {
+						death_reason = death_tud_siege
+						killer = scope:burned_holder
+					}
+				}
+			}
+			5 = {
+				root = {
+					random_character_artifact = {
+						limit = {
+							var:dragon_rider = yes
+						}
+						save_scope_as = dragon_to_die
+						set_variable = death_battle
+					}
+					random_owned_story = {
+						limit = { 
+							var:story_cycle_dragon_id = scope:dragon_to_die.var:dragon_id
+						}
+						end_story = yes
+					}
+					death = {
+						death_reason = death_tud_siege
+						killer = scope:burned_holder
+					}
+				}
+			}
+		}
+	}
+	# Don't Burn
+	option = {
+		name = tud_decision_events.0003.b
+	}
+}
+
+# Wild Dragon Claimed
+tud_decision_events.0004 = {
+	# Go To Nest
+	type = character_event
+	title = tud_decision_events.0004.t
+	desc = tud_decision_events.0004.desc
+	theme = dragon_duel_theme
+	# For Light
+	left_portrait = {
+		character = root
+		animation = spymaster
+	}
+	artifact = {
+		target = scope:wild_dragon_transfer
+		position = lower_center_portrait
+	}
+	# Dragon Claimed
+	option = {
+		name = tud_decision_events.0004.a
+		create_character_memory = {
+			type = tud_claimed_memory
+			participants = {
+				claimant = root
+			}
+		}
+	}
+}
+
+
+

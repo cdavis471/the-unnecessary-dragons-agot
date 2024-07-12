@@ -1,0 +1,71 @@
+﻿use_dragon_in_siege_1 = {
+	# Unleash Dragonfire
+	picture = "gfx/interface/illustrations/decisions/decision_legend.dds"
+	title = use_dragon_in_siege_1_title
+	desc = use_dragon_in_siege_1_desc
+	cooldown = { days = 1 }
+	selection_tooltip = use_dragon_in_siege_1_tooltip
+	# Commanding Army & Dragon Rider
+	is_shown = {
+		exists = commanding_army
+		commanding_army = {
+			OR = {
+				is_army_in_siege = yes
+				is_army_in_raid = yes
+			}
+		}
+		OR = {
+			any_ancestor = {
+				this = { has_culture = culture:high_valyrian }
+			}
+			has_culture = culture:high_valyrian
+		}
+		OR = {
+			number_maa_soldiers_of_base_type = {
+				type = nimble_dragon
+				value = 1
+			}
+			number_maa_soldiers_of_base_type = {
+				type = large_dragon
+				value = 1
+			}
+			number_maa_soldiers_of_base_type = {
+				type = great_dragon
+				value = 1
+			}
+		}
+		AND = {
+			OR = {
+				has_character_modifier = nimble_dragon_rider_modifier
+				has_character_modifier = large_dragon_rider_modifier
+				has_character_modifier = great_dragon_rider_modifier
+			}
+			any_character_artifact = {
+				has_variable = claimed_dragon
+			}
+		}
+		# Not Burned
+		NOT = {
+			ROOT.location.county = { has_county_modifier = dragon_siege_modifier }
+		}
+	}
+	# Burn County
+	effect = {
+		trigger_event = {
+			id = dragon_event.2001 # dragon commander events
+		}
+	}
+	ai_potential = {
+		is_at_war = yes
+	}
+	ai_will_do = {
+		base = 30
+		modifier = {
+			root = {
+				has_trait = callous
+				has_trait = arbitrary
+			}
+			add = 70
+		}
+	}
+}

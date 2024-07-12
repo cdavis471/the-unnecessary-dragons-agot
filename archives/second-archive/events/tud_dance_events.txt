@@ -1,0 +1,202 @@
+namespace = dragon_dance
+
+dragon_dance.0001 = {
+	# Start Dance
+	type = character_event
+	hidden = false
+	title = dragon_dance.0001.t
+	desc = dragon_dance.0001.desc
+	theme = dragon_duel_theme
+	# Actor
+	left_portrait = {
+		character = scope:actor
+		animation = frontend_left_idle
+	}
+	# Recipient
+	right_portrait = {
+		character = scope:recipient
+		animation = frontend_right_idle
+	}
+	immediate = {
+		scope:actor = {
+			random_character_artifact = {
+				limit = { has_variable = claimed_dragon }
+				save_scope_as = actoritem
+			}
+		}
+		scope:recipient = {
+			random_character_artifact = {
+				limit = { has_variable = claimed_dragon }
+				save_scope_as = recipientitem
+			}
+		}
+	}
+	# Option One
+	option = {
+		name = dragon_dance.0001.a
+		custom_tooltip = dragon_dance.tooltip1
+		# Effect - 50 / 50
+        random_list = {
+			50 = {
+				dragon_dancewon_effect = {
+					RECIPIENT = scope:recipient
+					ACTOR = scope:actor
+					RECIPIENTITEM = scope:recipientitem
+					ACTORITEM = scope:actoritem
+				}
+			}
+			50 = {
+				dragon_dancelost_effect = {
+					RECIPIENT = scope:recipient
+					ACTOR = scope:actor
+					RECIPIENTITEM = scope:recipientitem
+					ACTORITEM = scope:actoritem
+				}
+			}
+		}
+	}
+	# Option Two
+	option = {
+		name = dragon_dance.0001.b
+		custom_tooltip = dragon_dance.tooltip2
+		# Effect - 50 / 50
+		random_list = {
+			50 = {
+				dragon_dancelost_effect = {
+					RECIPIENT = scope:recipient
+					ACTOR = scope:actor
+					RECIPIENTITEM = scope:recipientitem
+					ACTORITEM = scope:actoritem
+				}
+			}
+			50 = {
+				dragon_dancewon_effect = {
+					RECIPIENT = scope:recipient
+					ACTOR = scope:actor
+					RECIPIENTITEM = scope:recipientitem
+					ACTORITEM = scope:actoritem
+				}
+			}
+		}
+	}
+	# Option Three
+	option = {
+		name = dragon_dance.0001.c
+		custom_tooltip = dragon_dance.tooltip3
+		# Effect - 50 / 50
+        random_list = {
+			50 = {
+				dragon_dancewon_effect = {
+					RECIPIENT = scope:recipient
+					ACTOR = scope:actor
+					RECIPIENTITEM = scope:recipientitem
+					ACTORITEM = scope:actoritem
+				}
+			}
+			50 = {
+				dragon_dancelost_effect = {
+					RECIPIENT = scope:recipient
+					ACTOR = scope:actor
+					RECIPIENTITEM = scope:recipientitem
+					ACTORITEM = scope:actoritem
+				}
+			}
+		}
+	}
+}
+
+dragon_dance.0002 = {
+	# Dance - Death
+	type = character_event
+	hidden = false
+	title = dragon_dance.0002.t
+	desc = dragon_dance.0002.desc
+	theme = dragon_duel_theme
+	# Actor
+	left_portrait = {
+		character = scope:actor
+		animation = frontend_left_idle
+	}
+	# Recipient
+	right_portrait = {
+		character = scope:recipient
+		animation = frontend_right_idle
+	}
+	# Dragon Is Killed
+	immediate = {
+		dragon_death_effect = {
+			OWNER = scope:actor
+			ITEM = scope:actoritem
+		}
+	}
+	# The End
+	option = {
+		name = dragon_dance.0002.a
+		custom_tooltip = dragon_dance.tooltip4
+		# Kill Actor
+        scope:actor = {
+			death = {
+				death_reason = death_dance_of_dragons
+				killer = scope:recipient
+			}
+			every_close_family_member = {
+				custom = killed_opoonent_dance_custom
+				limit = {
+					NOT = { this = scope:recipient }
+				}
+				add_opinion = {
+					target = scope:recipient
+					modifier = killed_opoonent_dance
+				}
+			}
+		}
+	}
+}
+
+dragon_dance.0003 = {
+	# Dance - Victory
+	type = character_event
+	hidden = false
+	title = dragon_dance.0003.t
+	desc = dragon_dance.0003.desc
+	theme = dragon_duel_theme
+	# Actor
+	left_portrait = {
+		character = scope:actor
+		animation = frontend_left_idle
+	}
+	# Recipient
+	right_portrait = {
+		character = scope:recipient
+		animation = frontend_right_idle
+	}
+	# Enemy Dragon Is Killed
+	immediate = {
+		dragon_death_effect = {
+			OWNER = scope:recipient
+			ITEM = scope:recipientitem
+		}
+	}
+	# The Beginning
+	option = {
+		name = dragon_dance.0003.a
+		custom_tooltip = dragon_dance.tooltip5
+		# Kill Recipient
+        scope:recipient = {
+			death = {
+				death_reason = death_dance_of_dragons
+				killer = scope:actor
+			}
+			every_close_family_member = {
+				custom = killed_opoonent_dance_custom
+				limit = {
+					NOT = { this = scope:actor }
+				}
+				add_opinion = {
+					target = scope:actor
+					modifier = killed_opoonent_dance
+				}
+			}
+		}
+	}
+}

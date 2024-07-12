@@ -1,0 +1,137 @@
+﻿l_english:
+ hatch_dragon_decision:0 "An Ancient Ritual"
+ hatch_dragon_decision_title:0 "Hatch A Dragon"
+ hatch_dragon_decision_desc:0 "I have read the manuscripts and believe I now hold the means to bring a dragon forth from its shell. Surely I must succeed..."
+ hatch_dragon_decision_confirm:0 "Begin My Preparations!"
+ hatch_dragon_selection_tooltip:0 "You will begin the planning of the ritual..."
+ 
+ dragon_sieged_me:0 "Razed my lands with a Dragon"
+ dragon_sieged_family:0 "Razed my family's lands with a Dragon"
+ dragon_sieged_family_custom:0 "This vile act will be remembered by their family.."
+ 
+ dragon_event.1001.t:0 "Zaldrīzes Buzdari Iksos Daor!"
+ dragon_event.1001.a:0 "It is time."
+ dragon_event.1001.desc:0 "My blood has been spent, the fire burns hot... now is the time for me to unleash the power within this egg."
+ 
+ dragon_event.1002.t:0 "A Dragon Appears!"
+ dragon_event.1002.a:0 "Now, what should I name you?"
+ dragon_event.1002.desc:0 "A Dragon! It looks rather small, but a dragon is a dragon..."
+
+ dragon_event.1003.t:0 "A Dragon Appears!"
+ dragon_event.1003.a:0 "Now, what should I name you?"
+ dragon_event.1003.desc:0 "A Dragon! This dragon looks as though it is a rather healthy size..."
+
+ dragon_event.tooltip4:0 "You hatch nothing..."
+ dragon_event.tooltip1:0 "You hatch a Great Dragon!"
+ dragon_event.tooltip2:0 "You hatch a Large Dragon!"
+ dragon_event.tooltip3:0 "You hatch a Nimble Dragon!"
+
+ dragon_event.1004.t:0 "A Dragon Appears!"
+ dragon_event.1004.a:0 "Now, what should I name you?"
+ dragon_event.1004.desc:0 "A Dragon! It looked like it barely fit in the egg when it cracked, surely this dragon will grow to a monstrous size..."
+
+ dragon_event.2001.t:0 "Fire and Blood"
+ dragon_event.2001.a:0 "These walls are nothing, Dracarys!"
+ dragon_event.2001.b:0 "On second thought, this is far too cruel."
+ dragon_event.2001.desc:0 "How foolish can one be, what are walls to the might of dragon fire? With my command, I could order my dragon to burn these walls to the ground - although it may have quite the devastating effect."
+ dragon_siege_modifier:0 "Recent Dragon Attack"
+ 
+ dragon_event.3004.t:0 "To Be a Dragonlord"
+ dragon_event.3004.desc1:0 "It has finally come time to make use of my Dragon! Many of the feeble lords of Westeros use their birthrights to establish their own petty claims on land. Yet I've no need of such formalities, for I have a Dragon.\n"
+ dragon_event.3004.desc2:0 "\nThe blood of Old Valyria courses through my veins, and atop my Dragon, these lands will be mine. Who will stand in the way of dragonfire?"
+ dragon_event.3004.a:0 "I must act quickly, the time for War is now."
+ 
+ dragon_event.3005.t:0 "The Conqueror Returns"
+ dragon_event.3005.desc1:0 "Centuries ago after the Doom, my ancestor conquered all of Westeros atop the mighty Balerion. Westerosi lords need formalities to argue their petty claims on the meager lands they fight over. Though I need no such thing!\n"
+ dragon_event.3005.desc2:0 "\nThe blood of Old Valyria courses through my veins, the blood of Gods! Like Aegon the Conqueror, I will establish a claim on all of the Seven Kingdoms by the right of my Dragon! For I control the very thing that united Westeros to begin with!\n"
+ dragon_event.3005.desc3:0 "\nSeven Kingdoms but one King, how could they all be made to bend? It's simple. Fire! Fire and Blood!"
+ dragon_event.3005.a:0 "Fire and Blood."
+ 
+ nick_the_conqueror:0 "the Conqueror"
+ nick_the_conqueror_desc:1 "What mightier deed can be writ in the annals than the subjugation of an entire realm?"
+ 
+ nick_the_dragonlord:0 "the Dragon"
+ nick_the_dragonlord_desc:1 "You have laid claim to the bold entirety of the Seven Kingdoms using your right as a Dragonlord. The threat of a Dragonlord is great, and there aren't many alive who could ever rival you."
+ 
+ use_dragon_in_siege_1:0 "Burn these Walls with your Dragon"
+ use_dragon_in_siege_1_title:0 "Burn these Walls with your Dragon"
+ use_dragon_in_siege_1_desc:0 "With my Dragon these walls are sure to fall.. Though it may come at a price."
+ use_dragon_in_siege_1_confirm:0 "Call your Dragon"
+ use_dragon_in_siege_1_tooltip:0 "Call your Dragon to destroy the walls blocking your path!"
+ 
+ summon_dragon_decision:0 "Call Your Nimble Dragon"
+ summon_dragon_decision_title:0 "Call Your Nimble Dragon For Battle!"
+ summon_dragon_decision_desc:0 "The time has come to make use of my dragon! Though it is small, it will still prove useful; what could mere men do against a dragon? I must command the dragon to heel..."
+ summon_dragon_decision_confirm:0 "Call Your Dragon"
+ summon_dragon_decision_tooltip:0 "It is time!"
+ 
+ dragon_name:0 "You may name your dragon at anytime."
+ 
+ summon_dragon_decision_2:0 "Call Your Large Dragon"
+ summon_dragon_decision_2_title:0 "Call Your Large Dragon For Battle!"
+ summon_dragon_decision_2_desc:0 "The time has come to make use of my dragon! What could mere men do against a dragon? I must command the dragon to heel..."
+ summon_dragon_decision_2_confirm:0 "Call Your Dragon"
+ summon_dragon_decision_2_tooltip:0 "It is time!"
+ 
+ summon_dragon_decision_3:0 "Call Your Great Dragon"
+ summon_dragon_decision_3_title:0 "Call Your Great Dragon For Battle!"
+ summon_dragon_decision_3_desc:0 "The time has come to make use of my dragon! What could mere men do against my mount, a behemoth among his kind? I must command the dragon to heel however..."
+ summon_dragon_decision_3_confirm:0 "Call Your Dragon"
+ summon_dragon_decision_3_tooltip:0 "It is time!"
+ 
+ dragon_claim_throne:0 "Claim Throne by Right of Dragons"
+ dragon_claim_throne_desc:0 "Claim their primary title using your Dragon"
+ 
+ dragonlord_modifier:0 "Dragonlord"
+ dragonlord_custom:0 "My Dragon aches to be ridden! The time for War is now"
+ dragonlord_claimed_my_title:0 "You used your Dragons to claim my lands"
+ dragonlord_claimed_my_liege:0 "You are a Dragonlord"
+ dragonlord_claimed_family:0 "Rumors of a Dragonlord spread quickly in their family"
+
+ dragon_dance:0 "A Dance of Dragons"
+ dragon_dance_desc:0 "You see your opponent in the sky before you!"
+
+ check_for_eggs_decision:0 "Check Your Dragon's Nest"
+ check_for_eggs_decision_title:0 "The Search For Dragon Eggs"
+ check_for_eggs_decision_desc:0 "I think it would be wise to grow the number of eggs in my possession, I will have to take a quick peek at where my dragon usually rests..."
+ check_for_eggs_decision_confirm:0 "Begin Your Search"
+ check_for_eggs_selection_tooltip:0 "Who knows what will happen."
+ 
+ dragon_event.4001.t:0 "A Secluded Nest"
+ dragon_event.4001.a:0 "Let me have a look..."
+ dragon_event.4001.desc:0 "I have arrived at the nest, and it seems my mount is not home, as predicted. Steam rises from the center, where a mound seems to jut out from the rather flat ground.\n\nI should walk towards it, claim what is rightfully mine."
+
+ dragon_dance.0001.t:0 "The Dance of Dragons"
+ dragon_dance.0001.a:0 "Straight for that fool, embrot!"
+ dragon_dance.0001.b:0 "Let us take this to the ground, tear flesh from limb through sheer might."
+ dragon_dance.0001.c:0 "I need to get some distance, gather myself and engage once again."
+ dragon_dance.0001.desc:0 "My mount hurtles higher in the sky as the clashing of razor-sharp teeth and scales, claws and muscle, begins to spiral out of control. My fate and that of my opponent is in the hands of the gods, and the power of our dragons.\n\nYet, are dragonlords not closer to gods than men, commanding such power?\n\nI must command this vicious dance."
+ 
+ dragon_dance.0002.t:0 "Daor!"
+ dragon_dance.0002.a:0 "A fitting end for a dragon rider."
+ dragon_dance.0002.desc:0 "From below, every man and woman bore witness to a mighty dance, great bursts of flame and roars that shook the very foundations of the earth.\n\nAlas, it is your vision that blackens, your life that ends.\n\nA life that will be remembered through the songs of your legendary demise."
+
+ dragon_dance.0003.t:0 "Vezot!"
+ dragon_dance.0003.a:0 "My name will echo through history."
+ dragon_dance.0003.desc:0 "As the rider and their mount lie dead before you, you take in the damage wrought by this battle of fire and blood.\n\nHaving taken a moment to remember the imagery before you, you rise once more to the heavens, victorious."
+
+ dragon_dance.tooltip1:0 "Victory will be mine!"
+ dragon_dance.tooltip2:0 "This might end up being a mistake."
+ dragon_dance.tooltip3:0 "I will bide my time."
+ dragon_dance.tooltip4:0 "An eerie silence."
+ dragon_dance.tooltip5:0 "I have shown my superiority as a dragonrider."
+
+ death_dance_of_dragons:0 "Was slain in a Dance of Dragons"
+ death_dance_of_dragons_killer:0 "was slain by [TARGET_CHARACTER.GetUIName] in a Dance of Dragons"
+ killed_opponent_dance:0 "Has Slain Close Family in Dance of Dragons"
+ killed_opponent_dance_custom:0 "A battle between dragons can only result in death."
+
+ d_inheritance.0001.t:0 "Abundance"
+ d_inheritance.0001.desc:0 "When an audience was requested with you by your kin, you obliged, allowing them to enter. Having heard their petition to claim one of your dragon eggs, you ponder it in silence before you reply."
+ d_inheritance.0001.a:0 "You can have it, you have my word."
+ d_inheritance.0001.b:0 "Frankly, I had someone else in mind."
+ 
+ d_inheritance.0002.t:0 "A Pit of Dragons"
+ d_inheritance.0002.desc:0 "As you look on with your blood relative, having heard their petition to claim the beast that now rests before you, you truly need to gauge quickly if this is the best course of action.\n\nThey are looking at you eagerly, awaiting your reply."
+ d_inheritance.0002.a:0 "Go ahead, if you feel you are prepared to do so."
+ d_inheritance.0002.b:0 "This is a bad idea, I had another person in mind."

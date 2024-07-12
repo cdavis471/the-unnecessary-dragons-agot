@@ -1,0 +1,50 @@
+﻿# Dragon Hatched Memory
+tud_hatching_memory = {
+	categories = { positive }
+	icon = "martial.dds"
+	description = { desc = tud_hatching_memory_desc }
+	second_perspective_description = { desc = tud_hatching_memory_desc_second_perspective }
+	third_perspective_description = { desc = tud_hatching_memory_desc_third_perspective }
+	participants = { hatcher }
+	duration = { years = memory_default_duration }
+}
+# Dragon Claimed Memory
+tud_claimed_memory = {
+	categories = { positive }
+	icon = "martial.dds"
+	description = { desc = tud_claimed_memory_desc }
+	second_perspective_description = { desc = tud_claimed_memory_desc_second_perspective }
+	third_perspective_description = { desc = tud_claimed_memory_desc_third_perspective }
+	participants = { claimant }
+	duration = { years = memory_default_duration }
+}
+# Dragon Dance Won Memory
+tud_dancewon_memory = {
+	categories = { positive }
+	icon = "martial.dds"
+	description = { desc = tud_dancewon_memory_desc }
+	second_perspective_description = { desc = tud_dancewon_memory_desc_second_perspective }
+	third_perspective_description = { desc = tud_dancewon_memory_desc_third_perspective }
+	participants = { victor loser }
+	duration = { years = memory_default_duration }
+}
+# Dragon Dance Lost Memory
+tud_dancelost_memory = {
+	categories = { negative }
+	icon = "martial.dds"
+	description = { desc = tud_dancelost_memory_desc }
+	second_perspective_description = { desc = tud_dancelost_memory_desc_second_perspective }
+	third_perspective_description = { desc = tud_dancelost_memory_desc_third_perspective }
+	participants = { victor loser }
+	duration = { years = memory_default_duration }
+}
+# Dragon Dies Memory
+tud_dying_memory = {
+	categories = { negative }
+	icon = "martial.dds"
+	description = { desc = tud_dying_memory_desc }
+	second_perspective_description = { desc = tud_dying_memory_desc_second_perspective }
+	third_perspective_description = { desc = tud_dying_memory_desc_third_perspective }
+	participants = { rider }
+	duration = { years = memory_default_duration }
+}

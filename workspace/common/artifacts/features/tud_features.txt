@@ -1,0 +1,635 @@
+﻿#########################################################################
+###########################       BUILD       ###########################
+#########################################################################
+dragon_feature_build_slender = {
+    group = dragon_feature_build_group
+    weight = 3
+}
+dragon_feature_build_robust = {
+    group = dragon_feature_build_group
+    weight = 3
+}
+dragon_feature_build_spindly = {
+    group = dragon_feature_build_group
+    weight = 1
+}
+dragon_feature_build_monstrous = {
+    group = dragon_feature_build_group
+    weight = 1
+}
+#########################################################################
+###########################       COLOUR       ##########################
+#########################################################################
+#########################################################################
+#######################   PRIMARY COLOUR: BLACK   #######################
+#########################################################################
+dragon_feature_colour_black_black = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_black_grey = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_black_white = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_black_brown = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_black_orange = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_black_yellow = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_black_gold = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_black_green = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_black_blue = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_black_purple = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_black_red = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_black_pink = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+#########################################################################
+#######################   PRIMARY COLOUR: GREY  #########################
+#########################################################################
+dragon_feature_colour_grey_black = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_grey_grey = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_grey_white = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_grey_brown = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_grey_orange = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_grey_yellow = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_grey_gold = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_grey_green = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_grey_blue = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_grey_purple = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_grey_red = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_grey_pink = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+#########################################################################
+#######################   PRIMARY COLOUR: WHITE   #######################
+#########################################################################
+dragon_feature_colour_white_black = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_white_grey = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_white_white = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_white_brown = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_white_orange = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_white_yellow = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_white_gold = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_white_green = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_white_blue = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_white_purple = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_white_red = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_white_pink = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+
+#########################################################################
+#######################   PRIMARY COLOUR: BROWN   #######################
+#########################################################################
+dragon_feature_colour_brown_black = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_brown_grey = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_brown_white = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_brown_brown = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_brown_orange = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_brown_yellow = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_brown_gold = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_brown_green = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_brown_blue = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_brown_purple = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_brown_red = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_brown_pink = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+#########################################################################
+#######################   PRIMARY COLOUR: ORANGE   ######################
+#########################################################################
+dragon_feature_colour_orange_black = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_orange_grey = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_orange_white = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_orange_brown = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_orange_orange = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_orange_yellow = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_orange_gold = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_orange_green = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_orange_blue = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_orange_purple = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_orange_red = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_orange_pink = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+#########################################################################
+#######################   PRIMARY COLOUR: YELLOW   ######################
+#########################################################################
+dragon_feature_colour_yellow_black = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_yellow_grey = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_yellow_white = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_yellow_brown = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_yellow_orange = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_yellow_yellow = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_yellow_gold = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_yellow_green = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_yellow_blue = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_yellow_purple = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_yellow_red = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_yellow_pink = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+#########################################################################
+#######################   PRIMARY COLOUR: GOLD    #######################
+#########################################################################
+dragon_feature_colour_gold_black = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_gold_grey = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_gold_white = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_gold_brown = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_gold_orange = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_gold_yellow = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_gold_gold = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_gold_green = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_gold_blue = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_gold_purple = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_gold_red = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_gold_pink = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+#########################################################################
+#######################   PRIMARY COLOUR: GREEN   #######################
+#########################################################################
+dragon_feature_colour_green_black = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_green_grey = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_green_white = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_green_brown = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_green_orange = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_green_yellow = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_green_gold = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_green_green = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_green_blue = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_green_purple = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_green_red = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_green_pink = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+#########################################################################
+#######################   PRIMARY COLOUR: BLUE    #######################
+#########################################################################
+dragon_feature_colour_blue_black = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_blue_grey = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_blue_white = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_blue_brown = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_blue_orange = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_blue_yellow = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_blue_gold = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_blue_green = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_blue_blue = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_blue_purple = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_blue_red = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_blue_pink = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+#########################################################################
+#######################   PRIMARY COLOUR: PURPLE   ######################
+#########################################################################
+dragon_feature_colour_purple_black = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_purple_grey = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_purple_white = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_purple_brown = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_purple_orange = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_purple_yellow = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_purple_gold = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_purple_green = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_purple_blue = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_purple_purple = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_purple_red = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_purple_pink = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+#########################################################################
+#######################   PRIMARY COLOUR: RED    ########################
+#########################################################################
+dragon_feature_colour_red_black = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_red_grey = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_red_white = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_red_brown = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_red_orange = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_red_yellow = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_red_gold = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_red_green = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_red_blue = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_red_purple = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_red_red = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_red_pink = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+#########################################################################
+#######################   PRIMARY COLOUR: PINK    #######################
+#########################################################################
+dragon_feature_colour_pink_black = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_pink_grey = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_pink_white = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_pink_brown = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_pink_orange = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_pink_yellow = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_pink_gold = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_pink_green = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_pink_blue = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_pink_purple = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_pink_red = {
+    group = dragon_feature_colour_group
+    weight = 1
+}
+dragon_feature_colour_pink_pink = {
+    group = dragon_feature_colour_group
+    weight = 1
+}

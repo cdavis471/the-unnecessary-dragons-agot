@@ -1,0 +1,12 @@
+﻿l_english:
+ dragon:2 "[dragon|E]"
+ game_concept_dragon:0 "Dragons"
+ game_concept_dragon_desc:0 "Dragons are the pinnacle of power. Believed to be mere legends by many, it is said that Aegon was able to conquer all of Westeros with just three great dragons."
+ 
+ #Base MaA
+ nimble_dragon:0 "Nimble Dragon"
+ nimble_dragon_flavor:0 "This slight serpent will reach around fifty and a hundred years of age, growing to a respectable size."
+ large_dragon:0 "Large Dragon"
+ large_dragon_flavor:0 "This dragon will reach around seventy-five and a hundred years of age, growing to a large size."
+ great_dragon:0 "Great Dragon"
+ great_dragon_flavor:0 "This beast will reach around two hundred years of age, growing to a monstrous size."

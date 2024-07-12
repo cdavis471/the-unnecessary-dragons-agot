@@ -1,0 +1,357 @@
+﻿l_english:
+ ###############################################################################################
+ # Artifacts
+ ###############################################################################################
+ # Feature Groups
+ feature_dragon_feature_colour_group:0 "Dragon Colour"
+ feature_dragon_feature_build_group:0 "Dragon Build"
+ # Features
+ # Build
+ feature_dragon_feature_build_slender:0 "Slender Dragon"
+ feature_dragon_feature_build_robust:0 "Robust Dragon"
+ feature_dragon_feature_build_spindly:0 "Spindly Dragon"
+ feature_dragon_feature_build_monstrous:0 "Monstrous Dragon"
+ # Colour
+ # Black
+ feature_dragon_feature_colour_black_black:0 "Black Scales"
+ feature_dragon_feature_colour_black_grey:0 "Black Scales With Hints Of Grey"
+ feature_dragon_feature_colour_black_white:0 "Black Scales With Hints Of White"
+ feature_dragon_feature_colour_black_brown:0 "Black Scales With Hints Of Brown"
+ feature_dragon_feature_colour_black_orange:0 "Black Scales With Hints Of Orange"
+ feature_dragon_feature_colour_black_yellow:0 "Black Scales With Hints Of Yellow"
+ feature_dragon_feature_colour_black_gold:0 "Black Scales With Hints Of Gold"
+ feature_dragon_feature_colour_black_green:0 "Black Scales With Hints Of Green"
+ feature_dragon_feature_colour_black_blue:0 "Black Scales With Hints Of Blue"
+ feature_dragon_feature_colour_black_purple:0 "Black Scales With Hints Of Purple"
+ feature_dragon_feature_colour_black_red:0 "Black Scales With Hints Of Red"
+ feature_dragon_feature_colour_black_pink:0 "Black Scales With Hints Of Pink"
+ # Grey
+ feature_dragon_feature_colour_grey_black:0 "Grey Scales With Hints Of Black"
+ feature_dragon_feature_colour_grey_grey:0 "Grey Scales"
+ feature_dragon_feature_colour_grey_white:0 "Grey Scales With Hints Of White"
+ feature_dragon_feature_colour_grey_brown:0 "Grey Scales With Hints Of Brown"
+ feature_dragon_feature_colour_grey_orange:0 "Grey Scales With Hints Of Orange"
+ feature_dragon_feature_colour_grey_yellow:0 "Grey Scales With Hints Of Yellow"
+ feature_dragon_feature_colour_grey_gold:0 "Grey Scales With Hints Of Gold"
+ feature_dragon_feature_colour_grey_green:0 "Grey Scales With Hints Of Green"
+ feature_dragon_feature_colour_grey_blue:0 "Grey Scales With Hints Of Blue"
+ feature_dragon_feature_colour_grey_purple:0 "Grey Scales With Hints Of Purple"
+ feature_dragon_feature_colour_grey_red:0 "Grey Scales With Hints Of Red"
+ feature_dragon_feature_colour_grey_pink:0 "Grey Scales With Hints Of Pink"
+ # White
+ feature_dragon_feature_colour_white_black:0 "White Scales With Hints Of Black"
+ feature_dragon_feature_colour_white_grey:0 "White Scales With Hints Of Grey"
+ feature_dragon_feature_colour_white_white:0 "White Scales"
+ feature_dragon_feature_colour_white_brown:0 "White Scales With Hints Of Brown"
+ feature_dragon_feature_colour_white_orange:0 "White Scales With Hints Of Orange"
+ feature_dragon_feature_colour_white_yellow:0 "White Scales With Hints Of Yellow"
+ feature_dragon_feature_colour_white_gold:0 "White Scales With Hints Of Gold"
+ feature_dragon_feature_colour_white_green:0 "White Scales With Hints Of Green"
+ feature_dragon_feature_colour_white_blue:0 "White Scales With Hints Of Blue"
+ feature_dragon_feature_colour_white_purple:0 "White Scales With Hints Of Purple"
+ feature_dragon_feature_colour_white_red:0 "White Scales With Hints Of Red"
+ feature_dragon_feature_colour_white_pink:0 "White Scales With Hints Of Pink"
+ # Brown
+ feature_dragon_feature_colour_brown_black:0 "Brown Scales With Hints Of Black"
+ feature_dragon_feature_colour_brown_grey:0 "Brown Scales With Hints Of Grey"
+ feature_dragon_feature_colour_brown_white:0 "Brown Scales With Hints Of White"
+ feature_dragon_feature_colour_brown_brown:0 "Brown Scales"
+ feature_dragon_feature_colour_brown_orange:0 "Brown Scales With Hints Of Orange"
+ feature_dragon_feature_colour_brown_yellow:0 "Brown Scales With Hints Of Yellow"
+ feature_dragon_feature_colour_brown_gold:0 "Brown Scales With Hints Of Gold"
+ feature_dragon_feature_colour_brown_green:0 "Brown Scales With Hints Of Green"
+ feature_dragon_feature_colour_brown_blue:0 "Brown Scales With Hints Of Blue"
+ feature_dragon_feature_colour_brown_purple:0 "Brown Scales With Hints Of Purple"
+ feature_dragon_feature_colour_brown_red:0 "Brown Scales With Hints Of Red"
+ feature_dragon_feature_colour_brown_pink:0 "Brown Scales With Hints Of Pink"
+ # Orange
+ feature_dragon_feature_colour_orange_black:0 "Orange Scales With Hints Of Black"
+ feature_dragon_feature_colour_orange_grey:0 "Orange Scales With Hints Of Grey"
+ feature_dragon_feature_colour_orange_white:0 "Orange Scales With Hints Of White"
+ feature_dragon_feature_colour_orange_brown:0 "Orange Scales With Hints Of Brown"
+ feature_dragon_feature_colour_orange_orange:0 "Orange Scales"
+ feature_dragon_feature_colour_orange_yellow:0 "Orange Scales With Hints Of Yellow"
+ feature_dragon_feature_colour_orange_gold:0 "Orange Scales With Hints Of Gold"
+ feature_dragon_feature_colour_orange_green:0 "Orange Scales With Hints Of Green"
+ feature_dragon_feature_colour_orange_blue:0 "Orange Scales With Hints Of Blue"
+ feature_dragon_feature_colour_orange_purple:0 "Orange Scales With Hints Of Purple"
+ feature_dragon_feature_colour_orange_red:0 "Orange Scales With Hints Of Red"
+ feature_dragon_feature_colour_orange_pink:0 "Orange Scales With Hints Of Pink"
+ # Yellow
+ feature_dragon_feature_colour_yellow_black:0 "Yellow Scales With Hints Of Black"
+ feature_dragon_feature_colour_yellow_grey:0 "Yellow Scales With Hints Of Grey"
+ feature_dragon_feature_colour_yellow_white:0 "Yellow Scales With Hints Of White"
+ feature_dragon_feature_colour_yellow_brown:0 "Yellow Scales With Hints Of Brown"
+ feature_dragon_feature_colour_yellow_orange:0 "Yellow Scales With Hints Of Orange"
+ feature_dragon_feature_colour_yellow_yellow:0 "Yellow Scales"
+ feature_dragon_feature_colour_yellow_gold:0 "Yellow Scales With Hints Of Gold"
+ feature_dragon_feature_colour_yellow_green:0 "Yellow Scales With Hints Of Green"
+ feature_dragon_feature_colour_yellow_blue:0 "Yellow Scales With Hints Of Blue"
+ feature_dragon_feature_colour_yellow_purple:0 "Yellow Scales With Hints Of Purple"
+ feature_dragon_feature_colour_yellow_red:0 "Yellow Scales With Hints Of Red"
+ feature_dragon_feature_colour_yellow_pink:0 "Yellow Scales With Hints Of Pink"
+ # Gold
+ feature_dragon_feature_colour_gold_black:0 "Gold Scales With Hints Of Black"
+ feature_dragon_feature_colour_gold_grey:0 "Gold Scales With Hints Of Grey"
+ feature_dragon_feature_colour_gold_white:0 "Gold Scales With Hints Of White"
+ feature_dragon_feature_colour_gold_brown:0 "Gold Scales With Hints Of Brown"
+ feature_dragon_feature_colour_gold_orange:0 "Gold Scales With Hints Of Orange"
+ feature_dragon_feature_colour_gold_yellow:0 "Gold Scales With Hints Of Yellow"
+ feature_dragon_feature_colour_gold_gold:0 "Gold Scales"
+ feature_dragon_feature_colour_gold_green:0 "Gold Scales With Hints Of Green"
+ feature_dragon_feature_colour_gold_blue:0 "Gold Scales With Hints Of Blue"
+ feature_dragon_feature_colour_gold_purple:0 "Gold Scales With Hints Of Purple"
+ feature_dragon_feature_colour_gold_red:0 "Gold Scales With Hints Of Red"
+ feature_dragon_feature_colour_gold_pink:0 "Gold Scales With Hints Of Pink"
+ # Green
+ feature_dragon_feature_colour_green_black:0 "Green Scales With Hints Of Black"
+ feature_dragon_feature_colour_green_grey:0 "Green Scales With Hints Of Grey"
+ feature_dragon_feature_colour_green_white:0 "Green Scales With Hints Of White"
+ feature_dragon_feature_colour_green_brown:0 "Green Scales With Hints Of Brown"
+ feature_dragon_feature_colour_green_orange:0 "Green Scales With Hints Of Orange"
+ feature_dragon_feature_colour_green_yellow:0 "Green Scales With Hints Of Yellow"
+ feature_dragon_feature_colour_green_gold:0 "Green Scales With Hints Of Gold"
+ feature_dragon_feature_colour_green_green:0 "Green Scales"
+ feature_dragon_feature_colour_green_blue:0 "Green Scales With Hints Of Blue"
+ feature_dragon_feature_colour_green_purple:0 "Green Scales With Hints Of Purple"
+ feature_dragon_feature_colour_green_red:0 "Green Scales With Hints Of Red"
+ feature_dragon_feature_colour_green_pink:0 "Green Scales With Hints Of Pink"
+ # Blue
+ feature_dragon_feature_colour_blue_black:0 "Blue Scales With Hints Of Black"
+ feature_dragon_feature_colour_blue_grey:0 "Blue Scales With Hints Of Grey"
+ feature_dragon_feature_colour_blue_white:0 "Blue Scales With Hints Of White"
+ feature_dragon_feature_colour_blue_brown:0 "Blue Scales With Hints Of Brown"
+ feature_dragon_feature_colour_blue_orange:0 "Blue Scales With Hints Of Orange"
+ feature_dragon_feature_colour_blue_yellow:0 "Blue Scales With Hints Of Yellow"
+ feature_dragon_feature_colour_blue_gold:0 "Blue Scales With Hints Of Gold"
+ feature_dragon_feature_colour_blue_green:0 "Blue Scales With Hints Of Green"
+ feature_dragon_feature_colour_blue_blue:0 "Blue Scales"
+ feature_dragon_feature_colour_blue_purple:0 "Blue Scales With Hints Of Purple"
+ feature_dragon_feature_colour_blue_red:0 "Blue Scales With Hints Of Red"
+ feature_dragon_feature_colour_blue_pink:0 "Blue Scales With Hints Of Pink"
+ # Purple
+ feature_dragon_feature_colour_purple_black:0 "Purple Scales With Hints Of Black"
+ feature_dragon_feature_colour_purple_grey:0 "Purple Scales With Hints Of Grey"
+ feature_dragon_feature_colour_purple_white:0 "Purple Scales With Hints Of White"
+ feature_dragon_feature_colour_purple_brown:0 "Purple Scales With Hints Of Brown"
+ feature_dragon_feature_colour_purple_orange:0 "Purple Scales With Hints Of Orange"
+ feature_dragon_feature_colour_purple_yellow:0 "Purple Scales With Hints Of Yellow"
+ feature_dragon_feature_colour_purple_gold:0 "Purple Scales With Hints Of Gold"
+ feature_dragon_feature_colour_purple_green:0 "Purple Scales With Hints Of Green"
+ feature_dragon_feature_colour_purple_blue:0 "Purple Scales With Hints Of Blue"
+ feature_dragon_feature_colour_purple_purple:0 "Purple Scales"
+ feature_dragon_feature_colour_purple_red:0 "Purple Scales With Hints Of Red"
+ feature_dragon_feature_colour_purple_pink:0 "Purple Scales With Hints Of Pink"
+ # Red
+ feature_dragon_feature_colour_red_black:0 "Red Scales With Hints Of Black"
+ feature_dragon_feature_colour_red_grey:0 "Red Scales With Hints Of Grey"
+ feature_dragon_feature_colour_red_white:0 "Red Scales With Hints Of White"
+ feature_dragon_feature_colour_red_brown:0 "Red Scales With Hints Of Brown"
+ feature_dragon_feature_colour_red_orange:0 "Red Scales With Hints Of Orange"
+ feature_dragon_feature_colour_red_yellow:0 "Red Scales With Hints Of Yellow"
+ feature_dragon_feature_colour_red_gold:0 "Red Scales With Hints Of Gold"
+ feature_dragon_feature_colour_red_green:0 "Red Scales With Hints Of Green"
+ feature_dragon_feature_colour_red_blue:0 "Red Scales With Hints Of Blue"
+ feature_dragon_feature_colour_red_purple:0 "Red Scales With Hints Of Purple"
+ feature_dragon_feature_colour_red_red:0 "Red Scales"
+ feature_dragon_feature_colour_red_pink:0 "Red Scales With Hints Of Pink"
+ # Pink
+ feature_dragon_feature_colour_pink_black:0 "Pink Scales With Hints Of Black"
+ feature_dragon_feature_colour_pink_grey:0 "Pink Scales With Hints Of Grey"
+ feature_dragon_feature_colour_pink_white:0 "Pink Scales With Hints Of White"
+ feature_dragon_feature_colour_pink_brown:0 "Pink Scales With Hints Of Brown"
+ feature_dragon_feature_colour_pink_orange:0 "Pink Scales With Hints Of Orange"
+ feature_dragon_feature_colour_pink_yellow:0 "Pink Scales With Hints Of Yellow"
+ feature_dragon_feature_colour_pink_gold:0 "Pink Scales With Hints Of Gold"
+ feature_dragon_feature_colour_pink_green:0 "Pink Scales With Hints Of Green"
+ feature_dragon_feature_colour_pink_blue:0 "Pink Scales With Hints Of Blue"
+ feature_dragon_feature_colour_pink_purple:0 "Pink Scales With Hints Of Purple"
+ feature_dragon_feature_colour_pink_red:0 "Pink Scales With Hints Of Red"
+ feature_dragon_feature_colour_pink_pink:0 "Pink Scales"
+ # Slots
+ # Dragon Inventory Slot
+ dragon:0 "Dragon"
+ slot_dragon:0 "Dragon"
+ Dragon:0 "Dragon"
+ # Templates
+ dragon_template:0 "Dragon"
+ dragonskull_template:0 "Dragon Skull"
+ # Types
+ dragon_type:0 "Dragon"
+ artifact_dragon_type:0 "Dragon"
+ dragonskull_type:0 "Dragon Skull"
+ # Visuals
+ dragon_visual:0 "Dragon"
+ dragonskull_visual:0 "Dragon Skull"
+ ###############################################################################################
+ # Interactions
+ ###############################################################################################
+ # Claim Throne
+ claim_throne_interaction:0 "Claim Throne By Right Of the Dragon"
+ claim_throne_interaction_desc:0 "The true power of dragons belongs to me, I should use this to stake my claim."
+ # Dragon Dance
+ dragon_dance_interaction:0 "Seek Out"
+ dragon_dance_interaction_desc:0 "There is nothing more devastating than a war between dragons, but I must find my enemy before they find me."
+ # Dragon Mount Offer
+ dragon_offer_interaction:0 "Offer Mount To Claim"
+ dragon_offer_interaction_desc:0 "If they are willing to take the risk, they may claim the dragon in my midst."
+ # Egg Cradling With Dynasty Member
+ egg_cradling_interaction:0 "Cradle Egg With Infant"
+ egg_cradling_interaction_desc:0 "Let an egg hatch with a rider from an early age, a sign of a true descendant of Old Valyria."
+ ###############################################################################################
+ # Character Memory Types
+ ###############################################################################################
+ # Hatched Dragon
+ tud_hatching_memory:0 "Hatched Dragon"
+ tud_hatching_memory_desc:0 "I managed to hatch a dragon egg"
+ tud_hatching_memory_desc_second_perspective:0 "You managed to hatch a dragon egg"
+ tud_hatching_memory_desc_third_perspective:0 "[owner.GetNamePossessive] managed to hatch a dragon egg"
+ # Claimed Dragon
+ tud_claimed_memory:0 "Claimed Dragon"
+ tud_claimed_memory_desc:0 "I managed to claim a dragon as my mount"
+ tud_claimed_memory_desc_second_perspective:0 "You managed to claim a dragon as your mount"
+ tud_claimed_memory_desc_third_perspective:0 "[owner.GetNamePossessive] managed to claim a dragon as their mount"
+ # Won Dance
+ tud_dancewon_memory:0 "Victory In Dance"
+ tud_dancewon_memory_desc:0 "I managed to win a dance between dragons"
+ tud_dancewon_memory_desc_second_perspective:0 "You managed to win a dance between dragons"
+ tud_dancewon_memory_desc_third_perspective:0 "[owner.GetNamePossessive] managed to win a dance between dragons"
+ # Lost Dance
+ tud_dancelost_memory:0 "Defeat In Dance"
+ tud_dancelost_memory_desc:0 "I was defeated in a dance between dragons"
+ tud_dancelost_memory_desc_second_perspective:0 "You were defeated in a dance between dragons"
+ tud_dancelost_memory_desc_third_perspective:0 "[owner.GetNamePossessive] was defeated in a dance between dragons"
+ # Dragon Died
+ tud_dying_memory:0 "Death of the Dragon"
+ tud_dying_memory_desc:0 "My dragon passed away"
+ tud_dying_memory_desc_second_perspective:0 "Your dragon passed away"
+ tud_dying_memory_desc_third_perspective:0 "[owner.GetNamePossessive] dragon passed away"
+ ###############################################################################################
+ # Customizable Localization
+ ###############################################################################################
+ # Localization Key - ThisArtifactType
+ artifact_type_dragon:0 "Dragon"
+ # Dragon Default Name
+ dragon_name:0 "Dragon"
+ ###############################################################################################
+ # Death Reasons
+ ###############################################################################################
+ # Eaten By Dragon
+ death_tud_eaten:0 "was devoured by a dragon"
+ # Slain In Dance
+ death_tud_dance:0 "was slain in a dance between dragons"
+ death_tud_dance_killer:0 "was slain by [TARGET_CHARACTER.GetUIName] in a dance between dragons"
+ # Killed In Siege
+ death_tud_siege:0 "was killed besieging a castle atop their dragon"
+ death_tud_siege_killer:0 "was killed besieging the castle of [TARGET_CHARACTER.GetUIName] atop their dragon"
+ ###############################################################################################
+ # Decisions
+ ###############################################################################################
+ # Hatch Dragon Egg
+ hatch_dragon_decision:0 "Attempt Valyrian Hatching Ritual"
+ hatch_dragon_decision_title:0 "Attempt Valyrian Hatching Ritual"
+ hatch_dragon_decision_desc:0 "I will attempt to unleash the power of my ancestors trapped within this egg."
+ hatch_dragon_selection_tooltip:0 "Let us hope for the best."
+ hatch_dragon_decision_confirm:0 "Let us begin our preparations."
+ # Check Dragon Nest
+ check_for_eggs_decision:0 "Visit My Mount's Lair"
+ check_for_eggs_decision_title:0 "Visit My Mount's Lair"
+ check_for_eggs_decision_desc:0 "It is surely time for my dragon to lay a clutch of eggs that I can take for my own. It would not take me long to travel to where they nest.\n\nSuch a prize should not go unclaimed."
+ check_nest_selection_tooltip:0 "I wonder will my mount be home."
+ check_for_eggs_decision_confirm:0 "I will make my way there."
+ # Use Dragon In Siege
+ dragon_siege_decision:0 "Lay Waste To The Walls"
+ dragon_siege_decision_title:0 "Lay Waste To The Walls"
+ dragon_siege_decision_desc:0 "The enemy hides before us, behind their stone walls. While our men may take months to breach this castle, my dragon could lay waste to it in a single attack. Maybe this would be the best way to spare our current forces of further attrition.\nI have a war to win after all."
+ dragon_siege_decision_tooltip:0 "Life or death..."
+ dragon_siege_decision_confirm:0 "To battle."
+ # Claim Wild Dragon
+ claim_wild_dragon_decision:0 "A Wild Dragon"
+ claim_wild_dragon_decision_title:0 "A Wild Dragon"
+ claim_wild_dragon_decision_desc:0 "Word has reached me that a dragon has been let loose, with the rider having recently died. I am a descendant of Old Valyria, it would be within my right to claim myself a mount like my ancestors of old.\nThere is, of course, a risk."
+ claim_wild_dragon_selection_tooltip:0 "Let us hope I arrive in time..."
+ claim_wild_dragon_decision_confirm:0 "I will travel to claim my birth right."
+ ###############################################################################################
+ # Event Backgrounds
+ ###############################################################################################
+ # A Dance of Dragons
+ dragon_duel_background:0 "A Dance Of Dragons"
+ # The Ritual
+ dragon_hatched_background:0 "The Ritual"
+ # The Lair
+ dragon_nest_background:0 "The Lair"
+ ###############################################################################################
+ # Event Themes
+ ###############################################################################################
+ # A Dance of Dragons
+ dragon_duel_theme:0 "A Dance of Dragons"
+ # The Ritual
+ dragon_hatched_theme:0 "The Ritual"
+ # The Lair
+ dragon_nest_theme:0 "The Lair"
+ ###############################################################################################
+ # Modifiers
+ ###############################################################################################
+ # Dragons
+ hatchling_dragon_modifier:0 "Hatchling Dragon"
+ adolescent_dragon_modifier:0 "Adolescent Dragon"
+ young_dragon_modifier:0 "Young Dragon"
+ adult_dragon_modifier:0 "Adult Dragon"
+ mature_dragon_modifier:0 "Mature Dragon"
+ ancient_dragon_modifier:0 "Ancient Dragon"
+ dying_dragon_modifier:0 "Dying Dragon"
+ # Dragon Riders
+ hatchling_dragonrider_modifier:0 "Hatchling Dragon Companion"
+ hatchling_dragonrider_modifier_desc:0 "This character is bonded to a newly hatched dragon, too young to ride."
+ adolescent_dragonrider_modifier:0 "Adolescent Dragon Mount"
+ adolescent_dragonrider_modifier_desc:0 "This character is bonded to an adolescent dragon, who is still learning to adjust to their rider."
+ young_dragonrider_modifier:0 "Young Dragon Mount"
+ young_dragonrider_modifier_desc:0 "This character is bonded to a young dragon, who is now experienced enough to be a reliable mount."
+ adult_dragonrider_modifier:0 "Adult Dragon Mount"
+ adult_dragonrider_modifier_desc:0 "This character is bonded to an adult dragon, and is a force to be reckoned with."
+ mature_dragonrider_modifier:0 "Mature Dragon Mount"
+ mature_dragonrider_modifier_desc:0 "This character is bonded to a matured dragon who has lived for over a century, among the most powerful dragons in the world."
+ ancient_dragonrider_modifier:0 "Ancient Dragon Mount"
+ ancient_dragonrider_modifier_desc:0 "This character is bonded to an ancient dragon, a creature that has lived for nearly two centuries. This dragon will spell doom to all armies that oppose it."
+ dying_dragonrider_modifier:0 "Dying Dragon Mount"
+ dying_dragonrider_modifier_desc:0 "This character is bonded to a dragon so old, it now struggles to fly from its sheer weight. Yet, such a beast would be a death sentence to go against, and the age it has lived to is a testament to that."
+ # Dragon Skull
+ dead_dragon_modifier:0 "Dragon Skull"
+ # Besieged County
+ dragon_siege_modifier:0 "Burned By A Dragon"
+ ###############################################################################################
+ # Opinion Modifiers
+ ###############################################################################################
+ # Dragon Siege
+ dragon_sieged_me:0 "Razed lands with a dragon"
+ dragon_sieged_family:0 "Razed my family's lands With a dragon"
+ dragon_sieged_family_custom:0 "This vile act will be remembered by their family.."
+ # Claiming Titles As Dragonlord
+ dragonlord_custom:0 "My dragon aches to be ridden! The time for war is now"
+ dragonlord_claimed_my_title:0 "You used your dragons to claim my lands!"
+ dragonlord_claimed_my_liege:0 "You are a Dragonlord"
+ dragonlord_claimed_family:0 "Rumors of a would be 'Conquerer' spread quickly in their family"
+ killed_opponent_dance:0 "Killed family member in a dance of dragons"
+ killed_opponent_dance_custom:0 "A dance between dragons is a brutal thing"
+ ###############################################################################################
+ # Story Cycle
+ ############################################################################################### 
+ # Dragon
+ artifact_dragon:0 "Dragon"
+ dragon_desc:0 "This dragon was born."
+ dragonskull_name:0 "Dragon Skull"
+ dragonskull_desc:0 "This skull once belonged to a dragon, a creature bound to the descendants of Old Valyria. Unlike a human and most creatures, the bone is black as onyx, and it is cold to the touch.\n\nA far different touch to the fire the beast once possessed."
+ artifact_dragon_type:0 "Dragon"
+ artifact_dragonskull_type:0 "Dragon Skull"
+ artifact_slot_dragon:0 "Dragon"
+ artifact_slot_type_dragon:0 "Dragon"
+ # Name Event
+ is_naming_dragon:0 "Naming Dragon"
+ ###############################################################################################
+ # Traits
+ ############################################################################################### 
+ # Dragon Rider
+ trait_dragon_rider_trait:0 "Dragon Rider"
+ trait_dragon_rider_trait_desc:0 "The power of the ancient Dragonlords of Old Valyria has been claimed by this character, with a Dragon to ride into battle as their mount. They possess one of the greatest powers in the known world."
+ 
+ 

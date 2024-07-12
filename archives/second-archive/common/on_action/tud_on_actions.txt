@@ -1,0 +1,258 @@
+on_death = {
+    on_actions = {
+        tud_dragonrider_death_on_action
+    }
+}
+
+yearly_playable_pulse = {
+    on_actions = { 
+        tud_eggs_free_on_action
+        tud_dragons_free_on_action
+        tud_dragonrider_on_action
+        tud_dragonrider_off_action
+        tud_unclaimed_action
+    }
+}
+
+on_artifact_changed_owner = {
+    on_actions = {
+        the_dragon_returns_on_action
+    }
+}
+
+# Should a rider die and their dragon is left
+tud_dragonrider_death_on_action = {
+    trigger = {
+        any_character_artifact = {
+            has_variable = claimed_dragon
+        }
+    }
+    effect = {
+        every_character_artifact = {
+            limit = { has_variable = claimed_dragon }
+            remove_variable = claimed_dragon
+            set_variable = {
+                name = unclaimed_dragon
+                value = yes
+            }
+        }
+    }
+}
+
+# Gift Egg to Kin
+tud_eggs_free_on_action = {
+    trigger = {
+        any_character_artifact = { 
+            limit = { has_variable = dragon_egg }
+            count > 1
+        }
+        any_close_or_extended_family_member = {
+            AND = {
+                is_alive = yes
+                OR = {
+                    any_ancestor = {
+                        even_if_dead = yes
+                        has_culture = culture:high_valyrian
+                    }
+                    has_culture = culture:high_valyrian
+                }
+                NOT = {
+                    OR = {
+                        has_character_modifier = nimble_dragon_rider_modifier
+                        has_character_modifier = large_dragon_rider_modifier
+                        has_character_modifier = great_dragon_rider_modifier
+                    }
+                    any_character_artifact = { has_variable = claimed_dragon }
+                    any_character_artifact = { has_variable = dragon_egg } 
+                }
+            }
+        }
+    }
+    events = {
+        d_inheritance.0001
+        delay = { days = 3 }
+    }
+}
+
+# Allow Dragon To Be Claimed
+tud_dragons_free_on_action = {
+    trigger = {
+        AND = {
+            any_character_artifact = {
+                has_variable = unclaimed_dragon
+            }
+            any_close_or_extended_family_member = {
+                AND = {
+                    is_alive = yes
+                    OR = {
+                        any_ancestor = {
+                            even_if_dead = yes
+                            has_culture = culture:high_valyrian
+                        }
+                        has_culture = culture:high_valyrian
+                    }
+                    NOT = {
+                        OR = {
+                            has_character_modifier = nimble_dragon_rider_modifier
+                            has_character_modifier = large_dragon_rider_modifier
+                            has_character_modifier = great_dragon_rider_modifier
+                        }
+                        any_character_artifact = { has_variable = claimed_dragon }
+                    }
+                }
+            }
+        }
+    }
+    events = {
+        d_inheritance.0002
+        delay = { days = 3 }
+    }
+}
+
+# Add Dragon Rider Modifier
+tud_dragonrider_on_action = {
+    trigger = {
+        OR = {
+            any_ancestor = {
+                even_if_dead = yes
+                has_culture = culture:high_valyrian
+            }
+            has_culture = culture:high_valyrian
+        }
+        OR = {
+            any_character_artifact = {
+                AND = {
+                    has_artifact_modifier = nimble_dragon_modifier
+                    has_variable = claimed_dragon
+                }
+            }
+            any_character_artifact = {
+                AND = {
+                    has_artifact_modifier = large_dragon_modifier 
+                    has_variable = claimed_dragon
+                }
+            }
+            any_character_artifact = {
+                AND = {
+                    has_artifact_modifier = great_dragon_modifier
+                    has_variable = claimed_dragon
+                }
+            }
+        }
+        NOT = {
+            OR = {
+                has_character_modifier = nimble_dragon_rider_modifier
+                has_character_modifier = large_dragon_rider_modifier
+                has_character_modifier = great_dragon_rider_modifier
+            }
+        }
+    }
+    events = {
+        d_inheritance.0003
+        delay = { days = 7 }
+    }
+}
+
+# Remove Dragon Rider Modifier
+tud_dragonrider_off_action = {
+    trigger = {
+        OR = {
+            AND = {
+                has_character_modifier = nimble_dragon_rider_modifier
+                NOT = { 
+                    any_character_artifact = {
+                        AND = {
+                                has_artifact_modifier = nimble_dragon_modifier
+                                has_variable = claimed_dragon
+                            }
+                        }
+                }   
+            }
+            AND = {
+                has_character_modifier = large_dragon_rider_modifier
+                NOT = { 
+                    any_character_artifact = {
+                        AND = {
+                                has_artifact_modifier = large_dragon_modifier
+                                has_variable = claimed_dragon
+                            }
+                        }
+                }   
+            }
+            AND = {
+                has_character_modifier = great_dragon_rider_modifier
+                NOT = { 
+                    any_character_artifact = {
+                        AND = {
+                                has_artifact_modifier = great_dragon_modifier
+                                has_variable = claimed_dragon
+                            }
+                        }
+                }   
+            }
+        }
+    }
+    events = {
+        d_inheritance.0004
+        delay = { days = 7 }
+    }
+}
+
+# Unclaimed Dragon (Backup)
+tud_unclaimed_action = {
+    trigger = {
+        NOT = {
+            OR = {
+                any_ancestor = {
+                    even_if_dead = yes
+                    has_culture = culture:high_valyrian
+                }
+                has_culture = culture:high_valyrian
+            }
+        }
+        any_character_artifact = {
+            has_variable = claimed_dragon
+        }
+        NOT = {
+            OR = {
+                has_character_modifier = nimble_dragon_rider_modifier
+                has_character_modifier = large_dragon_rider_modifier
+                has_character_modifier = great_dragon_rider_modifier
+            }
+        }
+    }
+    events = {
+        d_inheritance.0005
+        delay = { days = 30 }
+    }
+}
+
+# Return Claimed Dragon to Living Owner
+the_dragon_returns_on_action = {
+    trigger = {
+        AND = {
+            has_variable = claimed_dragon
+            previous_owner = { 
+                AND = {
+                    is_alive = yes 
+                    OR = {
+                        has_character_modifier = nimble_dragon_rider_modifier
+                        has_character_modifier = large_dragon_rider_modifier
+                        has_character_modifier = great_dragon_rider_modifier
+                    }
+                }
+            }
+        }
+    }
+    effect = {
+        if = {
+            limit = { has_variable = tdro }
+            remove_variable = tdro
+        }
+        else = {
+            set_variable = tdro
+            set_owner = previous_owner
+        }
+    }
+}
+

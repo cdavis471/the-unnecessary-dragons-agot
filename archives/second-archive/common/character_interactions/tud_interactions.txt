@@ -1,0 +1,174 @@
+﻿dragon_claim_throne = {
+	category = interaction_category_diplomacy
+	icon = dragon_claim_throne
+	cooldown = { months = 180 }
+	use_diplomatic_range = no
+	desc = dragon_claim_throne_desc
+	interface_priority = 100
+	is_shown = {
+		scope:actor = {
+			OR = {
+				any_ancestor = {
+					even_if_dead = yes
+					has_culture = culture:high_valyrian
+				}
+				has_culture = culture:high_valyrian
+			}
+			# Dragon In Posession
+			any_character_artifact = {
+				has_variable = claimed_dragon
+			}
+			NOT = { 
+				# Not a coward
+				has_trait = craven
+			}
+		} 
+		scope:recipient = {
+			NOT = {
+				has_government = nights_watch_government
+				is_imprisoned_by = scope:actor
+				highest_held_title_tier < tier_kingdom
+			}
+			# Not the player
+			NOT = { scope:recipient = scope:actor }
+		}
+	}
+	is_highlighted = {
+		always = yes
+	}
+	on_accept = {
+		scope:recipient = {
+			primary_title = {
+				save_scope_as = target_title
+			}
+		}
+		scope:actor = {
+			save_scope_as = claimant
+			dragon_claim_throne_effect = {
+				TARGET = scope:recipient
+				CLAIMANT = scope:actor
+			}
+		}
+	}
+	ai_potential = {
+		has_trait = ambitious
+	}
+	ai_targets = {
+		ai_recipients = neighboring_rulers
+	}
+	ai_targets = {
+		ai_recipients = liege
+	}
+	ai_frequency = 1
+	ai_intermediary_accept = {
+		base = 100
+	}
+	ai_will_do = {
+		base = 100
+	}
+	auto_accept = yes
+}
+
+dragon_dance = {
+	category = interaction_category_hostile
+	icon = dragon_dance
+	cooldown = { months = 3 }
+	popup_on_receive = yes
+	pause_on_receive = yes
+	interface_priority = 100
+	use_diplomatic_range = no
+	desc = dragon_dance_desc
+	is_shown = {
+		scope:actor = {
+			OR = {
+				any_ancestor = {
+					even_if_dead = yes
+					has_culture = culture:high_valyrian
+				}
+				has_culture = culture:high_valyrian
+			}
+			# Dragon In Posession
+			any_character_artifact = {
+				has_variable = claimed_dragon
+			}
+			OR = {
+				has_character_modifier = nimble_dragon_rider_modifier
+				has_character_modifier = large_dragon_rider_modifier
+				has_character_modifier = great_dragon_rider_modifier
+			}
+		} 
+		scope:recipient = {
+			OR = {
+				any_ancestor = {
+					even_if_dead = yes
+					has_culture = culture:high_valyrian
+				}
+				has_culture = culture:high_valyrian
+			}
+			any_character_artifact = {
+				has_variable = claimed_dragon
+			}
+			OR = {
+				has_character_modifier = nimble_dragon_rider_modifier
+				has_character_modifier = large_dragon_rider_modifier
+				has_character_modifier = great_dragon_rider_modifier
+			}
+			NOT = {
+				has_government = nights_watch_government
+				is_imprisoned_by = scope:actor
+				highest_held_title_tier < tier_kingdom
+			}
+			NOT = { 
+				scope:recipient = scope:actor 
+			}
+		}
+	}
+	is_highlighted = {
+		always = yes
+	}
+	is_valid = {
+		scope:actor = {
+			is_at_same_location = scope:recipient
+			OR = {
+				is_at_war_with = scope:recipient
+				has_relation_rival = scope:recipient
+			}
+		} 
+	}
+	on_accept = {
+		scope:actor = {
+			dragon_dance_effect = {
+				RECIPIENT = scope:recipient
+				ACTOR = scope:actor
+			}
+		}
+	}
+	ai_potential = {
+		is_at_war = yes
+	}
+	ai_targets = {
+		ai_recipients = primary_war_enemies
+	}
+	ai_targets = {
+		ai_recipients = dynasty
+	}
+	ai_frequency = 1
+	ai_intermediary_accept = {
+		base = 100
+	}
+	ai_will_do = {
+		base = 0
+		modifier = {
+			scope:actor = {
+				OR = {
+					has_trait = ambitious
+					has_trait = brave
+					has_trait = callous
+				}
+			}
+			factor = 100
+		}
+	}
+	auto_accept = yes
+}
+

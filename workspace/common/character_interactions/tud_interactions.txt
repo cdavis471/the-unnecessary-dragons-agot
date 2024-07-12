@@ -1,0 +1,384 @@
+﻿# Character Interactions
+# Claim Throne
+claim_throne_interaction = {
+	# Claim Throne
+	category = interaction_category_diplomacy
+	icon = claim_throne_interaction
+	# Every 30 Years
+	cooldown = { months = 360 }
+	use_diplomatic_range = no
+	desc = claim_throne_interaction_desc
+	interface_priority = 100
+	# Shown If
+	is_shown = {
+		# Person Starting Interaction
+		scope:actor = {
+			# Valyrian Ancestry
+			OR = {
+				any_ancestor = {
+					even_if_dead = yes
+					has_culture = culture:high_valyrian
+				}
+				has_culture = culture:high_valyrian
+			}
+			# Is Dragon Rider
+			any_character_artifact = {
+				AND = {
+					var:dragon_rider = yes
+					var:dragon_age > 5
+				}
+			}
+			# Not A Coward or Content
+			NOT = { 
+				OR = {
+					has_trait = craven
+					has_trait = content
+				}
+			}
+		} 
+		# Person Receiving Interaction
+		scope:recipient = {
+			NOT = {
+				has_government = nights_watch_government
+				is_imprisoned_by = scope:actor
+				highest_held_title_tier < tier_kingdom
+			}
+			# Not the player
+			NOT = { scope:recipient = scope:actor }
+		}
+	}
+	# Highlighted Interaction
+	is_highlighted = {
+		always = yes
+	}
+	# Effect
+	on_accept = {
+		# Save Title Scope
+		scope:recipient = {
+			primary_title = {
+				save_scope_as = target_title
+			}
+		}
+		# Claim Title Effect
+		scope:actor = {
+			save_scope_as = claimant
+			dragon_claim_throne_effect = {
+				TARGET = scope:recipient
+				CLAIMANT = scope:actor
+			}
+		}
+	}
+	# AI Modifiers
+	ai_potential = { has_trait = ambitious }
+	ai_targets = { ai_recipients = neighboring_rulers }
+	ai_targets = { ai_recipients = liege }
+	ai_frequency = 1
+	ai_intermediary_accept = { base = 100 }
+	ai_will_do = { base = 100 }
+	# Auto Accept
+	auto_accept = yes
+}
+
+# Challenge Fellow Dragon Rider
+dragon_dance_interaction = {
+	# Start Dance
+	category = interaction_category_hostile
+	icon = dragon_dance_interaction
+	# Every Month
+	cooldown = { months = 1 }
+	popup_on_receive = yes
+	pause_on_receive = yes
+	interface_priority = 100
+	use_diplomatic_range = no
+	desc = dragon_dance_interaction_desc
+	# Valyrian Dragon Rider
+	is_shown = {
+		# Offering
+		scope:actor = {
+			# Valyrian Ancestry
+			OR = {
+				any_ancestor = {
+					even_if_dead = yes
+					has_culture = culture:high_valyrian
+				}
+				has_culture = culture:high_valyrian
+			}
+			# Is Dragon Rider
+			has_trait = dragon_rider_trait
+			any_character_artifact = {
+				AND = {
+					var:dragon_rider = yes
+					var:dragon_age > 5
+				}
+			}
+		} 
+		# Accepting
+		scope:recipient = {
+			# Valyrian Ancestry
+			OR = {
+				any_ancestor = {
+					even_if_dead = yes
+					has_culture = culture:high_valyrian
+				}
+				has_culture = culture:high_valyrian
+			}
+			# Is Dragon Rider
+			has_trait = dragon_rider_trait
+			any_character_artifact = {
+				AND = {
+					var:dragon_rider = yes
+					var:dragon_age > 5
+				}
+			}
+			# Available
+			NOT = {
+				has_government = nights_watch_government
+				is_imprisoned_by = scope:actor
+			}
+			# Not Personal
+			NOT = { 
+				scope:recipient = scope:actor 
+			}
+		}
+	}
+	# Highlighted Interaction
+	is_highlighted = {
+		always = yes
+	}
+	# Valid if at war or rival
+	is_valid = {
+		scope:actor = {
+			OR = {
+				is_at_war_with = scope:recipient
+				has_relation_rival = scope:recipient
+			}
+		} 
+	}
+	# Run Dance
+	on_accept = {
+		scope:actor = {
+			dragon_dance_effect = {
+				RECIPIENT = scope:recipient
+				ACTOR = scope:actor
+			}
+		}
+	}
+	# AI Modifiers
+	# AI Modifiers
+	ai_potential = { always = yes }
+	ai_will_do = { base = 25 }
+	ai_targets = { ai_recipients = combat_enemy_side }
+	ai_frequency = 3
+	ai_intermediary_accept = { base = 25 }
+	# Auto Accept
+	auto_accept = yes
+}
+# Offer Mount
+dragon_offer_interaction = {
+	# Will Mount Be Claimed?
+	category = interaction_category_diplomacy
+	icon = dragon_offer_interaction
+	# Every Month
+	cooldown = { months = 6 }
+	popup_on_receive = yes
+	pause_on_receive = yes
+	interface_priority = 100
+	use_diplomatic_range = no
+	desc = dragon_offer_interaction_desc
+	# Valyrian Dragon Rider
+	is_shown = {
+		# Offering
+		scope:actor = {
+			# Valyrian Ancestry
+			OR = {
+				any_ancestor = {
+					even_if_dead = yes
+					has_culture = culture:high_valyrian
+				}
+				has_culture = culture:high_valyrian
+			}
+			# Has Riderless Dragon
+			any_character_artifact = {
+				AND = {
+					var:dragon_rider = no
+				}
+			}
+		} 
+		# Accepting
+		scope:recipient = {
+			is_ai = yes
+			# Valyrian Ancestry
+			OR = {
+				any_ancestor = {
+					even_if_dead = yes
+					has_culture = culture:high_valyrian
+				}
+				has_culture = culture:high_valyrian
+			}
+			# Available
+			NOT = {
+				has_government = nights_watch_government
+				is_imprisoned_by = scope:actor
+				any_character_artifact = {
+					var:dragon_rider = yes
+				}
+				has_trait = dragon_rider_trait
+			}
+			# Not Personal
+			NOT = { 
+				scope:recipient = scope:actor 
+			}
+		}
+	}
+	# Highlighted Interaction
+	is_highlighted = {
+		always = yes
+	}
+	# Valid If Same Dynasty
+	is_valid = {
+		scope:recipient.dynasty = scope:actor.dynasty
+	}
+	# Offer Mount
+	on_accept = {
+		random_list = {
+			75 = {
+				# Owner of Dragon
+				scope:actor = {
+					# Save Dragon Scope
+					random_character_artifact = {
+						limit = {
+							var:dragon_rider = no
+						}
+						save_scope_as = dragon_transfer_offer
+					}
+					# Save Story Scope
+					random_owned_story = {
+						limit = { 
+							var:story_cycle_dragon_id = scope:dragon_transfer_offer.var:dragon_id
+						}
+						save_scope_as = story_transfer_offer
+					}
+					# Transfer Story
+					scope:story_transfer_offer = { make_story_owner = scope:recipient }
+					# Transfer Artifact
+					scope:dragon_transfer_offer = { set_owner = scope:recipient }
+					# Trigger Event
+					trigger_event = tud_interaction_events.0006
+				}
+			}
+			25 = {
+				scope:recipient = {
+					death = { death_reason = death_tud_eaten }
+				}
+				scope:actor = {
+					# Trigger Event
+					trigger_event = tud_interaction_events.0007
+				}
+			}
+		}
+	}
+	# AI Modifiers
+	ai_potential = { always = yes }
+	ai_will_do = { base = 100 }
+	ai_targets = { ai_recipients = family }
+	ai_frequency = 1
+	ai_intermediary_accept = { base = 100 }
+	# Auto Accept
+	auto_accept = yes
+}
+
+egg_cradling_interaction = {
+	# Will Egg Be Hatched?
+	category = interaction_category_diplomacy
+	icon = egg_cradling_interaction
+	# Every Month
+	cooldown = { months = 6 }
+	popup_on_receive = yes
+	pause_on_receive = yes
+	interface_priority = 100
+	use_diplomatic_range = no
+	desc = egg_cradling_interaction_desc
+	# Valyrian Dragon Rider
+	is_shown = {
+		# Offering
+		scope:actor = {
+			# Valyrian Ancestry
+			OR = {
+				any_ancestor = {
+					even_if_dead = yes
+					has_culture = culture:high_valyrian
+				}
+				has_culture = culture:high_valyrian
+			}
+			# Has Dragon Egg
+			any_character_artifact = {
+				has_variable = dragon_egg
+			}
+		} 
+		# Accepting
+		scope:recipient = {
+			# Valyrian Ancestry
+			OR = {
+				any_ancestor = {
+					even_if_dead = yes
+					has_culture = culture:high_valyrian
+				}
+				has_culture = culture:high_valyrian
+			}
+			# Available
+			NOT = {
+				has_government = nights_watch_government
+				is_imprisoned_by = scope:actor
+				has_trait = dragon_rider_trait
+				any_character_artifact = {
+					OR = {
+						var:dragon_rider = yes
+						has_variable = dragon_egg
+					}
+				}
+			}
+			# Not Personal
+			NOT = { 
+				scope:recipient = scope:actor 
+			}
+		}
+	}
+	# Highlighted Interaction
+	is_highlighted = {
+		always = yes
+	}
+	# Valid If Same Dynasty & Young Child
+	is_valid = {
+		scope:recipient = { age < 4 }
+		scope:recipient.dynasty = scope:actor.dynasty
+	}
+	# Offer Egg
+	on_accept = {
+		# New Rider
+		scope:recipient = {
+			create_story = story_cycle_dragon_rider
+		}
+		# Owner of Egg
+		scope:actor = {
+			# Save Egg Scope
+			random_character_artifact = {
+				limit = {
+					has_variable = dragon_egg
+				}
+				save_scope_as = egg_transfer_offer
+			}
+			# Destroy Egg
+            destroy_artifact = scope:egg_transfer_offer
+			trigger_event = tud_interaction_events.0008
+		}
+	}
+	# AI Modifiers
+	ai_potential = { always = yes }
+	ai_will_do = { base = 100 }
+	ai_targets = { ai_recipients = family }
+	ai_frequency = 1
+	ai_intermediary_accept = { base = 100 }
+	# Auto Accept
+	auto_accept = yes
+}
+

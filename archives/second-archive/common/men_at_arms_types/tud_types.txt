@@ -1,0 +1,68 @@
+﻿nimble_dragon = { 
+	# Nimble Dragon
+	type = dragon
+	can_recruit = { always = no } 
+	# Stats
+	damage = 100000
+	toughness = 500000
+	pursuit = 250000	
+	screen = 50000
+	max = 1
+	counters = {
+		dragon = 1
+	}
+	# Other
+	buy_cost = { gold = 1 }
+	low_maintenance_cost = { gold = 1 }
+	high_maintenance_cost = { gold = 3 }
+	max_sub_regiments = 1
+	stack = 1
+	ai_quality = { value = 100 }
+	icon = dragon
+}
+
+large_dragon = { 
+	# Large Dragon
+	type = dragon
+	can_recruit = { always = no } 
+	# Stats
+	damage = 200000
+	toughness = 750000
+	pursuit = 200000	
+	screen = 100000	
+	max = 1
+	counters = {
+		dragon = 1
+	}
+	# Other
+	buy_cost = { gold = 1 }
+	low_maintenance_cost = { gold = 3 }
+	high_maintenance_cost = { gold = 7 }
+	max_sub_regiments = 1
+	stack = 1
+	ai_quality = { value = 100 }
+	icon = dragon
+}
+
+great_dragon = {
+	# Great Dragon
+	type = dragon
+	can_recruit = { always = no }
+	# Stats
+	damage = 250000
+	toughness = 1000000
+	pursuit = 250000
+	screen = 250000	
+	max = 1
+	counters = {
+		dragon = 1
+	}
+	# Other
+	buy_cost = { gold = 1 }
+	low_maintenance_cost = { gold = 5 }
+	high_maintenance_cost = { gold = 10 }
+	max_sub_regiments = 1
+	stack = 1
+	ai_quality = { value = 100 }
+	icon = dragon
+}

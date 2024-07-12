@@ -1,0 +1,5 @@
+﻿# Features
+# Determines Colour
+dragon_feature_colour_group = {}
+# Determines Physical
+dragon_feature_build_group = {}

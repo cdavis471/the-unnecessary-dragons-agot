@@ -1,0 +1,109 @@
+﻿#####################################
+#############  ARTIFACT  ############
+#####################################
+# Create Dragon Effect
+create_dragon_effect = {
+	# Get the character the artifact is being made for.
+	$OWNER$ = { save_scope_as = owner }
+    # New Dragon Rider
+    scope:owner = {
+        # Create the artifact
+        set_artifact_rarity_illustrious = yes
+        create_artifact = {
+            name = dragon_name
+            description = dragon_desc
+            type = dragon_type
+            visuals = dragon_visual
+            template = dragon_template
+            wealth = scope:wealth
+            quality = scope:quality
+            modifier = hatchling_dragon_modifier
+            save_scope_as = valyrian_dragon
+            decaying = no
+        }
+        #Set Dragon Variables
+        scope:valyrian_dragon = {
+            # Select Name Randomly
+            set_variable = {
+                name = name_selection
+                value = { integer_range = { min = 1 max = 150 } }
+            }
+            # Set ID
+            set_variable = {
+                name = dragon_id
+                value = global_var:dragon_id_counter
+            }
+            # Has Rider
+            set_variable = {
+                name = dragon_rider
+                value = yes
+            }
+            # Set Age
+            set_variable = {
+                name = dragon_age
+                value = 0
+            }
+            # What age it will potentially live to
+            set_variable = {
+                name = dragon_life_expectancy
+                value = { integer_range = { min = 200 max = 250 } }
+            }
+            # Combat Score Default
+            set_variable = {
+                name = dragon_combat_score
+                value = 0
+            }
+            if = {
+                limit = { has_artifact_feature = dragon_feature_build_slender }
+                change_variable = {
+                    name = dragon_combat_score
+                    add = 20
+                }
+            }
+            else_if = {
+                limit = { has_artifact_feature = dragon_feature_build_robust }
+                change_variable = {
+                    name = dragon_combat_score
+                    add = 30
+                }
+            }
+            else_if = {
+                limit = { has_artifact_feature = dragon_feature_build_spindly }
+                change_variable = {
+                    name = dragon_combat_score
+                    add = 10
+                }
+            }
+            else_if = {
+                limit = { has_artifact_feature = dragon_feature_build_monstrous }
+                change_variable = {
+                    name = dragon_combat_score
+                    add = 40
+                }
+            }
+        }
+    }
+}
+# Create Dragon Skull Effect
+create_dragonskull_effect = {
+    # Get the character the artifact is being made for.
+	$OWNER$ = { save_scope_as = owner }
+    $DRAGON$ = { save_scope_as = dragon }
+    # New Dragon Rider
+    scope:owner = {
+        # Create the artifact
+        set_artifact_rarity_illustrious = yes
+        create_artifact = {
+            name = dragonskull_name
+            description = dragonskull_desc
+            type = regalia
+            visuals = dragonskull_visual
+            template = dragonskull_template
+            wealth = scope:wealth
+            quality = scope:quality
+            modifier = dead_dragon_modifier
+            save_scope_as = valyrian_dragon_dead
+            decaying = no
+        }
+    }
+}

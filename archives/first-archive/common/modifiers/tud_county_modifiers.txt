@@ -1,0 +1,9 @@
+dragon_siege_modifier = {
+	icon = county_modifier_development_negative
+	development_growth_factor = -5
+	monthly_county_control_change_factor = -5
+	garrison_size = -5
+	levy_size = -5
+	travel_danger = 10
+	fort_level = -50
+}

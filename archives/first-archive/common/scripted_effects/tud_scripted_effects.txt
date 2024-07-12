@@ -1,0 +1,140 @@
+create_nimble_dragon_effect = {
+	# Get the character the artifact is being made for.
+	$OWNER$ = { save_scope_as = owner }
+	# Not really used, but if we don't set the scopes we get errors in the feature selection
+	#set_artifact_rarity_famed = yes
+	
+	save_scope_value_as = {name = wealth value = 150}
+	save_scope_value_as = {name = quality value = 150}
+
+	# Create the artifact
+	create_artifact = {
+		name = nimble_dragon_name
+		description = nimble_dragon_desc
+		type = regalia
+		visuals = nimble_dragon_visuals
+		template = dragon_template
+		wealth = scope:wealth
+		quality = scope:quality
+		max_durability = 150
+		history = {
+			type = created_before_history
+		}
+		modifier = nimble_dragon_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+
+	scope:newly_created_artifact = {
+		save_scope_as = epic
+		save_scope_value_as = {
+			name = miscellaneous
+			value = yes
+		}
+	}
+}
+
+create_large_dragon_effect = {
+	# Get the character the artifact is being made for.
+	$OWNER$ = { save_scope_as = owner }
+	# Not really used, but if we don't set the scopes we get errors in the feature selection
+	#set_artifact_rarity_famed = yes
+	
+	save_scope_value_as = {name = wealth value = 175}
+	save_scope_value_as = {name = quality value = 175}
+
+	# Create the artifact
+	create_artifact = {
+		name = large_dragon_name
+		description = large_dragon_desc
+		type = regalia
+		visuals = large_dragon_visuals
+		template = dragon_template
+		wealth = scope:wealth
+		quality = scope:quality
+		max_durability = 175
+		history = {
+			type = created_before_history
+		}
+		modifier = large_dragon_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+
+	scope:newly_created_artifact = {
+		save_scope_as = epic
+		save_scope_value_as = {
+			name = miscellaneous
+			value = yes
+		}
+	}
+}
+
+create_great_dragon_effect = {
+	# Get the character the artifact is being made for.
+	$OWNER$ = { save_scope_as = owner }
+	# Not really used, but if we don't set the scopes we get errors in the feature selection
+	#set_artifact_rarity_famed = yes
+	
+	save_scope_value_as = {name = wealth value = 200}
+	save_scope_value_as = {name = quality value = 200}
+
+	# Create the artifact
+	create_artifact = {
+		name = great_dragon_name
+		description = great_dragon_desc
+		type = regalia
+		visuals = great_dragon_visuals
+		template = dragon_template
+		wealth = scope:wealth
+		quality = scope:quality
+		max_durability = 200
+		history = {
+			type = created_before_history
+		}
+		modifier = great_dragon_modifier
+		save_scope_as = newly_created_artifact
+		decaying = yes
+	}
+
+	scope:newly_created_artifact = {
+		save_scope_as = epic
+		save_scope_value_as = {
+			name = miscellaneous
+			value = yes
+		}
+	}
+}
+
+#############################################
+## Dragon Claiming Effects
+#############################################
+
+dragon_claim_throne_effect = {
+	$TARGET$ = {
+		save_scope_as = target
+	}
+
+	$CLAIMANT$ = {
+		save_scope_as = claimant
+	}
+	
+	if = {
+		limit = {
+			scope:target_title = title:e_the_iron_throne
+		}
+		scope:claimant = { # If the title is the Iron Throne, special Conqueror event!
+			add_to_temporary_list = received_notification
+			trigger_event = dragon_event.3005
+		}
+		
+	}
+	else = {
+		scope:claimant = { # Not Iron Throne, normal event
+			add_to_temporary_list = received_notification
+			trigger_event = dragon_event.3004
+		}
+	}
+	
+	add_pressed_claim = scope:target_title
+}

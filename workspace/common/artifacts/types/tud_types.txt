@@ -1,0 +1,12 @@
+﻿# Dragon Type
+dragon_type = {
+	# Dragon 
+	slot = dragon
+	# Colour & Build
+	required_features = { dragon_feature_colour_group dragon_feature_build_group }
+}
+# Dragon Skull Type
+dragonskull_type = {
+	# Symbol of Power
+	slot = regalia
+}

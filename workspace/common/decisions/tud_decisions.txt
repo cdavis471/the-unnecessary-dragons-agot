@@ -1,0 +1,328 @@
+﻿hatch_dragon_decision = {
+	# Hatch Dragon Egg
+	title = hatch_dragon_decision_title
+	desc = hatch_dragon_decision_desc
+	picture = "gfx/interface/illustrations/decisions/hatch_dragon_decision.dds"
+	# Once A Year
+	cooldown = { days = 365 }
+	selection_tooltip = hatch_dragon_selection_tooltip
+	major = yes
+	# Has Egg and No Other Dragon To Claim
+	is_shown = {
+		AND = {
+			NOT = {
+				has_trait = dragon_rider_trait
+			}
+			# Valyrian Ancestry
+			OR = {
+				any_ancestor = {
+					even_if_dead = yes
+					has_culture = culture:high_valyrian
+				}
+				has_culture = culture:high_valyrian
+			}
+			# Dragon Egg
+			any_character_artifact = {
+				has_variable = dragon_egg
+			}
+		}
+	}
+	is_valid = {
+		is_adult = yes
+		is_at_home = yes
+	}
+	effect = {
+		root = { 
+			# Attempt to Hatch
+			trigger_event = { id = tud_decision_events.0001 } 
+		}
+		show_as_tooltip = {
+			random_list = {
+				# Dragon Created
+				50 = {
+					create_artifact = {
+						name = dragon_name
+						description = dragon_desc
+						type = dragon_type
+						visuals = dragon_visual
+						template = dragon_template
+						save_scope_as = valyrian_dragon
+						decaying = no
+					}
+				}
+				# Nothing
+				50 = {
+					root = {
+                        add_prestige = -250
+                    }
+				}
+			}
+		}
+	}
+	# Check every twelve months
+	ai_check_interval = 12
+	# AI has the potential to take
+	ai_potential = { always = yes }
+	# Chance AI will do
+	ai_will_do = {
+		# 25%
+		base = 25
+		# Add 50% if High Valyrian
+		modifier = {
+			root = {
+				has_culture = culture:high_valyrian
+			}
+			add = 50
+		}
+		# Add 25% High Valyrian Blood
+		modifier = {
+			root = {
+				any_ancestor = {
+					even_if_dead = yes
+					has_culture = culture:high_valyrian
+				}
+			}
+			add = 25
+		}
+	}
+}
+
+check_for_eggs_decision = {
+	# Check Dragon Nest
+	picture = "gfx/interface/illustrations/decisions/check_for_eggs_decision.dds"
+	title = check_for_eggs_decision_title
+	desc = check_for_eggs_decision_desc
+	# 5 Years
+	cooldown = { days = 1825 }
+	selection_tooltip = check_nest_selection_tooltip
+	major = yes
+	# Can't get eggs if you don't have a dragon and you're not getting near if you're not Valyrian.
+	is_shown = {              
+		OR = {
+			any_ancestor = {
+				even_if_dead = yes
+				has_culture = culture:high_valyrian
+			}
+			has_culture = culture:high_valyrian
+		}
+		any_character_artifact = {
+			AND = {
+				var:dragon_rider = yes
+				var:dragon_age >= 25 
+			}
+		}
+		has_trait = dragon_rider_trait
+	}
+	# Dragon is old enough
+	is_valid = {
+		any_character_artifact = {
+			AND = {
+				var:dragon_rider = yes
+			}
+		}
+		is_adult = yes
+		is_at_home = yes
+	}
+	# Begin
+	effect = {
+		root = { 
+			# Check Nest
+			trigger_event = { id = tud_decision_events.0002 } 
+		}
+	}
+	# Check every twelve months
+	ai_check_interval = 12
+	# AI has the potential to take
+	ai_potential = { always = yes }
+	# Chance AI will do
+	ai_will_do = {
+		# 25%
+		base = 25
+		# Add 50% if High Valyrian
+		modifier = {
+			root = {
+				has_culture = culture:high_valyrian
+			}
+			add = 50
+		}
+		# Add 25% High Valyrian Blood
+		modifier = {
+			root = {
+				any_ancestor = {
+					even_if_dead = yes
+					has_culture = culture:high_valyrian
+				}
+			}
+			add = 25
+		}
+	}
+}
+# Use Dragon In Siege
+dragon_siege_decision = {
+	# Unleash Dragonfire
+	picture = "gfx/interface/illustrations/decisions/decision_legend.dds"
+	title = dragon_siege_decision_title
+	desc = dragon_siege_decision_desc
+	cooldown = { days = 30 }
+	selection_tooltip = dragon_siege_decision_tooltip
+	major = yes
+	# At War & Dragon Rider
+	is_shown = {
+		is_at_war = yes
+		# Leading Army For Siege
+		exists = commanding_army
+		commanding_army = {
+			OR = {
+				is_army_in_siege = yes
+				is_army_in_raid = yes
+			}
+		}
+		OR = {
+			any_ancestor = {
+				this = { has_culture = culture:high_valyrian }
+			}
+			has_culture = culture:high_valyrian
+		}
+		any_character_artifact = {
+			AND = {
+				var:dragon_rider = yes
+				var:dragon_age > 5
+			}
+		}
+		has_trait = dragon_rider_trait
+	}
+	# Leading Army & County Not Burned
+	is_valid = {
+		# Not Burned
+		NOT = {
+			ROOT.location.county = { has_county_modifier = dragon_siege_modifier }
+		}
+	}
+	# Begin
+	effect = {
+		root = { 
+			# Burn County
+			trigger_event = { id = tud_decision_events.0003 } 
+		}
+	}
+	# Check every twelve months
+	ai_check_interval = 12
+	# AI has the potential to take
+	ai_potential = { always = yes }
+	# Chance AI will do
+	ai_will_do = {
+		# 50%
+		base = 50
+		# 100% if at least one of following traits
+		modifier = {
+			root = {
+				OR = {
+					has_trait = callous
+					has_trait = arbitrary
+					has_trait = ambitious
+					has_trait = impatient
+					has_trait = wrathful
+					has_trait = vengeful
+					has_trait = sadistic
+				}
+			}
+			add = 50
+		}
+	}
+}
+
+# Claim Wild Dragon
+claim_wild_dragon_decision = {
+	# Rumour of Wild Dragon
+	picture = "gfx/interface/illustrations/decisions/claim_wild_dragon_decision.dds"
+	title = claim_wild_dragon_decision_title
+	desc = claim_wild_dragon_decision_desc
+	# 5 Years
+	cooldown = { days = 1825 }
+	selection_tooltip = claim_wild_dragon_selection_tooltip
+	major = yes
+	# Must be Valyrian or of Valyrian descent, and not already be a dragon-rider.
+	is_shown = {              
+		OR = {
+			any_ancestor = {
+				even_if_dead = yes
+				has_culture = culture:high_valyrian
+			}
+			has_culture = culture:high_valyrian
+		}
+		any_artifact = {
+			var:dragon_rider = no
+		}
+	}
+	# Not A Dragon Rider Already
+	is_valid = {
+		NOT = {
+			any_character_artifact = {
+				AND = {
+					var:dragon_rider = yes
+				}
+			}
+		}
+	}
+	# Begin
+	effect = {
+		random_list = {
+			75 = {
+				# Find Dragon
+				random_artifact = {
+					limit = { var:dragon_rider = no }
+					save_scope_as = wild_dragon_transfer
+				}
+				# Find Owner of Dragon
+				scope:wild_dragon_transfer = {
+					artifact_owner = {
+						save_scope_as = wild_owner_transfer
+					}
+				}
+				# Find story belonging to owner about dragon
+				scope:wild_owner_transfer = {
+					random_owned_story = {
+						limit = { var:story_cycle_dragon_id = scope:wild_dragon_transfer.var:dragon_id }
+						make_story_owner = ROOT
+					}
+				}
+				# Set Dragon Rider & Transfer Dragon
+				scope:wild_dragon_transfer = {
+					set_variable = {
+						name = dragon_rider
+						value = yes
+					}
+					set_owner = ROOT
+				}
+				# Trigger Event To Display New Dragon
+				root = {
+					trigger_event = { id = tud_decision_events.0004 } 
+				}
+			}
+			25 = {
+				death = { death_reason = death_tud_eaten }
+			}
+		}
+	}
+	# Check every twelve months
+	ai_check_interval = 12
+	# AI has the potential to take
+	ai_potential = { always = yes }
+	# Chance AI will do
+	ai_will_do = {
+		# 50%
+		base = 50
+		# 100% if at least one of following traits
+		modifier = {
+			root = {
+				OR = {
+					has_trait = brave
+					has_trait = ambitious
+					has_trait = impatient
+					has_trait = arrogant
+				}
+			}
+			add = 50
+		}
+	}
+}

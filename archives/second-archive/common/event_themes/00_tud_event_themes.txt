@@ -1,0 +1,36 @@
+##################
+### TUD THEMES ###
+##################
+
+dragon_duel_theme = {
+	icon = {
+		reference = "gfx/interface/icons/event_types/type_dragon.dds"
+	}
+	background = {
+		reference = dragon_duel_background
+	}
+} # Dance of Dragons
+
+dragon_hatched_theme = {
+	icon = {
+		reference = "gfx/interface/icons/event_types/type_dragon.dds"
+	}
+	sound = {
+		reference = "event:/SFX/Events/Themes/sfx_event_theme_type_generic"
+	}
+	background = {
+		reference = dragon_hatched_background
+	}
+} # The Ritual
+
+dragon_nest_theme = {
+    icon = {
+		reference = "gfx/interface/icons/event_types/type_dragon.dds"
+	}
+	sound = {
+		reference = "event:/SFX/Events/Themes/sfx_event_theme_type_generic"
+	}
+	background = {
+		reference = dragon_nest_background
+	}
+} # The Cave

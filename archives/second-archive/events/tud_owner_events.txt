@@ -1,0 +1,177 @@
+namespace = d_inheritance
+
+# Asked to Grant Dragon Egg
+d_inheritance.0001 = {
+    # Start
+	type = character_event
+	title = d_inheritance.0001.t
+	desc = d_inheritance.0001.desc
+    hidden = false
+	theme = diplomacy_family_focus
+    # Find Recipient
+    immediate = {
+        random_close_or_extended_family_member = {
+            limit = { 
+                AND = {
+                    this = { is_alive = yes }
+                    OR = {
+                        this = { any_ancestor = { this = { has_culture = culture:high_valyrian } } }
+                        this = { has_culture = culture:high_valyrian }
+                    }
+                    NOT = {
+                        OR = {
+                            this = { any_character_artifact = { this = { has_variable = claimed_dragon } } }
+                            this = { any_character_artifact = { this = { has_variable = dragon_egg } } }
+                        }
+                    }
+                }
+            }
+            save_scope_as = my_recipient
+        }
+    }
+    # Options
+    option = {
+        name = d_inheritance.0001.a
+        effect = {
+            dragon_egg_gift = {
+                OWNER = ROOT
+                RECIPIENT = scope:my_recipient
+            }
+        }
+    }
+    option = {
+        name = d_inheritance.0001.b
+        effect = {
+            add_prestige = 250
+        }
+    }
+}
+
+# Asked For Permission to Tame
+d_inheritance.0002 = {
+    # Start
+	type = character_event
+	title = d_inheritance.0002.t
+	desc = d_inheritance.0002.desc
+	hidden = false
+	theme = dragon_nest_theme
+    # Person Asking To Tame
+    immediate = {
+        any_close_or_extended_family_member = {
+            limit = { 
+                AND = {
+                    this = { is_alive = yes }
+                    OR = {
+                        this = { any_ancestor = { this = { has_culture = culture:high_valyrian } } }
+                        this = { has_culture = culture:high_valyrian }
+                    }
+                    NOT = {
+                        OR = {
+                            this = { any_character_artifact = { this = { has_variable = claimed_dragon } } }
+                        }
+                    }
+                }
+            }
+            save_scope_as = my_recipient
+        }
+    }
+    # Options
+    option = {
+        name = d_inheritance.0002.a
+        effect = {
+            dragon_rider_claim = {
+                OWNER = ROOT
+                RECIPIENT = scope:my_recipient
+            }
+        }
+    }
+    option = {
+        name = d_inheritance.0002.b
+        effect = {
+            add_prestige = 250
+        }
+    }
+}
+
+# Identify Rider
+d_inheritance.0003 = {
+    # Start
+	type = character_event
+	title = d_inheritance.0003.t
+	desc = d_inheritance.0003.desc
+    hidden = true
+    # Add Rider Modifier
+    immediate = {
+        if = { 
+            any_character_artifact = {
+                limit = { AND = {
+                    this = { has_artifact_modifier = nimble_dragon_modifier }
+                    this = { has_variable = claimed_dragon}
+                }}
+            }
+            add_character_modifier = nimble_dragon_rider_modifier
+        }
+        if = { 
+            any_character_artifact = {
+                AND = {
+                    this = { has_artifact_modifier = large_dragon_modifier }
+                    this = { has_variable = claimed_dragon}
+                }
+            }
+            add_character_modifier = large_dragon_rider_modifier
+        }
+        if = { 
+            any_character_artifact = {
+                AND = {
+                    this = { has_artifact_modifier = great_dragon_modifier }
+                    this = { has_variable = claimed_dragon}
+                }
+            }
+            add_character_modifier = great_dragon_rider_modifier
+        }
+    }
+}
+
+# No Longer Rider
+d_inheritance.0004 = {
+    # Start
+	type = character_event
+	title = d_inheritance.0004.t
+	desc = d_inheritance.0004.desc
+    hidden = true
+    # Remove Rider Modifier - Dragon Gone
+    immediate = {
+        if = { 
+            limit = { has_character_modifier = nimble_dragon_rider_modifier }
+            remove_character_modifier = nimble_dragon_rider_modifier
+        }
+        if = { 
+            limit = { has_character_modifier = large_dragon_rider_modifier }
+            remove_character_modifier = large_dragon_rider_modifier
+        }
+        if = { 
+            limit = { has_character_modifier = great_dragon_rider_modifier }
+            remove_character_modifier = great_dragon_rider_modifier
+        }
+    }
+}
+
+# No Longer Has Rider
+d_inheritance.0005 = {
+    # Start
+	type = character_event
+	title = d_inheritance.0005.t
+	desc = d_inheritance.0005.desc
+    hidden = true
+    # Unclaimed Dragon
+    immediate = {
+        every_character_artifact = {
+            limit = { has_variable = claimed_dragon }
+            remove_variable = claimed_dragon
+            set_variable = {
+                name = unclaimed_dragon
+                value = yes
+            }
+        }
+    }
+}

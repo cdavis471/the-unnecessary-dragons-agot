@@ -1,0 +1,74 @@
+﻿nimble_dragon = { 
+	type = dragon
+	can_recruit = { always = no } # Must be spawned from Decision
+	
+	damage = 100000
+	toughness = 100000
+	pursuit = 50000	# No one can escape the flames
+	screen = 25000	
+	
+	counters = {
+		dragon = 1
+	}
+	
+	buy_cost = { gold = 1 }
+	low_maintenance_cost = { gold = 1 }
+	high_maintenance_cost = { gold = 3 }
+	
+	max_sub_regiments = 1
+	
+	stack = 1
+	ai_quality = { value = 100 }
+	
+	icon = dragon
+}
+
+large_dragon = { 
+	type = dragon
+	can_recruit = { always = no } # Must be spawned from Decision
+	
+	damage = 250000
+	toughness = 250000
+	pursuit = 150000	# No one can escape the flames
+	screen = 100000	
+	
+	counters = {
+		dragon = 1
+	}
+	
+	buy_cost = { gold = 1 }
+	low_maintenance_cost = { gold = 3 }
+	high_maintenance_cost = { gold = 7 }
+	
+	max_sub_regiments = 1
+	
+	stack = 1
+	ai_quality = { value = 100 }
+	
+	icon = dragon
+}
+
+great_dragon = {
+	type = dragon
+	can_recruit = { always = no } # Must be spawned from Decision
+	
+	damage = 500000
+	toughness = 500000
+	pursuit = 500000	# No one can escape the flames
+	screen = 250000	
+	
+	counters = {
+		dragon = 1
+	}
+	
+	buy_cost = { gold = 1 }
+	low_maintenance_cost = { gold = 5 }
+	high_maintenance_cost = { gold = 10 }
+	
+	max_sub_regiments = 1
+	
+	stack = 1
+	ai_quality = { value = 100 }
+	
+	icon = dragon
+}

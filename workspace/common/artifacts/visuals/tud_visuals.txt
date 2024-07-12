@@ -1,0 +1,1204 @@
+﻿#########################################################################
+###########################   DRAGON SKULL   ############################
+#########################################################################
+dragonskull_visual = {
+	icon = "dragon_artifact_skull.dds"
+	asset = ep1_generic_jewelry_01_a_entity
+}
+#########################################################################
+##########################   DRAGON COLOURS   ###########################
+#########################################################################
+dragon_visual = {
+	#########################################################################
+	#######################   PRIMARY COLOUR: BLACK   #######################
+	#########################################################################
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_black_black
+			}
+		}
+		reference = "dragon_artifact_visual_black_black.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_black_grey
+			}
+		}
+		reference = "dragon_artifact_visual_black_grey.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_black_white
+			}
+		}
+		reference = "dragon_artifact_visual_black_white.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_black_brown
+			}
+		}
+		reference = "dragon_artifact_visual_black_brown.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_black_orange
+			}
+		}
+		reference = "dragon_artifact_visual_black_orange.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_black_yellow
+			}
+		}
+		reference = "dragon_artifact_visual_black_yellow.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_black_gold
+			}
+		}
+		reference = "dragon_artifact_visual_black_gold.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_black_green
+			}
+		}
+		reference = "dragon_artifact_visual_black_green.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_black_blue
+			}
+		}
+		reference = "dragon_artifact_visual_black_blue.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_black_purple
+			}
+		}
+		reference = "dragon_artifact_visual_black_purple.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_black_red
+			}
+		}
+		reference = "dragon_artifact_visual_black_red.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_black_pink
+			}
+		}
+		reference = "dragon_artifact_visual_black_pink.dds"
+	}
+	#########################################################################
+	########################   PRIMARY COLOUR: GREY   #######################
+	#########################################################################
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_grey_black
+			}
+		}
+		reference = "dragon_artifact_visual_grey_black.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_grey_grey
+			}
+		}
+		reference = "dragon_artifact_visual_grey_grey.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_grey_white
+			}
+		}
+		reference = "dragon_artifact_visual_grey_white.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_grey_brown
+			}
+		}
+		reference = "dragon_artifact_visual_grey_brown.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_grey_orange
+			}
+		}
+		reference = "dragon_artifact_visual_grey_orange.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_grey_yellow
+			}
+		}
+		reference = "dragon_artifact_visual_grey_yellow.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_grey_gold
+			}
+		}
+		reference = "dragon_artifact_visual_grey_gold.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_grey_green
+			}
+		}
+		reference = "dragon_artifact_visual_grey_green.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_grey_blue
+			}
+		}
+		reference = "dragon_artifact_visual_grey_blue.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_grey_purple
+			}
+		}
+		reference = "dragon_artifact_visual_grey_purple.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_grey_red
+			}
+		}
+		reference = "dragon_artifact_visual_grey_red.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_grey_pink
+			}
+		}
+		reference = "dragon_artifact_visual_grey_pink.dds"
+	}
+	#########################################################################
+	########################   PRIMARY COLOUR: WHITE   ######################
+	#########################################################################
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_white_black
+			}
+		}
+		reference = "dragon_artifact_visual_white_black.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_white_grey
+			}
+		}
+		reference = "dragon_artifact_visual_white_grey.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_white_white
+			}
+		}
+		reference = "dragon_artifact_visual_white_white.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_white_brown
+			}
+		}
+		reference = "dragon_artifact_visual_white_brown.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_white_orange
+			}
+		}
+		reference = "dragon_artifact_visual_white_orange.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_white_yellow
+			}
+		} 
+		reference = "dragon_artifact_visual_white_yellow.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_white_gold
+			}
+		}
+		reference = "dragon_artifact_visual_white_gold.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_white_green
+			}
+		} 
+		reference = "dragon_artifact_visual_white_green.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_white_blue
+			}
+		}
+		reference = "dragon_artifact_visual_white_blue.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_white_purple
+			}
+		}
+		reference = "dragon_artifact_visual_white_purple.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_white_red
+			}
+		}
+		reference = "dragon_artifact_visual_white_red.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_white_pink
+			}
+		} 
+		reference = "dragon_artifact_visual_white_pink.dds"
+	}
+	#########################################################################
+	########################   PRIMARY COLOUR: BROWN   ######################
+	#########################################################################
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_brown_black
+			}
+		} 
+		reference = "dragon_artifact_visual_brown_black.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_brown_grey
+			}
+		}
+		reference = "dragon_artifact_visual_brown_grey.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_brown_white
+			}
+		}
+		reference = "dragon_artifact_visual_brown_white.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_brown_brown
+			}
+		} 
+		reference = "dragon_artifact_visual_brown_brown.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_brown_orange
+			}
+		}
+		reference = "dragon_artifact_visual_brown_orange.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_brown_yellow
+			}
+		}
+		reference = "dragon_artifact_visual_brown_yellow.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_brown_gold
+			}
+		}
+		reference = "dragon_artifact_visual_brown_gold.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_brown_green
+			}
+		}
+		reference = "dragon_artifact_visual_brown_green.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_brown_blue
+			}
+		}
+		reference = "dragon_artifact_visual_brown_blue.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_brown_purple
+			}
+		}
+		reference = "dragon_artifact_visual_brown_purple.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_brown_red
+			}
+		} 
+		reference = "dragon_artifact_visual_brown_red.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_brown_pink
+			}
+		}
+		reference = "dragon_artifact_visual_brown_pink.dds"
+	}
+	#########################################################################
+	#######################   PRIMARY COLOUR: ORANGE   ######################
+	#########################################################################
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_orange_black
+			}
+		}
+		reference = "dragon_artifact_visual_orange_black.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_orange_grey
+			}
+		}
+		reference = "dragon_artifact_visual_orange_grey.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_orange_white
+			}
+		}
+		reference = "dragon_artifact_visual_orange_white.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_orange_brown
+			}
+		}
+		reference = "dragon_artifact_visual_orange_brown.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_orange_orange
+			}
+		}
+		reference = "dragon_artifact_visual_orange_orange.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_orange_yellow
+			}
+		}
+		reference = "dragon_artifact_visual_orange_yellow.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_orange_gold
+			}
+		}
+		reference = "dragon_artifact_visual_orange_gold.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_orange_green
+			}
+		}
+		reference = "dragon_artifact_visual_orange_green.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_orange_blue
+			}
+		}
+		reference = "dragon_artifact_visual_orange_blue.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_orange_purple
+			}
+		}
+		reference = "dragon_artifact_visual_orange_purple.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_orange_red
+			}
+		}
+		reference = "dragon_artifact_visual_orange_red.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_orange_pink
+			}
+		}
+		reference = "dragon_artifact_visual_orange_pink.dds"
+	}
+	#########################################################################
+	#######################   PRIMARY COLOUR: YELLOW   ######################
+	#########################################################################
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_yellow_black
+			}
+		}
+		reference = "dragon_artifact_visual_yellow_black.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_yellow_grey
+			}
+		}
+		reference = "dragon_artifact_visual_yellow_grey.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_yellow_white
+			}
+		}
+		reference = "dragon_artifact_visual_yellow_white.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_yellow_brown
+			}
+		}
+		reference = "dragon_artifact_visual_yellow_brown.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_yellow_orange
+			}
+		}
+		reference = "dragon_artifact_visual_yellow_orange.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_yellow_yellow
+			}
+		}
+		reference = "dragon_artifact_visual_yellow_yellow.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_yellow_gold
+			}
+		}
+		reference = "dragon_artifact_visual_yellow_gold.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_yellow_green
+			}
+		}
+		reference = "dragon_artifact_visual_yellow_green.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_yellow_blue
+			}
+		}
+		reference = "dragon_artifact_visual_yellow_blue.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_yellow_purple
+			}
+		}
+		reference = "dragon_artifact_visual_yellow_purple.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_yellow_red
+			}
+		}
+		reference = "dragon_artifact_visual_yellow_red.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_yellow_pink
+			}
+		}
+		reference = "dragon_artifact_visual_yellow_pink.dds"
+	}
+	#########################################################################
+	########################   PRIMARY COLOUR: GOLD   #######################
+	#########################################################################
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_gold_black
+			}
+		}
+		reference = "dragon_artifact_visual_gold_black.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_gold_grey
+			}
+		}
+		reference = "dragon_artifact_visual_gold_grey.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_gold_white
+			}
+		}
+		reference = "dragon_artifact_visual_gold_white.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_gold_brown
+			}
+		}
+		reference = "dragon_artifact_visual_gold_brown.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_gold_orange
+			}
+		}
+		reference = "dragon_artifact_visual_gold_orange.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_gold_yellow
+			}
+		}
+		reference = "dragon_artifact_visual_gold_yellow.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_gold_gold
+			}
+		}
+		reference = "dragon_artifact_visual_gold_gold.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_gold_green
+			}
+		}
+		reference = "dragon_artifact_visual_gold_green.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_gold_blue
+			}
+		}
+		reference = "dragon_artifact_visual_gold_blue.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_gold_purple
+			}
+		}
+		reference = "dragon_artifact_visual_gold_purple.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_gold_red
+			}
+		}
+		reference = "dragon_artifact_visual_gold_red.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_gold_pink
+			}
+		}
+		reference = "dragon_artifact_visual_gold_pink.dds"
+	}
+	#########################################################################
+	#######################   PRIMARY COLOUR: GREEN   #######################
+	#########################################################################
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_green_black
+			}
+		}
+		reference = "dragon_artifact_visual_green_black.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_green_grey
+			}
+		}
+		reference = "dragon_artifact_visual_green_grey.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_green_white
+			}
+		}
+		reference = "dragon_artifact_visual_green_white.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_green_brown
+			}
+		}
+		reference = "dragon_artifact_visual_green_brown.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_green_orange
+			}
+		}
+		reference = "dragon_artifact_visual_green_orange.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_green_yellow
+			}
+		}
+		reference = "dragon_artifact_visual_green_yellow.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_green_gold
+			}
+		}
+		reference = "dragon_artifact_visual_green_gold.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_green_green
+			}
+		}
+		reference = "dragon_artifact_visual_green_green.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_green_blue
+			}
+		}
+		reference = "dragon_artifact_visual_green_blue.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_green_purple
+			}
+		}
+		reference = "dragon_artifact_visual_green_purple.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_green_red
+			}
+		}
+		reference = "dragon_artifact_visual_green_red.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_green_pink
+			}
+		}
+		reference = "dragon_artifact_visual_green_pink.dds"
+	}
+	#########################################################################
+	########################   PRIMARY COLOUR: BLUE   #######################
+	#########################################################################
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_blue_black
+			}
+		}
+		reference = "dragon_artifact_visual_blue_black.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_blue_grey
+			}
+		}
+		reference = "dragon_artifact_visual_blue_grey.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_blue_white
+			}
+		}
+		reference = "dragon_artifact_visual_blue_white.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_blue_brown
+			}
+		}
+		reference = "dragon_artifact_visual_blue_brown.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_blue_orange
+			}
+		}
+		reference = "dragon_artifact_visual_blue_orange.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_blue_yellow
+			}
+		}
+		reference = "dragon_artifact_visual_blue_yellow.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_blue_gold
+			}
+		}
+		reference = "dragon_artifact_visual_blue_gold.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_blue_green
+			}
+		}
+		reference = "dragon_artifact_visual_blue_green.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_blue_blue
+			}
+		}
+		reference = "dragon_artifact_visual_blue_blue.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_blue_purple
+			}
+		}
+		reference = "dragon_artifact_visual_blue_purple.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_blue_red
+			}
+		}
+		reference = "dragon_artifact_visual_blue_red.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_blue_pink
+			}
+		}
+		reference = "dragon_artifact_visual_blue_pink.dds"
+	}
+	#########################################################################
+	#######################   PRIMARY COLOUR: PURPLE   ######################
+	#########################################################################
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_purple_black
+			}
+		}
+		reference = "dragon_artifact_visual_purple_black.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_purple_grey
+			}
+		}
+		reference = "dragon_artifact_visual_purple_grey.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_purple_white
+			}
+		}
+		reference = "dragon_artifact_visual_purple_white.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_purple_brown
+			}
+		}
+		reference = "dragon_artifact_visual_purple_brown.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_purple_orange
+			}
+		}
+		reference = "dragon_artifact_visual_purple_orange.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_purple_yellow
+			}
+		}
+		reference = "dragon_artifact_visual_purple_yellow.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_purple_gold
+			}
+		}
+		reference = "dragon_artifact_visual_purple_gold.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_purple_green
+			}
+		}
+		reference = "dragon_artifact_visual_purple_green.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_purple_blue
+			}
+		}
+		reference = "dragon_artifact_visual_purple_blue.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_purple_purple
+			}
+		}
+		reference = "dragon_artifact_visual_purple_purple.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_purple_red
+			}
+		}
+		reference = "dragon_artifact_visual_purple_red.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_purple_pink
+			}
+		}
+		reference = "dragon_artifact_visual_purple_pink.dds"
+	}
+	#########################################################################
+	#########################   PRIMARY COLOUR: RED   #######################
+	#########################################################################
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_red_black
+			}
+		}
+		reference = "dragon_artifact_visual_red_black.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_red_grey
+			}
+		}
+		reference = "dragon_artifact_visual_red_grey.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_red_white
+			}
+		}
+		reference = "dragon_artifact_visual_red_white.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_red_brown
+			}
+		}
+		reference = "dragon_artifact_visual_red_brown.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_red_orange
+			}
+		}
+		reference = "dragon_artifact_visual_red_orange.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_red_yellow
+			}
+		}
+		reference = "dragon_artifact_visual_red_yellow.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_red_gold
+			}
+		}
+		reference = "dragon_artifact_visual_red_gold.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_red_green
+			}
+		}
+		reference = "dragon_artifact_visual_red_green.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_red_blue
+			}
+		}
+		reference = "dragon_artifact_visual_red_blue.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_red_purple
+			}
+		}
+		reference = "dragon_artifact_visual_red_purple.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_red_red
+			}
+		}
+		reference = "dragon_artifact_visual_red_red.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_red_pink
+			}
+		}
+		reference = "dragon_artifact_visual_red_pink.dds"
+	}
+	#########################################################################
+	########################   PRIMARY COLOUR: PINK   #######################
+	#########################################################################
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_pink_black
+			}
+		}
+		reference = "dragon_artifact_visual_pink_black.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_pink_grey
+			}
+		}
+		reference = "dragon_artifact_visual_pink_grey.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_pink_white
+			}
+		}
+		reference = "dragon_artifact_visual_pink_white.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_pink_brown
+			}
+		}
+		reference = "dragon_artifact_visual_pink_brown.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_pink_orange
+			}
+		}
+		reference = "dragon_artifact_visual_pink_orange.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_pink_yellow
+			}
+		}
+		reference = "dragon_artifact_visual_pink_yellow.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_pink_gold
+			}
+		}
+		reference = "dragon_artifact_visual_pink_gold.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_pink_green
+			}
+		}
+		reference = "dragon_artifact_visual_pink_green.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_pink_blue
+			}
+		}
+		reference = "dragon_artifact_visual_pink_blue.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_pink_purple
+			}
+		}
+		reference = "dragon_artifact_visual_pink_purple.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_pink_red
+			}
+		}
+		reference = "dragon_artifact_visual_pink_red.dds"
+	}
+	icon = {
+		trigger = {
+			scope:artifact = {
+				has_artifact_feature = dragon_feature_colour_pink_pink
+			}
+		}
+		reference = "dragon_artifact_visual_pink_pink.dds"
+	}
+	#########################################################################
+	################################   END   ################################
+	#########################################################################
+	asset = ep1_generic_jewelry_01_a_entity
+}

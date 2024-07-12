@@ -1,0 +1,104 @@
+﻿l_english:
+ ###############################################################################################
+ # Decision Events
+ ###############################################################################################
+ # Dragon Hatched
+ tud_decision_events.0001:0 "The Power Of The Fourteen Flames"
+ tud_decision_events.0001.t:0 "The Power Of The Fourteen Flames"
+ tud_decision_events.0001.desc:0 "My preparations have been completed, and it is now time. The crackling of the flames rings like thunder in my ears as I wait in anticipation.\n\nSoon enough, I will know whether my name shall be recorded in history, or forgotten entirely."
+ tud_decision_events.0001.a:0 "It is my time."
+ tud_decision_events.0001.b:0 "I don't think I am ready."
+ tud_decision_events.0001.a.tooltip.1:0 "A dragon is born..."
+ tud_decision_events.0001.a.tooltip.2:0 "All is lost..."
+ # Dragon Nest Checked
+ tud_decision_events.0002:0 "An Eerie Silence"
+ tud_decision_events.0002.t:0 "An Eerie Silence"
+ tud_decision_events.0002.desc:0 "I arrive to find my dragon is not here, with steam rising from the center, where a small mound seems to jut out from the rather flat ground.\n\nI do not know if there is anything for me, but I should at least check."
+ tud_decision_events.0002.a:0 "Surely there is something there?"
+ # Burn Province With Dragon
+ tud_decision_events.0003:0 "From Above"
+ tud_decision_events.0003.t:0 "From Above"
+ tud_decision_events.0003.a:0 "These walls are nothing, dracarys!"
+ tud_decision_events.0003.b:0 "On second thought, this would be far too cruel."
+ tud_decision_events.0003.desc:0 "How foolish can one be, what are walls to the might of dragon fire? With my command, I could order my dragon to burn these walls to the ground - although it may have quite the devastating effect."
+ # Wild Dragon Claimed
+ tud_decision_events.0004:0 "Reminder Of The Freehold"
+ tud_decision_events.0004.t:0 "Reminder Of The Freehold"
+ tud_decision_events.0004.desc:0 "I fly into the sky, bewildered by what I have just experienced. For a short moment, it appeared the dragon would strike, disturbed by an unwanted presence, but my will has prevailed, with my new mount bending to it.\n\nAs the clouds part before me, I excitedly think about what the future will look like."
+ tud_decision_events.0004.a:0 "Sōvēs!"
+ ###############################################################################################
+ # Interactions
+ ###############################################################################################
+ # Claim Throne - Normal
+ tud_interaction_events.0001:0 "A Scion Of Old Valyria"
+ tud_interaction_events.0001.t:0 "A Scion Of Old Valyria"
+ tud_interaction_events.0001.desc1:0 "It has finally come time to make use of my dragon! Many feeble nobles use their birthrights to establish their own petty claims on land. Yet I've no need of such formalities, for I have a dragon.\n"
+ tud_interaction_events.0001.desc2:0 "\nThe blood of Old Valyria courses through my veins, and atop my dragon, these lands will be mine. Who will stand in the way of my dragonfire?"
+ tud_interaction_events.0001.a:0 "I must act quickly, the time for war is now."
+ # Claim Throne - The Iron Throne
+ tud_interaction_events.0002.t:0 "A Conqueror Arises"
+ tud_interaction_events.0002.desc1:0 "Aegon the Dragon conquered all of Westeros atop the mighty Balerion. Westerosi lords need formalities to argue their petty claims on the meager lands they fight over. Though I need no such thing!\n"
+ tud_interaction_events.0002.desc2:0 "\nThe blood of Old Valyria courses through my veins, the blood of gods! Like Aegon the Conqueror, I will establish a claim on all of the Seven Kingdoms by the right of my dragon! For I control the very thing that united Westeros to begin with!\n"
+ tud_interaction_events.0002.desc3:0 "\nThere may have once been seven kingdoms in Westeros, but now it is my time to rule as their one true lord, for the power of my dragon will not be stopped."
+ tud_interaction_events.0002.a:0 "I will take the Iron Throne for my own."
+ # A Dance Of Dragons
+ # Start
+ tud_interaction_events.0003:0 "A Dance Of Dragons"
+ tud_interaction_events.0003.t:0 "A Dance Of Dragons"
+ tud_interaction_events.0003.desc:0 "My mount hurtles higher in the sky as the clashing of razor-sharp teeth and scales, claws and muscle, begins to spiral out of control. My fate and that of my opponent is in the hands of the gods, and the power of our dragons.\n\nYet, are dragonlords not closer to gods than men, commanding such power?\n\nI must command this vicious dance."
+ tud_interaction_events.0003.a:0 "Straight for that fool, embrot!"
+ tud_interaction_events.tooltip1:0 "Naejot!"
+ tud_interaction_events.0003.b:0 "Let us take this to the ground, tear flesh from limb through sheer might."
+ tud_interaction_events.tooltip2:0 "Parmot!"
+ tud_interaction_events.0003.c:0 "I need to get some distance, gather myself and engage once again."
+ tud_interaction_events.tooltip3:0 "Geptot!"
+ # End - Death
+ tud_interaction_events.0004:0 "Daor!"
+ tud_interaction_events.0004.t:0 "Daor!"
+ tud_interaction_events.0004.desc:0 "From below, every man and woman bore witness to a mighty dance, great bursts of flame and roars that shook the very foundations of the earth.\n\nAlas, it is your vision that blackens, your life that ends.\n\nA life that will be remembered through the songs of your legendary demise."
+ tud_interaction_events.0004.a:0 "A fitting end for a dragon rider."
+ tud_interaction_events.tooltip4:0 "This is it..."
+ # End - Victory
+ tud_interaction_events.0005:0 "Vezot!"
+ tud_interaction_events.0005.t:0 "Vezot!"
+ tud_interaction_events.0005.desc:0 "As the rider and their mount lie dead before you, you take in the damage wrought by this battle of fire and blood.\n\nHaving taken a moment to remember the imagery before you, you rise once more to the heavens, victorious."
+ tud_interaction_events.0005.a:0 "My name will echo through history."
+ tud_interaction_events.tooltip5:0 "I am alive..."
+ # Dragon Tamed
+ tud_interaction_events.0006:0 "Tubis Gevie Issa"
+ tud_interaction_events.0006.t:0 "Tubis Gevie Issa"
+ tud_interaction_events.0006.desc:0 "Any doubts that we had have been swept away. The dragon has taken to the new rider, and has been claimed.\n\nWe shall see what will become of this new pairing."
+ tud_interaction_events.0006.a:0 "I wish good fortune upon them."
+ tud_interaction_events.tooltip6:0 "Let us hope we have not spawned a rival..."
+ # Dragon Not Tamed
+ tud_interaction_events.0007:0 "Disaster"
+ tud_interaction_events.0007.t:0 "Disaster"
+ tud_interaction_events.0007.desc:0 "Perhaps we should have seen it coming, they approached too quickly and too boldly.\n\nSupper has been served and it is best we retreat, lest we join as the main course. The guards retreat as flames touch the ceiling, with a roar rattling your bones."
+ tud_interaction_events.0007.a:0 "What have I done..."
+ tud_interaction_events.tooltip7:0 "I have made a fatal error..."
+ # Cradling
+ tud_interaction_events.0008:0 "Strong Bonds"
+ tud_interaction_events.0008.t:0 "Strong Bonds"
+ tud_interaction_events.0008.desc:0 "It has been said, that a true child of Old Valyria should have an egg placed within their cradle, and if it should hatch, it was a good omen.\n\nMy kin has shown the blood remains strong, and new bond has been formed."
+ tud_interaction_events.0008.a:0 "Let us hope that this bond between rider and dragon is cherished."
+ tud_interaction_events.tooltip8:0 "A bright future..."
+ ###############################################################################################
+ # Story
+ ###############################################################################################
+ # Name Dragon
+ tud_story_events.0001:0 "A Name Is Needed"
+ tud_story_events.0001.t:0 "A Name Is Needed"
+ tud_story_events.0001.desc:0 "It is tradition that a dragon be named upon birth, just like us. I know of many famous dragons, but to make such a choice now, is a dream come true."
+ tud_story_events.0001.a:0 "A fine choice."
+ # Dragon Claimed
+ tud_story_events.0002:0 "Chance"
+ tud_story_events.0002.t:0 "Chance"
+ tud_story_events.0002.desc:0 "It is only chance that brings me to this moment, for I have found myself in the position to claim a dragon for myself. Why should I not avail of this opportunity?\n\nIt is as if the threads of fate are pulling me towards the creature before me."
+ tud_story_events.0002.a:0 "Time to climb atop."
+ # Dragon Claimed From You
+ tud_story_events.0003:0 "The Messenger"
+ tud_story_events.0003.t:0 "The Messenger"
+ tud_story_events.0003.desc:0 "While in the midst of thinking, you are disturbed by a servant rushing in with urgent news, for a dragon within your domain has been claimed."
+ tud_story_events.0003.a:0 "I should have seen this coming."
+ 
+ 

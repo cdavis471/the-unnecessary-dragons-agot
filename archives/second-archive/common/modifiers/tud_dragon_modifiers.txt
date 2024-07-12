@@ -1,0 +1,139 @@
+﻿nimble_dragon_modifier = {
+	# Icon
+	icon = beast_mixed
+	# Prestige
+	monthly_prestige = 5
+	# Battle
+	min_combat_roll = 50
+	max_combat_roll = 50
+	# Dread
+	dread_baseline_add = 10
+	# Speed of Army
+	movement_speed = 0.25
+	# Efficiency of Army
+	enemy_hard_casualty_modifier = 0.15
+	# Valyrians
+	high_valyrian_opinion = 5
+	# Speed of Travel
+	character_travel_speed = 25
+	# Hostile Plots
+	hostile_scheme_resistance = 0.30
+} 
+
+large_dragon_modifier = {
+	# Icon
+	icon = beast_mixed
+	# Prestige
+	monthly_prestige = 10
+	# Battle
+	min_combat_roll = 75
+	max_combat_roll = 75
+	# Dread
+	dread_baseline_add = 15
+	# Speed of Army
+	movement_speed = 0.30
+	# Efficiency of Army
+	enemy_hard_casualty_modifier = 0.20
+	# Valyrians
+	high_valyrian_opinion = 10
+	# Speed of Travel
+	character_travel_speed = 50
+	# Hostile Plots
+	hostile_scheme_resistance = 0.25
+}
+
+great_dragon_modifier = {
+	# Icon
+	icon = beast_mixed
+	# Prestige
+	monthly_prestige = 15
+	# Battle
+	min_combat_roll = 100
+	max_combat_roll = 100
+	# Dread
+	dread_baseline_add = 20
+	# Speed of Army
+	movement_speed = 0.35
+	# Efficiency of Army
+	enemy_hard_casualty_modifier = 0.25
+	# Valyrians
+	high_valyrian_opinion = 15
+	# Speed of Travel
+	character_travel_speed = 75
+	# Hostile Plots
+	hostile_scheme_resistance = 0.20
+}
+
+dragonlord_modifier = {
+	# Icon
+	icon = prowess_positive
+	# Opinion
+	general_opinion = -20
+}
+
+nimble_dragon_rider_modifier = {
+	# Icon
+	icon = beast_mixed
+	# Prestige
+	monthly_prestige = 5
+	# Battle
+	min_combat_roll = 50
+	max_combat_roll = 50
+	# Dread
+	dread_baseline_add = 10
+	# Speed of Army
+	movement_speed = 0.25
+	# Efficiency of Army
+	enemy_hard_casualty_modifier = 0.15
+	# Valyrians
+	high_valyrian_opinion = 5
+	# Speed of Travel
+	character_travel_speed = 25
+	# Hostile Plots
+	hostile_scheme_resistance = 0.30
+} 
+
+large_dragon_rider_modifier = {
+	# Icon
+	icon = beast_mixed
+	# Prestige
+	monthly_prestige = 10
+	# Battle
+	min_combat_roll = 75
+	max_combat_roll = 75
+	# Dread
+	dread_baseline_add = 15
+	# Speed of Army
+	movement_speed = 0.30
+	# Efficiency of Army
+	enemy_hard_casualty_modifier = 0.20
+	# Valyrians
+	high_valyrian_opinion = 10
+	# Speed of Travel
+	character_travel_speed = 50
+	# Hostile Plots
+	hostile_scheme_resistance = 0.25
+}
+
+great_dragon_rider_modifier = {
+	# Icon
+	icon = beast_mixed
+	# Prestige
+	monthly_prestige = 15
+	# Battle
+	min_combat_roll = 100
+	max_combat_roll = 100
+	# Dread
+	dread_baseline_add = 20
+	# Speed of Army
+	movement_speed = 0.35
+	# Efficiency of Army
+	enemy_hard_casualty_modifier = 0.25
+	# Valyrians
+	high_valyrian_opinion = 15
+	# Speed of Travel
+	character_travel_speed = 75
+	# Hostile Plots
+	hostile_scheme_resistance = 0.20
+}
+

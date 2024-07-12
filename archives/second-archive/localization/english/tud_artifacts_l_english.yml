@@ -1,0 +1,17 @@
+﻿l_english:
+ nimble_dragon_name:0 "Nimble Dragon"
+ nimble_dragon_desc:0 "This slight serpent will reach around fifty and a hundred years of age, growing to a respectable size."
+
+ large_dragon_name:0 "Large Dragon"
+ large_dragon_desc:0 "This dragon will reach around seventy-five and a hundred years of age, growing to a large size."
+
+ great_dragon_name:0 "Great Dragon"
+ great_dragon_desc:0 "This beast will reach around two hundred years of age, growing to a monstrous size."
+
+ nimble_dragon_rider_modifier:0 "Dragon Rider"
+ large_dragon_rider_modifier:0 "Dragon Rider"
+ great_dragon_rider_modifier:0 "Dragon Rider"
+
+ nimble_dragon_rider_modifier_desc:0 "You are a dragon rider, and your mount is a nimble, yet fast dragon."
+ large_dragon_rider_modifier_desc:0 "You are a dragon rider, and your mount is a large, yet agile dragon."
+ great_dragon_rider_modifier_desc:0 "You are a dragon rider, and your mount is a massive, formidable dragon."

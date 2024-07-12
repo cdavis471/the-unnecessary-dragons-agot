@@ -1,0 +1,380 @@
+﻿namespace = tud_interaction_events
+
+#####################################
+############ Dragon Claim ###########
+#####################################
+# Claim Throne
+tud_interaction_events.0001 = {
+	# Start
+	type = character_event
+	title = tud_interaction_events.0001.t
+	desc = {
+		desc = tud_interaction_events.0001.desc1
+		desc = tud_interaction_events.0001.desc2
+	}
+	theme = claim_throne_scheme
+	override_background = {
+		reference = battlefield
+	}
+	# Portraits
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+	# Options
+	option = {
+		name = tud_interaction_events.0001.a
+		scope:target = {
+			add_opinion = {
+				target = root
+				modifier = dragonlord_claimed_my_title
+			}
+			every_close_family_member = {
+				custom = dragonlord_claimed_family
+				limit = {
+					is_close_family_or_spouse_of_root_trigger = no
+					NOT = { this = scope:claimant }
+				}
+				add_opinion = {
+					target = scope:claimant
+					modifier = dragonlord_claimed_my_liege
+				}
+			}
+		}
+	}
+}
+# Claim Iron Throne
+tud_interaction_events.0002 = {
+	# Start
+	type = character_event
+	title = tud_interaction_events.0002.t
+	desc = {
+		desc = tud_interaction_events.0002.desc1
+		desc = tud_interaction_events.0002.desc2
+		desc = tud_interaction_events.0002.desc3
+	}
+	theme = claim_throne_scheme
+	override_background = {
+		reference = battlefield
+	}
+	# Portraits
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+	# Options
+	option = {
+		name = tud_interaction_events.0002.a
+		scope:target = {
+			add_opinion = {
+				target = root
+				modifier = dragonlord_claimed_my_title
+			}
+			every_close_family_member = {
+				custom = dragonlord_claimed_family
+				limit = {
+					is_close_family_or_spouse_of_root_trigger = no
+					NOT = { this = scope:claimant }
+				}
+				add_opinion = {
+					target = scope:claimant
+					modifier = dragonlord_claimed_my_liege
+				}
+			}
+		}
+	}
+}
+# A Dance of Dragons
+tud_interaction_events.0003 = {
+	# Start Dance
+	type = character_event
+	hidden = no
+	title = tud_interaction_events.0003.t
+	desc = tud_interaction_events.0003.desc
+	theme = dragon_duel_theme
+	# Actor
+	left_portrait = {
+		character = scope:actor
+		animation = frontend_left_idle
+	}
+	# Recipient
+	right_portrait = {
+		character = scope:recipient
+		animation = frontend_right_idle
+	}
+	immediate = {
+		scope:actor = {
+			random_character_artifact = {
+				limit = { var:dragon_rider = yes }
+				save_scope_as = actoritem
+			}
+		}
+		scope:recipient = {
+			random_character_artifact = {
+				limit = { var:dragon_rider = yes }
+				save_scope_as = recipientitem
+			}
+		}
+	}
+	# Option One
+	option = {
+		name = tud_interaction_events.0003.a
+		custom_tooltip = tud_interaction_events.tooltip1
+		# Effect
+        hidden_effect = {
+			dragon_dancecalc_effect = {
+				RECIPIENT = scope:recipient
+				ACTOR = scope:actor
+				RECIPIENTITEM = scope:recipientitem
+				ACTORITEM = scope:actoritem
+			}
+		}
+	}
+	# Option Two
+	option = {
+		name = tud_interaction_events.0003.b
+		custom_tooltip = tud_interaction_events.tooltip2
+		# Effect
+        hidden_effect = {
+			dragon_dancecalc_effect = {
+				RECIPIENT = scope:recipient
+				ACTOR = scope:actor
+				RECIPIENTITEM = scope:recipientitem
+				ACTORITEM = scope:actoritem
+			}
+		}
+	}
+	# Option Three
+	option = {
+		name = tud_interaction_events.0003.c
+		custom_tooltip = tud_interaction_events.tooltip3
+		# Effect
+        hidden_effect = {
+			dragon_dancecalc_effect = {
+				RECIPIENT = scope:recipient
+				ACTOR = scope:actor
+				RECIPIENTITEM = scope:recipientitem
+				ACTORITEM = scope:actoritem
+			}
+		}
+	}
+}
+
+# A Loss in a Dance of Dragons
+tud_interaction_events.0004 = {
+	# Dance - Death
+	type = character_event
+	hidden = no
+	title = tud_interaction_events.0004.t
+	desc = tud_interaction_events.0004.desc
+	theme = dragon_duel_theme
+	# Actor
+	left_portrait = {
+		character = scope:actor
+		animation = frontend_left_idle
+	}
+	# Recipient
+	right_portrait = {
+		character = scope:recipient
+		animation = frontend_right_idle
+	}
+	# The End
+	option = {
+		name = tud_interaction_events.0004.a
+		custom_tooltip = tud_interaction_events.tooltip4
+		# Prepare to kill Dragon
+		scope:actoritem = {
+			set_variable = death_dance
+		}
+		# Death
+        scope:actor = {
+			# Kill Dragon
+			random_owned_story = {
+				if = {
+					limit = { var:story_cycle_dragon_id = scope:actoritem.var:dragon_id }
+					end_story = yes
+				}
+			}
+			# Kill Rider
+			death = {
+				death_reason = death_tud_dance
+				killer = scope:recipient
+			}
+			# Add Opinion Modifier
+			every_close_family_member = {
+				custom = killed_opponent_dance_custom
+				limit = {
+					NOT = { this = scope:recipient }
+				}
+				add_opinion = {
+					target = scope:recipient
+					modifier = killed_opponent_dance
+				}
+			}
+			create_character_memory = {
+                type = tud_dancelost_memory
+                participants = {
+                    victor = scope:recipient
+					loser = scope:actor
+                }
+            }
+		}
+		# Memory
+		scope:recipient = {
+			create_character_memory = {
+                type = tud_dancewon_memory
+                participants = {
+                    victor = scope:recipient
+					loser = scope:actor
+                }
+            }
+		}
+	}
+}
+# A Victory in a Dance of Dragons
+tud_interaction_events.0005 = {
+	# Dance - Victory
+	type = character_event
+	hidden = no
+	title = tud_interaction_events.0005.t
+	desc = tud_interaction_events.0005.desc
+	theme = dragon_duel_theme
+	# Actor
+	left_portrait = {
+		character = scope:actor
+		animation = frontend_left_idle
+	}
+	# Recipient
+	right_portrait = {
+		character = scope:recipient
+		animation = frontend_right_idle
+	}
+	# The Beginning
+	option = {
+		name = tud_interaction_events.0005.a
+		custom_tooltip = tud_interaction_events.tooltip5
+		# Prepare to kill Dragon
+		scope:recipientitem = {
+			set_variable = death_dance
+		}
+		# Death
+        scope:recipient = {
+			# Kill Dragon
+			random_owned_story = {
+				if = {
+					limit = { var:story_cycle_dragon_id = scope:recipientitem.var:dragon_id }
+					end_story = yes
+				}
+			}
+			death = {
+				death_reason = death_tud_dance
+				killer = scope:actor
+			}
+			every_close_family_member = {
+				custom = killed_opponent_dance_custom
+				limit = {
+					NOT = { this = scope:actor }
+				}
+				add_opinion = {
+					target = scope:actor
+					modifier = killed_opponent_dance
+				}
+			}
+			create_character_memory = {
+                type = tud_dancewon_memory
+                participants = {
+                    victor = scope:actor
+					loser = scope:recipient
+                }
+            }
+		}
+		# Memory
+		scope:actor = {
+			create_character_memory = {
+                type = tud_dancelost_memory
+                participants = {
+                    victor = scope:actor
+					loser = scope:recipient
+                }
+            }
+		}
+	}
+}
+
+# Dragon Has Been Tamed
+tud_interaction_events.0006 = {
+	type = character_event
+	hidden = yes
+	title = tud_interaction_events.0006.t
+	desc = tud_interaction_events.0006.desc
+	theme = diplomacy_family_focus
+	# Actor
+	left_portrait = {
+		character = scope:actor
+		animation = frontend_left_idle
+	}
+	# Recipient
+	right_portrait = {
+		character = scope:recipient
+		animation = frontend_right_idle
+	}
+	# Taming Success
+	option = {
+		name = tud_interaction_events.0006.a
+		custom_tooltip = tud_interaction_events.tooltip6
+		create_character_memory = {
+			type = tud_claimed_memory
+			participants = {
+				claimant = scope:recipient
+			}
+		}
+	}
+}
+
+# Dragon Has Not Been Tamed...
+tud_interaction_events.0007 = {
+	type = character_event
+	hidden = yes
+	title = tud_interaction_events.0007.t
+	desc = tud_interaction_events.0007.desc
+	theme = mental_break
+	# Actor
+	left_portrait = {
+		character = scope:actor
+		animation = frontend_left_idle
+	}
+	# Recipient
+	right_portrait = {
+		character = scope:recipient
+		animation = frontend_right_idle
+	}
+	# Taming Success
+	option = {
+		name = tud_interaction_events.0007.a
+		custom_tooltip = tud_interaction_events.tooltip7
+	}
+}
+
+# Cradling Success
+tud_interaction_events.0008 = {
+	type = character_event
+	hidden = yes
+	title = tud_interaction_events.0008.t
+	desc = tud_interaction_events.0008.desc
+	theme = family
+	# Actor
+	left_portrait = {
+		character = scope:actor
+		animation = frontend_left_idle
+	}
+	# Recipient
+	right_portrait = {
+		character = scope:recipient
+		animation = frontend_right_idle
+	}
+	# Cradling Success
+	option = {
+		name = tud_interaction_events.0008.a
+		custom_tooltip = tud_interaction_events.tooltip8
+	}
+}

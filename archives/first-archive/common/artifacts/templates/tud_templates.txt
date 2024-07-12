@@ -1,0 +1,13 @@
+﻿dragon_template = {
+	can_equip = {
+		culture = {
+			has_cultural_pillar = heritage_valyrian
+		}
+	}
+	can_repair = {
+		always = no
+	}
+	can_reforge = {
+		always = no
+	}
+}

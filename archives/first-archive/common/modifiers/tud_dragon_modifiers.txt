@@ -1,0 +1,32 @@
+﻿nimble_dragon_modifier = {
+	monthly_prestige = 5
+	dread_baseline_add = 10
+	knight_effectiveness_mult = 0.10
+	high_valyrian_opinion = 5
+	character_travel_speed = 25
+}
+
+large_dragon_modifier = {
+	monthly_prestige = 7
+	dread_baseline_add = 20
+	knight_effectiveness_mult = 0.20
+	high_valyrian_opinion = 7
+	character_travel_speed = 50
+}
+
+great_dragon_modifier = {
+	monthly_prestige = 10
+	dread_baseline_add = 30
+	knight_effectiveness_mult = 0.30
+	high_valyrian_opinion = 10
+	general_opinion = -10
+	character_travel_speed = 100
+}
+
+dragonlord_modifier = {
+	icon = prowess_positive
+	prowess = 5
+	movement_speed = 0.50
+	enemy_hard_casualty_modifier = 0.50
+	general_opinion = -20
+}

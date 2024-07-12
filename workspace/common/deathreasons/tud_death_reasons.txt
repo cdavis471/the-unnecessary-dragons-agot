@@ -1,0 +1,14 @@
+﻿death_tud_eaten = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_tud_dance = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+
+death_tud_siege = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
