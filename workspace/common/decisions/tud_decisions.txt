@@ -29,6 +29,7 @@
 				OR = {
 					AND = {
 						NOT = { exists = real_father }
+						exists = father
 						father = {
 							has_culture = culture:high_valyrian
 						}
@@ -53,6 +54,7 @@
 							}
 							AND = {
 								NOT = { exists = real_father }
+								exists = father
 								father = {
 									has_culture = culture:high_valyrian
 								}
@@ -79,6 +81,7 @@
 							}
 							AND = {
 								NOT = { exists = real_father }
+								exists = father
 								father = {
 									has_culture = culture:high_valyrian
 								}
@@ -162,6 +165,7 @@
 					OR = {
 						AND = {
 							NOT = { exists = real_father }
+							exists = father
 							father = {
 								has_culture = culture:high_valyrian
 							}
@@ -186,6 +190,7 @@
 								}
 								AND = {
 									NOT = { exists = real_father }
+									exists = father
 									father = {
 										has_culture = culture:high_valyrian
 									}
@@ -212,6 +217,7 @@
 								}
 								AND = {
 									NOT = { exists = real_father }
+									exists = father
 									father = {
 										has_culture = culture:high_valyrian
 									}
@@ -295,6 +301,7 @@ check_for_eggs_decision = {
 					OR = {
 						AND = {
 							NOT = { exists = real_father }
+							exists = father
 							father = {
 								has_culture = culture:high_valyrian
 							}
@@ -319,6 +326,7 @@ check_for_eggs_decision = {
 								}
 								AND = {
 									NOT = { exists = real_father }
+									exists = father
 									father = {
 										has_culture = culture:high_valyrian
 									}
@@ -345,6 +353,7 @@ check_for_eggs_decision = {
 								}
 								AND = {
 									NOT = { exists = real_father }
+									exists = father
 									father = {
 										has_culture = culture:high_valyrian
 									}
@@ -478,6 +487,7 @@ claim_wild_dragon_decision = {
 			OR = {
 				AND = {
 					NOT = { exists = real_father }
+					exists = father
 					father = {
 						has_culture = culture:high_valyrian
 					}
@@ -502,6 +512,7 @@ claim_wild_dragon_decision = {
 						}
 						AND = {
 							NOT = { exists = real_father }
+							exists = father
 							father = {
 								has_culture = culture:high_valyrian
 							}
@@ -528,6 +539,7 @@ claim_wild_dragon_decision = {
 						}
 						AND = {
 							NOT = { exists = real_father }
+							exists = father
 							father = {
 								has_culture = culture:high_valyrian
 							}
@@ -584,6 +596,7 @@ claim_wild_dragon_decision = {
 								OR = {
 									AND = {
 										NOT = { exists = real_father }
+										exists = father
 										father = {
 											has_culture = culture:high_valyrian
 										}
@@ -608,6 +621,7 @@ claim_wild_dragon_decision = {
 											}
 											AND = {
 												NOT = { exists = real_father }
+												exists = father
 												father = {
 													has_culture = culture:high_valyrian
 												}
@@ -634,6 +648,7 @@ claim_wild_dragon_decision = {
 											}
 											AND = {
 												NOT = { exists = real_father }
+												exists = father
 												father = {
 													has_culture = culture:high_valyrian
 												}

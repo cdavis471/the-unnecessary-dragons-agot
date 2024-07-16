@@ -215,6 +215,7 @@ dragon_offer_interaction = {
 				OR = {
 					AND = {
 						NOT = { exists = real_father }
+						exists = father
 						father = {
 							has_culture = culture:high_valyrian
 						}
@@ -239,6 +240,7 @@ dragon_offer_interaction = {
 							}
 							AND = {
 								NOT = { exists = real_father }
+								exists = father
 								father = {
 									has_culture = culture:high_valyrian
 								}
@@ -265,6 +267,7 @@ dragon_offer_interaction = {
 							}
 							AND = {
 								NOT = { exists = real_father }
+								exists = father
 								father = {
 									has_culture = culture:high_valyrian
 								}
@@ -401,6 +404,7 @@ egg_cradling_interaction = {
 				OR = {
 					AND = {
 						NOT = { exists = real_father }
+						exists = father
 						father = {
 							has_culture = culture:high_valyrian
 						}
@@ -425,6 +429,7 @@ egg_cradling_interaction = {
 							}
 							AND = {
 								NOT = { exists = real_father }
+								exists = father
 								father = {
 									has_culture = culture:high_valyrian
 								}
@@ -451,6 +456,7 @@ egg_cradling_interaction = {
 							}
 							AND = {
 								NOT = { exists = real_father }
+								exists = father
 								father = {
 									has_culture = culture:high_valyrian
 								}
@@ -487,6 +493,7 @@ egg_cradling_interaction = {
 				OR = {
 					AND = {
 						NOT = { exists = real_father }
+						exists = father
 						father = {
 							has_culture = culture:high_valyrian
 						}
@@ -511,6 +518,7 @@ egg_cradling_interaction = {
 							}
 							AND = {
 								NOT = { exists = real_father }
+								exists = father
 								father = {
 									has_culture = culture:high_valyrian
 								}
@@ -537,6 +545,7 @@ egg_cradling_interaction = {
 							}
 							AND = {
 								NOT = { exists = real_father }
+								exists = father
 								father = {
 									has_culture = culture:high_valyrian
 								}
@@ -649,6 +658,7 @@ claim_mount_interaction = {
 				OR = {
 					AND = {
 						NOT = { exists = real_father }
+						exists = father
 						father = {
 							has_culture = culture:high_valyrian
 						}
@@ -673,6 +683,7 @@ claim_mount_interaction = {
 							}
 							AND = {
 								NOT = { exists = real_father }
+								exists = father
 								father = {
 									has_culture = culture:high_valyrian
 								}
@@ -699,6 +710,7 @@ claim_mount_interaction = {
 							}
 							AND = {
 								NOT = { exists = real_father }
+								exists = father
 								father = {
 									has_culture = culture:high_valyrian
 								}
