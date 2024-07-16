@@ -218,7 +218,7 @@
                     }
                 }
             }
-            # Not In Army - Part 1
+            # Not In Army
             triggered_effect = {
                 trigger = {
                     story_owner = {
@@ -229,71 +229,6 @@
                 effect = {
                     story_owner = {
                         remove_variable = engaged_in_single_combat
-                    }
-                }
-            }
-            # Not In Army - Part 2
-            triggered_effect = {
-                trigger = {
-                    story_owner = {
-                        is_in_army = no
-                        OR = {
-                            has_character_modifier = hatchling_dragonally_modifier
-                            has_character_modifier = adolescent_dragonally_modifier
-                            has_character_modifier = young_dragonally_modifier
-                            has_character_modifier = adult_dragonally_modifier
-                            has_character_modifier = mature_dragonally_modifier
-                            has_character_modifier = ancient_dragonally_modifier
-                            has_character_modifier = dying_dragonally_modifier
-                        }
-                    }
-                }
-                effect = {
-                    story_owner = {
-                        if = {
-                            limit = { has_character_modifier = hatchling_dragonally_modifier }
-                            remove_character_modifier = hatchling_dragonally_modifier
-                        }
-                        else_if = {
-                            limit = { has_character_modifier = adolescent_dragonally_modifier }
-                            remove_character_modifier = adolescent_dragonally_modifier
-                        }
-                        else_if = {
-                            limit = { has_character_modifier = young_dragonally_modifier }
-                            remove_character_modifier = young_dragonally_modifier
-                        }
-                        else_if = {
-                            limit = { has_character_modifier = adult_dragonally_modifier }
-                            remove_character_modifier = adult_dragonally_modifier
-                        }
-                        else_if = {
-                            limit = { has_character_modifier = mature_dragonally_modifier }
-                            remove_character_modifier = mature_dragonally_modifier
-                        }
-                        else_if = {
-                            limit = { has_character_modifier = ancient_dragonally_modifier }
-                            remove_character_modifier = ancient_dragonally_modifier
-                        }
-                        else_if = {
-                            limit = { has_character_modifier = dying_dragonally_modifier }
-                            remove_character_modifier = dying_dragonally_modifier
-                        }
-                    }
-                }
-            }
-            # Not In Army - Part 3
-            triggered_effect = {
-                trigger = {
-                    story_owner = {
-                        AND = {
-                            is_in_army = no
-                            has_variable = dragon_ally_army_given
-                        }
-                    }
-                }
-                effect = {
-                    story_owner = {
-                        remove_variable = dragon_ally_army_given
                     }
                 }
             }
@@ -978,10 +913,10 @@
         }
     }
 
-    # Dragon Ally Mechanics
+    # Dragon Ally Support Mechanics
     effect_group = {
         # Regularly Check
-        days = 7
+        days = 20
         chance = 100
         # Effects
         first_valid = {
@@ -990,19 +925,20 @@
                 trigger = {
                     story_owner = {
                        exists = knight_army
-                       NOT = { has_variable = dragon_ally_army_given }
                     }
                 }
                 # Add Modifier
                 effect = {
                     story_owner = {
-                        set_variable = dragon_ally_army_given
                         # Hatchling Ally
                         if = {
                             limit = { has_character_modifier = hatchling_dragonrider_modifier }
                             knight_army = {
                                 army_owner = {
-                                    add_character_modifier = hatchling_dragonally_modifier
+                                    add_character_modifier = { 
+                                        modifier = hatchling_dragonally_modifier
+                                        days = 17
+                                    } 
                                 }
                             }
                         }
@@ -1011,7 +947,10 @@
                             limit = { has_character_modifier = adolescent_dragonrider_modifier }
                             knight_army = {
                                 army_owner = {
-                                    add_character_modifier = adolescent_dragonally_modifier
+                                    add_character_modifier = { 
+                                        modifier = adolescent_dragonally_modifier
+                                        days = 17
+                                    } 
                                 }
                             }
                         }
@@ -1020,7 +959,10 @@
                             limit = { has_character_modifier = young_dragonrider_modifier }
                             knight_army = {
                                 army_owner = {
-                                    add_character_modifier = young_dragonally_modifier
+                                    add_character_modifier = { 
+                                        modifier = young_dragonally_modifier
+                                        days = 17
+                                    } 
                                 }
                             }
                         }
@@ -1029,7 +971,10 @@
                             limit = { has_character_modifier = adult_dragonrider_modifier }
                             knight_army = {
                                 army_owner = {
-                                    add_character_modifier = adult_dragonally_modifier
+                                    add_character_modifier = { 
+                                        modifier = adult_dragonally_modifier
+                                        days = 17
+                                    } 
                                 }
                             }
                         }
@@ -1038,7 +983,10 @@
                             limit = { has_character_modifier = mature_dragonrider_modifier }
                             knight_army = {
                                 army_owner = {
-                                    add_character_modifier = mature_dragonally_modifier
+                                    add_character_modifier = { 
+                                        modifier = mature_dragonally_modifier
+                                        days = 17
+                                    } 
                                 }
                             }
                         }
@@ -1047,7 +995,10 @@
                             limit = { has_character_modifier = ancient_dragonrider_modifier }
                             knight_army = {
                                 army_owner = {
-                                    add_character_modifier = ancient_dragonally_modifier
+                                    add_character_modifier = { 
+                                        modifier = ancient_dragonally_modifier
+                                        days = 17
+                                    } 
                                 }
                             }
                         }
@@ -1056,11 +1007,14 @@
                             limit = { has_character_modifier = dying_dragonrider_modifier }
                             knight_army = {
                                 army_owner = {
-                                    add_character_modifier = dying_dragonally_modifier
+                                    add_character_modifier = { 
+                                        modifier = dying_dragonally_modifier
+                                        days = 17
+                                    } 
                                 }
                             }
                         }
-                     }
+                    }
                 }
             }
         }
