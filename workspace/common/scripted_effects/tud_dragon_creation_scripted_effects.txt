@@ -64,14 +64,14 @@ create_dragon_effect = {
                 limit = { has_artifact_feature = dragon_feature_build_slender }
                 change_variable = {
                     name = dragon_combat_score
-                    add = 15
+                    add = 10
                 }
             }
             else_if = {
                 limit = { has_artifact_feature = dragon_feature_build_robust }
                 change_variable = {
                     name = dragon_combat_score
-                    add = 30
+                    add = 15
                 }
             }
             else_if = {
@@ -85,7 +85,7 @@ create_dragon_effect = {
                 limit = { has_artifact_feature = dragon_feature_build_monstrous }
                 change_variable = {
                     name = dragon_combat_score
-                    add = 60
+                    add = 20
                 }
             }
         }

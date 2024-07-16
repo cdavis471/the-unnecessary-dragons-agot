@@ -156,16 +156,80 @@
                     limit = {
                         # Valyrian Ancestry
                         OR = {
+                            # Valyrian Themselves
                             has_culture = culture:high_valyrian
-                            any_parent = { 
-                                even_if_dead = yes
-                                has_culture = culture:high_valyrian 
+                            # Valyrian Mother
+                            AND = {
+                                exists = mother
+                                mother = {
+                                    has_culture = culture:high_valyrian
+                                }
                             }
-                            any_parent = { 
-                                even_if_dead = yes
-                                any_parent = {	
-                                    even_if_dead = yes
-                                    has_culture = culture:high_valyrian 
+                            # Valyrian Father (Real Father Check Included)
+                            OR = {
+                                AND = {
+                                    NOT = { exists = real_father }
+                                    father = {
+                                        has_culture = culture:high_valyrian
+                                    }
+                                }
+                                AND = {
+                                    exists = real_father
+                                    real_father = {
+                                        has_culture = culture:high_valyrian
+                                    }
+                                }
+                            }
+                            # Valyrian Mother Parents Check
+                            AND = {
+                                exists = mother
+                                mother = {
+                                    OR = {
+                                        AND = {
+                                            exists = mother
+                                            mother = {
+                                                has_culture = culture:high_valyrian
+                                            }
+                                        }
+                                        AND = {
+                                            NOT = { exists = real_father }
+                                            father = {
+                                                has_culture = culture:high_valyrian
+                                            }
+                                        }
+                                        AND = {
+                                            exists = real_father
+                                            real_father = {
+                                                has_culture = culture:high_valyrian
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            # Valyrian Father Parents Check
+                            AND = {
+                                exists = father
+                                father = {
+                                    OR = {
+                                        AND = {
+                                            exists = mother
+                                            mother = {
+                                                has_culture = culture:high_valyrian
+                                            }
+                                        }
+                                        AND = {
+                                            NOT = { exists = real_father }
+                                            father = {
+                                                has_culture = culture:high_valyrian
+                                            }
+                                        }
+                                        AND = {
+                                            exists = real_father
+                                            real_father = {
+                                                has_culture = culture:high_valyrian
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -548,16 +612,80 @@
                                         }
                                         # Valyrian Ancestry
                                         OR = {
+                                            # Valyrian Themselves
                                             has_culture = culture:high_valyrian
-                                            any_parent = { 
-                                                even_if_dead = yes
-                                                has_culture = culture:high_valyrian 
+                                            # Valyrian Mother
+                                            AND = {
+                                                exists = mother
+                                                mother = {
+                                                    has_culture = culture:high_valyrian
+                                                }
                                             }
-                                            any_parent = { 
-                                                even_if_dead = yes
-                                                any_parent = {	
-                                                    even_if_dead = yes
-                                                    has_culture = culture:high_valyrian 
+                                            # Valyrian Father (Real Father Check Included)
+                                            OR = {
+                                                AND = {
+                                                    NOT = { exists = real_father }
+                                                    father = {
+                                                        has_culture = culture:high_valyrian
+                                                    }
+                                                }
+                                                AND = {
+                                                    exists = real_father
+                                                    real_father = {
+                                                        has_culture = culture:high_valyrian
+                                                    }
+                                                }
+                                            }
+                                            # Valyrian Mother Parents Check
+                                            AND = {
+                                                exists = mother
+                                                mother = {
+                                                    OR = {
+                                                        AND = {
+                                                            exists = mother
+                                                            mother = {
+                                                                has_culture = culture:high_valyrian
+                                                            }
+                                                        }
+                                                        AND = {
+                                                            NOT = { exists = real_father }
+                                                            father = {
+                                                                has_culture = culture:high_valyrian
+                                                            }
+                                                        }
+                                                        AND = {
+                                                            exists = real_father
+                                                            real_father = {
+                                                                has_culture = culture:high_valyrian
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            # Valyrian Father Parents Check
+                                            AND = {
+                                                exists = father
+                                                father = {
+                                                    OR = {
+                                                        AND = {
+                                                            exists = mother
+                                                            mother = {
+                                                                has_culture = culture:high_valyrian
+                                                            }
+                                                        }
+                                                        AND = {
+                                                            NOT = { exists = real_father }
+                                                            father = {
+                                                                has_culture = culture:high_valyrian
+                                                            }
+                                                        }
+                                                        AND = {
+                                                            exists = real_father
+                                                            real_father = {
+                                                                has_culture = culture:high_valyrian
+                                                            }
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }
@@ -578,16 +706,80 @@
                                     }
                                     # Valyrian Ancestry
                                     OR = {
+                                        # Valyrian Themselves
                                         has_culture = culture:high_valyrian
-                                        any_parent = { 
-                                            even_if_dead = yes
-                                            has_culture = culture:high_valyrian 
+                                        # Valyrian Mother
+                                        AND = {
+                                            exists = mother
+                                            mother = {
+                                                has_culture = culture:high_valyrian
+                                            }
                                         }
-                                        any_parent = { 
-                                            even_if_dead = yes
-                                            any_parent = {	
-                                                even_if_dead = yes
-                                                has_culture = culture:high_valyrian 
+                                        # Valyrian Father (Real Father Check Included)
+                                        OR = {
+                                            AND = {
+                                                NOT = { exists = real_father }
+                                                father = {
+                                                    has_culture = culture:high_valyrian
+                                                }
+                                            }
+                                            AND = {
+                                                exists = real_father
+                                                real_father = {
+                                                    has_culture = culture:high_valyrian
+                                                }
+                                            }
+                                        }
+                                        # Valyrian Mother Parents Check
+                                        AND = {
+                                            exists = mother
+                                            mother = {
+                                                OR = {
+                                                    AND = {
+                                                        exists = mother
+                                                        mother = {
+                                                            has_culture = culture:high_valyrian
+                                                        }
+                                                    }
+                                                    AND = {
+                                                        NOT = { exists = real_father }
+                                                        father = {
+                                                            has_culture = culture:high_valyrian
+                                                        }
+                                                    }
+                                                    AND = {
+                                                        exists = real_father
+                                                        real_father = {
+                                                            has_culture = culture:high_valyrian
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        # Valyrian Father Parents Check
+                                        AND = {
+                                            exists = father
+                                            father = {
+                                                OR = {
+                                                    AND = {
+                                                        exists = mother
+                                                        mother = {
+                                                            has_culture = culture:high_valyrian
+                                                        }
+                                                    }
+                                                    AND = {
+                                                        NOT = { exists = real_father }
+                                                        father = {
+                                                            has_culture = culture:high_valyrian
+                                                        }
+                                                    }
+                                                    AND = {
+                                                        exists = real_father
+                                                        real_father = {
+                                                            has_culture = culture:high_valyrian
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -934,7 +1126,7 @@
                         if = {
                             limit = { has_character_modifier = hatchling_dragonrider_modifier }
                             knight_army = {
-                                army_owner = {
+                                army_commander = {
                                     add_character_modifier = { 
                                         modifier = hatchling_dragonally_modifier
                                         days = 17
@@ -946,7 +1138,7 @@
                         else_if = {
                             limit = { has_character_modifier = adolescent_dragonrider_modifier }
                             knight_army = {
-                                army_owner = {
+                                army_commander = {
                                     add_character_modifier = { 
                                         modifier = adolescent_dragonally_modifier
                                         days = 17
@@ -958,7 +1150,7 @@
                         else_if = {
                             limit = { has_character_modifier = young_dragonrider_modifier }
                             knight_army = {
-                                army_owner = {
+                                army_commander = {
                                     add_character_modifier = { 
                                         modifier = young_dragonally_modifier
                                         days = 17
@@ -970,7 +1162,7 @@
                         else_if = {
                             limit = { has_character_modifier = adult_dragonrider_modifier }
                             knight_army = {
-                                army_owner = {
+                                army_commander = {
                                     add_character_modifier = { 
                                         modifier = adult_dragonally_modifier
                                         days = 17
@@ -982,7 +1174,7 @@
                         else_if = {
                             limit = { has_character_modifier = mature_dragonrider_modifier }
                             knight_army = {
-                                army_owner = {
+                                army_commander = {
                                     add_character_modifier = { 
                                         modifier = mature_dragonally_modifier
                                         days = 17
@@ -994,7 +1186,7 @@
                         else_if = {
                             limit = { has_character_modifier = ancient_dragonrider_modifier }
                             knight_army = {
-                                army_owner = {
+                                army_commander = {
                                     add_character_modifier = { 
                                         modifier = ancient_dragonally_modifier
                                         days = 17
@@ -1006,7 +1198,7 @@
                         else_if = {
                             limit = { has_character_modifier = dying_dragonrider_modifier }
                             knight_army = {
-                                army_owner = {
+                                army_commander = {
                                     add_character_modifier = { 
                                         modifier = dying_dragonally_modifier
                                         days = 17
@@ -1143,7 +1335,7 @@
     # Random Death Chance While Riding In Battle
     effect_group = {
         # Timer
-        years = 5
+        years = 2
         # 5% Chance
         chance = 5
         # Effects

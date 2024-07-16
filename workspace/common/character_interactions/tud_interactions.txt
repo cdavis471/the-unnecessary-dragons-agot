@@ -4,8 +4,8 @@ claim_throne_dragon_interaction = {
 	# Claim Throne
 	category = interaction_category_diplomacy
 	icon = claim_throne_dragon_interaction
-	# Every 30 Years
-	cooldown = { months = 360 }
+	# Every Year
+	cooldown = { months = 12 }
 	use_diplomatic_range = no
 	desc = claim_throne_dragon_interaction_desc
 	interface_priority = 100
@@ -13,21 +13,6 @@ claim_throne_dragon_interaction = {
 	is_shown = {
 		# Person Starting Interaction
 		scope:actor = {
-			# Valyrian Ancestry
-			OR = {
-				has_culture = culture:high_valyrian
-				any_parent = { 
-					even_if_dead = yes
-					has_culture = culture:high_valyrian 
-				}
-				any_parent = { 
-					even_if_dead = yes
-					any_parent = {	
-						even_if_dead = yes
-						has_culture = culture:high_valyrian 
-					}
-				}
-			}
 			# Dragon Rider with at least 25+ YO Mount
 			AND = {
 				has_trait = dragon_rider_trait
@@ -83,9 +68,9 @@ claim_throne_dragon_interaction = {
 	ai_potential = { has_trait = ambitious }
 	ai_targets = { ai_recipients = neighboring_rulers }
 	ai_targets = { ai_recipients = liege }
-	ai_frequency = 1
-	ai_intermediary_accept = { base = 100 }
-	ai_will_do = { base = 100 }
+	ai_frequency = 12
+	ai_intermediary_accept = { base = 25 }
+	ai_will_do = { base = 25 }
 	# Auto Accept
 	auto_accept = yes
 }
@@ -106,21 +91,6 @@ dragon_dance_interaction = {
 	is_shown = {
 		# Offering
 		scope:actor = {
-			# Valyrian Ancestry
-			OR = {
-				has_culture = culture:high_valyrian
-				any_parent = { 
-					even_if_dead = yes
-					has_culture = culture:high_valyrian 
-				}
-				any_parent = { 
-					even_if_dead = yes
-					any_parent = {	
-						even_if_dead = yes
-						has_culture = culture:high_valyrian 
-					}
-				}
-			}
 			# Dragon Rider with at least 5+ YO Mount
 			AND = {
 				has_trait = dragon_rider_trait
@@ -136,21 +106,6 @@ dragon_dance_interaction = {
 		} 
 		# Accepting
 		scope:recipient = {
-			# Valyrian Ancestry
-			OR = {
-				has_culture = culture:high_valyrian
-				any_parent = { 
-					even_if_dead = yes
-					has_culture = culture:high_valyrian 
-				}
-				any_parent = { 
-					even_if_dead = yes
-					any_parent = {	
-						even_if_dead = yes
-						has_culture = culture:high_valyrian 
-					}
-				}
-			}
 			# Dragon Rider with at least 5+ YO Mount
 			AND = {
 				has_trait = dragon_rider_trait
@@ -183,7 +138,13 @@ dragon_dance_interaction = {
 		scope:actor = {
 			OR = {
 				is_at_war_with = scope:recipient
-				has_relation_rival = scope:recipient
+				AND = {
+					has_relation_rival = scope:recipient
+					opinion = {
+						target = scope:recipient
+						value <= -50
+					}
+				}
 			}
 		} 
 	}
@@ -197,8 +158,8 @@ dragon_dance_interaction = {
 		}
 	}
 	# AI Modifiers
-	ai_potential = { always = yes }
-	ai_will_do = { base = 35 }
+	ai_potential = { NOT = { has_trait = craven } }
+	ai_will_do = { base = 25 }
 	ai_targets = { ai_recipients = family }
 	ai_targets = { ai_recipients = liege }
 	ai_targets = { ai_recipients = war_enemies }
@@ -208,7 +169,7 @@ dragon_dance_interaction = {
         max = 20
     }
 	ai_frequency = 3
-	ai_intermediary_accept = { base = 35 }
+	ai_intermediary_accept = { base = 25 }
 	# Auto Accept
 	auto_accept = yes
 }
@@ -217,7 +178,7 @@ dragon_offer_interaction = {
 	# Will Mount Be Claimed?
 	category = interaction_category_diplomacy
 	icon = dragon_offer_interaction
-	# Every Month
+	# Every Six Months
 	cooldown = { months = 6 }
 	popup_on_receive = yes
 	pause_on_receive = yes
@@ -228,21 +189,6 @@ dragon_offer_interaction = {
 	is_shown = {
 		# Offering
 		scope:actor = {
-			# Valyrian Ancestry
-			OR = {
-				has_culture = culture:high_valyrian
-				any_parent = { 
-					even_if_dead = yes
-					has_culture = culture:high_valyrian 
-				}
-				any_parent = { 
-					even_if_dead = yes
-					any_parent = {	
-						even_if_dead = yes
-						has_culture = culture:high_valyrian 
-					}
-				}
-			}
 			# Has Riderless Dragon
 			any_character_artifact = {
 				AND = {
@@ -256,16 +202,80 @@ dragon_offer_interaction = {
 			is_ai = yes
 			# Valyrian Ancestry
 			OR = {
+				# Valyrian Themselves
 				has_culture = culture:high_valyrian
-				any_parent = { 
-					even_if_dead = yes
-					has_culture = culture:high_valyrian 
+				# Valyrian Mother
+				AND = {
+					exists = mother
+					mother = {
+						has_culture = culture:high_valyrian
+					}
 				}
-				any_parent = { 
-					even_if_dead = yes
-					any_parent = {	
-						even_if_dead = yes
-						has_culture = culture:high_valyrian 
+				# Valyrian Father (Real Father Check Included)
+				OR = {
+					AND = {
+						NOT = { exists = real_father }
+						father = {
+							has_culture = culture:high_valyrian
+						}
+					}
+					AND = {
+						exists = real_father
+						real_father = {
+							has_culture = culture:high_valyrian
+						}
+					}
+				}
+				# Valyrian Mother Parents Check
+				AND = {
+					exists = mother
+					mother = {
+						OR = {
+							AND = {
+								exists = mother
+								mother = {
+									has_culture = culture:high_valyrian
+								}
+							}
+							AND = {
+								NOT = { exists = real_father }
+								father = {
+									has_culture = culture:high_valyrian
+								}
+							}
+							AND = {
+								exists = real_father
+								real_father = {
+									has_culture = culture:high_valyrian
+								}
+							}
+						}
+					}
+				}
+				# Valyrian Father Parents Check
+				AND = {
+					exists = father
+					father = {
+						OR = {
+							AND = {
+								exists = mother
+								mother = {
+									has_culture = culture:high_valyrian
+								}
+							}
+							AND = {
+								NOT = { exists = real_father }
+								father = {
+									has_culture = culture:high_valyrian
+								}
+							}
+							AND = {
+								exists = real_father
+								real_father = {
+									has_culture = culture:high_valyrian
+								}
+							}
+						}
 					}
 				}
 			}
@@ -297,6 +307,10 @@ dragon_offer_interaction = {
 			AND = {
 				exists = scope:recipient.real_father.dynasty
 				scope:recipient.real_father.dynasty = scope:actor.dynasty
+			}
+			AND = {
+				NOT = { exists = scope:recipient.real_father.dynasty }
+				scope:recipient.father.dynasty = scope:actor.dynasty
 			}
 		}
 	}
@@ -374,16 +388,80 @@ egg_cradling_interaction = {
 		scope:actor = {
 			# Valyrian Ancestry
 			OR = {
+				# Valyrian Themselves
 				has_culture = culture:high_valyrian
-				any_parent = { 
-					even_if_dead = yes
-					has_culture = culture:high_valyrian 
+				# Valyrian Mother
+				AND = {
+					exists = mother
+					mother = {
+						has_culture = culture:high_valyrian
+					}
 				}
-				any_parent = { 
-					even_if_dead = yes
-					any_parent = {	
-						even_if_dead = yes
-						has_culture = culture:high_valyrian 
+				# Valyrian Father (Real Father Check Included)
+				OR = {
+					AND = {
+						NOT = { exists = real_father }
+						father = {
+							has_culture = culture:high_valyrian
+						}
+					}
+					AND = {
+						exists = real_father
+						real_father = {
+							has_culture = culture:high_valyrian
+						}
+					}
+				}
+				# Valyrian Mother Parents Check
+				AND = {
+					exists = mother
+					mother = {
+						OR = {
+							AND = {
+								exists = mother
+								mother = {
+									has_culture = culture:high_valyrian
+								}
+							}
+							AND = {
+								NOT = { exists = real_father }
+								father = {
+									has_culture = culture:high_valyrian
+								}
+							}
+							AND = {
+								exists = real_father
+								real_father = {
+									has_culture = culture:high_valyrian
+								}
+							}
+						}
+					}
+				}
+				# Valyrian Father Parents Check
+				AND = {
+					exists = father
+					father = {
+						OR = {
+							AND = {
+								exists = mother
+								mother = {
+									has_culture = culture:high_valyrian
+								}
+							}
+							AND = {
+								NOT = { exists = real_father }
+								father = {
+									has_culture = culture:high_valyrian
+								}
+							}
+							AND = {
+								exists = real_father
+								real_father = {
+									has_culture = culture:high_valyrian
+								}
+							}
+						}
 					}
 				}
 			}
@@ -396,16 +474,80 @@ egg_cradling_interaction = {
 		scope:recipient = {
 			# Valyrian Ancestry
 			OR = {
+				# Valyrian Themselves
 				has_culture = culture:high_valyrian
-				any_parent = { 
-					even_if_dead = yes
-					has_culture = culture:high_valyrian 
+				# Valyrian Mother
+				AND = {
+					exists = mother
+					mother = {
+						has_culture = culture:high_valyrian
+					}
 				}
-				any_parent = { 
-					even_if_dead = yes
-					any_parent = {	
-						even_if_dead = yes
-						has_culture = culture:high_valyrian 
+				# Valyrian Father (Real Father Check Included)
+				OR = {
+					AND = {
+						NOT = { exists = real_father }
+						father = {
+							has_culture = culture:high_valyrian
+						}
+					}
+					AND = {
+						exists = real_father
+						real_father = {
+							has_culture = culture:high_valyrian
+						}
+					}
+				}
+				# Valyrian Mother Parents Check
+				AND = {
+					exists = mother
+					mother = {
+						OR = {
+							AND = {
+								exists = mother
+								mother = {
+									has_culture = culture:high_valyrian
+								}
+							}
+							AND = {
+								NOT = { exists = real_father }
+								father = {
+									has_culture = culture:high_valyrian
+								}
+							}
+							AND = {
+								exists = real_father
+								real_father = {
+									has_culture = culture:high_valyrian
+								}
+							}
+						}
+					}
+				}
+				# Valyrian Father Parents Check
+				AND = {
+					exists = father
+					father = {
+						OR = {
+							AND = {
+								exists = mother
+								mother = {
+									has_culture = culture:high_valyrian
+								}
+							}
+							AND = {
+								NOT = { exists = real_father }
+								father = {
+									has_culture = culture:high_valyrian
+								}
+							}
+							AND = {
+								exists = real_father
+								real_father = {
+									has_culture = culture:high_valyrian
+								}
+							}
+						}
 					}
 				}
 			}
@@ -437,6 +579,10 @@ egg_cradling_interaction = {
 			AND = {
 				exists = scope:recipient.real_father.dynasty
 				scope:recipient.real_father.dynasty = scope:actor.dynasty
+			}
+			AND = {
+				NOT = { exists = scope:recipient.real_father.dynasty }
+				scope:recipient.father.dynasty = scope:actor.dynasty
 			}
 		}
 	}
@@ -490,16 +636,80 @@ claim_mount_interaction = {
 			is_ai = no
 			# Valyrian Ancestry
 			OR = {
+				# Valyrian Themselves
 				has_culture = culture:high_valyrian
-				any_parent = { 
-					even_if_dead = yes
-					has_culture = culture:high_valyrian 
+				# Valyrian Mother
+				AND = {
+					exists = mother
+					mother = {
+						has_culture = culture:high_valyrian
+					}
 				}
-				any_parent = { 
-					even_if_dead = yes
-					any_parent = {	
-						even_if_dead = yes
-						has_culture = culture:high_valyrian 
+				# Valyrian Father (Real Father Check Included)
+				OR = {
+					AND = {
+						NOT = { exists = real_father }
+						father = {
+							has_culture = culture:high_valyrian
+						}
+					}
+					AND = {
+						exists = real_father
+						real_father = {
+							has_culture = culture:high_valyrian
+						}
+					}
+				}
+				# Valyrian Mother Parents Check
+				AND = {
+					exists = mother
+					mother = {
+						OR = {
+							AND = {
+								exists = mother
+								mother = {
+									has_culture = culture:high_valyrian
+								}
+							}
+							AND = {
+								NOT = { exists = real_father }
+								father = {
+									has_culture = culture:high_valyrian
+								}
+							}
+							AND = {
+								exists = real_father
+								real_father = {
+									has_culture = culture:high_valyrian
+								}
+							}
+						}
+					}
+				}
+				# Valyrian Father Parents Check
+				AND = {
+					exists = father
+					father = {
+						OR = {
+							AND = {
+								exists = mother
+								mother = {
+									has_culture = culture:high_valyrian
+								}
+							}
+							AND = {
+								NOT = { exists = real_father }
+								father = {
+									has_culture = culture:high_valyrian
+								}
+							}
+							AND = {
+								exists = real_father
+								real_father = {
+									has_culture = culture:high_valyrian
+								}
+							}
+						}
 					}
 				}
 			}
@@ -514,21 +724,6 @@ claim_mount_interaction = {
 				AND = {
 					has_variable = dragon_id
 					NOT = { has_variable = has_dragon_rider }
-				}
-			}
-			# Valyrian Ancestry
-			OR = {
-				has_culture = culture:high_valyrian
-				any_parent = { 
-					even_if_dead = yes
-					has_culture = culture:high_valyrian 
-				}
-				any_parent = { 
-					even_if_dead = yes
-					any_parent = {	
-						even_if_dead = yes
-						has_culture = culture:high_valyrian 
-					}
 				}
 			}
 			# Available
@@ -549,21 +744,10 @@ claim_mount_interaction = {
 	# Valid If Same Dynasty
 	is_valid = {
 		scope:actor = { age >= 12 }
-		OR = {	
-			scope:recipient.dynasty = scope:actor.dynasty
-			AND = {
-				exists = scope:actor.mother.dynasty
-				scope:actor.mother.dynasty = scope:recipient.dynasty
-			}
-			AND = {
-				exists = scope:actor.real_father.dynasty
-				scope:actor.real_father.dynasty = scope:recipient.dynasty
-			}
-		}
 		scope:recipient = {
 			opinion = {
 				target = scope:actor
-				value >= 25
+				value >= 50
 			}
 		}
 	}
