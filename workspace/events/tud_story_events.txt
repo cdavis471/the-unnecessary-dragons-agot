@@ -140,7 +140,7 @@ tud_story_events.0003 = {
 		target = scope:mount_claimed
 		position = lower_center_portrait
 	}
-	# Dragon Claimed
+	# Dragon Has Been Claimed
 	option = {
 		name = tud_decision_events.0003.a
 	}
