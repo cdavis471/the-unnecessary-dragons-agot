@@ -26,10 +26,6 @@ tud_decision_events.0001 = {
 				}
 				destroy_artifact = scope:delete_egg
 			}
-			random_artifact = {
-				limit = { has_variable = dragon_id }
-				save_scope_as = dragon_hatched_any
-			}
 		}
 		# Hatch Egg
 		random_list = {
@@ -165,14 +161,17 @@ tud_decision_events.0003 = {
 				root = {
 					random_character_artifact = {
 						limit = {
-							var:dragon_rider = yes
+							has_variable = has_dragon_rider
 						}
 						save_scope_as = dragon_to_die
 						set_variable = death_battle
 					}
 					random_owned_story = {
 						limit = { 
-							var:story_cycle_dragon_id = scope:dragon_to_die.var:dragon_id
+							AND = {
+								has_variable = story_cycle_dragon_id 
+								var:story_cycle_dragon_id = scope:dragon_to_die.var:dragon_id
+							}
 						}
 						end_story = yes
 					}

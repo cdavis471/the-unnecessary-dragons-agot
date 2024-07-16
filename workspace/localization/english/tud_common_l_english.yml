@@ -178,7 +178,6 @@
  dragonskull_template:0 "Dragon Skull"
  # Types
  dragon_type:0 "Dragon"
- artifact_dragon_type:0 "Dragon"
  dragonskull_type:0 "Dragon Skull"
  # Visuals
  dragon_visual:0 "Dragon"
@@ -187,8 +186,8 @@
  # Interactions
  ###############################################################################################
  # Claim Throne
- claim_throne_interaction:0 "Claim Throne By Right Of the Dragon"
- claim_throne_interaction_desc:0 "The true power of dragons belongs to me, I should use this to stake my claim."
+ claim_throne_dragon_interaction:0 "Claim Throne By Right Of The Dragon"
+ claim_throne_dragon_interaction_desc:0 "The true power of dragons belongs to me, I should use this to stake my claim."
  # Dragon Dance
  dragon_dance_interaction:0 "Seek Out"
  dragon_dance_interaction_desc:0 "There is nothing more devastating than a war between dragons, but I must find my enemy before they find me."
@@ -198,6 +197,12 @@
  # Egg Cradling With Dynasty Member
  egg_cradling_interaction:0 "Cradle Egg With Infant"
  egg_cradling_interaction_desc:0 "Let an egg hatch with a rider from an early age, a sign of a true descendant of Old Valyria."
+ # Claim Mount
+ claim_mount_interaction:0 "Claim Riderless Dragon"
+ claim_mount_interaction_desc:0 "A dragon has nested nearby, perhaps I could claim it as my own."
+ # Feed To Dragon
+ feed_dragon_prisoner_interaction:0 "Feed To Dragon"
+ feed_dragon_prisoner_interaction_desc:0 "Feed them to your mount at your discretion."
  ###############################################################################################
  # Character Memory Types
  ###############################################################################################
@@ -238,6 +243,7 @@
  ###############################################################################################
  # Eaten By Dragon
  death_tud_eaten:0 "was devoured by a dragon"
+ death_tud_eaten_killer:0 "was devoured by the dragon of [TARGET_CHARACTER.GetUIName]"
  # Slain In Dance
  death_tud_dance:0 "was slain in a dance between dragons"
  death_tud_dance_killer:0 "was slain by [TARGET_CHARACTER.GetUIName] in a dance between dragons"
@@ -266,9 +272,9 @@
  dragon_siege_decision_tooltip:0 "Life or death..."
  dragon_siege_decision_confirm:0 "To battle."
  # Claim Wild Dragon
- claim_wild_dragon_decision:0 "A Wild Dragon"
- claim_wild_dragon_decision_title:0 "A Wild Dragon"
- claim_wild_dragon_decision_desc:0 "Word has reached me that a dragon has been let loose, with the rider having recently died. I am a descendant of Old Valyria, it would be within my right to claim myself a mount like my ancestors of old.\nThere is, of course, a risk."
+ claim_wild_dragon_decision:0 "An Unclaimed Dragon"
+ claim_wild_dragon_decision_title:0 "An Unclaimed Dragon"
+ claim_wild_dragon_decision_desc:0 "Word has reached me that a dragon of my blood has been let loose, with the rider having recently died. I am a descendant of Old Valyria, it would be within my right to claim myself a mount like my ancestors of old.\nThere is, of course, a small risk that the dragon will end me."
  claim_wild_dragon_selection_tooltip:0 "Let us hope I arrive in time..."
  claim_wild_dragon_decision_confirm:0 "I will travel to claim my birth right."
  ###############################################################################################
@@ -315,6 +321,14 @@
  ancient_dragonrider_modifier_desc:0 "This character is bonded to an ancient dragon, a creature that has lived for nearly two centuries. This dragon will spell doom to all armies that oppose it."
  dying_dragonrider_modifier:0 "Dying Dragon Mount"
  dying_dragonrider_modifier_desc:0 "This character is bonded to a dragon so old, it now struggles to fly from its sheer weight. Yet, such a beast would be a death sentence to go against, and the age it has lived to is a testament to that."
+ # Dragon Allies
+ hatchling_dragonally_modifier:0 "Hatchling Dragon Ally"
+ adolescent_dragonally_modifier:0 "Adolescent Dragon Ally"
+ young_dragonally_modifier:0 "Young Dragon Ally"
+ adult_dragonally_modifier:0 "Adult Dragon Ally"
+ mature_dragonally_modifier:0 "Mature Dragon Ally"
+ ancient_dragonally_modifier:0 "Ancient Dragon Ally"
+ dying_dragonally_modifier:0 "Dying Dragon Ally"
  # Dragon Skull
  dead_dragon_modifier:0 "Dragon Skull"
  # Besieged County
@@ -323,24 +337,24 @@
  # Opinion Modifiers
  ###############################################################################################
  # Dragon Siege
- dragon_sieged_me:0 "Razed lands with a dragon"
- dragon_sieged_family:0 "Razed my family's lands With a dragon"
+ dragon_sieged_me:0 "Razed lands with a Dragon"
+ dragon_sieged_family:0 "Razed my family's lands with a Dragon"
  dragon_sieged_family_custom:0 "This vile act will be remembered by their family.."
  # Claiming Titles As Dragonlord
- dragonlord_custom:0 "My dragon aches to be ridden! The time for war is now"
- dragonlord_claimed_my_title:0 "You used your dragons to claim my lands!"
+ dragonlord_custom:0 "My Dragon aches to be ridden! The time for war is now"
+ dragonlord_claimed_my_title:0 "You used your dragons to claim my lands"
  dragonlord_claimed_my_liege:0 "You are a Dragonlord"
  dragonlord_claimed_family:0 "Rumors of a would be 'Conquerer' spread quickly in their family"
- killed_opponent_dance:0 "Killed family member in a dance of dragons"
+ killed_opponent_dance:0 "Killed family member in a Dance of Dragons"
  killed_opponent_dance_custom:0 "A dance between dragons is a brutal thing"
  ###############################################################################################
  # Story Cycle
  ############################################################################################### 
  # Dragon
  artifact_dragon:0 "Dragon"
- dragon_desc:0 "This dragon was born."
+ dragon_desc:0 "This Dragon was born."
  dragonskull_name:0 "Dragon Skull"
- dragonskull_desc:0 "This skull once belonged to a dragon, a creature bound to the descendants of Old Valyria. Unlike a human and most creatures, the bone is black as onyx, and it is cold to the touch.\n\nA far different touch to the fire the beast once possessed."
+ dragonskull_desc:0 "This skull once belonged to a Dragon, a creature bound to the descendants of Old Valyria. Unlike a human and most creatures, the bone is black as onyx, and it is cold to the touch.\n\nA far different touch to the fire the beast once possessed."
  artifact_dragon_type:0 "Dragon"
  artifact_dragonskull_type:0 "Dragon Skull"
  artifact_slot_dragon:0 "Dragon"

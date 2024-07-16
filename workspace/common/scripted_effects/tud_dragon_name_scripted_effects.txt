@@ -609,6 +609,9 @@ assign_name_dragon_effect = {
             limit = { var:name_selection = 150 }
             set_artifact_name = dragon_name_150
         }
+        else = {
+            set_artifact_name = dragon_name_150
+        }
     }
 }
 #####################################

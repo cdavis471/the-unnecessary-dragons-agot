@@ -10,16 +10,24 @@
 	# Has Egg and No Other Dragon To Claim
 	is_shown = {
 		AND = {
+			# Not a dragon rider already
 			NOT = {
 				has_trait = dragon_rider_trait
 			}
 			# Valyrian Ancestry
 			OR = {
-				any_ancestor = {
-					even_if_dead = yes
-					has_culture = culture:high_valyrian
-				}
 				has_culture = culture:high_valyrian
+				any_parent = { 
+					even_if_dead = yes
+					has_culture = culture:high_valyrian 
+				}
+				any_parent = { 
+					even_if_dead = yes
+					any_parent = {	
+						even_if_dead = yes
+						has_culture = culture:high_valyrian 
+					}
+				}
 			}
 			# Dragon Egg
 			any_character_artifact = {
@@ -59,8 +67,8 @@
 			}
 		}
 	}
-	# Check every twelve months
-	ai_check_interval = 12
+	# Check every three months
+	ai_check_interval = 3
 	# AI has the potential to take
 	ai_potential = { always = yes }
 	# Chance AI will do
@@ -77,9 +85,19 @@
 		# Add 25% High Valyrian Blood
 		modifier = {
 			root = {
-				any_ancestor = {
-					even_if_dead = yes
-					has_culture = culture:high_valyrian
+				# Valyrian Ancestry
+				OR = {
+					any_parent = { 
+						even_if_dead = yes
+						has_culture = culture:high_valyrian 
+					}
+					any_parent = { 
+						even_if_dead = yes
+						any_parent = {	
+							even_if_dead = yes
+							has_culture = culture:high_valyrian 
+						}
+					}
 				}
 			}
 			add = 25
@@ -98,29 +116,33 @@ check_for_eggs_decision = {
 	major = yes
 	# Can't get eggs if you don't have a dragon and you're not getting near if you're not Valyrian.
 	is_shown = {              
+		# Valyrian Ancestry
 		OR = {
-			any_ancestor = {
-				even_if_dead = yes
-				has_culture = culture:high_valyrian
-			}
 			has_culture = culture:high_valyrian
-		}
-		any_character_artifact = {
-			AND = {
-				var:dragon_rider = yes
-				var:dragon_age >= 25 
+			any_parent = { 
+				even_if_dead = yes
+				has_culture = culture:high_valyrian 
+			}
+			any_parent = { 
+				even_if_dead = yes
+				any_parent = {	
+					even_if_dead = yes
+					has_culture = culture:high_valyrian 
+				}
 			}
 		}
+		# Dragon Rider
 		has_trait = dragon_rider_trait
 	}
 	# Dragon is old enough
 	is_valid = {
-		any_character_artifact = {
-			AND = {
-				var:dragon_rider = yes
-			}
+		OR = {
+			has_character_modifier = young_dragonrider_modifier
+			has_character_modifier = adult_dragonrider_modifier
+			has_character_modifier = mature_dragonrider_modifier
+			has_character_modifier = ancient_dragonrider_modifier
+			has_character_modifier = dying_dragonrider_modifier
 		}
-		is_adult = yes
 		is_at_home = yes
 	}
 	# Begin
@@ -148,9 +170,19 @@ check_for_eggs_decision = {
 		# Add 25% High Valyrian Blood
 		modifier = {
 			root = {
-				any_ancestor = {
-					even_if_dead = yes
-					has_culture = culture:high_valyrian
+				# Valyrian Ancestry
+				OR = {
+					any_parent = { 
+						even_if_dead = yes
+						has_culture = culture:high_valyrian 
+					}
+					any_parent = { 
+						even_if_dead = yes
+						any_parent = {	
+							even_if_dead = yes
+							has_culture = culture:high_valyrian 
+						}
+					}
 				}
 			}
 			add = 25
@@ -168,26 +200,49 @@ dragon_siege_decision = {
 	major = yes
 	# At War & Dragon Rider
 	is_shown = {
+		# Valyrian Ancestry
+		OR = {
+			has_culture = culture:high_valyrian
+			any_parent = { 
+				even_if_dead = yes
+				has_culture = culture:high_valyrian 
+			}
+			any_parent = { 
+				even_if_dead = yes
+				any_parent = {	
+					even_if_dead = yes
+					has_culture = culture:high_valyrian 
+				}
+			}
+		}
 		is_at_war = yes
-		# Leading Army For Siege
-		exists = commanding_army
-		commanding_army = {
-			OR = {
-				is_army_in_siege = yes
-				is_army_in_raid = yes
+		# In Army Besieging
+		OR = {
+			AND = {
+				exists = commanding_army
+				commanding_army = {
+					OR = {
+						is_army_in_siege = yes
+						is_army_in_raid = yes
+					}
+				}
+			}
+			AND = {
+				exists = knight_army
+				knight_army = {
+					OR = {
+						is_army_in_siege = yes
+						is_army_in_raid = yes
+					}
+				}
 			}
 		}
 		OR = {
-			any_ancestor = {
-				this = { has_culture = culture:high_valyrian }
-			}
-			has_culture = culture:high_valyrian
-		}
-		any_character_artifact = {
-			AND = {
-				var:dragon_rider = yes
-				var:dragon_age > 5
-			}
+			has_character_modifier = young_dragonrider_modifier
+			has_character_modifier = adult_dragonrider_modifier
+			has_character_modifier = mature_dragonrider_modifier
+			has_character_modifier = ancient_dragonrider_modifier
+			has_character_modifier = dying_dragonrider_modifier
 		}
 		has_trait = dragon_rider_trait
 	}
@@ -205,8 +260,8 @@ dragon_siege_decision = {
 			trigger_event = { id = tud_decision_events.0003 } 
 		}
 	}
-	# Check every twelve months
-	ai_check_interval = 12
+	# Check every three months
+	ai_check_interval = 3
 	# AI has the potential to take
 	ai_potential = { always = yes }
 	# Chance AI will do
@@ -241,27 +296,45 @@ claim_wild_dragon_decision = {
 	cooldown = { days = 1825 }
 	selection_tooltip = claim_wild_dragon_selection_tooltip
 	major = yes
-	# Must be Valyrian or of Valyrian descent, and not already be a dragon-rider.
-	is_shown = {              
-		OR = {
-			any_ancestor = {
-				even_if_dead = yes
-				has_culture = culture:high_valyrian
+	# Must be Valyrian or of Valyrian descent, and within dragon family.
+	is_shown = {          
+		NOT = {
+			any_character_artifact = {
+				has_variable = dragon_id
 			}
+		}    
+		# Valyrian Ancestry
+		OR = {
 			has_culture = culture:high_valyrian
+			any_parent = { 
+				even_if_dead = yes
+				has_culture = culture:high_valyrian 
+			}
+			any_parent = { 
+				even_if_dead = yes
+				any_parent = {	
+					even_if_dead = yes
+					has_culture = culture:high_valyrian 
+				}
+			}
 		}
-		any_artifact = {
-			var:dragon_rider = no
+		dynasty = {
+			any_dynasty_member = {
+				AND = {
+					any_character_artifact = {
+						AND = {
+							has_variable = dragon_id
+							NOT = { has_variable = has_dragon_rider }
+						}
+					}
+				}
+			}
 		}
 	}
 	# Not A Dragon Rider Already
 	is_valid = {
 		NOT = {
-			any_character_artifact = {
-				AND = {
-					var:dragon_rider = yes
-				}
-			}
+			has_trait = dragon_rider_trait
 		}
 	}
 	# Begin
@@ -269,29 +342,57 @@ claim_wild_dragon_decision = {
 		random_list = {
 			75 = {
 				# Find Dragon
-				random_artifact = {
-					limit = { var:dragon_rider = no }
-					save_scope_as = wild_dragon_transfer
-				}
-				# Find Owner of Dragon
-				scope:wild_dragon_transfer = {
-					artifact_owner = {
-						save_scope_as = wild_owner_transfer
+				dynasty = {
+					every_dynasty_member = {
+						limit = {
+							# Valyrian Ancestry
+							OR = {
+								has_culture = culture:high_valyrian
+								any_parent = { 
+									even_if_dead = yes
+									has_culture = culture:high_valyrian 
+								}
+								any_parent = { 
+									even_if_dead = yes
+									any_parent = {	
+										even_if_dead = yes
+										has_culture = culture:high_valyrian 
+									}
+								}
+							}
+						}
+						every_character_artifact = {
+							limit = { 
+								AND = {
+									has_variable = dragon_id
+									NOT = { has_variable = has_dragon_rider }
+								} 
+							}
+							save_scope_as = wild_dragon_transfer
+						}
+						# Find Owner of Dragon
+						scope:wild_dragon_transfer = {
+							artifact_owner = {
+								save_scope_as = wild_owner_transfer
+							}
+						}
 					}
 				}
 				# Find story belonging to owner about dragon
 				scope:wild_owner_transfer = {
 					random_owned_story = {
-						limit = { var:story_cycle_dragon_id = scope:wild_dragon_transfer.var:dragon_id }
+						limit = { 
+							AND = {
+								has_variable = story_cycle_dragon_id
+								var:story_cycle_dragon_id = scope:wild_dragon_transfer.var:dragon_id 
+							}
+						}
 						make_story_owner = ROOT
 					}
 				}
 				# Set Dragon Rider & Transfer Dragon
 				scope:wild_dragon_transfer = {
-					set_variable = {
-						name = dragon_rider
-						value = yes
-					}
+					set_variable = has_dragon_rider
 					set_owner = ROOT
 				}
 				# Trigger Event To Display New Dragon
@@ -304,8 +405,8 @@ claim_wild_dragon_decision = {
 			}
 		}
 	}
-	# Check every twelve months
-	ai_check_interval = 12
+	# Check every two years
+	ai_check_interval = 24
 	# AI has the potential to take
 	ai_potential = { always = yes }
 	# Chance AI will do

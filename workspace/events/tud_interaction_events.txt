@@ -105,13 +105,13 @@ tud_interaction_events.0003 = {
 	immediate = {
 		scope:actor = {
 			random_character_artifact = {
-				limit = { var:dragon_rider = yes }
+				limit = { has_variable = has_dragon_rider }
 				save_scope_as = actoritem
 			}
 		}
 		scope:recipient = {
 			random_character_artifact = {
-				limit = { var:dragon_rider = yes }
+				limit = { has_variable = has_dragon_rider }
 				save_scope_as = recipientitem
 			}
 		}
@@ -191,7 +191,12 @@ tud_interaction_events.0004 = {
 			# Kill Dragon
 			random_owned_story = {
 				if = {
-					limit = { var:story_cycle_dragon_id = scope:actoritem.var:dragon_id }
+					limit = { 
+						AND = {
+							has_variable = story_cycle_dragon_id
+							var:story_cycle_dragon_id = scope:actoritem.var:dragon_id 
+						}
+					}
 					end_story = yes
 				}
 			}
@@ -262,7 +267,12 @@ tud_interaction_events.0005 = {
 			# Kill Dragon
 			random_owned_story = {
 				if = {
-					limit = { var:story_cycle_dragon_id = scope:recipientitem.var:dragon_id }
+					limit = { 
+						AND = {
+							has_variable = story_cycle_dragon_id
+							var:story_cycle_dragon_id = scope:recipientitem.var:dragon_id 
+						}
+					}
 					end_story = yes
 				}
 			}

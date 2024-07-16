@@ -1,13 +1,13 @@
 ﻿# Character Interactions
 # Claim Throne
-claim_throne_interaction = {
+claim_throne_dragon_interaction = {
 	# Claim Throne
 	category = interaction_category_diplomacy
-	icon = claim_throne_interaction
+	icon = claim_throne_dragon_interaction
 	# Every 30 Years
 	cooldown = { months = 360 }
 	use_diplomatic_range = no
-	desc = claim_throne_interaction_desc
+	desc = claim_throne_dragon_interaction_desc
 	interface_priority = 100
 	# Shown If
 	is_shown = {
@@ -15,17 +15,28 @@ claim_throne_interaction = {
 		scope:actor = {
 			# Valyrian Ancestry
 			OR = {
-				any_ancestor = {
-					even_if_dead = yes
-					has_culture = culture:high_valyrian
-				}
 				has_culture = culture:high_valyrian
+				any_parent = { 
+					even_if_dead = yes
+					has_culture = culture:high_valyrian 
+				}
+				any_parent = { 
+					even_if_dead = yes
+					any_parent = {	
+						even_if_dead = yes
+						has_culture = culture:high_valyrian 
+					}
+				}
 			}
-			# Is Dragon Rider
-			any_character_artifact = {
-				AND = {
-					var:dragon_rider = yes
-					var:dragon_age > 5
+			# Dragon Rider with at least 25+ YO Mount
+			AND = {
+				has_trait = dragon_rider_trait
+				OR = {
+					has_character_modifier = young_dragonrider_modifier
+					has_character_modifier = adult_dragonrider_modifier
+					has_character_modifier = mature_dragonrider_modifier
+					has_character_modifier = ancient_dragonrider_modifier
+					has_character_modifier = dying_dragonrider_modifier
 				}
 			}
 			# Not A Coward or Content
@@ -97,18 +108,29 @@ dragon_dance_interaction = {
 		scope:actor = {
 			# Valyrian Ancestry
 			OR = {
-				any_ancestor = {
-					even_if_dead = yes
-					has_culture = culture:high_valyrian
-				}
 				has_culture = culture:high_valyrian
+				any_parent = { 
+					even_if_dead = yes
+					has_culture = culture:high_valyrian 
+				}
+				any_parent = { 
+					even_if_dead = yes
+					any_parent = {	
+						even_if_dead = yes
+						has_culture = culture:high_valyrian 
+					}
+				}
 			}
-			# Is Dragon Rider
-			has_trait = dragon_rider_trait
-			any_character_artifact = {
-				AND = {
-					var:dragon_rider = yes
-					var:dragon_age > 5
+			# Dragon Rider with at least 5+ YO Mount
+			AND = {
+				has_trait = dragon_rider_trait
+				OR = {
+					has_character_modifier = adolescent_dragonrider_modifier
+					has_character_modifier = young_dragonrider_modifier
+					has_character_modifier = adult_dragonrider_modifier
+					has_character_modifier = mature_dragonrider_modifier
+					has_character_modifier = ancient_dragonrider_modifier
+					has_character_modifier = dying_dragonrider_modifier
 				}
 			}
 		} 
@@ -116,18 +138,29 @@ dragon_dance_interaction = {
 		scope:recipient = {
 			# Valyrian Ancestry
 			OR = {
-				any_ancestor = {
-					even_if_dead = yes
-					has_culture = culture:high_valyrian
-				}
 				has_culture = culture:high_valyrian
+				any_parent = { 
+					even_if_dead = yes
+					has_culture = culture:high_valyrian 
+				}
+				any_parent = { 
+					even_if_dead = yes
+					any_parent = {	
+						even_if_dead = yes
+						has_culture = culture:high_valyrian 
+					}
+				}
 			}
-			# Is Dragon Rider
-			has_trait = dragon_rider_trait
-			any_character_artifact = {
-				AND = {
-					var:dragon_rider = yes
-					var:dragon_age > 5
+			# Dragon Rider with at least 5+ YO Mount
+			AND = {
+				has_trait = dragon_rider_trait
+				OR = {
+					has_character_modifier = adolescent_dragonrider_modifier
+					has_character_modifier = young_dragonrider_modifier
+					has_character_modifier = adult_dragonrider_modifier
+					has_character_modifier = mature_dragonrider_modifier
+					has_character_modifier = ancient_dragonrider_modifier
+					has_character_modifier = dying_dragonrider_modifier
 				}
 			}
 			# Available
@@ -164,12 +197,18 @@ dragon_dance_interaction = {
 		}
 	}
 	# AI Modifiers
-	# AI Modifiers
 	ai_potential = { always = yes }
-	ai_will_do = { base = 25 }
-	ai_targets = { ai_recipients = combat_enemy_side }
+	ai_will_do = { base = 35 }
+	ai_targets = { ai_recipients = family }
+	ai_targets = { ai_recipients = liege }
+	ai_targets = { ai_recipients = war_enemies }
+	ai_targets = { ai_recipients = primary_war_enemies }
+	ai_targets = {
+        ai_recipients = dynasty
+        max = 20
+    }
 	ai_frequency = 3
-	ai_intermediary_accept = { base = 25 }
+	ai_intermediary_accept = { base = 35 }
 	# Auto Accept
 	auto_accept = yes
 }
@@ -191,16 +230,24 @@ dragon_offer_interaction = {
 		scope:actor = {
 			# Valyrian Ancestry
 			OR = {
-				any_ancestor = {
-					even_if_dead = yes
-					has_culture = culture:high_valyrian
-				}
 				has_culture = culture:high_valyrian
+				any_parent = { 
+					even_if_dead = yes
+					has_culture = culture:high_valyrian 
+				}
+				any_parent = { 
+					even_if_dead = yes
+					any_parent = {	
+						even_if_dead = yes
+						has_culture = culture:high_valyrian 
+					}
+				}
 			}
 			# Has Riderless Dragon
 			any_character_artifact = {
 				AND = {
-					var:dragon_rider = no
+					has_variable = dragon_id
+					NOT = { has_variable = has_dragon_rider }
 				}
 			}
 		} 
@@ -209,19 +256,23 @@ dragon_offer_interaction = {
 			is_ai = yes
 			# Valyrian Ancestry
 			OR = {
-				any_ancestor = {
-					even_if_dead = yes
-					has_culture = culture:high_valyrian
-				}
 				has_culture = culture:high_valyrian
+				any_parent = { 
+					even_if_dead = yes
+					has_culture = culture:high_valyrian 
+				}
+				any_parent = { 
+					even_if_dead = yes
+					any_parent = {	
+						even_if_dead = yes
+						has_culture = culture:high_valyrian 
+					}
+				}
 			}
 			# Available
 			NOT = {
 				has_government = nights_watch_government
 				is_imprisoned_by = scope:actor
-				any_character_artifact = {
-					var:dragon_rider = yes
-				}
 				has_trait = dragon_rider_trait
 			}
 			# Not Personal
@@ -236,37 +287,56 @@ dragon_offer_interaction = {
 	}
 	# Valid If Same Dynasty
 	is_valid = {
-		scope:recipient.dynasty = scope:actor.dynasty
+		scope:recipient = { age >= 12 }
+		OR = {	
+			scope:recipient.dynasty = scope:actor.dynasty
+			AND = {
+				exists = scope:recipient.mother.dynasty
+				scope:recipient.mother.dynasty = scope:actor.dynasty
+			}
+			AND = {
+				exists = scope:recipient.real_father.dynasty
+				scope:recipient.real_father.dynasty = scope:actor.dynasty
+			}
+		}
 	}
 	# Offer Mount
 	on_accept = {
 		random_list = {
-			75 = {
+			90 = {
 				# Owner of Dragon
 				scope:actor = {
-					# Save Dragon Scope
+					# Find Dragon
 					random_character_artifact = {
 						limit = {
-							var:dragon_rider = no
+							AND = {
+								has_variable = dragon_id
+								NOT = { has_variable = has_dragon_rider }
+							}
 						}
+						# Save Scope
 						save_scope_as = dragon_transfer_offer
+						# Set Variable
+						set_variable = has_dragon_rider
+						# Set New Owner
+						set_owner = scope:recipient 
 					}
-					# Save Story Scope
+					# Find Story
 					random_owned_story = {
 						limit = { 
-							var:story_cycle_dragon_id = scope:dragon_transfer_offer.var:dragon_id
+							AND = {
+								has_variable = story_cycle_dragon_id
+								var:story_cycle_dragon_id = scope:dragon_transfer_offer.var:dragon_id
+							}
 						}
-						save_scope_as = story_transfer_offer
+						# Transfer Story
+						make_story_owner = scope:recipient
 					}
-					# Transfer Story
-					scope:story_transfer_offer = { make_story_owner = scope:recipient }
-					# Transfer Artifact
-					scope:dragon_transfer_offer = { set_owner = scope:recipient }
 					# Trigger Event
 					trigger_event = tud_interaction_events.0006
 				}
 			}
-			25 = {
+			10 = {
 				scope:recipient = {
 					death = { death_reason = death_tud_eaten }
 				}
@@ -304,11 +374,18 @@ egg_cradling_interaction = {
 		scope:actor = {
 			# Valyrian Ancestry
 			OR = {
-				any_ancestor = {
-					even_if_dead = yes
-					has_culture = culture:high_valyrian
-				}
 				has_culture = culture:high_valyrian
+				any_parent = { 
+					even_if_dead = yes
+					has_culture = culture:high_valyrian 
+				}
+				any_parent = { 
+					even_if_dead = yes
+					any_parent = {	
+						even_if_dead = yes
+						has_culture = culture:high_valyrian 
+					}
+				}
 			}
 			# Has Dragon Egg
 			any_character_artifact = {
@@ -319,23 +396,24 @@ egg_cradling_interaction = {
 		scope:recipient = {
 			# Valyrian Ancestry
 			OR = {
-				any_ancestor = {
-					even_if_dead = yes
-					has_culture = culture:high_valyrian
-				}
 				has_culture = culture:high_valyrian
+				any_parent = { 
+					even_if_dead = yes
+					has_culture = culture:high_valyrian 
+				}
+				any_parent = { 
+					even_if_dead = yes
+					any_parent = {	
+						even_if_dead = yes
+						has_culture = culture:high_valyrian 
+					}
+				}
 			}
 			# Available
 			NOT = {
 				has_government = nights_watch_government
 				is_imprisoned_by = scope:actor
 				has_trait = dragon_rider_trait
-				any_character_artifact = {
-					OR = {
-						var:dragon_rider = yes
-						has_variable = dragon_egg
-					}
-				}
 			}
 			# Not Personal
 			NOT = { 
@@ -350,7 +428,17 @@ egg_cradling_interaction = {
 	# Valid If Same Dynasty & Young Child
 	is_valid = {
 		scope:recipient = { age < 4 }
-		scope:recipient.dynasty = scope:actor.dynasty
+		OR = {	
+			scope:recipient.dynasty = scope:actor.dynasty
+			AND = {
+				exists = scope:recipient.mother.dynasty
+				scope:recipient.mother.dynasty = scope:actor.dynasty
+			}
+			AND = {
+				exists = scope:recipient.real_father.dynasty
+				scope:recipient.real_father.dynasty = scope:actor.dynasty
+			}
+		}
 	}
 	# Offer Egg
 	on_accept = {
@@ -378,6 +466,223 @@ egg_cradling_interaction = {
 	ai_targets = { ai_recipients = family }
 	ai_frequency = 1
 	ai_intermediary_accept = { base = 100 }
+	# Auto Accept
+	auto_accept = yes
+}
+
+# Claim Mount Interaction
+claim_mount_interaction = {
+	# Will Mount Be Claimed?
+	category = interaction_category_diplomacy
+	icon = dragon_offer_interaction
+	# Every Six Months
+	cooldown = { months = 6 }
+	popup_on_receive = yes
+	pause_on_receive = yes
+	interface_priority = 100
+	use_diplomatic_range = yes
+	desc = claim_mount_interaction_desc
+	# Is it possible?
+	is_shown = {
+		# Claiming
+		scope:actor = {
+			# Player Only Interaction
+			is_ai = no
+			# Valyrian Ancestry
+			OR = {
+				has_culture = culture:high_valyrian
+				any_parent = { 
+					even_if_dead = yes
+					has_culture = culture:high_valyrian 
+				}
+				any_parent = { 
+					even_if_dead = yes
+					any_parent = {	
+						even_if_dead = yes
+						has_culture = culture:high_valyrian 
+					}
+				}
+			}
+			# Not Already A Dragon Rider
+			NOT = { has_trait = dragon_rider_trait }
+		} 
+		# Accepting
+		scope:recipient = {
+			is_ai = yes
+			# Has Riderless Dragon
+			any_character_artifact = {
+				AND = {
+					has_variable = dragon_id
+					NOT = { has_variable = has_dragon_rider }
+				}
+			}
+			# Valyrian Ancestry
+			OR = {
+				has_culture = culture:high_valyrian
+				any_parent = { 
+					even_if_dead = yes
+					has_culture = culture:high_valyrian 
+				}
+				any_parent = { 
+					even_if_dead = yes
+					any_parent = {	
+						even_if_dead = yes
+						has_culture = culture:high_valyrian 
+					}
+				}
+			}
+			# Available
+			NOT = {
+				has_government = nights_watch_government
+				is_imprisoned_by = scope:actor
+			}
+			# Not Personal
+			NOT = { 
+				scope:recipient = scope:actor 
+			}
+		}
+	}
+	# Highlighted Interaction
+	is_highlighted = {
+		always = yes
+	}
+	# Valid If Same Dynasty
+	is_valid = {
+		scope:actor = { age >= 12 }
+		OR = {	
+			scope:recipient.dynasty = scope:actor.dynasty
+			AND = {
+				exists = scope:actor.mother.dynasty
+				scope:actor.mother.dynasty = scope:recipient.dynasty
+			}
+			AND = {
+				exists = scope:actor.real_father.dynasty
+				scope:actor.real_father.dynasty = scope:recipient.dynasty
+			}
+		}
+		scope:recipient = {
+			opinion = {
+				target = scope:actor
+				value >= 25
+			}
+		}
+	}
+	# Claim Mount
+	on_accept = {
+		random_list = {
+			90 = {
+				# Owner of Dragon
+				scope:recipient = {
+					# Save Dragon Scope
+					random_character_artifact = {
+						limit = {
+							AND = {
+								has_variable = dragon_id
+								NOT = { has_variable = has_dragon_rider }
+							}
+						}
+						save_scope_as = dragon_transfer_offer
+					}
+					# Save Story Scope
+					random_owned_story = {
+						limit = { 
+							AND = {
+								has_variable = story_cycle_dragon_id
+								var:story_cycle_dragon_id = scope:dragon_transfer_offer.var:dragon_id
+							}
+						}
+						save_scope_as = story_transfer_offer
+					}
+					# Transfer Story
+					scope:story_transfer_offer = { make_story_owner = scope:actor }
+					# Transfer Artifact
+					scope:dragon_transfer_offer = { 
+						set_variable = has_dragon_rider
+						set_owner = scope:actor 
+					}
+					# Trigger Event
+					trigger_event = tud_interaction_events.0006
+				}
+			}
+			10 = {
+				scope:actor = {
+					death = { death_reason = death_tud_eaten }
+				}
+				scope:recipient = {
+					# Trigger Event
+					trigger_event = tud_interaction_events.0007
+				}
+			}
+		}
+	}
+	# AI Modifiers
+	ai_will_do = { base = 0 }
+	# Auto Accept
+	auto_accept = yes
+}
+
+# Feed Prisoner To Dragon
+feed_dragon_prisoner_interaction = {
+	# Claim Throne
+	category = interaction_category_hostile
+	icon = prison
+	# Every 10 Days
+	cooldown = { days = 10 }
+	use_diplomatic_range = no
+	desc = feed_dragon_prisoner_interaction_desc
+	interface_priority = 100
+	# Shown If
+	is_shown = {
+		# Person Starting Interaction
+		scope:actor = {
+			AND = {
+				has_trait = dragon_rider_trait
+				OR = {
+					has_trait = sadistic
+					has_trait = callous
+					has_trait = authoritative
+					has_trait = ruthless
+					has_trait = paranoid
+					has_trait = arbitrary
+					has_trait = arrogant
+					has_trait = vengeful
+					has_trait = wrathful
+				}
+			}
+		} 
+		# Person Receiving Interaction
+		scope:recipient = {
+			is_imprisoned_by = scope:actor
+			# Not the player
+			NOT = { scope:recipient = scope:actor }
+		}
+	}
+	# Highlighted Interaction
+	is_highlighted = {
+		always = yes
+	}
+	# Effect
+	on_accept = {
+		# Save Title Scope
+		scope:recipient = {
+			every_close_family_member = {
+				add_opinion = {
+					target = scope:actor
+					modifier = executed_close_relation_opinion
+				}
+			}
+			death = {
+				death_reason = death_tud_eaten
+				killer = scope:actor
+			}
+		}
+	}
+	# AI Modifiers
+	ai_potential = { has_trait = callous }
+	ai_targets = { ai_recipients = vassals }
+	ai_frequency = 2
+	ai_intermediary_accept = { base = 10 }
+	ai_will_do = { base = 10 }
 	# Auto Accept
 	auto_accept = yes
 }

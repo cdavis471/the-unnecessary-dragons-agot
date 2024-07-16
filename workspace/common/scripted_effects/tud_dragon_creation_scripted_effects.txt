@@ -34,10 +34,7 @@ create_dragon_effect = {
                 value = global_var:dragon_id_counter
             }
             # Has Rider
-            set_variable = {
-                name = dragon_rider
-                value = yes
-            }
+            set_variable = has_dragon_rider
             # Set Age
             set_variable = {
                 name = dragon_age
@@ -53,11 +50,21 @@ create_dragon_effect = {
                 name = dragon_combat_score
                 value = 0
             }
+            # Find Name
+            assign_name_dragon_effect = {
+                OWNER = prev
+                DRAGON = this
+            }
+            # Find Description
+            assign_desc_dragon_effect = {
+                OWNER = prev
+                DRAGON = this
+            }
             if = {
                 limit = { has_artifact_feature = dragon_feature_build_slender }
                 change_variable = {
                     name = dragon_combat_score
-                    add = 20
+                    add = 15
                 }
             }
             else_if = {
@@ -71,14 +78,14 @@ create_dragon_effect = {
                 limit = { has_artifact_feature = dragon_feature_build_spindly }
                 change_variable = {
                     name = dragon_combat_score
-                    add = 10
+                    add = 5
                 }
             }
             else_if = {
                 limit = { has_artifact_feature = dragon_feature_build_monstrous }
                 change_variable = {
                     name = dragon_combat_score
-                    add = 40
+                    add = 60
                 }
             }
         }

@@ -40,20 +40,6 @@
                     hatcher = scope:story.story_owner
                 }
             }
-            # Prepare Name & Description
-            random_character_artifact = {
-                limit = { var:dragon_id = scope:story.var:story_cycle_dragon_id }
-                # Find Name
-                assign_name_dragon_effect = {
-                    OWNER = prev
-                    DRAGON = this
-                }
-                # Find Description
-                assign_desc_dragon_effect = {
-                    OWNER = prev
-                    DRAGON = this
-                }
-            }
 		}
     }
 
@@ -63,7 +49,12 @@
             remove_trait = dragon_rider_trait
             # Find relevant dragon
             random_character_artifact = {
-                limit = { var:dragon_id = scope:story.var:story_cycle_dragon_id }
+                limit = { 
+                    AND = {
+                        has_variable = dragon_id
+                        var:dragon_id = scope:story.var:story_cycle_dragon_id 
+                    }
+                }
                 save_scope_as = dragon_to_die
             }
             if = {
@@ -134,11 +125,6 @@
                 }
             }
             else = {
-                # Create Dragon Skull
-                create_dragonskull_effect = {
-                    OWNER = this
-                    DRAGON = scope:dragon_to_die
-                }
                 # Destroy Dragon
                 destroy_artifact = scope:dragon_to_die
                 # Memory
@@ -156,26 +142,32 @@
     on_owner_death = {
         # Save Scopes
         random_artifact = {
-            limit = { var:dragon_id = scope:story.var:story_cycle_dragon_id }
-            save_scope_as = dragon_transfer_owner_death
-        }
-        # Dragon Rider Is Gone
-        scope:dragon_transfer_owner_death = {
-            set_variable = {
-                name = dragon_rider
-                value = no
+            limit = { 
+                has_variable = dragon_id
+                var:dragon_id = scope:story.var:story_cycle_dragon_id
             }
+            save_scope_as = dragon_transfer_owner_death
+            remove_variable = has_dragon_rider
         }
+        # Family Member of the Blood
         story_owner = {
             dynasty = {
                 random_dynasty_member = {
                     limit = {
+                        # Valyrian Ancestry
                         OR = {
-                            any_ancestor = {
-                                even_if_dead = yes
-                                has_culture = culture:high_valyrian
-                            }
                             has_culture = culture:high_valyrian
+                            any_parent = { 
+                                even_if_dead = yes
+                                has_culture = culture:high_valyrian 
+                            }
+                            any_parent = { 
+                                even_if_dead = yes
+                                any_parent = {	
+                                    even_if_dead = yes
+                                    has_culture = culture:high_valyrian 
+                                }
+                            }
                         }
                     }
                     save_scope_as = dragon_inheritance
@@ -190,7 +182,7 @@
                 set_owner = scope:dragon_inheritance
             }
         }
-        # If Not - The Bloodline Is Dead - The Dragon Will Sleep Forever
+        # If Not - The Bloodline Is Dead - The Dragon Will Disappear
         else = {
             scope:dragon_transfer_owner_death = {
                 set_variable = death_bloodline
@@ -202,7 +194,7 @@
     # Dragon Army Maintenance
     effect_group = {
         # Regularly Check
-        days = 7
+        days = 3
         chance = 100
         # Effects
         first_valid = {
@@ -213,8 +205,9 @@
                         is_in_army = yes
                         any_character_artifact = {
                             AND = {
+                                has_variable = dragon_id
                                 var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                var:dragon_rider = yes
+                                has_variable = has_dragon_rider
                             }
                         }
                     }
@@ -225,7 +218,7 @@
                     }
                 }
             }
-            # Not In Army
+            # Not In Army - Part 1
             triggered_effect = {
                 trigger = {
                     story_owner = {
@@ -236,6 +229,71 @@
                 effect = {
                     story_owner = {
                         remove_variable = engaged_in_single_combat
+                    }
+                }
+            }
+            # Not In Army - Part 2
+            triggered_effect = {
+                trigger = {
+                    story_owner = {
+                        is_in_army = no
+                        OR = {
+                            has_character_modifier = hatchling_dragonally_modifier
+                            has_character_modifier = adolescent_dragonally_modifier
+                            has_character_modifier = young_dragonally_modifier
+                            has_character_modifier = adult_dragonally_modifier
+                            has_character_modifier = mature_dragonally_modifier
+                            has_character_modifier = ancient_dragonally_modifier
+                            has_character_modifier = dying_dragonally_modifier
+                        }
+                    }
+                }
+                effect = {
+                    story_owner = {
+                        if = {
+                            limit = { has_character_modifier = hatchling_dragonally_modifier }
+                            remove_character_modifier = hatchling_dragonally_modifier
+                        }
+                        else_if = {
+                            limit = { has_character_modifier = adolescent_dragonally_modifier }
+                            remove_character_modifier = adolescent_dragonally_modifier
+                        }
+                        else_if = {
+                            limit = { has_character_modifier = young_dragonally_modifier }
+                            remove_character_modifier = young_dragonally_modifier
+                        }
+                        else_if = {
+                            limit = { has_character_modifier = adult_dragonally_modifier }
+                            remove_character_modifier = adult_dragonally_modifier
+                        }
+                        else_if = {
+                            limit = { has_character_modifier = mature_dragonally_modifier }
+                            remove_character_modifier = mature_dragonally_modifier
+                        }
+                        else_if = {
+                            limit = { has_character_modifier = ancient_dragonally_modifier }
+                            remove_character_modifier = ancient_dragonally_modifier
+                        }
+                        else_if = {
+                            limit = { has_character_modifier = dying_dragonally_modifier }
+                            remove_character_modifier = dying_dragonally_modifier
+                        }
+                    }
+                }
+            }
+            # Not In Army - Part 3
+            triggered_effect = {
+                trigger = {
+                    story_owner = {
+                        AND = {
+                            is_in_army = no
+                            has_variable = dragon_ally_army_given
+                        }
+                    }
+                }
+                effect = {
+                    story_owner = {
+                        remove_variable = dragon_ally_army_given
                     }
                 }
             }
@@ -253,8 +311,9 @@
                     story_owner = {
                         any_character_artifact = {
                             AND = {
+                                has_variable = dragon_id
                                 var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                var:dragon_rider = yes
+                                has_variable = has_dragon_rider
                             }
                         }
                         NOT = { has_trait = dragon_rider_trait }
@@ -280,8 +339,9 @@
                     story_owner = { 
                         any_character_artifact = {
                             AND = {
+                                has_variable = dragon_id
                                 var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                var:dragon_rider = yes
+                                has_variable = has_dragon_rider
                                 has_artifact_modifier = hatchling_dragon_modifier
                             }
                         }
@@ -306,8 +366,9 @@
                     story_owner = { 
                         any_character_artifact = {
                             AND = {
+                                has_variable = dragon_id
                                 var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                var:dragon_rider = yes
+                                has_variable = has_dragon_rider
                                 has_artifact_modifier = adolescent_dragon_modifier
                             }
                         }
@@ -332,8 +393,9 @@
                     story_owner = { 
                         any_character_artifact = {
                             AND = {
+                                has_variable = dragon_id
                                 var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                var:dragon_rider = yes
+                                has_variable = has_dragon_rider
                                 has_artifact_modifier = young_dragon_modifier
                             }
                         }
@@ -358,8 +420,9 @@
                     story_owner = { 
                         any_character_artifact = {
                             AND = {
+                                has_variable = dragon_id
                                 var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                var:dragon_rider = yes
+                                has_variable = has_dragon_rider
                                 has_artifact_modifier = adult_dragon_modifier
                             }
                         }
@@ -384,8 +447,9 @@
                     story_owner = { 
                         any_character_artifact = {
                             AND = {
+                                has_variable = dragon_id
                                 var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                var:dragon_rider = yes
+                                has_variable = has_dragon_rider
                                 has_artifact_modifier = mature_dragon_modifier
                             }      
                         }
@@ -410,8 +474,9 @@
                     story_owner = { 
                         any_character_artifact = {
                             AND = {
+                                has_variable = dragon_id
                                 var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                var:dragon_rider = yes
+                                has_variable = has_dragon_rider
                                 has_artifact_modifier = ancient_dragon_modifier
                             }
                         }
@@ -436,8 +501,9 @@
                     story_owner = { 
                         any_character_artifact = {
                             AND = {
+                                has_variable = dragon_id
                                 var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                var:dragon_rider = yes
+                                has_variable = has_dragon_rider
                                 has_artifact_modifier = dying_dragon_modifier
                             }
                         }
@@ -461,7 +527,7 @@
 
     # Dragon Location Maintenance
     effect_group = {
-        days = 7
+        days = 30
         chance = 100
         # Check Location
         first_valid = {
@@ -471,7 +537,10 @@
                     NOT = {
                         story_owner = {
                             any_character_artifact = {
-                                var:dragon_id = scope:story.var:story_cycle_dragon_id
+                                AND = {
+                                    has_variable = dragon_id
+                                    var:dragon_id = scope:story.var:story_cycle_dragon_id
+                                }
                             }
                         }
                     }
@@ -479,8 +548,39 @@
                 # Make them come back
                 effect = {
                     random_artifact = {
-                        limit = { var:dragon_id = scope:story.var:story_cycle_dragon_id }
+                        limit = { 
+                            AND = {
+                                has_variable = dragon_id
+                                var:dragon_id = scope:story.var:story_cycle_dragon_id 
+                            }
+                        }
                         set_owner = scope:story.story_owner
+                    }
+                }
+            }
+            # Finished The Dance
+            triggered_effect = {
+                # Check if engaged
+                trigger = {
+                    story_owner = {
+                        OR = {
+                            has_variable = a_dance_dancerone
+                            has_variable = a_dance_dancertwo
+                        }
+                        
+                    }
+                }
+                # Engagement ended
+                effect = {
+                    story_owner = {
+                        if = {
+                            limit = { has_variable = a_dance_dancerone }
+                            remove_variable = a_dance_dancerone
+                        }
+                        else_if = {
+                            limit = { has_variable = a_dance_dancertwo }
+                            remove_variable = a_dance_dancertwo
+                        }
                     }
                 }
             }
@@ -500,8 +600,9 @@
                         AND = {
                             any_character_artifact = {
                                 AND = {
+                                    has_variable = dragon_id
                                     var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                    var:dragon_rider = no
+                                    NOT = { has_variable = has_dragon_rider }
                                 }
                             }
                             dynasty = {
@@ -510,12 +611,20 @@
                                         NOT = {
                                             has_trait = dragon_rider_trait
                                         }
+                                        # Valyrian Ancestry
                                         OR = {
-                                            any_ancestor = {
-                                                even_if_dead = yes
-                                                has_culture = culture:high_valyrian
-                                            }
                                             has_culture = culture:high_valyrian
+                                            any_parent = { 
+                                                even_if_dead = yes
+                                                has_culture = culture:high_valyrian 
+                                            }
+                                            any_parent = { 
+                                                even_if_dead = yes
+                                                any_parent = {	
+                                                    even_if_dead = yes
+                                                    has_culture = culture:high_valyrian 
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -532,12 +641,20 @@
                                     NOT = {
                                         has_trait = dragon_rider_trait
                                     }
+                                    # Valyrian Ancestry
                                     OR = {
-                                        any_ancestor = {
-                                            even_if_dead = yes
-                                            has_culture = culture:high_valyrian
-                                        }
                                         has_culture = culture:high_valyrian
+                                        any_parent = { 
+                                            even_if_dead = yes
+                                            has_culture = culture:high_valyrian 
+                                        }
+                                        any_parent = { 
+                                            even_if_dead = yes
+                                            any_parent = {	
+                                                even_if_dead = yes
+                                                has_culture = culture:high_valyrian 
+                                            }
+                                        }
                                     }
                                 }
                                 save_scope_as = dragon_random_new_rider
@@ -546,15 +663,13 @@
                         random_character_artifact = {
                             limit = { 
                                 AND = {
+                                    has_variable = dragon_id
                                     var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                    var:dragon_rider = no
+                                    NOT = { has_variable = has_dragon_rider }
                                 }
                             }
                             set_owner = scope:dragon_random_new_rider
-                            set_variable = {
-                                name = dragon_rider
-                                value = yes
-                            }
+                            set_variable = has_dragon_rider
                         }
                     }
                     make_story_owner = scope:dragon_random_new_rider
@@ -580,6 +695,7 @@
                     story_owner = {
                         any_character_artifact = {
                             AND = {
+                                has_variable = dragon_id
                                 var:dragon_id = scope:story.var:story_cycle_dragon_id
                                 var:dragon_age < var:dragon_life_expectancy
                             }
@@ -591,6 +707,7 @@
                         random_character_artifact = {
                             limit = { 
                                 AND = {
+                                    has_variable = dragon_id
                                     var:dragon_id = scope:story.var:story_cycle_dragon_id
                                     var:dragon_age < var:dragon_life_expectancy
                                 }
@@ -613,6 +730,7 @@
                     story_owner = {
                         any_character_artifact = {
                             AND = {
+                                has_variable = dragon_id
                                 var:dragon_id = scope:story.var:story_cycle_dragon_id
                                 var:dragon_age >= var:dragon_life_expectancy
                             }
@@ -624,6 +742,7 @@
                         random_character_artifact = {
                             limit = {
                                 AND = {
+                                    has_variable = dragon_id
                                     var:dragon_id = scope:story.var:story_cycle_dragon_id
                                     var:dragon_age >= var:dragon_life_expectancy
                                 }
@@ -648,8 +767,9 @@
                     story_owner = {
                         any_character_artifact = {
                             AND = {
+                                has_variable = dragon_id
                                 var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                var:dragon_age > 5
+                                var:dragon_age >= 5
                                 has_artifact_modifier = hatchling_dragon_modifier
                             }
                         }
@@ -660,8 +780,9 @@
                         random_character_artifact = {
                             limit = { 
                                 AND = {
+                                    has_variable = dragon_id
                                     var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                    var:dragon_age > 5
+                                    var:dragon_age >= 5
                                     has_artifact_modifier = hatchling_dragon_modifier
                                 }
                             }
@@ -683,8 +804,9 @@
                     story_owner = {
                         any_character_artifact = {
                             AND = {
+                                has_variable = dragon_id
                                 var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                var:dragon_age > 25
+                                var:dragon_age >= 25
                                 has_artifact_modifier = adolescent_dragon_modifier
                             }
                         }
@@ -695,8 +817,9 @@
                         random_character_artifact = {
                             limit = { 
                                 AND = {
+                                    has_variable = dragon_id
                                     var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                    var:dragon_age > 25
+                                    var:dragon_age >= 25
                                     has_artifact_modifier = adolescent_dragon_modifier
                                 }
                             }
@@ -718,8 +841,9 @@
                     story_owner = {
                         any_character_artifact = {
                             AND = {
+                                has_variable = dragon_id
                                 var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                var:dragon_age > 50
+                                var:dragon_age >= 50
                                 has_artifact_modifier = young_dragon_modifier
                             }
                         }
@@ -730,8 +854,9 @@
                         random_character_artifact = {
                             limit = { 
                                 AND = {
+                                    has_variable = dragon_id
                                     var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                    var:dragon_age > 50
+                                    var:dragon_age >= 50
                                     has_artifact_modifier = young_dragon_modifier
                                 }
                             }
@@ -753,8 +878,9 @@
                     story_owner = {
                         any_character_artifact = {
                             AND = {
+                                has_variable = dragon_id
                                 var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                var:dragon_age > 100
+                                var:dragon_age >= 100
                                 has_artifact_modifier = adult_dragon_modifier
                             }
                         }
@@ -765,8 +891,9 @@
                         random_character_artifact = {
                             limit = { 
                                 AND = {
+                                    has_variable = dragon_id
                                     var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                    var:dragon_age > 100
+                                    var:dragon_age >= 100
                                     has_artifact_modifier = adult_dragon_modifier
                                 }
                             }
@@ -788,8 +915,9 @@
                     story_owner = {
                         any_character_artifact = {
                             AND = {
+                                has_variable = dragon_id
                                 var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                var:dragon_age > 150
+                                var:dragon_age >= 150
                                 has_artifact_modifier = mature_dragon_modifier
                             }
                         }
@@ -800,8 +928,9 @@
                         random_character_artifact = {
                             limit = { 
                                 AND = {
+                                    has_variable = dragon_id
                                     var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                    var:dragon_age > 150
+                                    var:dragon_age >= 150
                                     has_artifact_modifier = mature_dragon_modifier
                                 }
                             }
@@ -819,8 +948,9 @@
                     story_owner = {
                         any_character_artifact = {
                             AND = {
+                                has_variable = dragon_id
                                 var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                var:dragon_age > 200
+                                var:dragon_age >= 200
                                 has_artifact_modifier = ancient_dragon_modifier
                             }
                         }
@@ -831,8 +961,9 @@
                         random_character_artifact = {
                             limit = { 
                                 AND = {
+                                    has_variable = dragon_id
                                     var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                    var:dragon_age > 200
+                                    var:dragon_age >= 200
                                     has_artifact_modifier = ancient_dragon_modifier
                                 }
                             }
@@ -846,6 +977,257 @@
             }
         }
     }
+
+    # Dragon Ally Mechanics
+    effect_group = {
+        # Regularly Check
+        days = 7
+        chance = 100
+        # Effects
+        first_valid = {
+            # In Army As Knight
+            triggered_effect = {
+                trigger = {
+                    story_owner = {
+                       exists = knight_army
+                       NOT = { has_variable = dragon_ally_army_given }
+                    }
+                }
+                # Add Modifier
+                effect = {
+                    story_owner = {
+                        set_variable = dragon_ally_army_given
+                        # Hatchling Ally
+                        if = {
+                            limit = { has_character_modifier = hatchling_dragonrider_modifier }
+                            knight_army = {
+                                army_owner = {
+                                    add_character_modifier = hatchling_dragonally_modifier
+                                }
+                            }
+                        }
+                        # Adolescent Ally
+                        else_if = {
+                            limit = { has_character_modifier = adolescent_dragonrider_modifier }
+                            knight_army = {
+                                army_owner = {
+                                    add_character_modifier = adolescent_dragonally_modifier
+                                }
+                            }
+                        }
+                        # Young Ally
+                        else_if = {
+                            limit = { has_character_modifier = young_dragonrider_modifier }
+                            knight_army = {
+                                army_owner = {
+                                    add_character_modifier = young_dragonally_modifier
+                                }
+                            }
+                        }
+                        # Adult Ally
+                        else_if = {
+                            limit = { has_character_modifier = adult_dragonrider_modifier }
+                            knight_army = {
+                                army_owner = {
+                                    add_character_modifier = adult_dragonally_modifier
+                                }
+                            }
+                        }
+                        # Mature Ally
+                        else_if = {
+                            limit = { has_character_modifier = mature_dragonrider_modifier }
+                            knight_army = {
+                                army_owner = {
+                                    add_character_modifier = mature_dragonally_modifier
+                                }
+                            }
+                        }
+                        # Ancient Ally
+                        else_if = {
+                            limit = { has_character_modifier = ancient_dragonrider_modifier }
+                            knight_army = {
+                                army_owner = {
+                                    add_character_modifier = ancient_dragonally_modifier
+                                }
+                            }
+                        }
+                        # Dying Ally
+                        else_if = {
+                            limit = { has_character_modifier = dying_dragonrider_modifier }
+                            knight_army = {
+                                army_owner = {
+                                    add_character_modifier = dying_dragonally_modifier
+                                }
+                            }
+                        }
+                     }
+                }
+            }
+        }
+    }
+
+    # Dragon Battle Mechanics
+    effect_group = {
+        # Regularly Check
+        days = 3
+        chance = 100
+        # Effects
+        first_valid = {
+            # In Army As Knight
+            triggered_effect = {
+                trigger = {
+                    story_owner = {
+                        # Not In Dance
+                        NOT = {
+                            OR = {
+                                has_variable = a_dance_one
+                                has_variable = a_dance_two
+                            }
+                        }
+                        # Is either a knight or commander
+                        OR = {
+                            # Knight In Combat
+                            AND = {
+                                exists = knight_army
+                                knight_army = {
+                                    is_army_in_combat = yes
+                                }
+                            }
+                            # Commander In Combat
+                            AND = {
+                                exists = commanding_army
+                                commanding_army = {
+                                    is_army_in_combat = yes
+                                }
+                            }
+                        }
+                    }
+                }
+                effect = {
+                    story_owner = {
+                        # Save location
+                        location = {
+                            save_scope_as = dance_location
+                        }
+                        # War Enemy
+                        random_war_enemy = {
+                            # Check if any enemy knight at our location is a dragon rider
+                            random_knight = {
+                                if = {
+                                    limit = {
+                                        AND = {
+                                            NOT = {
+                                                OR = {
+                                                    has_variable = a_dance_one
+                                                    has_variable = a_dance_two
+                                                }
+                                            }
+                                            location = scope:dance_location
+                                            OR = {
+                                                has_character_modifier = hatchling_dragonrider_modifier
+                                                has_character_modifier = adolescent_dragonrider_modifier
+                                                has_character_modifier = young_dragonrider_modifier
+                                                has_character_modifier = adult_dragonrider_modifier
+                                                has_character_modifier = mature_dragonrider_modifier
+                                                has_character_modifier = ancient_dragonrider_modifier
+                                                has_character_modifier = dying_dragonrider_modifier
+                                            }
+                                        }
+                                    }
+                                    save_scope_as = a_dance_dancertwo
+                                    set_variable = a_dance_two
+                                }
+                            }
+                            # Check if any enemy at our location is a dragon rider
+                            if = {
+                                limit = {
+                                    NOT = { exists = scope:a_dance_two }
+                                    AND = {
+                                        NOT = {
+                                            OR = {
+                                                has_variable = a_dance_one
+                                                has_variable = a_dance_two
+                                            }
+                                        }
+                                        location = scope:dance_location
+                                        OR = {
+                                            has_character_modifier = hatchling_dragonrider_modifier
+                                            has_character_modifier = adolescent_dragonrider_modifier
+                                            has_character_modifier = young_dragonrider_modifier
+                                            has_character_modifier = adult_dragonrider_modifier
+                                            has_character_modifier = mature_dragonrider_modifier
+                                            has_character_modifier = ancient_dragonrider_modifier
+                                            has_character_modifier = dying_dragonrider_modifier
+                                        }
+                                    }
+                                }
+                                save_scope_as = a_dance_dancertwo
+                                set_variable = a_dance_two
+                            }
+                        }
+                        # Start If
+                        if = {
+                            # If an enemy dragon rider has been found
+                            limit = {
+                                exists = scope:a_dance_dancertwo
+                            }
+                            # Set this rider as first participant
+                            set_variable = a_dance_one
+                            save_scope_as = a_dance_dancerone
+                            # Start Dance
+                            dragon_dance_effect = {
+                                RECIPIENT = scope:a_dance_dancertwo
+                                ACTOR = scope:a_dance_dancerone
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    # Random Death Chance While Riding In Battle
+    effect_group = {
+        # Timer
+        years = 5
+        # 5% Chance
+        chance = 5
+        # Effects
+        first_valid = {
+            # In Army As Knight
+            triggered_effect = {
+                trigger = {
+                    story_owner = {
+                        # Is either a knight or commander
+                        OR = {
+                            # Knight In Combat
+                            AND = {
+                                exists = knight_army
+                                knight_army = {
+                                    is_army_in_combat = yes
+                                }
+                            }
+                            # Commander In Combat
+                            AND = {
+                                exists = commanding_army
+                                commanding_army = {
+                                    is_army_in_combat = yes
+                                }
+                            }
+                        }
+                    }
+                }
+                effect = {
+                    story_owner = {
+                        death = {
+                            death_reason = death_battle
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
