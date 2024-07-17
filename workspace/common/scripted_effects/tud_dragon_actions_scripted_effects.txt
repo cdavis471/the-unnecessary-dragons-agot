@@ -139,6 +139,9 @@ dragon_dancelost_effect = {
 	$RECIPIENTITEM$ = {
 		save_scope_as = recipientitem
 	}
+	scope:recipient = {
+		trigger_event = tud_misc_events.0001
+	}
 	scope:actor = {
 		trigger_event = tud_interaction_events.0004
 	}
@@ -157,6 +160,9 @@ dragon_dancewon_effect = {
 	}
 	$RECIPIENTITEM$ = {
 		save_scope_as = recipientitem
+	}
+	scope:recipient = {
+		trigger_event = tud_misc_events.0002
 	}
 	scope:actor = {
 		trigger_event = tud_interaction_events.0005

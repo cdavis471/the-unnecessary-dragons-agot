@@ -95,7 +95,6 @@ create_dragon_effect = {
 create_dragonskull_effect = {
     # Get the character the artifact is being made for.
 	$OWNER$ = { save_scope_as = owner }
-    $DRAGON$ = { save_scope_as = dragon }
     # New Dragon Rider
     scope:owner = {
         # Create the artifact

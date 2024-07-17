@@ -1,0 +1,49 @@
+﻿namespace = tud_misc_events
+
+# Misc Events
+# Caught Dead In Dance
+tud_misc_events.0001 = {
+    # Dance - Death
+	type = character_event
+	hidden = no
+	title = tud_misc_events.0001.t
+	desc = tud_misc_events.0001.desc
+	theme = dragon_duel_theme
+	# Actor
+	left_portrait = {
+		character = scope:actor
+		animation = frontend_left_idle
+	}
+	# Recipient
+	right_portrait = {
+		character = scope:recipient
+		animation = frontend_right_idle
+	}
+	# The End
+	option = {
+		name = tud_misc_events.0001.a
+    }
+}
+# Fought Off Ambush
+tud_misc_events.0002 = {
+    # Dance - Victory
+	type = character_event
+	hidden = no
+	title = tud_misc_events.0002.t
+	desc = tud_misc_events.0002.desc
+	theme = dragon_duel_theme
+	# Actor
+	left_portrait = {
+		character = scope:actor
+		animation = frontend_left_idle
+	}
+	# Recipient
+	right_portrait = {
+		character = scope:recipient
+		animation = frontend_right_idle
+	}
+	# The Beginning
+	option = {
+		name = tud_misc_events.0002.a
+    }
+}

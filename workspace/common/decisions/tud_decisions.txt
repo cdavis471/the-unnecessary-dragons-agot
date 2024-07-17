@@ -16,8 +16,13 @@
 			}
 			# Valyrian Ancestry
 			OR = {
-				# Valyrian Themselves
-				has_culture = culture:high_valyrian
+				# Custom Character Check
+				AND = {
+					has_culture = culture:high_valyrian
+					NOT = { exists = real_father }
+					NOT = { exists = father }
+					NOT = { exists = mother }
+				}
 				# Valyrian Mother
 				AND = {
 					exists = mother
@@ -140,100 +145,14 @@
 	ai_potential = { always = yes }
 	# Chance AI will do
 	ai_will_do = {
-		# 25%
-		base = 25
-		# Add 50% if High Valyrian
+		# 50%
+		base = 50
+		# Add 50% if High Valyrian themselves
 		modifier = {
 			root = {
 				has_culture = culture:high_valyrian
 			}
 			add = 50
-		}
-		# Add 25% High Valyrian Blood
-		modifier = {
-			root = {
-				# Valyrian Ancestry
-				OR = {
-					# Valyrian Mother
-					AND = {
-						exists = mother
-						mother = {
-							has_culture = culture:high_valyrian
-						}
-					}
-					# Valyrian Father (Real Father Check Included)
-					OR = {
-						AND = {
-							NOT = { exists = real_father }
-							exists = father
-							father = {
-								has_culture = culture:high_valyrian
-							}
-						}
-						AND = {
-							exists = real_father
-							real_father = {
-								has_culture = culture:high_valyrian
-							}
-						}
-					}
-					# Valyrian Mother Parents Check
-					AND = {
-						exists = mother
-						mother = {
-							OR = {
-								AND = {
-									exists = mother
-									mother = {
-										has_culture = culture:high_valyrian
-									}
-								}
-								AND = {
-									NOT = { exists = real_father }
-									exists = father
-									father = {
-										has_culture = culture:high_valyrian
-									}
-								}
-								AND = {
-									exists = real_father
-									real_father = {
-										has_culture = culture:high_valyrian
-									}
-								}
-							}
-						}
-					}
-					# Valyrian Father Parents Check
-					AND = {
-						exists = father
-						father = {
-							OR = {
-								AND = {
-									exists = mother
-									mother = {
-										has_culture = culture:high_valyrian
-									}
-								}
-								AND = {
-									NOT = { exists = real_father }
-									exists = father
-									father = {
-										has_culture = culture:high_valyrian
-									}
-								}
-								AND = {
-									exists = real_father
-									real_father = {
-										has_culture = culture:high_valyrian
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-			add = 25
 		}
 	}
 }
@@ -247,7 +166,7 @@ check_for_eggs_decision = {
 	cooldown = { days = 1825 }
 	selection_tooltip = check_nest_selection_tooltip
 	major = yes
-	# Can't get eggs if you don't have a dragon and you're not getting near if you're not Valyrian.
+	# Shown If
 	is_shown = {              
 		# Dragon Rider
 		has_trait = dragon_rider_trait
@@ -276,101 +195,8 @@ check_for_eggs_decision = {
 	ai_potential = { always = yes }
 	# Chance AI will do
 	ai_will_do = {
-		# 25%
-		base = 25
-		# Add 50% if High Valyrian
-		modifier = {
-			root = {
-				has_culture = culture:high_valyrian
-			}
-			add = 50
-		}
-		# Add 25% High Valyrian Blood
-		modifier = {
-			root = {
-				# Valyrian Ancestry
-				OR = {
-					# Valyrian Mother
-					AND = {
-						exists = mother
-						mother = {
-							has_culture = culture:high_valyrian
-						}
-					}
-					# Valyrian Father (Real Father Check Included)
-					OR = {
-						AND = {
-							NOT = { exists = real_father }
-							exists = father
-							father = {
-								has_culture = culture:high_valyrian
-							}
-						}
-						AND = {
-							exists = real_father
-							real_father = {
-								has_culture = culture:high_valyrian
-							}
-						}
-					}
-					# Valyrian Mother Parents Check
-					AND = {
-						exists = mother
-						mother = {
-							OR = {
-								AND = {
-									exists = mother
-									mother = {
-										has_culture = culture:high_valyrian
-									}
-								}
-								AND = {
-									NOT = { exists = real_father }
-									exists = father
-									father = {
-										has_culture = culture:high_valyrian
-									}
-								}
-								AND = {
-									exists = real_father
-									real_father = {
-										has_culture = culture:high_valyrian
-									}
-								}
-							}
-						}
-					}
-					# Valyrian Father Parents Check
-					AND = {
-						exists = father
-						father = {
-							OR = {
-								AND = {
-									exists = mother
-									mother = {
-										has_culture = culture:high_valyrian
-									}
-								}
-								AND = {
-									NOT = { exists = real_father }
-									exists = father
-									father = {
-										has_culture = culture:high_valyrian
-									}
-								}
-								AND = {
-									exists = real_father
-									real_father = {
-										has_culture = culture:high_valyrian
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-			add = 25
-		}
+		# 30%
+		base = 30
 	}
 }
 # Use Dragon In Siege
@@ -465,7 +291,7 @@ claim_wild_dragon_decision = {
 	cooldown = { days = 1825 }
 	selection_tooltip = claim_wild_dragon_selection_tooltip
 	major = yes
-	# Must be Valyrian or of Valyrian descent, and within dragon family.
+	# Must be of Valyrian descent, and within dragon family.
 	is_shown = {          
 		NOT = {
 			any_character_artifact = {
@@ -474,8 +300,13 @@ claim_wild_dragon_decision = {
 		}    
 		# Valyrian Ancestry
 		OR = {
-			# Valyrian Themselves
-			has_culture = culture:high_valyrian
+			# Custom Character Check
+			AND = {
+				has_culture = culture:high_valyrian
+				NOT = { exists = real_father }
+				NOT = { exists = father }
+				NOT = { exists = mother }
+			}
 			# Valyrian Mother
 			AND = {
 				exists = mother
@@ -583,8 +414,13 @@ claim_wild_dragon_decision = {
 						limit = {
 							# Valyrian Ancestry
 							OR = {
-								# Valyrian Themselves
-								has_culture = culture:high_valyrian
+								# Custom Character Check
+								AND = {
+									has_culture = culture:high_valyrian
+									NOT = { exists = real_father }
+									NOT = { exists = father }
+									NOT = { exists = mother }
+								}
 								# Valyrian Mother
 								AND = {
 									exists = mother
@@ -716,7 +552,7 @@ claim_wild_dragon_decision = {
 	ai_will_do = {
 		# 25%
 		base = 25
-		# 75% if at least one of following traits
+		# 50% if at least one of following traits
 		modifier = {
 			root = {
 				OR = {
@@ -726,7 +562,7 @@ claim_wild_dragon_decision = {
 					has_trait = arrogant
 				}
 			}
-			add = 50
+			add = 25
 		}
 	}
 }

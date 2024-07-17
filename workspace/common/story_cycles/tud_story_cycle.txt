@@ -45,18 +45,18 @@
 
     # Dragon Dies
     on_end = {
+        # Find relevant dragon
+        random_artifact = {
+            limit = { 
+                AND = {
+                    has_variable = dragon_id
+                    var:dragon_id = scope:story.var:story_cycle_dragon_id 
+                }
+            }
+            save_scope_as = dragon_to_die
+        }
         story_owner = {
             remove_trait = dragon_rider_trait
-            # Find relevant dragon
-            random_character_artifact = {
-                limit = { 
-                    AND = {
-                        has_variable = dragon_id
-                        var:dragon_id = scope:story.var:story_cycle_dragon_id 
-                    }
-                }
-                save_scope_as = dragon_to_die
-            }
             if = {
                 # The Bloodline Has Ended
                 limit = { scope:dragon_to_die = { has_variable = death_bloodline } }
@@ -76,7 +76,6 @@
                 # Create Dragon Skull
                 create_dragonskull_effect = {
                     OWNER = this
-                    DRAGON = scope:dragon_to_die
                 }
                 # Destroy Dragon
                 destroy_artifact = scope:dragon_to_die
@@ -94,7 +93,6 @@
                 # Create Dragon Skull
                 create_dragonskull_effect = {
                     OWNER = this
-                    DRAGON = scope:dragon_to_die
                 }
                 # Destroy Dragon
                 destroy_artifact = scope:dragon_to_die
@@ -112,7 +110,6 @@
                 # Create Dragon Skull
                 create_dragonskull_effect = {
                     OWNER = this
-                    DRAGON = scope:dragon_to_die
                 }
                 # Destroy Dragon
                 destroy_artifact = scope:dragon_to_die
@@ -147,17 +144,26 @@
                 var:dragon_id = scope:story.var:story_cycle_dragon_id
             }
             save_scope_as = dragon_transfer_owner_death
-            remove_variable = has_dragon_rider
+            if = {
+                limit = { has_variable = has_dragon_rider }
+                remove_variable = has_dragon_rider
+            }
         }
         # Family Member of the Blood
         story_owner = {
-            dynasty = {
-                random_dynasty_member = {
+            house = {
+                random_house_member = {
                     limit = {
+                        NOT = { this = scope:story.story_owner }
                         # Valyrian Ancestry
                         OR = {
-                            # Valyrian Themselves
-                            has_culture = culture:high_valyrian
+                            # Custom Character Check
+                            AND = {
+                                has_culture = culture:high_valyrian
+                                NOT = { exists = real_father }
+                                NOT = { exists = father }
+                                NOT = { exists = mother }
+                            }
                             # Valyrian Mother
                             AND = {
                                 exists = mother
@@ -237,19 +243,147 @@
                             }
                         }
                     }
-                    save_scope_as = dragon_inheritance
+                    save_scope_as = dragon_inheritance_one
+                }
+            }
+            dynasty = {
+                random_dynasty_member = {
+                    limit = {
+                        NOT = { this = scope:story.story_owner }
+                        # Valyrian Ancestry
+                        OR = {
+                            # Custom Character Check
+                            AND = {
+                                has_culture = culture:high_valyrian
+                                NOT = { exists = real_father }
+                                NOT = { exists = father }
+                                NOT = { exists = mother }
+                            }
+                            # Valyrian Mother
+                            AND = {
+                                exists = mother
+                                mother = {
+                                    has_culture = culture:high_valyrian
+                                }
+                            }
+                            # Valyrian Father (Real Father Check Included)
+                            OR = {
+                                AND = {
+                                    NOT = { exists = real_father }
+                                    exists = father
+                                    father = {
+                                        has_culture = culture:high_valyrian
+                                    }
+                                }
+                                AND = {
+                                    exists = real_father
+                                    real_father = {
+                                        has_culture = culture:high_valyrian
+                                    }
+                                }
+                            }
+                            # Valyrian Mother Parents Check
+                            AND = {
+                                exists = mother
+                                mother = {
+                                    OR = {
+                                        AND = {
+                                            exists = mother
+                                            mother = {
+                                                has_culture = culture:high_valyrian
+                                            }
+                                        }
+                                        AND = {
+                                            NOT = { exists = real_father }
+                                            exists = father
+                                            father = {
+                                                has_culture = culture:high_valyrian
+                                            }
+                                        }
+                                        AND = {
+                                            exists = real_father
+                                            real_father = {
+                                                has_culture = culture:high_valyrian
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            # Valyrian Father Parents Check
+                            AND = {
+                                exists = father
+                                father = {
+                                    OR = {
+                                        AND = {
+                                            exists = mother
+                                            mother = {
+                                                has_culture = culture:high_valyrian
+                                            }
+                                        }
+                                        AND = {
+                                            NOT = { exists = real_father }
+                                            exists = father
+                                            father = {
+                                                has_culture = culture:high_valyrian
+                                            }
+                                        }
+                                        AND = {
+                                            exists = real_father
+                                            real_father = {
+                                                has_culture = culture:high_valyrian
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    save_scope_as = dragon_inheritance_two
                 }
             }
         }
-        # If Valid Dynasty Member Exists
+        # House Head Inheritance If Neutral / Positive Relationship
         if = {
-            limit = { exists = scope:dragon_inheritance }
-            make_story_owner = scope:dragon_inheritance
+            limit = { 
+                AND = {
+                    exists = scope:story.story_owner.house.house_head
+                    NOT = { scope:story.story_owner = scope:story.story_owner.house.house_head }
+                    scope:story.story_owner.house.house_head = {
+                        opinion = {
+                            target = scope:story.story_owner
+                            value >= 0
+                        }
+                    }
+                }
+            }
+            # Set House Head
+            make_story_owner = scope:story.story_owner.house.house_head
             scope:dragon_transfer_owner_death = {
-                set_owner = scope:dragon_inheritance
+                set_owner = scope:story.story_owner.house.house_head
             }
         }
-        # If Not - The Bloodline Is Dead - The Dragon Will Disappear
+        # House Inheritance
+        else_if = {
+            limit = { 
+                exists = scope:dragon_inheritance_one 
+
+            }
+            # Set House Member
+            make_story_owner = scope:dragon_inheritance_one
+            scope:dragon_transfer_owner_death = {
+                set_owner = scope:dragon_inheritance_one
+            }
+        }
+        # Dynasty Inheritance
+        else_if = {
+            limit = { exists = scope:dragon_inheritance_two }
+            # Set Dynasty Member
+            make_story_owner = scope:dragon_inheritance_two
+            scope:dragon_transfer_owner_death = {
+                set_owner = scope:dragon_inheritance_two
+            }
+        }
+        # The Bloodline Is Dead
         else = {
             scope:dragon_transfer_owner_death = {
                 set_variable = death_bloodline
@@ -589,237 +723,6 @@
         }
     }
 
-    # Dragon Dispersion Maintenance
-    effect_group = {
-        days = 365
-        chance = 100
-        first_valid = {
-            # Valyrian Dynasty Member Claims This Dragon
-            triggered_effect = {
-                # If Not Mount & Valyrian Dynasty Member Exists
-                trigger = {
-                    story_owner = {
-                        AND = {
-                            any_character_artifact = {
-                                AND = {
-                                    has_variable = dragon_id
-                                    var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                    NOT = { has_variable = has_dragon_rider }
-                                }
-                            }
-                            dynasty = {
-                                any_dynasty_member = {
-                                    AND = {
-                                        NOT = {
-                                            has_trait = dragon_rider_trait
-                                        }
-                                        # Valyrian Ancestry
-                                        OR = {
-                                            # Valyrian Themselves
-                                            has_culture = culture:high_valyrian
-                                            # Valyrian Mother
-                                            AND = {
-                                                exists = mother
-                                                mother = {
-                                                    has_culture = culture:high_valyrian
-                                                }
-                                            }
-                                            # Valyrian Father (Real Father Check Included)
-                                            OR = {
-                                                AND = {
-                                                    NOT = { exists = real_father }
-                                                    exists = father
-                                                    father = {
-                                                        has_culture = culture:high_valyrian
-                                                    }
-                                                }
-                                                AND = {
-                                                    exists = real_father
-                                                    real_father = {
-                                                        has_culture = culture:high_valyrian
-                                                    }
-                                                }
-                                            }
-                                            # Valyrian Mother Parents Check
-                                            AND = {
-                                                exists = mother
-                                                mother = {
-                                                    OR = {
-                                                        AND = {
-                                                            exists = mother
-                                                            mother = {
-                                                                has_culture = culture:high_valyrian
-                                                            }
-                                                        }
-                                                        AND = {
-                                                            NOT = { exists = real_father }
-                                                            exists = father
-                                                            father = {
-                                                                has_culture = culture:high_valyrian
-                                                            }
-                                                        }
-                                                        AND = {
-                                                            exists = real_father
-                                                            real_father = {
-                                                                has_culture = culture:high_valyrian
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                            # Valyrian Father Parents Check
-                                            AND = {
-                                                exists = father
-                                                father = {
-                                                    OR = {
-                                                        AND = {
-                                                            exists = mother
-                                                            mother = {
-                                                                has_culture = culture:high_valyrian
-                                                            }
-                                                        }
-                                                        AND = {
-                                                            NOT = { exists = real_father }
-                                                            exists = father
-                                                            father = {
-                                                                has_culture = culture:high_valyrian
-                                                            }
-                                                        }
-                                                        AND = {
-                                                            exists = real_father
-                                                            real_father = {
-                                                                has_culture = culture:high_valyrian
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                # Mount Claimed By Valyrian Dynasty Member
-                effect = {
-                    story_owner = {
-                        dynasty = {
-                            random_dynasty_member = {
-                                limit = {
-                                    NOT = {
-                                        has_trait = dragon_rider_trait
-                                    }
-                                    # Valyrian Ancestry
-                                    OR = {
-                                        # Valyrian Themselves
-                                        has_culture = culture:high_valyrian
-                                        # Valyrian Mother
-                                        AND = {
-                                            exists = mother
-                                            mother = {
-                                                has_culture = culture:high_valyrian
-                                            }
-                                        }
-                                        # Valyrian Father (Real Father Check Included)
-                                        OR = {
-                                            AND = {
-                                                NOT = { exists = real_father }
-                                                exists = father
-                                                father = {
-                                                    has_culture = culture:high_valyrian
-                                                }
-                                            }
-                                            AND = {
-                                                exists = real_father
-                                                real_father = {
-                                                    has_culture = culture:high_valyrian
-                                                }
-                                            }
-                                        }
-                                        # Valyrian Mother Parents Check
-                                        AND = {
-                                            exists = mother
-                                            mother = {
-                                                OR = {
-                                                    AND = {
-                                                        exists = mother
-                                                        mother = {
-                                                            has_culture = culture:high_valyrian
-                                                        }
-                                                    }
-                                                    AND = {
-                                                        NOT = { exists = real_father }
-                                                        exists = father
-                                                        father = {
-                                                            has_culture = culture:high_valyrian
-                                                        }
-                                                    }
-                                                    AND = {
-                                                        exists = real_father
-                                                        real_father = {
-                                                            has_culture = culture:high_valyrian
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        # Valyrian Father Parents Check
-                                        AND = {
-                                            exists = father
-                                            father = {
-                                                OR = {
-                                                    AND = {
-                                                        exists = mother
-                                                        mother = {
-                                                            has_culture = culture:high_valyrian
-                                                        }
-                                                    }
-                                                    AND = {
-                                                        NOT = { exists = real_father }
-                                                        exists = father
-                                                        father = {
-                                                            has_culture = culture:high_valyrian
-                                                        }
-                                                    }
-                                                    AND = {
-                                                        exists = real_father
-                                                        real_father = {
-                                                            has_culture = culture:high_valyrian
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                save_scope_as = dragon_random_new_rider
-                            }
-                        }
-                        random_character_artifact = {
-                            limit = { 
-                                AND = {
-                                    has_variable = dragon_id
-                                    var:dragon_id = scope:story.var:story_cycle_dragon_id
-                                    NOT = { has_variable = has_dragon_rider }
-                                }
-                            }
-                            set_owner = scope:dragon_random_new_rider
-                            set_variable = has_dragon_rider
-                        }
-                    }
-                    make_story_owner = scope:dragon_random_new_rider
-                    scope:dragon_random_new_rider = {
-                        trigger_event = { id = tud_story_events.0002 }
-                    }
-                    story_owner = {
-                        trigger_event = { id = tud_story_events.0003 }
-                    }
-                }
-            }
-        }
-    }
-
     # Dragon Age Maintenance
     effect_group = {
         days = 365
@@ -1117,7 +1020,7 @@
     # Dragon Ally Support Mechanics
     effect_group = {
         # Regularly Check
-        days = 20
+        days = 10
         chance = 100
         # Effects
         first_valid = {
@@ -1125,7 +1028,8 @@
             triggered_effect = {
                 trigger = {
                     story_owner = {
-                       exists = knight_army
+                        exists = knight_army
+                        NOT = { exists = commanding_army }
                     }
                 }
                 # Add Modifier
@@ -1138,7 +1042,7 @@
                                 army_commander = {
                                     add_character_modifier = { 
                                         modifier = hatchling_dragonally_modifier
-                                        days = 17
+                                        days = 20
                                     } 
                                 }
                             }
@@ -1150,7 +1054,7 @@
                                 army_commander = {
                                     add_character_modifier = { 
                                         modifier = adolescent_dragonally_modifier
-                                        days = 17
+                                        days = 20
                                     } 
                                 }
                             }
@@ -1162,7 +1066,7 @@
                                 army_commander = {
                                     add_character_modifier = { 
                                         modifier = young_dragonally_modifier
-                                        days = 17
+                                        days = 20
                                     } 
                                 }
                             }
@@ -1174,7 +1078,7 @@
                                 army_commander = {
                                     add_character_modifier = { 
                                         modifier = adult_dragonally_modifier
-                                        days = 17
+                                        days = 20
                                     } 
                                 }
                             }
@@ -1186,7 +1090,7 @@
                                 army_commander = {
                                     add_character_modifier = { 
                                         modifier = mature_dragonally_modifier
-                                        days = 17
+                                        days = 20
                                     } 
                                 }
                             }
@@ -1198,7 +1102,7 @@
                                 army_commander = {
                                     add_character_modifier = { 
                                         modifier = ancient_dragonally_modifier
-                                        days = 17
+                                        days = 20
                                     } 
                                 }
                             }
@@ -1210,7 +1114,7 @@
                                 army_commander = {
                                     add_character_modifier = { 
                                         modifier = dying_dragonally_modifier
-                                        days = 17
+                                        days = 20
                                     } 
                                 }
                             }
@@ -1232,6 +1136,11 @@
             triggered_effect = {
                 trigger = {
                     story_owner = {
+                        any_character_artifact = {
+                            has_variable = has_dragon_rider
+                            has_variable = dragon_id
+                            var:dragon_id = scope:story.var:story_cycle_dragon_id 
+                        }
                         # Not In Dance
                         NOT = {
                             OR = {
@@ -1323,17 +1232,23 @@
                         # Start If
                         if = {
                             # If an enemy dragon rider has been found
-                            limit = {
-                                exists = scope:a_dance_dancertwo
-                            }
+                            limit = { exists = scope:a_dance_dancertwo }
                             # Set this rider as first participant
                             set_variable = a_dance_one
                             save_scope_as = a_dance_dancerone
-                            # Start Dance
-                            dragon_dance_effect = {
-                                RECIPIENT = scope:a_dance_dancertwo
-                                ACTOR = scope:a_dance_dancerone
+                        }
+                    }
+                    if = {
+                        limit = {
+                            AND = {
+                                exists = scope:a_dance_dancertwo
+                                exists = scope:a_dance_dancerone
                             }
+                        }
+                        # Start Dance
+                        dragon_dance_effect = {
+                            RECIPIENT = scope:a_dance_dancertwo
+                            ACTOR = scope:a_dance_dancerone
                         }
                     }
                 }
@@ -1378,6 +1293,16 @@
                             death_reason = death_battle
                         }
                     }
+                    random_artifact = {
+                        limit = { 
+                            AND = {
+                                has_variable = dragon_id
+                                var:dragon_id = scope:story.var:story_cycle_dragon_id 
+                            }
+                        }
+                        set_variable = death_battle
+                    }
+                    end_story = yes
                 }
             }
         }

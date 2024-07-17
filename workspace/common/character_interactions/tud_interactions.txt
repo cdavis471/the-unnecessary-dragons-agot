@@ -13,7 +13,7 @@ claim_throne_dragon_interaction = {
 	is_shown = {
 		# Person Starting Interaction
 		scope:actor = {
-			# Dragon Rider with at least 25+ YO Mount
+			# Dragon Rider With A Respectable Mount
 			AND = {
 				has_trait = dragon_rider_trait
 				OR = {
@@ -34,12 +34,13 @@ claim_throne_dragon_interaction = {
 		} 
 		# Person Receiving Interaction
 		scope:recipient = {
+			# Not in the Watch or Imprisoned By Sender, and King Tier + Above
 			NOT = {
 				has_government = nights_watch_government
 				is_imprisoned_by = scope:actor
 				highest_held_title_tier < tier_kingdom
 			}
-			# Not the player
+			# Not The Sender
 			NOT = { scope:recipient = scope:actor }
 		}
 	}
@@ -68,7 +69,9 @@ claim_throne_dragon_interaction = {
 	ai_potential = { has_trait = ambitious }
 	ai_targets = { ai_recipients = neighboring_rulers }
 	ai_targets = { ai_recipients = liege }
+	# 12 Months
 	ai_frequency = 12
+	# 25% Chance
 	ai_intermediary_accept = { base = 25 }
 	ai_will_do = { base = 25 }
 	# Auto Accept
@@ -158,8 +161,13 @@ dragon_dance_interaction = {
 		}
 	}
 	# AI Modifiers
+	# Not a coward
 	ai_potential = { NOT = { has_trait = craven } }
+	# 25% Chance Every 3 Months
 	ai_will_do = { base = 25 }
+	ai_frequency = 3
+	ai_intermediary_accept = { base = 25 }
+	# Targets Rivals / War Enemies who are family, dynasty, liege, war enemies or primary war enemies
 	ai_targets = { ai_recipients = family }
 	ai_targets = { ai_recipients = liege }
 	ai_targets = { ai_recipients = war_enemies }
@@ -168,8 +176,6 @@ dragon_dance_interaction = {
         ai_recipients = dynasty
         max = 20
     }
-	ai_frequency = 3
-	ai_intermediary_accept = { base = 25 }
 	# Auto Accept
 	auto_accept = yes
 }
@@ -202,8 +208,13 @@ dragon_offer_interaction = {
 			is_ai = yes
 			# Valyrian Ancestry
 			OR = {
-				# Valyrian Themselves
-				has_culture = culture:high_valyrian
+				# Custom Character Check
+				AND = {
+					has_culture = culture:high_valyrian
+					NOT = { exists = real_father }
+					NOT = { exists = father }
+					NOT = { exists = mother }
+				}
 				# Valyrian Mother
 				AND = {
 					exists = mother
@@ -298,7 +309,7 @@ dragon_offer_interaction = {
 	is_highlighted = {
 		always = yes
 	}
-	# Valid If Same Dynasty
+	# Valid If Same Line
 	is_valid = {
 		scope:recipient = { age >= 12 }
 		OR = {	
@@ -349,14 +360,16 @@ dragon_offer_interaction = {
 						# Transfer Story
 						make_story_owner = scope:recipient
 					}
-					# Trigger Event
+					# Claimant Successful
 					trigger_event = tud_interaction_events.0006
 				}
 			}
 			10 = {
+				# Claimant is killed
 				scope:recipient = {
 					death = { death_reason = death_tud_eaten }
 				}
+				# Claimant is killed
 				scope:actor = {
 					# Trigger Event
 					trigger_event = tud_interaction_events.0007
@@ -365,11 +378,15 @@ dragon_offer_interaction = {
 		}
 	}
 	# AI Modifiers
+	# Will offer when possible
 	ai_potential = { always = yes }
-	ai_will_do = { base = 100 }
+	# 25% Chance every two months
+	ai_will_do = { base = 25 }
+	ai_intermediary_accept = { base = 25 }
+	ai_frequency = 2
+	# Will give to family or dynasty
 	ai_targets = { ai_recipients = family }
-	ai_frequency = 1
-	ai_intermediary_accept = { base = 100 }
+	ai_targets = { ai_recipients = dynasty }
 	# Auto Accept
 	auto_accept = yes
 }
@@ -378,8 +395,8 @@ egg_cradling_interaction = {
 	# Will Egg Be Hatched?
 	category = interaction_category_diplomacy
 	icon = egg_cradling_interaction
-	# Every Month
-	cooldown = { months = 6 }
+	# Every 3 Months
+	cooldown = { months = 3 }
 	popup_on_receive = yes
 	pause_on_receive = yes
 	interface_priority = 100
@@ -391,8 +408,13 @@ egg_cradling_interaction = {
 		scope:actor = {
 			# Valyrian Ancestry
 			OR = {
-				# Valyrian Themselves
-				has_culture = culture:high_valyrian
+				# Custom Character Check
+				AND = {
+					has_culture = culture:high_valyrian
+					NOT = { exists = real_father }
+					NOT = { exists = father }
+					NOT = { exists = mother }
+				}
 				# Valyrian Mother
 				AND = {
 					exists = mother
@@ -480,8 +502,13 @@ egg_cradling_interaction = {
 		scope:recipient = {
 			# Valyrian Ancestry
 			OR = {
-				# Valyrian Themselves
-				has_culture = culture:high_valyrian
+				# Custom Character Check
+				AND = {
+					has_culture = culture:high_valyrian
+					NOT = { exists = real_father }
+					NOT = { exists = father }
+					NOT = { exists = mother }
+				}
 				# Valyrian Mother
 				AND = {
 					exists = mother
@@ -617,10 +644,10 @@ egg_cradling_interaction = {
 	}
 	# AI Modifiers
 	ai_potential = { always = yes }
-	ai_will_do = { base = 100 }
+	ai_will_do = { base = 50 }
 	ai_targets = { ai_recipients = family }
-	ai_frequency = 1
-	ai_intermediary_accept = { base = 100 }
+	ai_frequency = 2
+	ai_intermediary_accept = { base = 50 }
 	# Auto Accept
 	auto_accept = yes
 }
@@ -645,8 +672,13 @@ claim_mount_interaction = {
 			is_ai = no
 			# Valyrian Ancestry
 			OR = {
-				# Valyrian Themselves
-				has_culture = culture:high_valyrian
+				# Custom Character Check
+				AND = {
+					has_culture = culture:high_valyrian
+					NOT = { exists = real_father }
+					NOT = { exists = father }
+					NOT = { exists = mother }
+				}
 				# Valyrian Mother
 				AND = {
 					exists = mother
@@ -831,6 +863,7 @@ feed_dragon_prisoner_interaction = {
 	is_shown = {
 		# Person Starting Interaction
 		scope:actor = {
+			# Dragon Rider who would not be bothered by such an act
 			AND = {
 				has_trait = dragon_rider_trait
 				OR = {

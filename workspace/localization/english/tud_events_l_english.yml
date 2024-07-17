@@ -100,5 +100,17 @@
  tud_story_events.0003.t:0 "The Messenger"
  tud_story_events.0003.desc:0 "While in the midst of thinking, you are disturbed by a servant rushing in with urgent news, for a dragon within your domain has been claimed."
  tud_story_events.0003.a:0 "I should have seen this coming."
- 
- 
+ ###############################################################################################
+ # Misc
+ ###############################################################################################
+ # Attacked In A Dance of Dragons - Battle or Sought Out
+ # Dead
+ tud_misc_events.0001:0 "Hard Fought"
+ tud_misc_events.0001.t:0 "Hard Fought"
+ tud_misc_events.0001.desc:0 "As soon as you went up into the air, you were descended upon by the dragon. They had been spotted, but you had little time to react as they closed in.\n\nSince you faced the prospect of certain death sitting on the ground, you have managed to rise above, and defeat your enemy. You watch as the enemy, and their dragon, accelerate towards the ground."
+ tud_misc_events.0001.a:0 "I am lucky to be alive."
+ # Alive
+ tud_misc_events.0002:0 "Ambush"
+ tud_misc_events.0002.t:0 "Ambush"
+ tud_misc_events.0002.desc:0 "Warned of the approaching enemy dragon, you had little time to react as the enemy closed in on you, before locking you into a hopeless death spiral towards the ground. As the surface reaches towards you, all you can do is accept your fate."
+ tud_misc_events.0002.a:0 "This can't be..."
