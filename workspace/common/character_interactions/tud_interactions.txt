@@ -26,6 +26,7 @@ claim_throne_dragon_interaction = {
 			}
 			# Not A Coward or Content
 			NOT = { 
+				is_imprisoned = yes
 				OR = {
 					has_trait = craven
 					has_trait = content
@@ -37,7 +38,7 @@ claim_throne_dragon_interaction = {
 			# Not in the Watch or Imprisoned By Sender, and King Tier + Above
 			NOT = {
 				has_government = nights_watch_government
-				is_imprisoned_by = scope:actor
+				is_imprisoned = yes
 				highest_held_title_tier < tier_kingdom
 			}
 			# Not The Sender
@@ -106,6 +107,11 @@ dragon_dance_interaction = {
 					has_character_modifier = dying_dragonrider_modifier
 				}
 			}
+			# Available
+			NOT = {
+				has_government = nights_watch_government
+				is_imprisoned = yes
+			}
 		} 
 		# Accepting
 		scope:recipient = {
@@ -124,7 +130,7 @@ dragon_dance_interaction = {
 			# Available
 			NOT = {
 				has_government = nights_watch_government
-				is_imprisoned_by = scope:actor
+				is_imprisoned = yes
 			}
 			# Not Personal
 			NOT = { 
@@ -195,6 +201,7 @@ dragon_offer_interaction = {
 	is_shown = {
 		# Offering
 		scope:actor = {
+			NOT = { is_imprisoned = yes }
 			# Has Riderless Dragon
 			any_character_artifact = {
 				AND = {
@@ -296,7 +303,7 @@ dragon_offer_interaction = {
 			# Available
 			NOT = {
 				has_government = nights_watch_government
-				is_imprisoned_by = scope:actor
+				is_imprisoned = yes
 				has_trait = dragon_rider_trait
 			}
 			# Not Personal
@@ -406,6 +413,7 @@ egg_cradling_interaction = {
 	is_shown = {
 		# Offering
 		scope:actor = {
+			NOT = { is_imprisoned = yes }
 			# Valyrian Ancestry
 			OR = {
 				# Custom Character Check
@@ -500,6 +508,7 @@ egg_cradling_interaction = {
 		} 
 		# Accepting
 		scope:recipient = {
+			NOT = { is_imprisoned = yes }
 			# Valyrian Ancestry
 			OR = {
 				# Custom Character Check
@@ -590,7 +599,6 @@ egg_cradling_interaction = {
 			# Available
 			NOT = {
 				has_government = nights_watch_government
-				is_imprisoned_by = scope:actor
 				has_trait = dragon_rider_trait
 			}
 			# Not Personal
@@ -668,6 +676,7 @@ claim_mount_interaction = {
 	is_shown = {
 		# Claiming
 		scope:actor = {
+			NOT = { is_imprisoned = yes }
 			# Player Only Interaction
 			is_ai = no
 			# Valyrian Ancestry
@@ -770,10 +779,10 @@ claim_mount_interaction = {
 					NOT = { has_variable = has_dragon_rider }
 				}
 			}
+			NOT = { is_imprisoned = yes }
 			# Available
 			NOT = {
 				has_government = nights_watch_government
-				is_imprisoned_by = scope:actor
 			}
 			# Not Personal
 			NOT = { 

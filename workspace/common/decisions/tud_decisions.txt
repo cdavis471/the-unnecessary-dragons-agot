@@ -108,6 +108,7 @@
 		}
 	}
 	is_valid = {
+		NOT = { is_imprisoned = yes }
 		is_adult = yes
 		is_at_home = yes
 	}
@@ -173,6 +174,7 @@ check_for_eggs_decision = {
 	}
 	# Dragon is old enough
 	is_valid = {
+		NOT = { is_imprisoned = yes }
 		OR = {
 			has_character_modifier = young_dragonrider_modifier
 			has_character_modifier = adult_dragonrider_modifier
@@ -243,6 +245,7 @@ dragon_siege_decision = {
 	}
 	# Leading Army & County Not Burned
 	is_valid = {
+		NOT = { is_imprisoned = yes }
 		# Not Burned
 		NOT = {
 			ROOT.location.county = { has_county_modifier = dragon_siege_modifier }
@@ -292,7 +295,8 @@ claim_wild_dragon_decision = {
 	selection_tooltip = claim_wild_dragon_selection_tooltip
 	major = yes
 	# Must be of Valyrian descent, and within dragon family.
-	is_shown = {          
+	is_shown = {
+		NOT = { is_imprisoned = yes }          
 		NOT = {
 			any_character_artifact = {
 				has_variable = dragon_id
