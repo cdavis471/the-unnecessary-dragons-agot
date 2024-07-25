@@ -62,6 +62,35 @@
                 limit = { scope:dragon_to_die = { has_variable = death_bloodline } }
                 # Destroy Dragon
                 destroy_artifact = scope:dragon_to_die
+                # Remove Modifiers
+                if = {
+                    limit = { has_character_modifier = hatchling_dragonrider_modifier }
+                    remove_character_modifier = hatchling_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = adolescent_dragonrider_modifier }
+                    remove_character_modifier = adolescent_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = young_dragonrider_modifier }
+                    remove_character_modifier = young_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = adult_dragonrider_modifier }
+                    remove_character_modifier = adult_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = mature_dragonrider_modifier }
+                    remove_character_modifier = mature_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = ancient_dragonrider_modifier }
+                    remove_character_modifier = ancient_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = dying_dragonrider_modifier }
+                    remove_character_modifier = dying_dragonrider_modifier
+                }
                 # Memory
                 create_character_memory = {
                     type = tud_dying_memory
@@ -79,6 +108,35 @@
                 }
                 # Destroy Dragon
                 destroy_artifact = scope:dragon_to_die
+                # Remove Modifiers
+                if = {
+                    limit = { has_character_modifier = hatchling_dragonrider_modifier }
+                    remove_character_modifier = hatchling_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = adolescent_dragonrider_modifier }
+                    remove_character_modifier = adolescent_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = young_dragonrider_modifier }
+                    remove_character_modifier = young_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = adult_dragonrider_modifier }
+                    remove_character_modifier = adult_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = mature_dragonrider_modifier }
+                    remove_character_modifier = mature_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = ancient_dragonrider_modifier }
+                    remove_character_modifier = ancient_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = dying_dragonrider_modifier }
+                    remove_character_modifier = dying_dragonrider_modifier
+                }
                 # Memory
                 create_character_memory = {
                     type = tud_dying_memory
@@ -96,6 +154,35 @@
                 }
                 # Destroy Dragon
                 destroy_artifact = scope:dragon_to_die
+                # Remove Modifiers
+                if = {
+                    limit = { has_character_modifier = hatchling_dragonrider_modifier }
+                    remove_character_modifier = hatchling_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = adolescent_dragonrider_modifier }
+                    remove_character_modifier = adolescent_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = young_dragonrider_modifier }
+                    remove_character_modifier = young_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = adult_dragonrider_modifier }
+                    remove_character_modifier = adult_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = mature_dragonrider_modifier }
+                    remove_character_modifier = mature_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = ancient_dragonrider_modifier }
+                    remove_character_modifier = ancient_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = dying_dragonrider_modifier }
+                    remove_character_modifier = dying_dragonrider_modifier
+                }
                 # Memory
                 create_character_memory = {
                     type = tud_dying_memory
@@ -113,6 +200,35 @@
                 }
                 # Destroy Dragon
                 destroy_artifact = scope:dragon_to_die
+                # Remove Modifiers
+                if = {
+                    limit = { has_character_modifier = hatchling_dragonrider_modifier }
+                    remove_character_modifier = hatchling_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = adolescent_dragonrider_modifier }
+                    remove_character_modifier = adolescent_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = young_dragonrider_modifier }
+                    remove_character_modifier = young_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = adult_dragonrider_modifier }
+                    remove_character_modifier = adult_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = mature_dragonrider_modifier }
+                    remove_character_modifier = mature_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = ancient_dragonrider_modifier }
+                    remove_character_modifier = ancient_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = dying_dragonrider_modifier }
+                    remove_character_modifier = dying_dragonrider_modifier
+                }
                 # Memory
                 create_character_memory = {
                     type = tud_dying_memory
@@ -124,6 +240,35 @@
             else = {
                 # Destroy Dragon
                 destroy_artifact = scope:dragon_to_die
+                # Remove Modifiers
+                if = {
+                    limit = { has_character_modifier = hatchling_dragonrider_modifier }
+                    remove_character_modifier = hatchling_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = adolescent_dragonrider_modifier }
+                    remove_character_modifier = adolescent_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = young_dragonrider_modifier }
+                    remove_character_modifier = young_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = adult_dragonrider_modifier }
+                    remove_character_modifier = adult_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = mature_dragonrider_modifier }
+                    remove_character_modifier = mature_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = ancient_dragonrider_modifier }
+                    remove_character_modifier = ancient_dragonrider_modifier
+                }
+                else_if = {
+                    limit = { has_character_modifier = dying_dragonrider_modifier }
+                    remove_character_modifier = dying_dragonrider_modifier
+                }
                 # Memory
                 create_character_memory = {
                     type = tud_dying_memory
@@ -157,6 +302,19 @@
                         NOT = { this = scope:story.story_owner }
                         # Valyrian Ancestry
                         OR = {
+                            # True Valyrian
+                            AND = {
+                                has_culture = culture:high_valyrian
+                                NOT = { exists = real_father }
+                            }
+                            # Valyrian Dynasty Check
+                            AND = {
+                                exists = dynasty
+                                dynasty = {
+                                    has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                }
+                                NOT = { exists = real_father }
+                            }
                             # Custom Character Check
                             AND = {
                                 has_culture = culture:high_valyrian
@@ -168,7 +326,20 @@
                             AND = {
                                 exists = mother
                                 mother = {
-                                    has_culture = culture:high_valyrian
+                                    OR = {
+                                        AND = {
+                                            exists = dynasty
+                                            dynasty = {
+                                                has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                            }
+                                        }
+                                        AND = {
+                                            exists = culture
+                                            culture = {
+                                                this = culture:high_valyrian
+                                            }
+                                        }
+                                    }
                                 }
                             }
                             # Valyrian Father (Real Father Check Included)
@@ -177,13 +348,39 @@
                                     NOT = { exists = real_father }
                                     exists = father
                                     father = {
-                                        has_culture = culture:high_valyrian
+                                        OR = {
+                                            AND = {
+                                                exists = dynasty
+                                                dynasty = {
+                                                    has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                                }
+                                            }
+                                            AND = {
+                                                exists = culture
+                                                culture = {
+                                                    this = culture:high_valyrian
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                                 AND = {
                                     exists = real_father
                                     real_father = {
-                                        has_culture = culture:high_valyrian
+                                        OR = {
+                                            AND = {
+                                                exists = dynasty
+                                                dynasty = {
+                                                    has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                                }
+                                            }
+                                            AND = {
+                                                exists = culture
+                                                culture = {
+                                                    this = culture:high_valyrian
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -195,20 +392,59 @@
                                         AND = {
                                             exists = mother
                                             mother = {
-                                                has_culture = culture:high_valyrian
+                                                OR = {
+                                                    AND = {
+                                                        exists = dynasty
+                                                        dynasty = {
+                                                            has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                                        }
+                                                    }
+                                                    AND = {
+                                                        exists = culture
+                                                        culture = {
+                                                            this = culture:high_valyrian
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                         AND = {
                                             NOT = { exists = real_father }
                                             exists = father
-                                            father = {
-                                                has_culture = culture:high_valyrian
+                                            father = {						
+                                                OR = {
+                                                    AND = {
+                                                        exists = dynasty
+                                                        dynasty = {
+                                                            has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                                        }
+                                                    }
+                                                    AND = {
+                                                        exists = culture
+                                                        culture = {
+                                                            this = culture:high_valyrian
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                         AND = {
                                             exists = real_father
-                                            real_father = {
-                                                has_culture = culture:high_valyrian
+                                            real_father = {						
+                                                OR = {
+                                                    AND = {
+                                                        exists = dynasty
+                                                        dynasty = {
+                                                            has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                                        }
+                                                    }
+                                                    AND = {
+                                                        exists = culture
+                                                        culture = {
+                                                            this = culture:high_valyrian
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -222,20 +458,59 @@
                                         AND = {
                                             exists = mother
                                             mother = {
-                                                has_culture = culture:high_valyrian
+                                                OR = {
+                                                    AND = {
+                                                        exists = dynasty
+                                                        dynasty = {
+                                                            has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                                        }
+                                                    }
+                                                    AND = {
+                                                        exists = culture
+                                                        culture = {
+                                                            this = culture:high_valyrian
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                         AND = {
                                             NOT = { exists = real_father }
                                             exists = father
-                                            father = {
-                                                has_culture = culture:high_valyrian
+                                            father = {						
+                                                OR = {
+                                                    AND = {
+                                                        exists = dynasty
+                                                        dynasty = {
+                                                            has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                                        }
+                                                    }
+                                                    AND = {
+                                                        exists = culture
+                                                        culture = {
+                                                            this = culture:high_valyrian
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                         AND = {
                                             exists = real_father
-                                            real_father = {
-                                                has_culture = culture:high_valyrian
+                                            real_father = {						
+                                                OR = {
+                                                    AND = {
+                                                        exists = dynasty
+                                                        dynasty = {
+                                                            has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                                        }
+                                                    }
+                                                    AND = {
+                                                        exists = culture
+                                                        culture = {
+                                                            this = culture:high_valyrian
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -252,6 +527,19 @@
                         NOT = { this = scope:story.story_owner }
                         # Valyrian Ancestry
                         OR = {
+                            # True Valyrian
+                            AND = {
+                                has_culture = culture:high_valyrian
+                                NOT = { exists = real_father }
+                            }
+                            # Valyrian Dynasty Check
+                            AND = {
+                                exists = dynasty
+                                dynasty = {
+                                    has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                }
+                                NOT = { exists = real_father }
+                            }
                             # Custom Character Check
                             AND = {
                                 has_culture = culture:high_valyrian
@@ -263,7 +551,20 @@
                             AND = {
                                 exists = mother
                                 mother = {
-                                    has_culture = culture:high_valyrian
+                                    OR = {
+                                        AND = {
+                                            exists = dynasty
+                                            dynasty = {
+                                                has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                            }
+                                        }
+                                        AND = {
+                                            exists = culture
+                                            culture = {
+                                                this = culture:high_valyrian
+                                            }
+                                        }
+                                    }
                                 }
                             }
                             # Valyrian Father (Real Father Check Included)
@@ -272,13 +573,39 @@
                                     NOT = { exists = real_father }
                                     exists = father
                                     father = {
-                                        has_culture = culture:high_valyrian
+                                        OR = {
+                                            AND = {
+                                                exists = dynasty
+                                                dynasty = {
+                                                    has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                                }
+                                            }
+                                            AND = {
+                                                exists = culture
+                                                culture = {
+                                                    this = culture:high_valyrian
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                                 AND = {
                                     exists = real_father
                                     real_father = {
-                                        has_culture = culture:high_valyrian
+                                        OR = {
+                                            AND = {
+                                                exists = dynasty
+                                                dynasty = {
+                                                    has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                                }
+                                            }
+                                            AND = {
+                                                exists = culture
+                                                culture = {
+                                                    this = culture:high_valyrian
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -290,20 +617,59 @@
                                         AND = {
                                             exists = mother
                                             mother = {
-                                                has_culture = culture:high_valyrian
+                                                OR = {
+                                                    AND = {
+                                                        exists = dynasty
+                                                        dynasty = {
+                                                            has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                                        }
+                                                    }
+                                                    AND = {
+                                                        exists = culture
+                                                        culture = {
+                                                            this = culture:high_valyrian
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                         AND = {
                                             NOT = { exists = real_father }
                                             exists = father
-                                            father = {
-                                                has_culture = culture:high_valyrian
+                                            father = {						
+                                                OR = {
+                                                    AND = {
+                                                        exists = dynasty
+                                                        dynasty = {
+                                                            has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                                        }
+                                                    }
+                                                    AND = {
+                                                        exists = culture
+                                                        culture = {
+                                                            this = culture:high_valyrian
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                         AND = {
                                             exists = real_father
-                                            real_father = {
-                                                has_culture = culture:high_valyrian
+                                            real_father = {						
+                                                OR = {
+                                                    AND = {
+                                                        exists = dynasty
+                                                        dynasty = {
+                                                            has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                                        }
+                                                    }
+                                                    AND = {
+                                                        exists = culture
+                                                        culture = {
+                                                            this = culture:high_valyrian
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -317,20 +683,59 @@
                                         AND = {
                                             exists = mother
                                             mother = {
-                                                has_culture = culture:high_valyrian
+                                                OR = {
+                                                    AND = {
+                                                        exists = dynasty
+                                                        dynasty = {
+                                                            has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                                        }
+                                                    }
+                                                    AND = {
+                                                        exists = culture
+                                                        culture = {
+                                                            this = culture:high_valyrian
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                         AND = {
                                             NOT = { exists = real_father }
                                             exists = father
-                                            father = {
-                                                has_culture = culture:high_valyrian
+                                            father = {						
+                                                OR = {
+                                                    AND = {
+                                                        exists = dynasty
+                                                        dynasty = {
+                                                            has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                                        }
+                                                    }
+                                                    AND = {
+                                                        exists = culture
+                                                        culture = {
+                                                            this = culture:high_valyrian
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                         AND = {
                                             exists = real_father
-                                            real_father = {
-                                                has_culture = culture:high_valyrian
+                                            real_father = {						
+                                                OR = {
+                                                    AND = {
+                                                        exists = dynasty
+                                                        dynasty = {
+                                                            has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+                                                        }
+                                                    }
+                                                    AND = {
+                                                        exists = culture
+                                                        culture = {
+                                                            this = culture:high_valyrian
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -466,13 +871,14 @@
 
     # Dragon Rider Modifier Maintenance
     effect_group = {
-        days = 7
+        days = 30
         chance = 100
         first_valid = {
             # Hatchling
             triggered_effect = {
                 trigger = { 
                     story_owner = { 
+                        has_trait = dragon_rider_trait
                         any_character_artifact = {
                             AND = {
                                 has_variable = dragon_id
@@ -500,6 +906,7 @@
             triggered_effect = {
                 trigger = { 
                     story_owner = { 
+                        has_trait = dragon_rider_trait
                         any_character_artifact = {
                             AND = {
                                 has_variable = dragon_id
@@ -527,6 +934,7 @@
             triggered_effect = {
                 trigger = { 
                     story_owner = { 
+                        has_trait = dragon_rider_trait
                         any_character_artifact = {
                             AND = {
                                 has_variable = dragon_id
@@ -554,6 +962,7 @@
             triggered_effect = {
                 trigger = { 
                     story_owner = { 
+                        has_trait = dragon_rider_trait
                         any_character_artifact = {
                             AND = {
                                 has_variable = dragon_id
@@ -580,7 +989,8 @@
             # Mature
             triggered_effect = {
                 trigger = { 
-                    story_owner = { 
+                    story_owner = {
+                        has_trait = dragon_rider_trait 
                         any_character_artifact = {
                             AND = {
                                 has_variable = dragon_id
@@ -608,6 +1018,7 @@
             triggered_effect = {
                 trigger = { 
                     story_owner = { 
+                        has_trait = dragon_rider_trait
                         any_character_artifact = {
                             AND = {
                                 has_variable = dragon_id
@@ -635,6 +1046,7 @@
             triggered_effect = {
                 trigger = { 
                     story_owner = { 
+                        has_trait = dragon_rider_trait
                         any_character_artifact = {
                             AND = {
                                 has_variable = dragon_id
@@ -1017,6 +1429,63 @@
         }
     }
 
+    # Dragon Fire Mechanics
+    effect_group = {
+        # Regularly Check
+        days = 5
+        chance = 100
+        # Effects
+        first_valid = {
+            triggered_effect = {
+                trigger = {
+                    story_owner = {
+                        is_at_war = yes
+                        is_in_army = yes
+                        any_war_enemy = {
+                            any_knight = {
+                                is_in_army = yes
+                                location = scope:story.story_owner.location
+                                NOT = { has_trait = dragon_rider_trait }
+                            }
+                        }
+                    }
+                }
+                effect = {
+                    story_owner = {
+                        random_war_enemy = {
+                            limit = {
+                                number_of_knights > 0
+                            }
+                            random_knight = {
+                                limit = { 
+                                    is_in_army = yes
+                                    location = scope:story.story_owner.location
+                                }
+                                random_list = {
+                                    25 = {
+                                        add_trait = burned
+                                        add_trait = wounded_3
+                                    }
+                                    50 = {
+                                        add_trait = burned
+                                        add_trait = wounded_3
+                                        death = {
+                                            death_reason = death_battle
+                                        }
+                                    }
+                                    25 = {
+                                        add_trait = burned
+                                        add_trait = wounded_2
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     # Dragon Ally Support Mechanics
     effect_group = {
         # Regularly Check
@@ -1024,98 +1493,328 @@
         chance = 100
         # Effects
         first_valid = {
-            # In Army As Knight
+            # In Army As Knight - Give Commanders Bonuses
             triggered_effect = {
                 trigger = {
                     story_owner = {
+                        is_in_army = yes
                         exists = knight_army
-                        NOT = { exists = commanding_army }
                     }
                 }
                 # Add Modifier
                 effect = {
                     story_owner = {
-                        # Hatchling Ally
-                        if = {
-                            limit = { has_character_modifier = hatchling_dragonrider_modifier }
-                            knight_army = {
+                        knight_army = {
+                            if = {
+                                limit = {
+                                    exists = army_commander
+                                }
                                 army_commander = {
-                                    add_character_modifier = { 
-                                        modifier = hatchling_dragonally_modifier
-                                        days = 20
-                                    } 
+                                    if = {
+                                        limit = {
+                                            scope:story.story_owner = {
+                                                has_character_modifier = hatchling_dragonrider_modifier
+                                            }
+                                        }
+                                        add_character_modifier = {
+                                            modifier = hatchling_dragonally_modifier
+                                            days = 10
+                                        }
+                                    }
+                                    else_if = {
+                                        limit = {
+                                            scope:story.story_owner = {
+                                                has_character_modifier = adolescent_dragonrider_modifier
+                                            }
+                                        }
+                                        add_character_modifier = {
+                                            modifier = adolescent_dragonally_modifier
+                                            days = 10
+                                        }
+                                    }
+                                    else_if = {
+                                        limit = {
+                                            scope:story.story_owner = {
+                                                has_character_modifier = young_dragonrider_modifier
+                                            }
+                                        }
+                                        add_character_modifier = {
+                                            modifier = young_dragonally_modifier
+                                            days = 10
+                                        }
+                                    }
+                                    else_if = {
+                                        limit = {
+                                            scope:story.story_owner = {
+                                                has_character_modifier = adult_dragonrider_modifier
+                                            }
+                                        }
+                                        add_character_modifier = {
+                                            modifier = adult_dragonally_modifier
+                                            days = 10
+                                        }
+                                    }
+                                    else_if = {
+                                        limit = {
+                                            scope:story.story_owner = {
+                                                has_character_modifier = mature_dragonrider_modifier
+                                            }
+                                        }
+                                        add_character_modifier = {
+                                            modifier = mature_dragonally_modifier
+                                            days = 10
+                                        }
+                                    }
+                                    else_if = {
+                                        limit = {
+                                            scope:story.story_owner = {
+                                                has_character_modifier = ancient_dragonrider_modifier
+                                            }
+                                        }
+                                        add_character_modifier = {
+                                            modifier = ancient_dragonally_modifier
+                                            days = 10
+                                        }
+                                    }
+                                    else_if = {
+                                        limit = {
+                                            scope:story.story_owner = {
+                                                has_character_modifier = dying_dragonrider_modifier
+                                            }
+                                        }
+                                        add_character_modifier = {
+                                            modifier = dying_dragonally_modifier
+                                            days = 10
+                                        }
+                                    }
+                                }
+                            }
+                            army_owner = {
+                                every_war_ally = {
+                                    every_army = {
+                                        army_commander = {
+                                            # Hatchling Dragon Among Us
+                                            if = {
+                                                limit = {
+                                                    NOT = { this = scope:story.story_owner }
+                                                    location = scope:story.story_owner.location
+                                                    scope:story.story_owner = {
+                                                        has_character_modifier = hatchling_dragonrider_modifier
+                                                    }
+                                                }
+                                                add_character_modifier = {
+                                                    modifier = hatchling_dragonally_modifier
+                                                    days = 10
+                                                }
+                                            }
+                                            # Adolescent Dragon Among Us
+                                            else_if = {
+                                                limit = {
+                                                    NOT = { this = scope:story.story_owner }
+                                                    location = scope:story.story_owner.location
+                                                    scope:story.story_owner = {
+                                                        has_character_modifier = adolescent_dragonrider_modifier
+                                                    }
+                                                }
+                                                add_character_modifier = {
+                                                    modifier = adolescent_dragonally_modifier
+                                                    days = 10
+                                                }
+                                            }
+                                            # Young Dragon Among Us
+                                            else_if = {
+                                                limit = {
+                                                    NOT = { this = scope:story.story_owner }
+                                                    location = scope:story.story_owner.location
+                                                    scope:story.story_owner = {
+                                                        has_character_modifier = young_dragonrider_modifier
+                                                    }
+                                                }
+                                                add_character_modifier = {
+                                                    modifier = young_dragonally_modifier
+                                                    days = 10
+                                                }
+                                            }
+                                            # Adult Dragon Among Us
+                                            else_if = {
+                                                limit = {
+                                                    NOT = { this = scope:story.story_owner }
+                                                    location = scope:story.story_owner.location
+                                                    scope:story.story_owner = {
+                                                        has_character_modifier = adult_dragonrider_modifier
+                                                    }
+                                                }
+                                                add_character_modifier = {
+                                                    modifier = adult_dragonally_modifier
+                                                    days = 10
+                                                }
+                                            }
+                                            # Mature Dragon Among Us
+                                            else_if = {
+                                                limit = {
+                                                    NOT = { this = scope:story.story_owner }
+                                                    location = scope:story.story_owner.location
+                                                    scope:story.story_owner = {
+                                                        has_character_modifier = mature_dragonrider_modifier
+                                                    }
+                                                }
+                                                add_character_modifier = {
+                                                    modifier = mature_dragonally_modifier
+                                                    days = 10
+                                                }
+                                            }
+                                            # Ancient Dragon Among Us
+                                            else_if = {
+                                                limit = {
+                                                    NOT = { this = scope:story.story_owner }
+                                                    location = scope:story.story_owner.location
+                                                    scope:story.story_owner = {
+                                                        has_character_modifier = ancient_dragonrider_modifier
+                                                    }
+                                                }
+                                                add_character_modifier = {
+                                                    modifier = ancient_dragonally_modifier
+                                                    days = 10
+                                                }
+                                            }
+                                            # Dying Dragon Among Us
+                                            else_if = {
+                                                limit = {
+                                                    NOT = { this = scope:story.story_owner }
+                                                    location = scope:story.story_owner.location
+                                                    scope:story.story_owner = {
+                                                        has_character_modifier = dying_dragonrider_modifier
+                                                    }
+                                                }
+                                                add_character_modifier = {
+                                                    modifier = dying_dragonally_modifier
+                                                    days = 10
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
-                        # Adolescent Ally
-                        else_if = {
-                            limit = { has_character_modifier = adolescent_dragonrider_modifier }
-                            knight_army = {
-                                army_commander = {
-                                    add_character_modifier = { 
-                                        modifier = adolescent_dragonally_modifier
-                                        days = 20
-                                    } 
-                                }
-                            }
-                        }
-                        # Young Ally
-                        else_if = {
-                            limit = { has_character_modifier = young_dragonrider_modifier }
-                            knight_army = {
-                                army_commander = {
-                                    add_character_modifier = { 
-                                        modifier = young_dragonally_modifier
-                                        days = 20
-                                    } 
-                                }
-                            }
-                        }
-                        # Adult Ally
-                        else_if = {
-                            limit = { has_character_modifier = adult_dragonrider_modifier }
-                            knight_army = {
-                                army_commander = {
-                                    add_character_modifier = { 
-                                        modifier = adult_dragonally_modifier
-                                        days = 20
-                                    } 
-                                }
-                            }
-                        }
-                        # Mature Ally
-                        else_if = {
-                            limit = { has_character_modifier = mature_dragonrider_modifier }
-                            knight_army = {
-                                army_commander = {
-                                    add_character_modifier = { 
-                                        modifier = mature_dragonally_modifier
-                                        days = 20
-                                    } 
-                                }
-                            }
-                        }
-                        # Ancient Ally
-                        else_if = {
-                            limit = { has_character_modifier = ancient_dragonrider_modifier }
-                            knight_army = {
-                                army_commander = {
-                                    add_character_modifier = { 
-                                        modifier = ancient_dragonally_modifier
-                                        days = 20
-                                    } 
-                                }
-                            }
-                        }
-                        # Dying Ally
-                        else_if = {
-                            limit = { has_character_modifier = dying_dragonrider_modifier }
-                            knight_army = {
-                                army_commander = {
-                                    add_character_modifier = { 
-                                        modifier = dying_dragonally_modifier
-                                        days = 20
-                                    } 
+                    }
+                }
+            }
+            # In Army As Commander - Give Other Commanders Bonus
+            triggered_effect = {
+                trigger = {
+                    story_owner = {
+                        is_in_army = yes
+                        exists = commanding_army
+                    }
+                }
+                # Add Modifier
+                effect = {
+                    story_owner = {
+                        commanding_army = {
+                            army_owner = {
+                                every_war_ally = {
+                                    every_army = {
+                                        army_commander = {
+                                            # Hatchling Dragon Among Us
+                                            if = {
+                                                limit = {
+                                                    NOT = { this = scope:story.story_owner }
+                                                    location = scope:story.story_owner.location
+                                                    scope:story.story_owner = {
+                                                        has_character_modifier = hatchling_dragonrider_modifier
+                                                    }
+                                                }
+                                                add_character_modifier = {
+                                                    modifier = hatchling_dragonally_modifier
+                                                    days = 10
+                                                }
+                                            }
+                                            # Adolescent Dragon Among Us
+                                            else_if = {
+                                                limit = {
+                                                    NOT = { this = scope:story.story_owner }
+                                                    location = scope:story.story_owner.location
+                                                    scope:story.story_owner = {
+                                                        has_character_modifier = adolescent_dragonrider_modifier
+                                                    }
+                                                }
+                                                add_character_modifier = {
+                                                    modifier = adolescent_dragonally_modifier
+                                                    days = 10
+                                                }
+                                            }
+                                            # Young Dragon Among Us
+                                            else_if = {
+                                                limit = {
+                                                    NOT = { this = scope:story.story_owner }
+                                                    location = scope:story.story_owner.location
+                                                    scope:story.story_owner = {
+                                                        has_character_modifier = young_dragonrider_modifier
+                                                    }
+                                                }
+                                                add_character_modifier = {
+                                                    modifier = young_dragonally_modifier
+                                                    days = 10
+                                                }
+                                            }
+                                            # Adult Dragon Among Us
+                                            else_if = {
+                                                limit = {
+                                                    NOT = { this = scope:story.story_owner }
+                                                    location = scope:story.story_owner.location
+                                                    scope:story.story_owner = {
+                                                        has_character_modifier = adult_dragonrider_modifier
+                                                    }
+                                                }
+                                                add_character_modifier = {
+                                                    modifier = adult_dragonally_modifier
+                                                    days = 10
+                                                }
+                                            }
+                                            # Mature Dragon Among Us
+                                            else_if = {
+                                                limit = {
+                                                    NOT = { this = scope:story.story_owner }
+                                                    location = scope:story.story_owner.location
+                                                    scope:story.story_owner = {
+                                                        has_character_modifier = mature_dragonrider_modifier
+                                                    }
+                                                }
+                                                add_character_modifier = {
+                                                    modifier = mature_dragonally_modifier
+                                                    days = 10
+                                                }
+                                            }
+                                            # Ancient Dragon Among Us
+                                            else_if = {
+                                                limit = {
+                                                    NOT = { this = scope:story.story_owner }
+                                                    location = scope:story.story_owner.location
+                                                    scope:story.story_owner = {
+                                                        has_character_modifier = ancient_dragonrider_modifier
+                                                    }
+                                                }
+                                                add_character_modifier = {
+                                                    modifier = ancient_dragonally_modifier
+                                                    days = 10
+                                                }
+                                            }
+                                            # Dying Dragon Among Us
+                                            else_if = {
+                                                limit = {
+                                                    NOT = { this = scope:story.story_owner }
+                                                    location = scope:story.story_owner.location
+                                                    scope:story.story_owner = {
+                                                        has_character_modifier = dying_dragonrider_modifier
+                                                    }
+                                                }
+                                                add_character_modifier = {
+                                                    modifier = dying_dragonally_modifier
+                                                    days = 10
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -1188,7 +1887,6 @@
                                             }
                                             location = scope:dance_location
                                             OR = {
-                                                has_character_modifier = hatchling_dragonrider_modifier
                                                 has_character_modifier = adolescent_dragonrider_modifier
                                                 has_character_modifier = young_dragonrider_modifier
                                                 has_character_modifier = adult_dragonrider_modifier
@@ -1215,7 +1913,6 @@
                                         }
                                         location = scope:dance_location
                                         OR = {
-                                            has_character_modifier = hatchling_dragonrider_modifier
                                             has_character_modifier = adolescent_dragonrider_modifier
                                             has_character_modifier = young_dragonrider_modifier
                                             has_character_modifier = adult_dragonrider_modifier
@@ -1259,9 +1956,9 @@
     # Random Death Chance While Riding In Battle
     effect_group = {
         # Timer
-        years = 2
-        # 5% Chance
-        chance = 5
+        years = 3
+        # 3% Chance
+        chance = 3
         # Effects
         first_valid = {
             # In Army As Knight

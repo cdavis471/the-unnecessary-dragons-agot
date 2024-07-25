@@ -91,7 +91,7 @@ tud_decision_events.0003 = {
 	override_background = { reference = burning_building }
 	# Save Location Scopes
 	immediate = {
-		ROOT.location.county = { save_scope_as = burned_county }
+		ROOT.location = { save_scope_as = burned_county }
 		ROOT.location.county.holder = { save_scope_as = burned_holder }
 	}
 	# Portraits
@@ -113,72 +113,221 @@ tud_decision_events.0003 = {
 	# Burn
 	option = {
 		name = tud_decision_events.0003.a
-		# 90% Chance of Success - 5% Rider Killed / 5% Rider and Dragon Killed
-		random_list = {
-			90 = {
-				stress_impact = {
-					just = major_stress_impact_gain
-					forgiving = medium_stress_impact_gain
-					compassionate = major_stress_impact_gain
-					craven = major_stress_impact_gain
-					sadistic = major_stress_impact_loss
-					fire_obsessed = minor_stress_impact_loss
-				}
-				add_dread = minor_dread_gain
-				scope:burned_holder = {
-					every_close_family_member = {
-						custom = dragon_sieged_family_custom
-						limit = {
-							is_close_family_or_spouse_of_root_trigger = no
-							NOT = { this = root }
+		# Young Dragon
+		if = {
+			limit = { 
+				has_character_modifier = young_dragonrider_modifier
+			}
+			# 90% Chance of Success - 5% Rider Killed / 5% Rider and Dragon Killed
+			random_list = {
+				90 = {
+					stress_impact = {
+						just = major_stress_impact_gain
+						forgiving = medium_stress_impact_gain
+						compassionate = major_stress_impact_gain
+						craven = major_stress_impact_gain
+						sadistic = major_stress_impact_loss
+						fire_obsessed = minor_stress_impact_loss
+					}
+					add_dread = minor_dread_gain
+					scope:burned_holder = {
+						every_close_family_member = {
+							custom = dragon_sieged_family_custom
+							limit = {
+								is_close_family_or_spouse_of_root_trigger = no
+								NOT = { this = root }
+							}
+							add_opinion = {
+								target = root
+								modifier = dragon_sieged_family
+							}
 						}
 						add_opinion = {
 							target = root
-							modifier = dragon_sieged_family
+							modifier = dragon_sieged_me
 						}
+					}
+					scope:burned_county = {
+						add_province_modifier = {
+							modifier = dragon_siege_modifier
+							years = 5
+						}
+						county = {
+							change_development_level = -2
+						}
+					}
+				}
+				5 = {
+					root = {
+						death = {
+							death_reason = death_tud_siege
+							killer = scope:burned_holder
+						}
+					}
+				}
+				5 = {
+					root = {
+						random_character_artifact = {
+							limit = {
+								has_variable = has_dragon_rider
+							}
+							save_scope_as = dragon_to_die
+							set_variable = death_battle
+						}
+						random_owned_story = {
+							limit = { 
+								AND = {
+									has_variable = story_cycle_dragon_id 
+									var:story_cycle_dragon_id = scope:dragon_to_die.var:dragon_id
+								}
+							}
+							end_story = yes
+						}
+						death = {
+							death_reason = death_tud_siege
+							killer = scope:burned_holder
+						}
+					}
+				}
+			}
+		}
+		# Adult Dragon
+		if = {
+			limit = { 
+				OR = {
+					has_character_modifier = adult_dragonrider_modifier
+					has_character_modifier = mature_dragonrider_modifier
+				}
+			}
+			# 96% Chance of Success - 2% Rider Killed / 2% Rider and Dragon Killed
+			random_list = {
+				96 = {
+					stress_impact = {
+						just = major_stress_impact_gain
+						forgiving = medium_stress_impact_gain
+						compassionate = major_stress_impact_gain
+						craven = major_stress_impact_gain
+						sadistic = major_stress_impact_loss
+						fire_obsessed = minor_stress_impact_loss
+					}
+					add_dread = major_dread_gain
+					scope:burned_holder = {
+						every_close_family_member = {
+							custom = dragon_sieged_family_custom
+							limit = {
+								is_close_family_or_spouse_of_root_trigger = no
+								NOT = { this = root }
+							}
+							add_opinion = {
+								target = root
+								modifier = dragon_sieged_family
+							}
+						}
+						add_opinion = {
+							target = root
+							modifier = dragon_sieged_me
+						}
+					}
+					scope:burned_county = {
+						add_province_modifier = {
+							modifier = dragon_siege_modifier
+							years = 5
+						}
+						county = {
+							change_development_level = -5
+						}
+					}
+				}
+				2 = {
+					root = {
+						death = {
+							death_reason = death_tud_siege
+							killer = scope:burned_holder
+						}
+					}
+				}
+				2 = {
+					root = {
+						random_character_artifact = {
+							limit = {
+								has_variable = has_dragon_rider
+							}
+							save_scope_as = dragon_to_die
+							set_variable = death_battle
+						}
+						random_owned_story = {
+							limit = { 
+								AND = {
+									has_variable = story_cycle_dragon_id 
+									var:story_cycle_dragon_id = scope:dragon_to_die.var:dragon_id
+								}
+							}
+							end_story = yes
+						}
+						death = {
+							death_reason = death_tud_siege
+							killer = scope:burned_holder
+						}
+					}
+				}
+			}
+		}
+		# Ancient Dragon
+		if = {
+			# It is joever
+			limit = { 
+				OR = {
+					has_character_modifier = ancient_dragonrider_modifier
+					has_character_modifier = dying_dragonrider_modifier
+				}
+			}
+			stress_impact = {
+				just = major_stress_impact_gain
+				forgiving = medium_stress_impact_gain
+				compassionate = major_stress_impact_gain
+				craven = major_stress_impact_gain
+				sadistic = major_stress_impact_loss
+				fire_obsessed = minor_stress_impact_loss
+			}
+			add_dread = massive_dread_gain
+			scope:burned_holder = {
+				every_courtier = {
+					limit = { is_at_location = ROOT.location }
+					death = {
+						death_reason = death_battle_dragon_fire
+						killer = root
+					}
+				}
+				every_close_family_member = {
+					custom = dragon_sieged_family_custom
+					limit = {
+						is_close_family_or_spouse_of_root_trigger = no
+						NOT = { this = root }
 					}
 					add_opinion = {
 						target = root
-						modifier = dragon_sieged_me
+						modifier = dragon_sieged_family
 					}
 				}
-				scope:burned_county = {
-					add_county_modifier = {
-						modifier = dragon_siege_modifier
-						years = 5
+				add_opinion = {
+					target = root
+					modifier = dragon_sieged_me
+				}
+				if = {
+					limit = { is_at_location = ROOT.location }
+					death = {
+						death_reason = death_battle_dragon_fire
+						killer = root
 					}
 				}
 			}
-			5 = {
-				root = {
-					death = {
-						death_reason = death_tud_siege
-						killer = scope:burned_holder
-					}
+			scope:burned_county = {
+				add_province_modifier = {
+					modifier = dragon_siege_carnage_modifier
+					years = 5
 				}
-			}
-			5 = {
-				root = {
-					random_character_artifact = {
-						limit = {
-							has_variable = has_dragon_rider
-						}
-						save_scope_as = dragon_to_die
-						set_variable = death_battle
-					}
-					random_owned_story = {
-						limit = { 
-							AND = {
-								has_variable = story_cycle_dragon_id 
-								var:story_cycle_dragon_id = scope:dragon_to_die.var:dragon_id
-							}
-						}
-						end_story = yes
-					}
-					death = {
-						death_reason = death_tud_siege
-						killer = scope:burned_holder
-					}
+				county = {
+					change_development_level = -10
 				}
 			}
 		}

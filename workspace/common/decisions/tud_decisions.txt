@@ -16,6 +16,19 @@
 			}
 			# Valyrian Ancestry
 			OR = {
+				# True Valyrian
+				AND = {
+					has_culture = culture:high_valyrian
+					NOT = { exists = real_father }
+				}
+				# Valyrian Dynasty Check
+				AND = {
+					exists = dynasty
+					dynasty = {
+						has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+					}
+					NOT = { exists = real_father }
+				}
 				# Custom Character Check
 				AND = {
 					has_culture = culture:high_valyrian
@@ -27,7 +40,20 @@
 				AND = {
 					exists = mother
 					mother = {
-						has_culture = culture:high_valyrian
+						OR = {
+							AND = {
+								exists = dynasty
+								dynasty = {
+									has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+								}
+							}
+							AND = {
+								exists = culture
+								culture = {
+									this = culture:high_valyrian
+								}
+							}
+						}
 					}
 				}
 				# Valyrian Father (Real Father Check Included)
@@ -36,13 +62,39 @@
 						NOT = { exists = real_father }
 						exists = father
 						father = {
-							has_culture = culture:high_valyrian
+							OR = {
+								AND = {
+									exists = dynasty
+									dynasty = {
+										has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+									}
+								}
+								AND = {
+									exists = culture
+									culture = {
+										this = culture:high_valyrian
+									}
+								}
+							}
 						}
 					}
 					AND = {
 						exists = real_father
 						real_father = {
-							has_culture = culture:high_valyrian
+							OR = {
+								AND = {
+									exists = dynasty
+									dynasty = {
+										has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+									}
+								}
+								AND = {
+									exists = culture
+									culture = {
+										this = culture:high_valyrian
+									}
+								}
+							}
 						}
 					}
 				}
@@ -54,20 +106,59 @@
 							AND = {
 								exists = mother
 								mother = {
-									has_culture = culture:high_valyrian
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								NOT = { exists = real_father }
 								exists = father
-								father = {
-									has_culture = culture:high_valyrian
+								father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								exists = real_father
-								real_father = {
-									has_culture = culture:high_valyrian
+								real_father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 						}
@@ -81,20 +172,59 @@
 							AND = {
 								exists = mother
 								mother = {
-									has_culture = culture:high_valyrian
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								NOT = { exists = real_father }
 								exists = father
-								father = {
-									has_culture = culture:high_valyrian
+								father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								exists = real_father
-								real_father = {
-									has_culture = culture:high_valyrian
+								real_father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 						}
@@ -108,7 +238,7 @@
 		}
 	}
 	is_valid = {
-		NOT = { is_imprisoned = yes }
+		is_imprisoned = no
 		is_adult = yes
 		is_at_home = yes
 	}
@@ -146,15 +276,8 @@
 	ai_potential = { always = yes }
 	# Chance AI will do
 	ai_will_do = {
-		# 50%
-		base = 50
-		# Add 50% if High Valyrian themselves
-		modifier = {
-			root = {
-				has_culture = culture:high_valyrian
-			}
-			add = 50
-		}
+		# 100%
+		base = 100
 	}
 }
 
@@ -174,7 +297,7 @@ check_for_eggs_decision = {
 	}
 	# Dragon is old enough
 	is_valid = {
-		NOT = { is_imprisoned = yes }
+		is_imprisoned = no
 		OR = {
 			has_character_modifier = young_dragonrider_modifier
 			has_character_modifier = adult_dragonrider_modifier
@@ -197,8 +320,8 @@ check_for_eggs_decision = {
 	ai_potential = { always = yes }
 	# Chance AI will do
 	ai_will_do = {
-		# 30%
-		base = 30
+		# 100%
+		base = 100
 	}
 }
 # Use Dragon In Siege
@@ -213,6 +336,14 @@ dragon_siege_decision = {
 	# At War & Dragon Rider
 	is_shown = {
 		is_at_war = yes
+		# Not Burned
+		NOT = {
+			OR = {
+				ROOT.location = { has_province_modifier = dragon_siege_modifier }
+				ROOT.location = { has_province_modifier = dragon_siege_heavy_modifier }
+				ROOT.location = { has_province_modifier = dragon_siege_carnage_modifier }
+			}
+		}
 		# In Army Besieging
 		OR = {
 			AND = {
@@ -245,11 +376,7 @@ dragon_siege_decision = {
 	}
 	# Leading Army & County Not Burned
 	is_valid = {
-		NOT = { is_imprisoned = yes }
-		# Not Burned
-		NOT = {
-			ROOT.location.county = { has_county_modifier = dragon_siege_modifier }
-		}
+		is_imprisoned = no
 	}
 	# Begin
 	effect = {
@@ -259,7 +386,7 @@ dragon_siege_decision = {
 		}
 	}
 	# Check every three months
-	ai_check_interval = 3
+	ai_check_interval = 1
 	# AI has the potential to take
 	ai_potential = { always = yes }
 	# Chance AI will do
@@ -296,6 +423,9 @@ claim_wild_dragon_decision = {
 	major = yes
 	# Must be of Valyrian descent, and within dragon family.
 	is_shown = {
+		NOT = {
+			has_trait = dragon_rider_trait
+		}
 		NOT = { is_imprisoned = yes }          
 		NOT = {
 			any_character_artifact = {
@@ -304,6 +434,19 @@ claim_wild_dragon_decision = {
 		}    
 		# Valyrian Ancestry
 		OR = {
+			# True Valyrian
+			AND = {
+				has_culture = culture:high_valyrian
+				NOT = { exists = real_father }
+			}
+			# Valyrian Dynasty Check
+			AND = {
+				exists = dynasty
+				dynasty = {
+					has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+				}
+				NOT = { exists = real_father }
+			}
 			# Custom Character Check
 			AND = {
 				has_culture = culture:high_valyrian
@@ -315,7 +458,20 @@ claim_wild_dragon_decision = {
 			AND = {
 				exists = mother
 				mother = {
-					has_culture = culture:high_valyrian
+					OR = {
+						AND = {
+							exists = dynasty
+							dynasty = {
+								has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+							}
+						}
+						AND = {
+							exists = culture
+							culture = {
+								this = culture:high_valyrian
+							}
+						}
+					}
 				}
 			}
 			# Valyrian Father (Real Father Check Included)
@@ -324,13 +480,39 @@ claim_wild_dragon_decision = {
 					NOT = { exists = real_father }
 					exists = father
 					father = {
-						has_culture = culture:high_valyrian
+						OR = {
+							AND = {
+								exists = dynasty
+								dynasty = {
+									has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+								}
+							}
+							AND = {
+								exists = culture
+								culture = {
+									this = culture:high_valyrian
+								}
+							}
+						}
 					}
 				}
 				AND = {
 					exists = real_father
 					real_father = {
-						has_culture = culture:high_valyrian
+						OR = {
+							AND = {
+								exists = dynasty
+								dynasty = {
+									has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+								}
+							}
+							AND = {
+								exists = culture
+								culture = {
+									this = culture:high_valyrian
+								}
+							}
+						}
 					}
 				}
 			}
@@ -342,20 +524,59 @@ claim_wild_dragon_decision = {
 						AND = {
 							exists = mother
 							mother = {
-								has_culture = culture:high_valyrian
+								OR = {
+									AND = {
+										exists = dynasty
+										dynasty = {
+											has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+										}
+									}
+									AND = {
+										exists = culture
+										culture = {
+											this = culture:high_valyrian
+										}
+									}
+								}
 							}
 						}
 						AND = {
 							NOT = { exists = real_father }
 							exists = father
-							father = {
-								has_culture = culture:high_valyrian
+							father = {						
+								OR = {
+									AND = {
+										exists = dynasty
+										dynasty = {
+											has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+										}
+									}
+									AND = {
+										exists = culture
+										culture = {
+											this = culture:high_valyrian
+										}
+									}
+								}
 							}
 						}
 						AND = {
 							exists = real_father
-							real_father = {
-								has_culture = culture:high_valyrian
+							real_father = {						
+								OR = {
+									AND = {
+										exists = dynasty
+										dynasty = {
+											has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+										}
+									}
+									AND = {
+										exists = culture
+										culture = {
+											this = culture:high_valyrian
+										}
+									}
+								}
 							}
 						}
 					}
@@ -369,20 +590,59 @@ claim_wild_dragon_decision = {
 						AND = {
 							exists = mother
 							mother = {
-								has_culture = culture:high_valyrian
+								OR = {
+									AND = {
+										exists = dynasty
+										dynasty = {
+											has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+										}
+									}
+									AND = {
+										exists = culture
+										culture = {
+											this = culture:high_valyrian
+										}
+									}
+								}
 							}
 						}
 						AND = {
 							NOT = { exists = real_father }
 							exists = father
-							father = {
-								has_culture = culture:high_valyrian
+							father = {						
+								OR = {
+									AND = {
+										exists = dynasty
+										dynasty = {
+											has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+										}
+									}
+									AND = {
+										exists = culture
+										culture = {
+											this = culture:high_valyrian
+										}
+									}
+								}
 							}
 						}
 						AND = {
 							exists = real_father
-							real_father = {
-								has_culture = culture:high_valyrian
+							real_father = {						
+								OR = {
+									AND = {
+										exists = dynasty
+										dynasty = {
+											has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+										}
+									}
+									AND = {
+										exists = culture
+										culture = {
+											this = culture:high_valyrian
+										}
+									}
+								}
 							}
 						}
 					}
@@ -404,9 +664,9 @@ claim_wild_dragon_decision = {
 	}
 	# Not A Dragon Rider Already
 	is_valid = {
-		NOT = {
-			has_trait = dragon_rider_trait
-		}
+		is_imprisoned = no
+		age > 8
+		is_at_home = yes
 	}
 	# Begin
 	effect = {
@@ -418,6 +678,19 @@ claim_wild_dragon_decision = {
 						limit = {
 							# Valyrian Ancestry
 							OR = {
+								# True Valyrian
+								AND = {
+									has_culture = culture:high_valyrian
+									NOT = { exists = real_father }
+								}
+								# Valyrian Dynasty Check
+								AND = {
+									exists = dynasty
+									dynasty = {
+										has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+									}
+									NOT = { exists = real_father }
+								}
 								# Custom Character Check
 								AND = {
 									has_culture = culture:high_valyrian
@@ -429,7 +702,20 @@ claim_wild_dragon_decision = {
 								AND = {
 									exists = mother
 									mother = {
-										has_culture = culture:high_valyrian
+										OR = {
+											AND = {
+												exists = dynasty
+												dynasty = {
+													has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+												}
+											}
+											AND = {
+												exists = culture
+												culture = {
+													this = culture:high_valyrian
+												}
+											}
+										}
 									}
 								}
 								# Valyrian Father (Real Father Check Included)
@@ -438,13 +724,39 @@ claim_wild_dragon_decision = {
 										NOT = { exists = real_father }
 										exists = father
 										father = {
-											has_culture = culture:high_valyrian
+											OR = {
+												AND = {
+													exists = dynasty
+													dynasty = {
+														has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+													}
+												}
+												AND = {
+													exists = culture
+													culture = {
+														this = culture:high_valyrian
+													}
+												}
+											}
 										}
 									}
 									AND = {
 										exists = real_father
 										real_father = {
-											has_culture = culture:high_valyrian
+											OR = {
+												AND = {
+													exists = dynasty
+													dynasty = {
+														has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+													}
+												}
+												AND = {
+													exists = culture
+													culture = {
+														this = culture:high_valyrian
+													}
+												}
+											}
 										}
 									}
 								}
@@ -456,20 +768,59 @@ claim_wild_dragon_decision = {
 											AND = {
 												exists = mother
 												mother = {
-													has_culture = culture:high_valyrian
+													OR = {
+														AND = {
+															exists = dynasty
+															dynasty = {
+																has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+															}
+														}
+														AND = {
+															exists = culture
+															culture = {
+																this = culture:high_valyrian
+															}
+														}
+													}
 												}
 											}
 											AND = {
 												NOT = { exists = real_father }
 												exists = father
-												father = {
-													has_culture = culture:high_valyrian
+												father = {						
+													OR = {
+														AND = {
+															exists = dynasty
+															dynasty = {
+																has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+															}
+														}
+														AND = {
+															exists = culture
+															culture = {
+																this = culture:high_valyrian
+															}
+														}
+													}
 												}
 											}
 											AND = {
 												exists = real_father
-												real_father = {
-													has_culture = culture:high_valyrian
+												real_father = {						
+													OR = {
+														AND = {
+															exists = dynasty
+															dynasty = {
+																has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+															}
+														}
+														AND = {
+															exists = culture
+															culture = {
+																this = culture:high_valyrian
+															}
+														}
+													}
 												}
 											}
 										}
@@ -483,20 +834,59 @@ claim_wild_dragon_decision = {
 											AND = {
 												exists = mother
 												mother = {
-													has_culture = culture:high_valyrian
+													OR = {
+														AND = {
+															exists = dynasty
+															dynasty = {
+																has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+															}
+														}
+														AND = {
+															exists = culture
+															culture = {
+																this = culture:high_valyrian
+															}
+														}
+													}
 												}
 											}
 											AND = {
 												NOT = { exists = real_father }
 												exists = father
-												father = {
-													has_culture = culture:high_valyrian
+												father = {						
+													OR = {
+														AND = {
+															exists = dynasty
+															dynasty = {
+																has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+															}
+														}
+														AND = {
+															exists = culture
+															culture = {
+																this = culture:high_valyrian
+															}
+														}
+													}
 												}
 											}
 											AND = {
 												exists = real_father
-												real_father = {
-													has_culture = culture:high_valyrian
+												real_father = {						
+													OR = {
+														AND = {
+															exists = dynasty
+															dynasty = {
+																has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+															}
+														}
+														AND = {
+															exists = culture
+															culture = {
+																this = culture:high_valyrian
+															}
+														}
+													}
 												}
 											}
 										}
@@ -549,13 +939,13 @@ claim_wild_dragon_decision = {
 		}
 	}
 	# Check every two months
-	ai_check_interval = 2
+	ai_check_interval = 3
 	# AI has the potential to take
 	ai_potential = { NOT = { has_trait = craven } }
 	# Chance AI will do
 	ai_will_do = {
 		# 25%
-		base = 25
+		base = 50
 		# 50% if at least one of following traits
 		modifier = {
 			root = {
@@ -566,7 +956,7 @@ claim_wild_dragon_decision = {
 					has_trait = arrogant
 				}
 			}
-			add = 25
+			add = 50
 		}
 	}
 }

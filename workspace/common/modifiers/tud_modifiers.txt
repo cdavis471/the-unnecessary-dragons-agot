@@ -4,51 +4,115 @@
 # 0 - 5
 hatchling_dragon_modifier = {
 	icon = beast_mixed
-	advantage = 10
+	# Ruler
+	dread_baseline_add = 5
+	vassal_opinion = -5
+	hostile_scheme_resistance_mult = 0.1
+	# Battle
 	min_combat_roll = 10
 	max_combat_roll = 20
+	enemy_hard_casualty_modifier = 0.01
 }
 # 5 - 25
 adolescent_dragon_modifier = {
 	icon = beast_mixed
-	advantage = 25
-	min_combat_roll = 25
-	max_combat_roll = 50
+	# Ruler
+	dread_baseline_add = 10
+	vassal_opinion = -10
+	hostile_scheme_resistance_mult = 0.2
+	# Battle
+	min_combat_roll = 20
+	max_combat_roll = 40
+	enemy_hard_casualty_modifier = 0.03
+	army_toughness_mult = 0.03
+	# Travel
+	character_travel_safety_mult = 0.2
+	character_travel_speed_mult = 0.2
 }
 # 25 - 50
 young_dragon_modifier = {
 	icon = beast_mixed
-	advantage = 50
-	min_combat_roll = 50
-	max_combat_roll = 100
+	# Ruler
+	dread_baseline_add = 15
+	vassal_opinion = -15
+	hostile_scheme_resistance_mult = 0.3
+	# Battle
+	min_combat_roll = 40
+	max_combat_roll = 80
+	enemy_hard_casualty_modifier = 0.05
+	army_toughness_mult = 0.05
+	army_siege_value_mult = 0.2
+	# Travel
+	character_travel_safety_mult = 0.3
+	character_travel_speed_mult = 0.3
 }
 # 50 - 100
 adult_dragon_modifier = {
 	icon = beast_mixed
-	advantage = 100
-	min_combat_roll = 100
-	max_combat_roll = 200
+	# Ruler
+	dread_baseline_add = 20
+	vassal_opinion = -20
+	hostile_scheme_resistance_mult = 0.4
+	# Battle
+	min_combat_roll = 80
+	max_combat_roll = 120
+	enemy_hard_casualty_modifier = 0.10
+	army_toughness_mult = 0.10
+	army_siege_value_mult = 0.4
+	# Travel
+	character_travel_safety_mult = 0.4
+	character_travel_speed_mult = 0.4
 }
 # 100 - 150
 mature_dragon_modifier = {
 	icon = beast_mixed
-	advantage = 150
-	min_combat_roll = 150
-	max_combat_roll = 300
+	# Ruler
+	dread_baseline_add = 25
+	vassal_opinion = -25
+	hostile_scheme_resistance_mult = 0.5
+	# Battle
+	min_combat_roll = 120
+	max_combat_roll = 150
+	enemy_hard_casualty_modifier = 0.15
+	army_toughness_mult = 0.15
+	army_siege_value_mult = 0.6
+	# Travel
+	character_travel_safety_mult = 0.5
+	character_travel_speed_mult = 0.5
 }
 # 150 - 200
 ancient_dragon_modifier = {
 	icon = beast_mixed
-	advantage = 200
-    min_combat_roll = 200
-	max_combat_roll = 400
+    # Ruler
+	dread_baseline_add = 30
+	vassal_opinion = -30
+	hostile_scheme_resistance_mult = 0.6
+	# Battle
+	min_combat_roll = 150
+	max_combat_roll = 180
+	enemy_hard_casualty_modifier = 0.2
+	army_toughness_mult = 0.2
+	army_siege_value_mult = 0.8
+	# Travel
+	character_travel_safety_mult = 0.4
+	character_travel_speed_mult = 0.4
 }
 # 200+
 dying_dragon_modifier = {
 	icon = beast_mixed
-	advantage = 250
-    min_combat_roll = 250
-	max_combat_roll = 500
+    # Ruler
+	dread_baseline_add = 35
+	vassal_opinion = -35
+	hostile_scheme_resistance_mult = 0.7
+	# Battle
+	min_combat_roll = 180
+	max_combat_roll = 200
+	enemy_hard_casualty_modifier = 0.25
+	army_toughness_mult = 0.25
+	army_siege_value_mult = 1
+	# Travel
+	character_travel_safety_mult = 0.2
+	character_travel_speed_mult = 0.2
 }
 #####################################
 ############ Dragon Rider ###########
@@ -61,18 +125,9 @@ hatchling_dragonrider_modifier = {
 	vassal_opinion = -5
 	hostile_scheme_resistance_mult = 0.1
 	# Battle
-	advantage = 10
 	min_combat_roll = 10
 	max_combat_roll = 20
-	enemy_hard_casualty_modifier = 0.02
-	army_damage_mult = 0.02
-	army_pursuit_mult = 0.02
-	army_screen_mult = 0.02
-	army_siege_value_mult = 0.02
-	army_toughness_mult = 0.02
-	# Travel
-	character_travel_safety_mult = 0.1
-	character_travel_speed_mult = 0.1
+	enemy_hard_casualty_modifier = 0.01
 }
 # 5 - 25
 adolescent_dragonrider_modifier = {
@@ -82,15 +137,10 @@ adolescent_dragonrider_modifier = {
 	vassal_opinion = -10
 	hostile_scheme_resistance_mult = 0.2
 	# Battle
-	advantage = 25
-	min_combat_roll = 25
-	max_combat_roll = 50
-	enemy_hard_casualty_modifier = 0.04
-	army_damage_mult = 0.06
-	army_pursuit_mult = 0.06
-	army_screen_mult = 0.06
-	army_siege_value_mult = 0.08
-	army_toughness_mult = 0.08
+	min_combat_roll = 20
+	max_combat_roll = 40
+	enemy_hard_casualty_modifier = 0.03
+	army_toughness_mult = 0.03
 	# Travel
 	character_travel_safety_mult = 0.2
 	character_travel_speed_mult = 0.2
@@ -103,15 +153,11 @@ young_dragonrider_modifier = {
 	vassal_opinion = -15
 	hostile_scheme_resistance_mult = 0.3
 	# Battle
-	advantage = 50
-	min_combat_roll = 50
-	max_combat_roll = 100
-	enemy_hard_casualty_modifier = 0.06
-	army_damage_mult = 0.08
-	army_pursuit_mult = 0.08
-	army_screen_mult = 0.08
-	army_siege_value_mult = 0.1
-	army_toughness_mult = 0.1
+	min_combat_roll = 40
+	max_combat_roll = 80
+	enemy_hard_casualty_modifier = 0.05
+	army_toughness_mult = 0.05
+	army_siege_value_mult = 0.2
 	# Travel
 	character_travel_safety_mult = 0.3
 	character_travel_speed_mult = 0.3
@@ -124,15 +170,11 @@ adult_dragonrider_modifier = {
 	vassal_opinion = -20
 	hostile_scheme_resistance_mult = 0.4
 	# Battle
-	advantage = 100
-	min_combat_roll = 100
-	max_combat_roll = 200
-	enemy_hard_casualty_modifier = 0.08
-	army_damage_mult = 0.1
-	army_pursuit_mult = 0.1
-	army_screen_mult = 0.1
-	army_siege_value_mult = 0.2
-	army_toughness_mult = 0.2
+	min_combat_roll = 80
+	max_combat_roll = 120
+	enemy_hard_casualty_modifier = 0.10
+	army_toughness_mult = 0.10
+	army_siege_value_mult = 0.4
 	# Travel
 	character_travel_safety_mult = 0.4
 	character_travel_speed_mult = 0.4
@@ -145,15 +187,11 @@ mature_dragonrider_modifier = {
 	vassal_opinion = -25
 	hostile_scheme_resistance_mult = 0.5
 	# Battle
-	advantage = 150
-	min_combat_roll = 150
-	max_combat_roll = 300
-	enemy_hard_casualty_modifier = 0.1
-	army_damage_mult = 0.15
-	army_pursuit_mult = 0.15
-	army_screen_mult = 0.15
-	army_siege_value_mult = 0.3
-	army_toughness_mult = 0.3
+	min_combat_roll = 120
+	max_combat_roll = 150
+	enemy_hard_casualty_modifier = 0.15
+	army_toughness_mult = 0.15
+	army_siege_value_mult = 0.6
 	# Travel
 	character_travel_safety_mult = 0.5
 	character_travel_speed_mult = 0.5
@@ -166,18 +204,14 @@ ancient_dragonrider_modifier = {
 	vassal_opinion = -30
 	hostile_scheme_resistance_mult = 0.6
 	# Battle
-	advantage = 200
-	min_combat_roll = 200
-	max_combat_roll = 400
+	min_combat_roll = 150
+	max_combat_roll = 180
 	enemy_hard_casualty_modifier = 0.2
-	army_damage_mult = 0.2
-	army_pursuit_mult = 0.2
-	army_screen_mult = 0.2
-	army_siege_value_mult = 0.4
-	army_toughness_mult = 0.4
+	army_toughness_mult = 0.2
+	army_siege_value_mult = 0.8
 	# Travel
-	character_travel_safety_mult = 0.6
-	character_travel_speed_mult = 0.6
+	character_travel_safety_mult = 0.4
+	character_travel_speed_mult = 0.4
 }
 # 200+
 dying_dragonrider_modifier = {
@@ -187,18 +221,14 @@ dying_dragonrider_modifier = {
 	vassal_opinion = -35
 	hostile_scheme_resistance_mult = 0.7
 	# Battle
-	advantage = 250
-	min_combat_roll = 250
-	max_combat_roll = 500
-	enemy_hard_casualty_modifier = 0.3
-	army_damage_mult = 0.25
-	army_pursuit_mult = 0.25
-	army_screen_mult = 0.25
-	army_siege_value_mult = 0.5
-	army_toughness_mult = 0.5
+	min_combat_roll = 180
+	max_combat_roll = 200
+	enemy_hard_casualty_modifier = 0.25
+	army_toughness_mult = 0.25
+	army_siege_value_mult = 1
 	# Travel
-	character_travel_safety_mult = 0.7
-	character_travel_speed_mult = 0.7
+	character_travel_safety_mult = 0.2
+	character_travel_speed_mult = 0.2
 }
 #####################################
 ############ Dragon Skull ###########
@@ -222,7 +252,29 @@ dragon_siege_modifier = {
 	garrison_size = -5
 	levy_size = -5
 	travel_danger = 10
-	fort_level = -50
+	fort_level = -5
+}
+# Besieged County - Heavy
+dragon_siege_heavy_modifier = {
+	# Icon
+	icon = county_modifier_development_negative
+	# Effects Of Dragon Fire
+	development_growth_factor = -10
+	garrison_size = -10
+	levy_size = -10
+	travel_danger = 20
+	fort_level = -25
+}
+# Besieged County - Carnage
+dragon_siege_carnage_modifier = {
+	# Icon
+	icon = county_modifier_development_negative
+	# Effects Of Dragon Fire
+	development_growth_factor = -15
+	garrison_size = -15
+	levy_size = -15
+	travel_danger = 30
+	fort_level = -100
 }
 #####################################
 ############ Dragon Ally ###########
@@ -232,103 +284,72 @@ hatchling_dragonally_modifier = {
 	icon = martial_positive
 	stacking = yes
 	# Battle
-	advantage = 10
 	min_combat_roll = 10
 	max_combat_roll = 20
-	enemy_hard_casualty_modifier = 0.02
-	army_damage_mult = 0.02
-	army_pursuit_mult = 0.02
-	army_screen_mult = 0.02
-	army_siege_value_mult = 0.02
-	army_toughness_mult = 0.02
+	enemy_hard_casualty_modifier = 0.01
 }
 # 5 - 25
 adolescent_dragonally_modifier = {
 	icon = martial_positive
 	stacking = yes
 	# Battle
-	advantage = 25
-	min_combat_roll = 25
-	max_combat_roll = 50
-	enemy_hard_casualty_modifier = 0.04
-	army_damage_mult = 0.06
-	army_pursuit_mult = 0.06
-	army_screen_mult = 0.06
-	army_siege_value_mult = 0.08
-	army_toughness_mult = 0.08
+	min_combat_roll = 20
+	max_combat_roll = 40
+	enemy_hard_casualty_modifier = 0.03
+	army_toughness_mult = 0.03
 }
 # 25 - 50
 young_dragonally_modifier = {
 	icon = martial_positive
 	stacking = yes
 	# Battle
-	advantage = 50
-	min_combat_roll = 50
-	max_combat_roll = 100
-	enemy_hard_casualty_modifier = 0.06
-	army_damage_mult = 0.08
-	army_pursuit_mult = 0.08
-	army_screen_mult = 0.08
-	army_siege_value_mult = 0.1
-	army_toughness_mult = 0.1
+	min_combat_roll = 40
+	max_combat_roll = 80
+	enemy_hard_casualty_modifier = 0.05
+	army_toughness_mult = 0.05
+	army_siege_value_mult = 0.2
 }
 # 50 - 100
 adult_dragonally_modifier = {
 	icon = martial_positive
 	stacking = yes
 	# Battle
-	advantage = 100
-	min_combat_roll = 100
-	max_combat_roll = 200
-	enemy_hard_casualty_modifier = 0.08
-	army_damage_mult = 0.1
-	army_pursuit_mult = 0.1
-	army_screen_mult = 0.1
-	army_siege_value_mult = 0.2
-	army_toughness_mult = 0.2
+	min_combat_roll = 80
+	max_combat_roll = 120
+	enemy_hard_casualty_modifier = 0.10
+	army_toughness_mult = 0.10
+	army_siege_value_mult = 0.4
 }
 # 100 - 150
 mature_dragonally_modifier = {
 	icon = martial_positive
 	stacking = yes
 	# Battle
-	advantage = 150
-	min_combat_roll = 150
-	max_combat_roll = 300
-	enemy_hard_casualty_modifier = 0.1
-	army_damage_mult = 0.15
-	army_pursuit_mult = 0.15
-	army_screen_mult = 0.15
-	army_siege_value_mult = 0.3
-	army_toughness_mult = 0.3
+	min_combat_roll = 120
+	max_combat_roll = 150
+	enemy_hard_casualty_modifier = 0.15
+	army_toughness_mult = 0.15
+	army_siege_value_mult = 0.6
 }
 # 150 - 200
 ancient_dragonally_modifier = {
 	icon = martial_positive
 	stacking = yes
 	# Battle
-	advantage = 200
-	min_combat_roll = 200
-	max_combat_roll = 400
+	min_combat_roll = 150
+	max_combat_roll = 180
 	enemy_hard_casualty_modifier = 0.2
-	army_damage_mult = 0.2
-	army_pursuit_mult = 0.2
-	army_screen_mult = 0.2
-	army_siege_value_mult = 0.4
-	army_toughness_mult = 0.4
+	army_toughness_mult = 0.2
+	army_siege_value_mult = 0.8
 }
 # 200+
 dying_dragonally_modifier = {
 	icon = martial_positive
 	stacking = yes
 	# Battle
-	advantage = 250
-	min_combat_roll = 250
-	max_combat_roll = 500
-	enemy_hard_casualty_modifier = 0.3
-	army_damage_mult = 0.25
-	army_pursuit_mult = 0.25
-	army_screen_mult = 0.25
-	army_siege_value_mult = 0.5
-	army_toughness_mult = 0.5
+	min_combat_roll = 180
+	max_combat_roll = 200
+	enemy_hard_casualty_modifier = 0.25
+	army_toughness_mult = 0.25
+	army_siege_value_mult = 1
 }

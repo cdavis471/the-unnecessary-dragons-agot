@@ -59,11 +59,83 @@ dragon_dancecalc_effect = {
 	$RECIPIENTITEM$ = {
 		save_scope_as = recipientitem
 	}
-	# If Your Combat Score Is Higher - 75 / 25
-	if = {
-		limit = { scope:actoritem.var:dragon_combat_score > scope:recipientitem.var:dragon_combat_score }
-		random_list = {
-			75 = {
+	scope:actor = {
+		if = {
+			# Dragon Combat Score Available
+			limit = {
+				exists = scope:actoritem.var:dragon_combat_score
+				exists = scope:recipientitem.var:dragon_combat_score
+			}
+			# Set Calculation Variable
+			set_variable = {
+				name = dragon_combat_difference
+				value = scope:actoritem.var:dragon_combat_score
+			}
+			change_variable = {
+				name = dragon_combat_difference
+				subtract = scope:recipientitem.var:dragon_combat_score
+			}
+			# Equal Footing
+			if = {
+				limit = {
+					var:dragon_combat_difference = 0
+				}
+				random_list = {
+					50 = {
+						remove_variable = dragon_combat_difference
+						dragon_dancewon_effect = {
+							RECIPIENT = scope:recipient
+							ACTOR = scope:actor
+							RECIPIENTITEM = scope:recipientitem
+							ACTORITEM = scope:actoritem
+						}
+					}
+					50 = {
+						remove_variable = dragon_combat_difference
+						dragon_dancelost_effect = {
+							RECIPIENT = scope:recipient
+							ACTOR = scope:actor
+							RECIPIENTITEM = scope:recipientitem
+							ACTORITEM = scope:actoritem
+						}
+					}
+				}
+			}
+			# Advantage - Actor
+			else_if = {
+				limit = {
+					AND = {
+						var:dragon_combat_difference > 0
+						var:dragon_combat_difference <= 20
+					}
+				}
+				random_list = {
+					75 = {
+						remove_variable = dragon_combat_difference
+						dragon_dancewon_effect = {
+							RECIPIENT = scope:recipient
+							ACTOR = scope:actor
+							RECIPIENTITEM = scope:recipientitem
+							ACTORITEM = scope:actoritem
+						}
+					}
+					25 = {
+						remove_variable = dragon_combat_difference
+						dragon_dancelost_effect = {
+							RECIPIENT = scope:recipient
+							ACTOR = scope:actor
+							RECIPIENTITEM = scope:recipientitem
+							ACTORITEM = scope:actoritem
+						}
+					}
+				}
+			}
+			# Clear Victory - Actor
+			else_if = {
+				limit = {
+					var:dragon_combat_difference > 20
+				}
+				remove_variable = dragon_combat_difference
 				dragon_dancewon_effect = {
 					RECIPIENT = scope:recipient
 					ACTOR = scope:actor
@@ -71,49 +143,40 @@ dragon_dancecalc_effect = {
 					ACTORITEM = scope:actoritem
 				}
 			}
-			25 = {
-				dragon_dancelost_effect = {
-					RECIPIENT = scope:recipient
-					ACTOR = scope:actor
-					RECIPIENTITEM = scope:recipientitem
-					ACTORITEM = scope:actoritem
+			# Advantage - Recipient
+			else_if = {
+				limit = {
+					AND = {
+						var:dragon_combat_difference < 0
+						var:dragon_combat_difference >= -20
+					}
+				}
+				remove_variable = dragon_combat_difference
+				random_list = {
+					25 = {
+						dragon_dancewon_effect = {
+							RECIPIENT = scope:recipient
+							ACTOR = scope:actor
+							RECIPIENTITEM = scope:recipientitem
+							ACTORITEM = scope:actoritem
+						}
+					}
+					75 = {
+						dragon_dancelost_effect = {
+							RECIPIENT = scope:recipient
+							ACTOR = scope:actor
+							RECIPIENTITEM = scope:recipientitem
+							ACTORITEM = scope:actoritem
+						}
+					}
 				}
 			}
-		}
-	}
-	# If Recipient Combat Score Is Higher - 25 / 75
-	else_if = {
-		limit = { scope:actoritem.var:dragon_combat_score < scope:recipientitem.var:dragon_combat_score }
-		random_list = {
-			25 = {
-				dragon_dancewon_effect = {
-					RECIPIENT = scope:recipient
-					ACTOR = scope:actor
-					RECIPIENTITEM = scope:recipientitem
-					ACTORITEM = scope:actoritem
+			# Clear Victory - Recipient
+			else_if = {
+				limit = {
+					var:dragon_combat_difference < -20
 				}
-			}
-			75 = {
-				dragon_dancelost_effect = {
-					RECIPIENT = scope:recipient
-					ACTOR = scope:actor
-					RECIPIENTITEM = scope:recipientitem
-					ACTORITEM = scope:actoritem
-				}
-			}
-		}
-	}
-	else = {
-		random_list = {
-			50 = {
-				dragon_dancewon_effect = {
-					RECIPIENT = scope:recipient
-					ACTOR = scope:actor
-					RECIPIENTITEM = scope:recipientitem
-					ACTORITEM = scope:actoritem
-				}
-			}
-			50 = {
+				remove_variable = dragon_combat_difference
 				dragon_dancelost_effect = {
 					RECIPIENT = scope:recipient
 					ACTOR = scope:actor

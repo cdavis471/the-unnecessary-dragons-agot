@@ -308,19 +308,19 @@
  dying_dragon_modifier:0 "Dying Dragon"
  # Dragon Riders
  hatchling_dragonrider_modifier:0 "Hatchling Dragon Companion"
- hatchling_dragonrider_modifier_desc:0 "This character is bonded to a newly hatched dragon, too young to ride."
+ hatchling_dragonrider_modifier_desc:0 "This character is bonded to a newly hatched dragon, too young to ride.\n\n"
  adolescent_dragonrider_modifier:0 "Adolescent Dragon Mount"
- adolescent_dragonrider_modifier_desc:0 "This character is bonded to an adolescent dragon, who is still learning to adjust to their rider."
+ adolescent_dragonrider_modifier_desc:0 "This character is bonded to an adolescent dragon, who is still learning to adjust to their rider.\n\n"
  young_dragonrider_modifier:0 "Young Dragon Mount"
- young_dragonrider_modifier_desc:0 "This character is bonded to a young dragon, who is now experienced enough to be a reliable mount."
+ young_dragonrider_modifier_desc:0 "This character is bonded to a young dragon, who is now experienced enough to be a reliable mount.\n\n"
  adult_dragonrider_modifier:0 "Adult Dragon Mount"
- adult_dragonrider_modifier_desc:0 "This character is bonded to an adult dragon, and is a force to be reckoned with."
+ adult_dragonrider_modifier_desc:0 "This character is bonded to an adult dragon, and is a force to be reckoned with.\n\n"
  mature_dragonrider_modifier:0 "Mature Dragon Mount"
- mature_dragonrider_modifier_desc:0 "This character is bonded to a matured dragon who has lived for over a century, among the most powerful dragons in the world."
+ mature_dragonrider_modifier_desc:0 "This character is bonded to a matured dragon who has lived for over a century, among the most powerful dragons in the world.\n\n"
  ancient_dragonrider_modifier:0 "Ancient Dragon Mount"
- ancient_dragonrider_modifier_desc:0 "This character is bonded to an ancient dragon, a creature that has lived for nearly two centuries. This dragon will spell doom to all armies that oppose it."
+ ancient_dragonrider_modifier_desc:0 "This character is bonded to an ancient dragon, a creature that has lived for nearly two centuries. This dragon will spell doom to all armies that oppose it.\n\n"
  dying_dragonrider_modifier:0 "Dying Dragon Mount"
- dying_dragonrider_modifier_desc:0 "This character is bonded to a dragon so old, it now struggles to fly from its sheer weight. Yet, such a beast would be a death sentence to go against, and the age it has lived to is a testament to that."
+ dying_dragonrider_modifier_desc:0 "This character is bonded to a dragon so old, it now struggles to fly from its sheer weight. Yet, such a beast would be a death sentence to go against, and the age it has lived to is a testament to that.\n\n"
  # Dragon Allies
  hatchling_dragonally_modifier:0 "Hatchling Dragon Ally"
  adolescent_dragonally_modifier:0 "Adolescent Dragon Ally"
@@ -332,7 +332,12 @@
  # Dragon Skull
  dead_dragon_modifier:0 "Dragon Skull"
  # Besieged County
- dragon_siege_modifier:0 "Burned By A Dragon"
+ dragon_siege_modifier:0 "Young Dragon Attack"
+ dragon_siege_modifier_desc:0 "In a swift attack, a young dragon has attacked this land.\n\n"
+ dragon_siege_heavy_modifier:0 "Adult Dragon Attack"
+ dragon_siege_heavy_modifier_desc:0 "Descending from the sky, a large dragon has burned much of this land.\n\n"
+ dragon_siege_carnage_modifier:0 "Dreaded Dragon Attack"
+ dragon_siege_carnage_modifier_desc:0 "As the skies darkened overhead, none could escape the flames.\n\n"
  ###############################################################################################
  # Opinion Modifiers
  ###############################################################################################

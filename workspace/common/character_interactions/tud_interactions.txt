@@ -215,6 +215,15 @@ dragon_offer_interaction = {
 			is_ai = yes
 			# Valyrian Ancestry
 			OR = {
+				has_culture = culture:high_valyrian
+				# Valyrian Dynasty Check
+				AND = {
+					exists = dynasty
+					dynasty = {
+						has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+					}
+					NOT = { exists = real_father }
+				}
 				# Custom Character Check
 				AND = {
 					has_culture = culture:high_valyrian
@@ -226,7 +235,20 @@ dragon_offer_interaction = {
 				AND = {
 					exists = mother
 					mother = {
-						has_culture = culture:high_valyrian
+						OR = {
+							AND = {
+								exists = dynasty
+								dynasty = {
+									has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+								}
+							}
+							AND = {
+								exists = culture
+								culture = {
+									this = culture:high_valyrian
+								}
+							}
+						}
 					}
 				}
 				# Valyrian Father (Real Father Check Included)
@@ -235,13 +257,39 @@ dragon_offer_interaction = {
 						NOT = { exists = real_father }
 						exists = father
 						father = {
-							has_culture = culture:high_valyrian
+							OR = {
+								AND = {
+									exists = dynasty
+									dynasty = {
+										has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+									}
+								}
+								AND = {
+									exists = culture
+									culture = {
+										this = culture:high_valyrian
+									}
+								}
+							}
 						}
 					}
 					AND = {
 						exists = real_father
 						real_father = {
-							has_culture = culture:high_valyrian
+							OR = {
+								AND = {
+									exists = dynasty
+									dynasty = {
+										has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+									}
+								}
+								AND = {
+									exists = culture
+									culture = {
+										this = culture:high_valyrian
+									}
+								}
+							}
 						}
 					}
 				}
@@ -253,20 +301,59 @@ dragon_offer_interaction = {
 							AND = {
 								exists = mother
 								mother = {
-									has_culture = culture:high_valyrian
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								NOT = { exists = real_father }
 								exists = father
-								father = {
-									has_culture = culture:high_valyrian
+								father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								exists = real_father
-								real_father = {
-									has_culture = culture:high_valyrian
+								real_father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 						}
@@ -280,20 +367,59 @@ dragon_offer_interaction = {
 							AND = {
 								exists = mother
 								mother = {
-									has_culture = culture:high_valyrian
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								NOT = { exists = real_father }
 								exists = father
-								father = {
-									has_culture = culture:high_valyrian
+								father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								exists = real_father
-								real_father = {
-									has_culture = culture:high_valyrian
+								real_father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 						}
@@ -416,6 +542,15 @@ egg_cradling_interaction = {
 			NOT = { is_imprisoned = yes }
 			# Valyrian Ancestry
 			OR = {
+				has_culture = culture:high_valyrian
+				# Valyrian Dynasty Check
+				AND = {
+					exists = dynasty
+					dynasty = {
+						has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+					}
+					NOT = { exists = real_father }
+				}
 				# Custom Character Check
 				AND = {
 					has_culture = culture:high_valyrian
@@ -427,7 +562,20 @@ egg_cradling_interaction = {
 				AND = {
 					exists = mother
 					mother = {
-						has_culture = culture:high_valyrian
+						OR = {
+							AND = {
+								exists = dynasty
+								dynasty = {
+									has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+								}
+							}
+							AND = {
+								exists = culture
+								culture = {
+									this = culture:high_valyrian
+								}
+							}
+						}
 					}
 				}
 				# Valyrian Father (Real Father Check Included)
@@ -436,13 +584,39 @@ egg_cradling_interaction = {
 						NOT = { exists = real_father }
 						exists = father
 						father = {
-							has_culture = culture:high_valyrian
+							OR = {
+								AND = {
+									exists = dynasty
+									dynasty = {
+										has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+									}
+								}
+								AND = {
+									exists = culture
+									culture = {
+										this = culture:high_valyrian
+									}
+								}
+							}
 						}
 					}
 					AND = {
 						exists = real_father
 						real_father = {
-							has_culture = culture:high_valyrian
+							OR = {
+								AND = {
+									exists = dynasty
+									dynasty = {
+										has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+									}
+								}
+								AND = {
+									exists = culture
+									culture = {
+										this = culture:high_valyrian
+									}
+								}
+							}
 						}
 					}
 				}
@@ -450,24 +624,64 @@ egg_cradling_interaction = {
 				AND = {
 					exists = mother
 					mother = {
+						
 						OR = {
 							AND = {
 								exists = mother
 								mother = {
-									has_culture = culture:high_valyrian
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								NOT = { exists = real_father }
 								exists = father
-								father = {
-									has_culture = culture:high_valyrian
+								father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								exists = real_father
-								real_father = {
-									has_culture = culture:high_valyrian
+								real_father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 						}
@@ -481,20 +695,59 @@ egg_cradling_interaction = {
 							AND = {
 								exists = mother
 								mother = {
-									has_culture = culture:high_valyrian
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								NOT = { exists = real_father }
 								exists = father
 								father = {
-									has_culture = culture:high_valyrian
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								exists = real_father
 								real_father = {
-									has_culture = culture:high_valyrian
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 						}
@@ -511,6 +764,15 @@ egg_cradling_interaction = {
 			NOT = { is_imprisoned = yes }
 			# Valyrian Ancestry
 			OR = {
+				has_culture = culture:high_valyrian
+				# Valyrian Dynasty Check
+				AND = {
+					exists = dynasty
+					dynasty = {
+						has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+					}
+					NOT = { exists = real_father }
+				}
 				# Custom Character Check
 				AND = {
 					has_culture = culture:high_valyrian
@@ -522,7 +784,20 @@ egg_cradling_interaction = {
 				AND = {
 					exists = mother
 					mother = {
-						has_culture = culture:high_valyrian
+						OR = {
+							AND = {
+								exists = dynasty
+								dynasty = {
+									has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+								}
+							}
+							AND = {
+								exists = culture
+								culture = {
+									this = culture:high_valyrian
+								}
+							}
+						}
 					}
 				}
 				# Valyrian Father (Real Father Check Included)
@@ -531,13 +806,39 @@ egg_cradling_interaction = {
 						NOT = { exists = real_father }
 						exists = father
 						father = {
-							has_culture = culture:high_valyrian
+							OR = {
+								AND = {
+									exists = dynasty
+									dynasty = {
+										has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+									}
+								}
+								AND = {
+									exists = culture
+									culture = {
+										this = culture:high_valyrian
+									}
+								}
+							}
 						}
 					}
 					AND = {
 						exists = real_father
 						real_father = {
-							has_culture = culture:high_valyrian
+							OR = {
+								AND = {
+									exists = dynasty
+									dynasty = {
+										has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+									}
+								}
+								AND = {
+									exists = culture
+									culture = {
+										this = culture:high_valyrian
+									}
+								}
+							}
 						}
 					}
 				}
@@ -549,20 +850,59 @@ egg_cradling_interaction = {
 							AND = {
 								exists = mother
 								mother = {
-									has_culture = culture:high_valyrian
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								NOT = { exists = real_father }
 								exists = father
-								father = {
-									has_culture = culture:high_valyrian
+								father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								exists = real_father
-								real_father = {
-									has_culture = culture:high_valyrian
+								real_father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 						}
@@ -576,20 +916,59 @@ egg_cradling_interaction = {
 							AND = {
 								exists = mother
 								mother = {
-									has_culture = culture:high_valyrian
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								NOT = { exists = real_father }
 								exists = father
-								father = {
-									has_culture = culture:high_valyrian
+								father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								exists = real_father
-								real_father = {
-									has_culture = culture:high_valyrian
+								real_father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 						}
@@ -681,6 +1060,14 @@ claim_mount_interaction = {
 			is_ai = no
 			# Valyrian Ancestry
 			OR = {
+				# Valyrian Dynasty Check
+				AND = {
+					exists = dynasty
+					dynasty = {
+						has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+					}
+					NOT = { exists = real_father }
+				}
 				# Custom Character Check
 				AND = {
 					has_culture = culture:high_valyrian
@@ -692,7 +1079,20 @@ claim_mount_interaction = {
 				AND = {
 					exists = mother
 					mother = {
-						has_culture = culture:high_valyrian
+						OR = {
+							AND = {
+								exists = dynasty
+								dynasty = {
+									has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+								}
+							}
+							AND = {
+								exists = culture
+								culture = {
+									this = culture:high_valyrian
+								}
+							}
+						}
 					}
 				}
 				# Valyrian Father (Real Father Check Included)
@@ -701,13 +1101,39 @@ claim_mount_interaction = {
 						NOT = { exists = real_father }
 						exists = father
 						father = {
-							has_culture = culture:high_valyrian
+							OR = {
+								AND = {
+									exists = dynasty
+									dynasty = {
+										has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+									}
+								}
+								AND = {
+									exists = culture
+									culture = {
+										this = culture:high_valyrian
+									}
+								}
+							}
 						}
 					}
 					AND = {
 						exists = real_father
 						real_father = {
-							has_culture = culture:high_valyrian
+							OR = {
+								AND = {
+									exists = dynasty
+									dynasty = {
+										has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+									}
+								}
+								AND = {
+									exists = culture
+									culture = {
+										this = culture:high_valyrian
+									}
+								}
+							}
 						}
 					}
 				}
@@ -719,20 +1145,59 @@ claim_mount_interaction = {
 							AND = {
 								exists = mother
 								mother = {
-									has_culture = culture:high_valyrian
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								NOT = { exists = real_father }
 								exists = father
-								father = {
-									has_culture = culture:high_valyrian
+								father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								exists = real_father
-								real_father = {
-									has_culture = culture:high_valyrian
+								real_father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 						}
@@ -746,20 +1211,59 @@ claim_mount_interaction = {
 							AND = {
 								exists = mother
 								mother = {
-									has_culture = culture:high_valyrian
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								NOT = { exists = real_father }
 								exists = father
-								father = {
-									has_culture = culture:high_valyrian
+								father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 							AND = {
 								exists = real_father
-								real_father = {
-									has_culture = culture:high_valyrian
+								real_father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
 								}
 							}
 						}
@@ -921,6 +1425,282 @@ feed_dragon_prisoner_interaction = {
 	ai_frequency = 2
 	ai_intermediary_accept = { base = 10 }
 	ai_will_do = { base = 10 }
+	# Auto Accept
+	auto_accept = yes
+}
+
+egg_hatching_ai_interaction = {
+	# Will Egg Be Hatched?
+	category = interaction_category_diplomacy
+	icon = egg_cradling_interaction
+	popup_on_receive = yes
+	pause_on_receive = yes
+	interface_priority = 100
+	use_diplomatic_range = no
+	desc = egg_cradling_interaction_desc
+	# Valyrian Dragon Rider
+	is_shown = {
+		# Offering
+		scope:actor = {
+			is_ai = yes
+			NOT = { is_imprisoned = yes }
+			# Valyrian Ancestry
+			OR = {
+				# True Valyrian
+				AND = {
+					has_culture = culture:high_valyrian
+					NOT = { exists = real_father }
+				}
+				# Valyrian Dynasty Check
+				AND = {
+					exists = dynasty
+					dynasty = {
+						has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+					}
+					NOT = { exists = real_father }
+				}
+				# Custom Character Check
+				AND = {
+					has_culture = culture:high_valyrian
+					NOT = { exists = real_father }
+					NOT = { exists = father }
+					NOT = { exists = mother }
+				}
+				# Valyrian Mother
+				AND = {
+					exists = mother
+					mother = {
+						OR = {
+							AND = {
+								exists = dynasty
+								dynasty = {
+									has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+								}
+							}
+							AND = {
+								exists = culture
+								culture = {
+									this = culture:high_valyrian
+								}
+							}
+						}
+					}
+				}
+				# Valyrian Father (Real Father Check Included)
+				OR = {
+					AND = {
+						NOT = { exists = real_father }
+						exists = father
+						father = {
+							OR = {
+								AND = {
+									exists = dynasty
+									dynasty = {
+										has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+									}
+								}
+								AND = {
+									exists = culture
+									culture = {
+										this = culture:high_valyrian
+									}
+								}
+							}
+						}
+					}
+					AND = {
+						exists = real_father
+						real_father = {
+							OR = {
+								AND = {
+									exists = dynasty
+									dynasty = {
+										has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+									}
+								}
+								AND = {
+									exists = culture
+									culture = {
+										this = culture:high_valyrian
+									}
+								}
+							}
+						}
+					}
+				}
+				# Valyrian Mother Parents Check
+				AND = {
+					exists = mother
+					mother = {
+						OR = {
+							AND = {
+								exists = mother
+								mother = {
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
+								}
+							}
+							AND = {
+								NOT = { exists = real_father }
+								exists = father
+								father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
+								}
+							}
+							AND = {
+								exists = real_father
+								real_father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				# Valyrian Father Parents Check
+				AND = {
+					exists = father
+					father = {
+						OR = {
+							AND = {
+								exists = mother
+								mother = {
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
+								}
+							}
+							AND = {
+								NOT = { exists = real_father }
+								exists = father
+								father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
+								}
+							}
+							AND = {
+								exists = real_father
+								real_father = {						
+									OR = {
+										AND = {
+											exists = dynasty
+											dynasty = {
+												has_dynasty_modifier = valyrian_heritage_dynasty_modifier
+											}
+										}
+										AND = {
+											exists = culture
+											culture = {
+												this = culture:high_valyrian
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			# Has Dragon Egg
+			any_character_artifact = {
+				has_variable = dragon_egg
+			}
+		} 
+		# Accepting
+		scope:recipient = {
+			this = scope:actor
+		}
+	}
+	# Highlighted Interaction
+	is_highlighted = {
+		always = yes
+	}
+	# Valid if old enough
+	is_valid = {
+		scope:actor = { age >= 4 }
+	}
+	# Offer Egg
+	on_accept = {
+		# New Rider
+		scope:actor = {
+			create_story = story_cycle_dragon_rider
+			# Save Egg Scope
+			random_character_artifact = {
+				limit = {
+					has_variable = dragon_egg
+				}
+				save_scope_as = egg_transfer_offer
+			}
+			# Destroy Egg
+            destroy_artifact = scope:egg_transfer_offer
+			trigger_event = tud_interaction_events.0008
+		}
+	}
+	# AI Modifiers
+	ai_potential = { always = yes }
+	ai_will_do = { base = 100 }
+	ai_frequency = 6
+	ai_intermediary_accept = { base = 100 }
 	# Auto Accept
 	auto_accept = yes
 }
