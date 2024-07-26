@@ -59,10 +59,10 @@ claim_throne_dragon_interaction = {
 		}
 		# Claim Title Effect
 		scope:actor = {
-			save_scope_as = claimant
+			save_scope_as = tclaimant
 			dragon_claim_throne_effect = {
 				TARGET = scope:recipient
-				CLAIMANT = scope:actor
+				TCLAIMANT = scope:actor
 			}
 		}
 	}
@@ -97,6 +97,9 @@ dragon_dance_interaction = {
 		scope:actor = {
 			# Dragon Rider with at least 5+ YO Mount
 			AND = {
+				any_character_artifact = {
+					has_variable = has_dragon_rider
+				}
 				has_trait = dragon_rider_trait
 				OR = {
 					has_character_modifier = adolescent_dragonrider_modifier
@@ -117,6 +120,9 @@ dragon_dance_interaction = {
 		scope:recipient = {
 			# Dragon Rider with at least 5+ YO Mount
 			AND = {
+				any_character_artifact = {
+					has_variable = has_dragon_rider
+				}
 				has_trait = dragon_rider_trait
 				OR = {
 					has_character_modifier = adolescent_dragonrider_modifier
@@ -159,11 +165,9 @@ dragon_dance_interaction = {
 	}
 	# Run Dance
 	on_accept = {
-		scope:actor = {
-			dragon_dance_effect = {
-				RECIPIENT = scope:recipient
-				ACTOR = scope:actor
-			}
+		dragon_dance_effect = {
+			RECIPIENT = scope:recipient
+			ACTOR = scope:actor
 		}
 	}
 	# AI Modifiers
@@ -1443,6 +1447,12 @@ egg_hatching_ai_interaction = {
 		# Offering
 		scope:actor = {
 			is_ai = yes
+			NOT = {	has_trait = dragon_rider_trait }
+			NOT = { 
+				any_character_artifact = {
+					has_variable = has_dragon_rider
+				}
+			}
 			NOT = { is_imprisoned = yes }
 			# Valyrian Ancestry
 			OR = {
@@ -1699,6 +1709,11 @@ egg_hatching_ai_interaction = {
 	# AI Modifiers
 	ai_potential = { always = yes }
 	ai_will_do = { base = 100 }
+	ai_set_target = { 
+		scope:actor = {
+			save_scope_as = target
+		}
+	}
 	ai_frequency = 6
 	ai_intermediary_accept = { base = 100 }
 	# Auto Accept

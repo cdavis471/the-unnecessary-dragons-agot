@@ -7,15 +7,15 @@ dragon_claim_throne_effect = {
 	$TARGET$ = {
 		save_scope_as = target
 	}
-	$CLAIMANT$ = {
-		save_scope_as = claimant
+	$TCLAIMANT$ = {
+		save_scope_as = tclaimant
 	}
     # Iron Throne Special Event
 	if = {
 		limit = {
 			scope:target_title = title:e_the_iron_throne
 		}
-		scope:claimant = {
+		scope:tclaimant = {
 			# Iron Throne 
 			add_to_temporary_list = received_notification
 			trigger_event = tud_interaction_events.0002
@@ -23,14 +23,14 @@ dragon_claim_throne_effect = {
 	}
     # Other Titles
 	else = {
-		scope:claimant = {
+		scope:tclaimant = {
 			# Vanilla 
 			add_to_temporary_list = received_notification
 			trigger_event = tud_interaction_events.0001
 		}
 	}
     # Add Claim
-	add_pressed_claim = scope:target_title
+	add_unpressed_claim = scope:target_title
 }
 # A Dance of Dragons
 dragon_dance_effect = {
@@ -53,36 +53,40 @@ dragon_dancecalc_effect = {
 	$ACTOR$ = {
 		save_scope_as = actor
 	}
-	$ACTORITEM$ = {
-		save_scope_as = actoritem
-	}
 	$RECIPIENTITEM$ = {
 		save_scope_as = recipientitem
 	}
-	scope:actor = {
+	$ACTORITEM$ = {
+		save_scope_as = actoritem
+	}
+	if = {
+		# Dragon Combat Score Available
+		limit = {
+			scope:actoritem = {
+				has_variable = dragon_combat_score
+			}
+			scope:recipientitem = {
+				has_variable = dragon_combat_score
+			}
+		}
+		# Set Calculation Variable
+		set_variable = {
+			name = dragon_combat_difference
+			value = scope:actoritem.var:dragon_combat_score
+		}
+		change_variable = {
+			name = dragon_combat_difference
+			subtract = scope:recipientitem.var:dragon_combat_score
+		}
 		if = {
-			# Dragon Combat Score Available
-			limit = {
-				exists = scope:actoritem.var:dragon_combat_score
-				exists = scope:recipientitem.var:dragon_combat_score
+			limit = { 
+				has_variable = dragon_combat_difference
+				var:dragon_combat_difference = 0
 			}
-			# Set Calculation Variable
-			set_variable = {
-				name = dragon_combat_difference
-				value = scope:actoritem.var:dragon_combat_score
-			}
-			change_variable = {
-				name = dragon_combat_difference
-				subtract = scope:recipientitem.var:dragon_combat_score
-			}
-			# Equal Footing
-			if = {
-				limit = {
-					var:dragon_combat_difference = 0
-				}
+			remove_variable = dragon_combat_difference
+			scope:actor = {
 				random_list = {
 					50 = {
-						remove_variable = dragon_combat_difference
 						dragon_dancewon_effect = {
 							RECIPIENT = scope:recipient
 							ACTOR = scope:actor
@@ -91,7 +95,6 @@ dragon_dancecalc_effect = {
 						}
 					}
 					50 = {
-						remove_variable = dragon_combat_difference
 						dragon_dancelost_effect = {
 							RECIPIENT = scope:recipient
 							ACTOR = scope:actor
@@ -101,17 +104,20 @@ dragon_dancecalc_effect = {
 					}
 				}
 			}
-			# Advantage - Actor
-			else_if = {
-				limit = {
-					AND = {
-						var:dragon_combat_difference > 0
-						var:dragon_combat_difference <= 20
-					}
+		}
+		# Advantage - Actor
+		else_if = {
+			limit = {
+				AND = {
+					has_variable = dragon_combat_difference
+					var:dragon_combat_difference > 0
+					var:dragon_combat_difference <= 20
 				}
+			}
+			remove_variable = dragon_combat_difference
+			scope:actor = {
 				random_list = {
 					75 = {
-						remove_variable = dragon_combat_difference
 						dragon_dancewon_effect = {
 							RECIPIENT = scope:recipient
 							ACTOR = scope:actor
@@ -120,7 +126,6 @@ dragon_dancecalc_effect = {
 						}
 					}
 					25 = {
-						remove_variable = dragon_combat_difference
 						dragon_dancelost_effect = {
 							RECIPIENT = scope:recipient
 							ACTOR = scope:actor
@@ -130,12 +135,15 @@ dragon_dancecalc_effect = {
 					}
 				}
 			}
-			# Clear Victory - Actor
-			else_if = {
-				limit = {
-					var:dragon_combat_difference > 20
-				}
-				remove_variable = dragon_combat_difference
+		}
+		# Clear Victory - Actor
+		else_if = {
+			limit = {
+				has_variable = dragon_combat_difference
+				var:dragon_combat_difference > 20
+			}
+			remove_variable = dragon_combat_difference
+			scope:actor = {
 				dragon_dancewon_effect = {
 					RECIPIENT = scope:recipient
 					ACTOR = scope:actor
@@ -143,15 +151,18 @@ dragon_dancecalc_effect = {
 					ACTORITEM = scope:actoritem
 				}
 			}
-			# Advantage - Recipient
-			else_if = {
-				limit = {
-					AND = {
-						var:dragon_combat_difference < 0
-						var:dragon_combat_difference >= -20
-					}
+		}
+		# Advantage - Recipient
+		else_if = {
+			limit = {
+				AND = {
+					has_variable = dragon_combat_difference
+					var:dragon_combat_difference < 0
+					var:dragon_combat_difference >= -20
 				}
-				remove_variable = dragon_combat_difference
+			}
+			remove_variable = dragon_combat_difference
+			scope:actor = {
 				random_list = {
 					25 = {
 						dragon_dancewon_effect = {
@@ -171,17 +182,43 @@ dragon_dancecalc_effect = {
 					}
 				}
 			}
-			# Clear Victory - Recipient
-			else_if = {
-				limit = {
-					var:dragon_combat_difference < -20
-				}
-				remove_variable = dragon_combat_difference
+		}
+		# Clear Victory - Recipient
+		else_if = {
+			limit = {
+				has_variable = dragon_combat_difference
+				var:dragon_combat_difference < -20
+			}
+			remove_variable = dragon_combat_difference
+			scope:actor = {
 				dragon_dancelost_effect = {
 					RECIPIENT = scope:recipient
 					ACTOR = scope:actor
 					RECIPIENTITEM = scope:recipientitem
 					ACTORITEM = scope:actoritem
+				}
+			}
+		}
+	}
+	# Fallback
+	else = {
+		scope:actor = {
+			random_list = {
+				50 = {
+					dragon_dancewon_effect = {
+						RECIPIENT = scope:recipient
+						ACTOR = scope:actor
+						RECIPIENTITEM = scope:recipientitem
+						ACTORITEM = scope:actoritem
+					}
+				}
+				50 = {
+					dragon_dancelost_effect = {
+						RECIPIENT = scope:recipient
+						ACTOR = scope:actor
+						RECIPIENTITEM = scope:recipientitem
+						ACTORITEM = scope:actoritem
+					}
 				}
 			}
 		}
@@ -196,11 +233,11 @@ dragon_dancelost_effect = {
 	$ACTOR$ = {
 		save_scope_as = actor
 	}
-	$ACTORITEM$ = {
-		save_scope_as = actoritem
-	}
 	$RECIPIENTITEM$ = {
 		save_scope_as = recipientitem
+	}
+	$ACTORITEM$ = {
+		save_scope_as = actoritem
 	}
 	scope:recipient = {
 		trigger_event = tud_misc_events.0001
@@ -218,11 +255,11 @@ dragon_dancewon_effect = {
 	$ACTOR$ = {
 		save_scope_as = actor
 	}
-	$ACTORITEM$ = {
-		save_scope_as = actoritem
-	}
 	$RECIPIENTITEM$ = {
 		save_scope_as = recipientitem
+	}
+	$ACTORITEM$ = {
+		save_scope_as = actoritem
 	}
 	scope:recipient = {
 		trigger_event = tud_misc_events.0002

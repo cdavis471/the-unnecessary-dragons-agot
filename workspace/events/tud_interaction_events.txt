@@ -33,10 +33,10 @@ tud_interaction_events.0001 = {
 				custom = dragonlord_claimed_family
 				limit = {
 					is_close_family_or_spouse_of_root_trigger = no
-					NOT = { this = scope:claimant }
+					NOT = { this = scope:tclaimant }
 				}
 				add_opinion = {
-					target = scope:claimant
+					target = scope:tclaimant
 					modifier = dragonlord_claimed_my_liege
 				}
 			}
@@ -74,10 +74,10 @@ tud_interaction_events.0002 = {
 				custom = dragonlord_claimed_family
 				limit = {
 					is_close_family_or_spouse_of_root_trigger = no
-					NOT = { this = scope:claimant }
+					NOT = { this = scope:tclaimant }
 				}
 				add_opinion = {
-					target = scope:claimant
+					target = scope:tclaimant
 					modifier = dragonlord_claimed_my_liege
 				}
 			}
@@ -102,26 +102,24 @@ tud_interaction_events.0003 = {
 		character = scope:recipient
 		animation = frontend_right_idle
 	}
-	immediate = {
-		scope:actor = {
-			random_character_artifact = {
-				limit = { has_variable = has_dragon_rider }
-				save_scope_as = actoritem
-			}
-		}
-		scope:recipient = {
-			random_character_artifact = {
-				limit = { has_variable = has_dragon_rider }
-				save_scope_as = recipientitem
-			}
-		}
-	}
 	# Option One
 	option = {
 		name = tud_interaction_events.0003.a
 		custom_tooltip = tud_interaction_events.tooltip1
 		# Effect
         hidden_effect = {
+			scope:actor = {
+				random_character_artifact = {
+					limit = { has_variable = has_dragon_rider }
+					save_scope_as = actoritem
+				}
+			}
+			scope:recipient = {
+				random_character_artifact = {
+					limit = { has_variable = has_dragon_rider }
+					save_scope_as = recipientitem
+				}
+			}
 			dragon_dancecalc_effect = {
 				RECIPIENT = scope:recipient
 				ACTOR = scope:actor
@@ -136,6 +134,18 @@ tud_interaction_events.0003 = {
 		custom_tooltip = tud_interaction_events.tooltip2
 		# Effect
         hidden_effect = {
+			scope:actor = {
+				random_character_artifact = {
+					limit = { has_variable = has_dragon_rider }
+					save_scope_as = actoritem
+				}
+			}
+			scope:recipient = {
+				random_character_artifact = {
+					limit = { has_variable = has_dragon_rider }
+					save_scope_as = recipientitem
+				}
+			}
 			dragon_dancecalc_effect = {
 				RECIPIENT = scope:recipient
 				ACTOR = scope:actor
@@ -150,6 +160,18 @@ tud_interaction_events.0003 = {
 		custom_tooltip = tud_interaction_events.tooltip3
 		# Effect
         hidden_effect = {
+			scope:actor = {
+				random_character_artifact = {
+					limit = { has_variable = has_dragon_rider }
+					save_scope_as = actoritem
+				}
+			}
+			scope:recipient = {
+				random_character_artifact = {
+					limit = { has_variable = has_dragon_rider }
+					save_scope_as = recipientitem
+				}
+			}
 			dragon_dancecalc_effect = {
 				RECIPIENT = scope:recipient
 				ACTOR = scope:actor
@@ -178,32 +200,67 @@ tud_interaction_events.0004 = {
 		character = scope:recipient
 		animation = frontend_right_idle
 	}
+	# Dead Dragon
+	artifact = {
+		target = scope:actoritem
+		position = lower_center_portrait
+	}
+	immediate = {
+		scope:actor = {
+			random_character_artifact = {
+				limit = { has_variable = has_dragon_rider }
+				save_scope_as = actoritem
+			}
+		}
+		scope:recipient = {
+			random_character_artifact = {
+				limit = { has_variable = has_dragon_rider }
+				save_scope_as = recipientitem
+			}
+		}
+	}
 	# The End
 	option = {
 		name = tud_interaction_events.0004.a
 		custom_tooltip = tud_interaction_events.tooltip4
-		# Prepare to kill Dragon
-		scope:actoritem = {
-			set_variable = death_dance
-		}
 		# Death
         scope:actor = {
+			# Prepare to kill Dragon
+			scope:actoritem = {
+				set_variable = death_dance
+			}
 			# Kill Dragon
-			random_owned_story = {
+			every_owned_story = {
 				if = {
 					limit = { 
 						AND = {
 							has_variable = story_cycle_dragon_id
-							var:story_cycle_dragon_id = scope:actoritem.var:dragon_id 
+							this.var:story_cycle_dragon_id = scope:actoritem.var:dragon_id 
 						}
 					}
 					end_story = yes
 				}
 			}
-			# Kill Rider
-			death = {
-				death_reason = death_tud_dance
-				killer = scope:recipient
+			if = {
+				limit = { 
+					is_at_war_with = scope:recipient
+				}
+				every_character_war = {
+					if = {
+						limit = { 
+							is_war_leader = scope:recipient 
+							is_attacker = scope:recipient
+						}
+						end_war = attacker
+					}
+					else_if = {
+						limit = { 
+							is_war_leader = scope:recipient 
+							is_defender = scope:recipient
+						}
+						end_war = defender
+					}
+				}
 			}
 			# Add Opinion Modifier
 			every_close_family_member = {
@@ -223,6 +280,11 @@ tud_interaction_events.0004 = {
 					loser = scope:actor
                 }
             }
+			# Kill Rider
+			death = {
+				death_reason = death_tud_dance
+				killer = scope:recipient
+			}
 		}
 		# Memory
 		scope:recipient = {
@@ -254,31 +316,70 @@ tud_interaction_events.0005 = {
 		character = scope:recipient
 		animation = frontend_right_idle
 	}
+	# Dead Dragon
+	artifact = {
+		target = scope:recipientitem
+		position = lower_center_portrait
+	}
+	immediate = {
+		# Find Dragon 1
+		scope:actor = {
+			random_character_artifact = {
+				limit = { has_variable = has_dragon_rider }
+				save_scope_as = actoritem
+			}
+		}
+		# Find Dragon 2
+		scope:recipient = {
+			random_character_artifact = {
+				limit = { has_variable = has_dragon_rider }
+				save_scope_as = recipientitem
+			}
+		}
+	}
 	# The Beginning
 	option = {
 		name = tud_interaction_events.0005.a
 		custom_tooltip = tud_interaction_events.tooltip5
-		# Prepare to kill Dragon
-		scope:recipientitem = {
-			set_variable = death_dance
-		}
+		
 		# Death
         scope:recipient = {
+			# Prepare to kill Dragon
+			scope:recipientitem = {
+				set_variable = death_dance
+			}
 			# Kill Dragon
-			random_owned_story = {
+			every_owned_story = {
 				if = {
 					limit = { 
 						AND = {
 							has_variable = story_cycle_dragon_id
-							var:story_cycle_dragon_id = scope:recipientitem.var:dragon_id 
+							this.var:story_cycle_dragon_id = scope:recipientitem.var:dragon_id 
 						}
 					}
 					end_story = yes
 				}
 			}
-			death = {
-				death_reason = death_tud_dance
-				killer = scope:actor
+			if = {
+				limit = { 
+					is_at_war_with = scope:actor
+				}
+				every_character_war = {
+					if = {
+						limit = { 
+							is_war_leader = scope:actor
+							is_attacker = scope:actor
+						}
+						end_war = attacker
+					}
+					else_if = {
+						limit = { 
+							is_war_leader = scope:actor
+							is_defender = scope:actor
+						}
+						end_war = defender
+					}
+				}
 			}
 			every_close_family_member = {
 				custom = killed_opponent_dance_custom
@@ -291,17 +392,24 @@ tud_interaction_events.0005 = {
 				}
 			}
 			create_character_memory = {
-                type = tud_dancewon_memory
+                type = tud_dancelost_memory
                 participants = {
                     victor = scope:actor
 					loser = scope:recipient
                 }
             }
+			while = {
+				limit = { exists = scope:dragon_dying_moment }
+			}
+			death = {
+				death_reason = death_tud_dance
+				killer = scope:actor
+			}
 		}
 		# Memory
 		scope:actor = {
 			create_character_memory = {
-                type = tud_dancelost_memory
+                type = tud_dancewon_memory
                 participants = {
                     victor = scope:actor
 					loser = scope:recipient

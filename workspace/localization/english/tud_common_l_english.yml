@@ -372,5 +372,8 @@
  # Dragon Rider
  trait_dragon_rider_trait:0 "Dragon Rider"
  trait_dragon_rider_trait_desc:0 "The power of the ancient Dragonlords of Old Valyria has been claimed by this character, with a Dragon to ride into battle as their mount. They possess one of the greatest powers in the known world."
- 
- 
+ # # # # # #
+ # m i s c #
+ # # # # # # 
+ end_war_attacker_victory_second_perspective:0 "[WAR.GetActiveCB.GetAttacker.GetUIName] wins the [WAR.GetName]"
+ end_war_attacker_victory_third_perspective:0 "[WAR.GetActiveCB.GetAttacker.GetUIName] wins the [WAR.GetName]"
