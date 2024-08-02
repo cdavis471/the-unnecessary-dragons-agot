@@ -429,7 +429,7 @@ claim_wild_dragon_decision = {
 		NOT = { is_imprisoned = yes }          
 		NOT = {
 			any_character_artifact = {
-				has_variable = dragon_id
+				has_variable = has_dragon_rider
 			}
 		}    
 		# Valyrian Ancestry

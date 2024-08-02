@@ -1953,10 +1953,10 @@
         }
     }
 
-    # Random Death Chance While Riding In Battle
+    # Random Death Chance While Riding In Battle with Young Dragon
     effect_group = {
         # Timer
-        years = 3
+        years = 7
         # 3% Chance
         chance = 3
         # Effects
@@ -1965,6 +1965,11 @@
             triggered_effect = {
                 trigger = {
                     story_owner = {
+                        OR = {
+                            has_character_modifier = hatchling_dragonrider_modifier
+                            has_character_modifier = adolescent_dragonrider_modifier
+                            has_character_modifier = young_dragonrider_modifier
+                        }
                         # Is either a knight or commander
                         OR = {
                             # Knight In Combat
