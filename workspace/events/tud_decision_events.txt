@@ -118,9 +118,9 @@ tud_decision_events.0003 = {
 			limit = { 
 				has_character_modifier = young_dragonrider_modifier
 			}
-			# 90% Chance of Success - 5% Rider Killed / 5% Rider and Dragon Killed
+			# 94% Chance of Success - 2% Rider Killed / 2% Rider and Dragon Killed
 			random_list = {
-				90 = {
+				94 = {
 					stress_impact = {
 						just = major_stress_impact_gain
 						forgiving = medium_stress_impact_gain
@@ -157,7 +157,7 @@ tud_decision_events.0003 = {
 						}
 					}
 				}
-				5 = {
+				2 = {
 					root = {
 						death = {
 							death_reason = death_tud_siege
@@ -165,7 +165,7 @@ tud_decision_events.0003 = {
 						}
 					}
 				}
-				5 = {
+				2 = {
 					root = {
 						random_character_artifact = {
 							limit = {
@@ -199,9 +199,9 @@ tud_decision_events.0003 = {
 					has_character_modifier = mature_dragonrider_modifier
 				}
 			}
-			# 96% Chance of Success - 2% Rider Killed / 2% Rider and Dragon Killed
+			# 96% Chance of Success - 1% Rider Killed / 1% Rider and Dragon Killed
 			random_list = {
-				96 = {
+				98 = {
 					stress_impact = {
 						just = major_stress_impact_gain
 						forgiving = medium_stress_impact_gain
@@ -238,7 +238,7 @@ tud_decision_events.0003 = {
 						}
 					}
 				}
-				2 = {
+				1 = {
 					root = {
 						death = {
 							death_reason = death_tud_siege
@@ -246,7 +246,7 @@ tud_decision_events.0003 = {
 						}
 					}
 				}
-				2 = {
+				1 = {
 					root = {
 						random_character_artifact = {
 							limit = {
